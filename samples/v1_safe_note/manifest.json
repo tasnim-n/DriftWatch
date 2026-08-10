@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Quick Note Safe",
+  "version": "1.0.0",
+  "description": "A safe local note-taking browser utility.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://notes.local/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

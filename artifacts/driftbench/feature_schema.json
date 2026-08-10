@@ -1,0 +1,790 @@
+{
+  "driftbench_feature_schema_version": "1.0",
+  "features": [
+    {
+      "allowed_range": null,
+      "baselines": [
+        "permission_only",
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Number of permissions added in V2.",
+      "family": "permission_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "added_permission_count",
+      "representation": "count",
+      "source": "permission_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "permission_only",
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Number of permissions removed in V2.",
+      "family": "permission_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "removed_permission_count",
+      "representation": "count",
+      "source": "permission_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "permission_only",
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Added permissions with High or Critical sensitivity.",
+      "family": "permission_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "added_sensitive_permission_count",
+      "representation": "count",
+      "source": "permission_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "permission_only",
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Removed permissions with High or Critical sensitivity.",
+      "family": "permission_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "removed_sensitive_permission_count",
+      "representation": "count",
+      "source": "permission_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "permission_only",
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "number",
+      "description": "Aggregate sensitivity score of added permissions.",
+      "family": "permission_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "permission_risk_delta",
+      "representation": "continuous",
+      "source": "permission_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "permission_only",
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Whether any Critical permission was introduced.",
+      "family": "permission_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "critical_permission_added",
+      "representation": "binary",
+      "source": "permission_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "permission_only",
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Whether any High permission was introduced.",
+      "family": "permission_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "high_permission_added",
+      "representation": "binary",
+      "source": "permission_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "permission_only",
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Count of optional permission list changes.",
+      "family": "manifest_permission",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "optional_permission_change_count",
+      "representation": "count",
+      "source": "manifest_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "manifest_permission",
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "V2 host permission count minus V1 host permission count.",
+      "family": "host_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "host_count_delta",
+      "representation": "count",
+      "source": "host_scope_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Count of new host permission patterns.",
+      "family": "host_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "added_host_count",
+      "representation": "count",
+      "source": "host_scope_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "number",
+      "description": "Change in max host-scope score.",
+      "family": "host_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "host_scope_score_delta",
+      "representation": "continuous",
+      "source": "host_scope_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Whether a wildcard host was introduced.",
+      "family": "host_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "wildcard_host_introduced",
+      "representation": "binary",
+      "source": "host_scope_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Whether all-URLs access was introduced.",
+      "family": "host_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "all_urls_introduced",
+      "representation": "binary",
+      "source": "host_scope_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Whether content scripts changed.",
+      "family": "manifest_permission",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "content_script_changed",
+      "representation": "binary",
+      "source": "manifest_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Whether a background service worker/script was introduced.",
+      "family": "manifest_permission",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "service_worker_introduced",
+      "representation": "binary",
+      "source": "manifest_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Whether externally_connectable manifest config changed.",
+      "family": "manifest_permission",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "externally_connectable_changed",
+      "representation": "binary",
+      "source": "manifest_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Absolute change in web accessible resource count.",
+      "family": "manifest_permission",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "web_accessible_resource_change_count",
+      "representation": "count",
+      "source": "manifest_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "manifest_permission",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Whether content security policy changed.",
+      "family": "manifest_permission",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "csp_changed",
+      "representation": "binary",
+      "source": "manifest_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "Total V2 permissions.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_total_permission_count",
+      "representation": "count",
+      "source": "manifest_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "Total V2 High/Critical permissions.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_sensitive_permission_count",
+      "representation": "count",
+      "source": "permission_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "Total V2 host permissions.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_total_host_count",
+      "representation": "count",
+      "source": "manifest_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "V2 wildcard/global host count.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_wildcard_host_count",
+      "representation": "count",
+      "source": "host_scope_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "Whether V2 has all-URLs access.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_all_urls_present",
+      "representation": "binary",
+      "source": "host_scope_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "Whether V2 declares a background service worker/script.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_service_worker_present",
+      "representation": "binary",
+      "source": "manifest_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "Total sensitive API calls detected in V2.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_sensitive_api_count",
+      "representation": "count",
+      "source": "api_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "V2 non-local network endpoint count.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_external_domain_count",
+      "representation": "count",
+      "source": "network_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "V2 plain HTTP non-local endpoint count.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_http_endpoint_count",
+      "representation": "count",
+      "source": "network_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "V2 hardcoded IPv4 count.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_hardcoded_ip_count",
+      "representation": "count",
+      "source": "network_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "Total V2 obfuscation indicators.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_obfuscation_indicator_count",
+      "representation": "count",
+      "source": "obfuscation_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "V2 dynamic execution indicator count.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_dynamic_execution_count",
+      "representation": "count",
+      "source": "obfuscation_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "V2 detected function count.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_function_count",
+      "representation": "count",
+      "source": "structure_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "latest_version_static"
+      ],
+      "data_type": "integer",
+      "description": "V2 same-file source-to-sink heuristic count.",
+      "family": "latest_static",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "v2_source_sink_indicator_count",
+      "representation": "count",
+      "source": "structure_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "V2 permission count minus V1 permission count.",
+      "family": "simple_differential",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "permission_count_delta",
+      "representation": "count",
+      "source": "manifest_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "V2 file count minus V1 file count.",
+      "family": "simple_differential",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "file_count_delta",
+      "representation": "count",
+      "source": "package_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "V2 package size minus V1 package size.",
+      "family": "simple_differential",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "package_size_delta_bytes",
+      "representation": "continuous",
+      "source": "package_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "V2 JavaScript file count minus V1 JavaScript file count.",
+      "family": "simple_differential",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "js_file_count_delta",
+      "representation": "count",
+      "source": "package_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "V2 API count minus V1 API count.",
+      "family": "simple_differential",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "api_count_delta",
+      "representation": "count",
+      "source": "api_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "V2 network indicator count minus V1 network indicator count.",
+      "family": "simple_differential",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "network_destination_count_delta",
+      "representation": "count",
+      "source": "network_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "V2 obfuscation count minus V1 obfuscation count.",
+      "family": "simple_differential",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "obfuscation_count_delta",
+      "representation": "count",
+      "source": "obfuscation_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "V2 function count minus V1 function count.",
+      "family": "simple_differential",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "function_count_delta",
+      "representation": "count",
+      "source": "structure_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Unique newly introduced API capabilities.",
+      "family": "api_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "added_api_count",
+      "representation": "count",
+      "source": "api_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Whether any newly introduced API has Critical severity.",
+      "family": "api_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "critical_api_added",
+      "representation": "binary",
+      "source": "api_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "New non-local endpoint count.",
+      "family": "network_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "new_external_network_count",
+      "representation": "count",
+      "source": "network_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "New local/test endpoint count.",
+      "family": "network_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "new_local_network_count",
+      "representation": "count",
+      "source": "network_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "New non-local plain HTTP endpoint count.",
+      "family": "network_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "plain_http_addition_count",
+      "representation": "count",
+      "source": "network_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "New bounded decoded static endpoint indicators.",
+      "family": "network_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "decoded_endpoint_addition_count",
+      "representation": "count",
+      "source": "network_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "New hardcoded IPv4 indicators.",
+      "family": "network_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "hardcoded_ip_addition_count",
+      "representation": "count",
+      "source": "network_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "number",
+      "description": "Aggregate score of newly introduced obfuscation indicators.",
+      "family": "obfuscation_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "added_obfuscation_score",
+      "representation": "continuous",
+      "source": "obfuscation_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "New dynamic execution indicator count.",
+      "family": "obfuscation_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "dynamic_execution_added_count",
+      "representation": "count",
+      "source": "obfuscation_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "New detected functions.",
+      "family": "structural_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "added_function_count",
+      "representation": "count",
+      "source": "structure_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "New detected event listeners.",
+      "family": "structural_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "added_event_listener_count",
+      "representation": "count",
+      "source": "structure_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "New same-file source-to-sink heuristic count.",
+      "family": "structural_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "source_sink_flow_count",
+      "representation": "count",
+      "source": "structure_analyzer"
+    },
+    {
+      "allowed_range": null,
+      "baselines": [
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Modified file count.",
+      "family": "package_drift",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "modified_file_count",
+      "representation": "count",
+      "source": "package_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "latest_version_static",
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Availability flag for api_analyzer.",
+      "family": "analyzer_health",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "api_analyzer_available",
+      "representation": "binary",
+      "source": "api_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "latest_version_static",
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Availability flag for network_analyzer.",
+      "family": "analyzer_health",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "network_analyzer_available",
+      "representation": "binary",
+      "source": "network_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "latest_version_static",
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Availability flag for obfuscation_analyzer.",
+      "family": "analyzer_health",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "obfuscation_analyzer_available",
+      "representation": "binary",
+      "source": "obfuscation_analyzer"
+    },
+    {
+      "allowed_range": "0/1",
+      "baselines": [
+        "latest_version_static",
+        "simple_differential",
+        "full_driftwatch"
+      ],
+      "data_type": "integer",
+      "description": "Availability flag for structure_analyzer.",
+      "family": "analyzer_health",
+      "missing_value": "0 when available; paired analyzer availability flags distinguish unavailable analysis.",
+      "name": "structure_analyzer_available",
+      "representation": "binary",
+      "source": "structure_analyzer"
+    }
+  ],
+  "normalization_policy": "Raw interpretable values only. Fit scaling later inside training pipelines using training data only."
+}

@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Audit Report - {{ record.extension_name }}{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+  <div>
+    <a href="/" style="color: var(--text-muted); text-decoration: none;">&larr; Back to Dashboard</a>
+    <h1 style="margin-top: 0.5rem;">{{ record.extension_name }}</h1>
+    <div style="color: var(--text-muted);">Version Transition: <strong>v{{ record.v1_version }}</strong> &rarr; <strong>v{{ record.v2_version }}</strong></div>
+  </div>
+  <div>
+    <span class="badge badge-{{ record.risk_classification.lower() }}" style="font-size: 1.1rem; padding: 0.5rem 1.25rem;">
+      {{ record.risk_classification }} Risk
+    </span>
+  </div>
+</div>
+
+<div class="metrics-row">
+  <div class="metric-card">
+    <div class="metric-value">{{ record.risk_score }}</div>
+    <div class="metric-label">Risk Score / 100</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-value">{{ (record.confidence_score * 100) | int }}%</div>
+    <div class="metric-label">Analysis Completeness</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-value">{{ record.permission_drift_count }}</div>
+    <div class="metric-label">New Permissions</div>
+  </div>
+  <div class="metric-card">
+    <div class="metric-value">{% if record.host_scope_expanded %}YES{% else %}NO{% endif %}</div>
+    <div class="metric-label">Host Scope Expanded</div>
+  </div>
+</div>
+
+<div class="card" style="border-left: 4px solid var(--accent-cyan);">
+  <h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Recommended Security Action</h3>
+  <p style="font-size: 1.05rem; font-weight: 500;">{{ record.recommendation }}</p>
+</div>
+
+{% if findings_data.confidence_breakdown %}
+<div class="card" style="border-left: 4px solid var(--risk-low);">
+  <h3 style="color: var(--risk-low); margin-bottom: 0.5rem;">Analysis Confidence</h3>
+  <p>{{ findings_data.confidence_breakdown.meaning }}</p>
+  <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
+    Formula: {{ findings_data.confidence_breakdown.formula }}.
+    Succeeded: {{ findings_data.confidence_breakdown.succeeded_analyzers | length }}/{{ findings_data.confidence_breakdown.expected_analyzers | length }}.
+  </p>
+  {% if findings_data.confidence_breakdown.failed_analyzers %}
+  <p style="color: var(--risk-high); font-size: 0.9rem; margin-top: 0.5rem;">
+    Failed analyzers: {{ findings_data.confidence_breakdown.failed_analyzers | join(", ") }}
+  </p>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if findings_data.score_breakdown %}
+<div class="card">
+  <h2>Risk Score Breakdown</h2>
+  <div class="score-grid">
+    {% for label, value in {
+      "Permissions": findings_data.score_breakdown.permission_contribution,
+      "Host Scope": findings_data.score_breakdown.host_contribution,
+      "APIs": findings_data.score_breakdown.api_contribution,
+      "Network": findings_data.score_breakdown.network_contribution,
+      "Obfuscation": findings_data.score_breakdown.obfuscation_contribution,
+      "Structure": findings_data.score_breakdown.structural_contribution,
+      "Combinations": findings_data.score_breakdown.combination_contribution
+    }.items() %}
+    <div class="score-item">
+      <div class="score-label">{{ label }}</div>
+      <div class="score-value">{{ value }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if findings_data.score_breakdown.combination_rules %}
+  <div style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+    {% for rule in findings_data.score_breakdown.combination_rules %}
+      <div>{{ rule.title }}: +{{ rule.contribution }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<div class="card">
+  <h2>Security Findings & Evidence</h2>
+  <div style="margin-top: 1rem;">
+    {% for finding in findings_data.findings %}
+    <div class="finding-item severity-{{ finding.severity }}">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h4 style="font-size: 1.1rem;">{{ finding.title }}</h4>
+        <span class="badge badge-{{ finding.severity.lower() }}">{{ finding.severity }}</span>
+      </div>
+      <p style="margin-top: 0.5rem; color: var(--text-main);"><strong>Impact:</strong> {{ finding.impact }}</p>
+      
+      <div style="background: rgba(0,0,0,0.3); padding: 0.75rem; border-radius: 6px; margin: 0.75rem 0; font-family: monospace; font-size: 0.9rem;">
+        <div><span style="color: var(--risk-low);">- Previous (V1):</span> {{ finding.old_value }}</div>
+        <div><span style="color: var(--risk-critical);">+ Updated (V2):</span> {{ finding.new_value }}</div>
+      </div>
+      
+      <p style="color: var(--text-muted); font-size: 0.9rem;"><strong>Evidence:</strong> {{ finding.evidence }}</p>
+      <p style="color: var(--accent-cyan); font-size: 0.9rem; margin-top: 0.25rem;"><strong>Action:</strong> {{ finding.recommendation }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card">
+  <h3>Differential Security Feature Vector \( D_t = F(V_t) - F(V_{t-1}) \)</h3>
+  <pre style="background: #060911; padding: 1.25rem; border-radius: 8px; color: var(--accent-cyan); font-family: monospace; overflow-x: auto; margin-top: 1rem;">
+{{ feature_vector | tojson(indent=2) }}
+  </pre>
+</div>
+{% endblock %}

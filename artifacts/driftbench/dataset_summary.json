@@ -1,0 +1,12 @@
+{
+  "feature_count": 57,
+  "label_counts": {
+    "benign_transition": 1,
+    "risky_transition": 1
+  },
+  "missingness_counts": {},
+  "record_count": 2,
+  "split_counts": {
+    "controlled_holdout": 2
+  }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}DriftWatch Security Platform{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="/" class="brand">
+        DriftWatch <span class="brand-badge">v0.2.0</span>
+      </a>
+      <div style="font-size: 0.9rem; color: var(--text-muted);">
+        Differential Behavioral Security Analysis
+      </div>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>DriftWatch: A Longitudinal & Explainable Framework for Detecting Dangerous Behavioral Changes in Browser-Extension Updates</p>
+  </footer>
+</body>
+</html>

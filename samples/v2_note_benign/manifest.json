@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Benign Note Utility",
+  "version": "1.0.1",
+  "description": "A simple offline note utility with updated UI formatting.",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

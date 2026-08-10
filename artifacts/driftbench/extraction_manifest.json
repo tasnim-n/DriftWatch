@@ -1,0 +1,38 @@
+{
+  "baselines": [
+    "permission_only",
+    "manifest_permission",
+    "latest_version_static",
+    "simple_differential",
+    "full_driftwatch"
+  ],
+  "code_version": null,
+  "deterministic_seed": null,
+  "extraction_warnings": [],
+  "failed_records": [],
+  "feature_families": [
+    "analyzer_health",
+    "api_drift",
+    "host_drift",
+    "latest_static",
+    "manifest_permission",
+    "network_drift",
+    "obfuscation_drift",
+    "package_drift",
+    "permission_drift",
+    "simple_differential",
+    "structural_drift"
+  ],
+  "feature_schema_version": "1.0",
+  "generation_timestamp": "2026-08-10T00:00:00+00:00",
+  "label_counts": {
+    "benign_transition": 1,
+    "risky_transition": 1
+  },
+  "record_count": 2,
+  "source_dataset_identifier": "driftwatch-controlled-samples",
+  "source_dataset_version": "phase3b-controlled-v1",
+  "split_counts": {
+    "controlled_holdout": 2
+  }
+}

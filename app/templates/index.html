@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+  <h1>Differential Behavioral Analysis</h1>
+  <p>Compare consecutive Chromium extension versions to detect permission creep, host-scope expansion, and dangerous behavioral drift.</p>
+</div>
+
+{% if error %}
+<div class="card" style="border-color: var(--risk-critical); background: rgba(239, 68, 68, 0.1);">
+  <h3 style="color: var(--risk-critical);">Security & Upload Error</h3>
+  <p>{{ error }}</p>
+</div>
+{% endif %}
+
+<div class="card">
+  <h2 style="margin-bottom: 1.25rem;">New Differential Audit</h2>
+  <form action="/analyze" method="post" enctype="multipart/form-data">
+    <div class="upload-grid">
+      <div class="dropzone">
+        <label for="v1_file">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">📦</div>
+          <strong style="color: var(--accent-cyan);">Previous Version (V1)</strong>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Upload baseline zip archive</div>
+          <input type="file" id="v1_file" name="v1_file" accept=".zip" required style="margin-top: 0.75rem;">
+        </label>
+      </div>
+
+      <div class="dropzone">
+        <label for="v2_file">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚠️</div>
+          <strong style="color: var(--risk-high);">Updated Version (V2)</strong>
+          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Upload candidate update zip archive</div>
+          <input type="file" id="v2_file" name="v2_file" accept=".zip" required style="margin-top: 0.75rem;">
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-primary">⚡ Run Differential Security Analysis</button>
+  </form>
+</div>
+
+<div class="card">
+  <h3>Recent Audit History</h3>
+  {% if recent_analyses %}
+    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+      <thead>
+        <tr style="text-align: left; border-bottom: 1px solid var(--border-color); color: var(--text-muted);">
+          <th style="padding: 0.75rem;">Extension Name</th>
+          <th style="padding: 0.75rem;">Transition</th>
+          <th style="padding: 0.75rem;">Risk Classification</th>
+          <th style="padding: 0.75rem;">Score</th>
+          <th style="padding: 0.75rem;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in recent_analyses %}
+        <tr style="border-bottom: 1px solid var(--border-color);">
+          <td style="padding: 0.75rem; font-weight: 600;">{{ item.extension_name }}</td>
+          <td style="padding: 0.75rem; color: var(--text-muted);">v{{ item.v1_version }} &rarr; v{{ item.v2_version }}</td>
+          <td style="padding: 0.75rem;">
+            <span class="badge badge-{{ item.risk_classification.lower() }}">{{ item.risk_classification }}</span>
+          </td>
+          <td style="padding: 0.75rem; font-weight: 700; color: var(--accent-cyan);">{{ item.risk_score }}/100</td>
+          <td style="padding: 0.75rem;">
+            <a href="/report/{{ item.id }}" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">View Report &rarr;</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p style="color: var(--text-muted); margin-top: 0.5rem;">No historical audits performed yet. Upload a version pair above to start.</p>
+  {% endif %}
+</div>
+{% endblock %}
