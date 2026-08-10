@@ -1,0 +1,163 @@
+{
+  "baseline_results": [
+    {
+      "balanced_accuracy": 1.0,
+      "baseline": "permission_only",
+      "confusion_matrix": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 1,
+        "tp": 1
+      },
+      "f1": 1.0,
+      "false_alerts_per_100_benign": 0.0,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 0.0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "balanced_accuracy": 1.0,
+      "baseline": "manifest_permission",
+      "confusion_matrix": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 1,
+        "tp": 1
+      },
+      "f1": 1.0,
+      "false_alerts_per_100_benign": 0.0,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 0.0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "balanced_accuracy": 0.5,
+      "baseline": "latest_version_static",
+      "confusion_matrix": {
+        "fn": 0,
+        "fp": 1,
+        "tn": 0,
+        "tp": 1
+      },
+      "f1": 0.666667,
+      "false_alerts_per_100_benign": 100.0,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 1.0,
+      "precision": 0.5,
+      "recall": 1.0
+    },
+    {
+      "balanced_accuracy": 1.0,
+      "baseline": "simple_differential",
+      "confusion_matrix": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 1,
+        "tp": 1
+      },
+      "f1": 1.0,
+      "false_alerts_per_100_benign": 0.0,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 0.0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "balanced_accuracy": 1.0,
+      "baseline": "full_driftwatch",
+      "confusion_matrix": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 1,
+        "tp": 1
+      },
+      "f1": 1.0,
+      "false_alerts_per_100_benign": 0.0,
+      "false_negative_rate": 0.0,
+      "false_positive_rate": 0.0,
+      "precision": 1.0,
+      "recall": 1.0
+    }
+  ],
+  "code_version": null,
+  "dataset_version": "phase3b-controlled-v1",
+  "experiment_id": "phase3c_pilot_controlled",
+  "feature_schema_version": "1.0",
+  "leakage_audit": {
+    "audited_feature_count": 43,
+    "extension_overlap": {},
+    "group_split_safe": true,
+    "metadata_columns": [
+      "controlled_mutation_type",
+      "extension_id",
+      "extension_name",
+      "label",
+      "new_timestamp",
+      "new_version",
+      "old_timestamp",
+      "old_version",
+      "provenance_id",
+      "record_id",
+      "source",
+      "source_type",
+      "split"
+    ],
+    "passed": true,
+    "violation_count": 0,
+    "violations": []
+  },
+  "ml_models": {
+    "logistic_regression": "not_run_dataset_readiness_gate_failed",
+    "random_forest": "not_run_dataset_readiness_gate_failed"
+  },
+  "note": "Current artifacts are controlled pilot records only; metrics are not generalizable.",
+  "readiness_gate": {
+    "analyzer_availability": {
+      "api_analyzer_available": 2,
+      "network_analyzer_available": 2,
+      "obfuscation_analyzer_available": 2,
+      "structure_analyzer_available": 2
+    },
+    "controlled_record_count": 2,
+    "duplicate_records": [],
+    "label_distribution": {
+      "benign_transition": 1,
+      "risky_transition": 1
+    },
+    "labels": [
+      "benign_transition",
+      "risky_transition"
+    ],
+    "missingness": {
+      "api_analyzer_available": 0,
+      "network_analyzer_available": 0,
+      "obfuscation_analyzer_available": 0,
+      "structure_analyzer_available": 0
+    },
+    "ml_block_reasons": [
+      "fewer than 20 records",
+      "no train/test split assignments",
+      "all records are controlled/synthetic"
+    ],
+    "ml_training_permitted": false,
+    "provenance_complete_count": 2,
+    "provenance_incomplete_count": 0,
+    "real_record_count": 0,
+    "record_count": 2,
+    "split_counts": {
+      "controlled_holdout": 2
+    },
+    "unique_extension_count": 2,
+    "unique_extensions_per_split": {
+      "controlled_holdout": 2
+    },
+    "version_pair_count": 2
+  },
+  "seed": 1337,
+  "split_strategy": "preserved_phase3b_assignments",
+  "status": "pilot_completed_ml_blocked",
+  "timestamp": "2026-08-10T07:13:30.119572+00:00",
+  "training_duration_seconds": 0.009122
+}

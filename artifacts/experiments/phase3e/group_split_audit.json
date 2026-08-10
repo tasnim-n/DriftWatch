@@ -1,0 +1,30 @@
+{
+  "controlled_base_extension_leakage_status": "not_applicable_real_pilot_only",
+  "duplicate_transition_pairs": {},
+  "eligible_record_count": 32,
+  "extension_ids_per_split": {
+    "test": [
+      "github:aaroncql/katex-github-chrome-extension",
+      "github:gorhill/ublock",
+      "github:yniijia/subtidex"
+    ],
+    "train": [
+      "github:duckduckgo/duckduckgo-privacy-extension",
+      "github:keepassxreboot/keepassxc-browser",
+      "github:kevinsqi/save_tabbed_images",
+      "github:refined-github/refined-github",
+      "github:violentmonkey/violentmonkey"
+    ],
+    "validation": [
+      "github:ajayyy/sponsorblock",
+      "github:alpha1337/save-sora",
+      "github:alyssaxuu/screenity"
+    ]
+  },
+  "extension_overlap": {},
+  "package_hash_overlap": {},
+  "passed": true,
+  "repository_fork_duplicate_status": "not_detected_by_current provenance fields",
+  "split_version": "phase3e-group-safe-label-aware-v1",
+  "violations": []
+}

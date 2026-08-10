@@ -1,0 +1,2 @@
+ablation,status,reason
+all,not_run_dataset_too_small,fewer than 20 records; no train/test split assignments; all records are controlled/synthetic

@@ -1,0 +1,23 @@
+{
+  "accepted": 0,
+  "controlled_record_count": 0,
+  "creation_timestamp": "2026-08-10T07:45:53.870425+00:00",
+  "dataset_manifest_sha256": "9ee7be40c48e6a2f9a33c5249073652a4ca152322d598b76d4c6f9052428625e",
+  "dataset_version": "0.1.0",
+  "driftbench_version": "0.1.0",
+  "dry_run": true,
+  "excluded": 0,
+  "feature_schema_version": "1.0",
+  "imported": 0,
+  "label_distribution": {},
+  "label_ontology_version": "phase3d-labels-v1",
+  "label_source_distribution": {},
+  "license_status_distribution": {},
+  "quarantined": 0,
+  "real_record_count": 0,
+  "schema_version": "phase3d-intake-v1",
+  "source_manifest_sha256": null,
+  "split_version": "phase3d-preserved-splits-v1",
+  "unique_extension_count": 0,
+  "version_pair_count": 0
+}

@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     # Upload and security limits
     MAX_UPLOAD_SIZE_MB: int = 25
     MAX_EXTRACTED_SIZE_MB: int = 100
-    MAX_FILE_COUNT: int = 500
+    MAX_FILE_COUNT: int = 1000
     MAX_COMPRESSION_RATIO: float = 10.0
     
     # Directories

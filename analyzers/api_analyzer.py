@@ -114,6 +114,7 @@ class APIAnalyzer:
         return {
             "v1_api_count": len(v1_apis),
             "v2_api_count": len(v2_apis),
+            "v2_apis": v2_apis,
             "added_apis": added_apis,
             "retained_apis": retained_apis,
             "unique_added_api_names": unique_added_names,

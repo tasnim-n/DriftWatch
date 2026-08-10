@@ -1,0 +1,16 @@
+{
+  "experiment_id": "phase3e_real_pilot_v1",
+  "feature_count": 18,
+  "feature_set": "manifest_permission",
+  "model": "random_forest",
+  "model_artifact": "artifacts\\models\\phase3e\\phase3e_real_pilot_v1\\random_forest_manifest_permission\\model.joblib",
+  "random_seed": 1337,
+  "selected_hyperparameters": {
+    "class_weight": "balanced",
+    "max_depth": 2,
+    "min_samples_leaf": 2,
+    "n_estimators": 50
+  },
+  "selection_protocol": "validation_f1_then_balanced_accuracy_then_lower_fpr",
+  "training_seconds": 0.096908
+}

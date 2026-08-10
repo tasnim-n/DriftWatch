@@ -1,0 +1,6 @@
+model,feature_set,feature_count,train_records,validation_records,test_records,precision,recall,f1,balanced_accuracy,specificity,false_positive_rate,false_negative_rate,false_alerts_per_100_benign,accuracy,roc_auc,pr_auc,confusion_matrix
+logistic_regression,permission_only,8,20,6,6,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.833333,0.3,0.166667,"{""fn"": 1, ""fp"": 0, ""tn"": 5, ""tp"": 0}"
+logistic_regression,manifest_permission,18,20,6,6,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.833333,0.0,0.166667,"{""fn"": 1, ""fp"": 0, ""tn"": 5, ""tp"": 0}"
+logistic_regression,latest_version_static,18,20,6,6,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.833333,0.0,0.166667,"{""fn"": 1, ""fp"": 0, ""tn"": 5, ""tp"": 0}"
+logistic_regression,simple_differential,13,20,6,6,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.833333,0.0,0.166667,"{""fn"": 1, ""fp"": 0, ""tn"": 5, ""tp"": 0}"
+logistic_regression,full_driftwatch,43,20,6,6,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.833333,0.0,0.166667,"{""fn"": 1, ""fp"": 0, ""tn"": 5, ""tp"": 0}"

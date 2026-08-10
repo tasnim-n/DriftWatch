@@ -1,0 +1,18 @@
+{
+  "combined": {
+    "status": "not_run_to_avoid_controlled_samples_dominating_real_world_claims"
+  },
+  "controlled_only": {
+    "label_distribution": {},
+    "record_count": 0,
+    "status": "not_run_no_controlled_records_in_real_pilot_feature_snapshot"
+  },
+  "real_only": {
+    "label_distribution": {
+      "benign_transition": 29,
+      "risky_transition": 3
+    },
+    "record_count": 32,
+    "status": "primary_phase3e_evaluation_dataset"
+  }
+}

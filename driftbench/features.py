@@ -54,9 +54,15 @@ METADATA_FIELDS = [
     "old_timestamp",
     "new_timestamp",
     "label",
+    "label_source",
+    "label_review_status",
+    "label_quality_tier",
+    "eligible_for_supervised_training",
     "source",
     "source_type",
+    "is_controlled",
     "controlled_mutation_type",
+    "functional_category",
     "split",
 ]
 
@@ -292,9 +298,15 @@ class DriftBenchFeatureExtractor:
             "old_timestamp": record.old_timestamp,
             "new_timestamp": record.new_timestamp,
             "label": record.label,
+            "label_source": record.label_source,
+            "label_review_status": record.label_review_status,
+            "label_quality_tier": record.label_quality_tier,
+            "eligible_for_supervised_training": record.eligible_for_supervised_training,
             "source": record.source,
             "source_type": record.provenance.source_type,
+            "is_controlled": bool(record.controlled_mutation_type or record.provenance.source_type == "controlled"),
             "controlled_mutation_type": record.controlled_mutation_type,
+            "functional_category": record.functional_category,
             "split": record.split,
         }
 
@@ -309,9 +321,9 @@ class DriftBenchFeatureExtractor:
         structure = drift.get("structure_diff", {})
         errors = drift.get("analyzer_errors", {})
 
-        v2_network = [] if "network_analyzer" in errors else NetworkAnalyzer.analyze_directory_network(new_dir)
-        v2_obfuscation = [] if "obfuscation_analyzer" in errors else ObfuscationAnalyzer.analyze_directory_obfuscation(new_dir)
-        v2_api = [] if "api_analyzer" in errors else APIAnalyzer.analyze_directory_apis(new_dir)
+        v2_network = [] if "network_analyzer" in errors else network.get("v2_indicators", [])
+        v2_obfuscation = [] if "obfuscation_analyzer" in errors else obfuscation.get("v2_indicators", [])
+        v2_api = [] if "api_analyzer" in errors else api.get("v2_apis", [])
 
         added_details = perm.get("added_permission_details", [])
         removed_sensitive = self._sensitive_permissions(perm.get("removed_permissions", []))

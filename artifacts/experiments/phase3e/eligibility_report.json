@@ -1,0 +1,28 @@
+{
+  "block_reasons": [],
+  "eligible_supervised_records": 32,
+  "excluded_labels": {
+    "uncertain": 2
+  },
+  "excluded_record_ids": [
+    "save-sora_2_0_355_to_3_0_0",
+    "save-sora_3_0_0_to_3_0_10"
+  ],
+  "ineligible_records": 2,
+  "phase3e_supervised_ready": true,
+  "split_label_distribution": {
+    "test": {
+      "benign_transition": 5,
+      "risky_transition": 1
+    },
+    "train": {
+      "benign_transition": 19,
+      "risky_transition": 1
+    },
+    "validation": {
+      "benign_transition": 5,
+      "risky_transition": 1
+    }
+  },
+  "total_records": 34
+}

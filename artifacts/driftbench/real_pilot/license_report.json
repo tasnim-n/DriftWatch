@@ -1,0 +1,313 @@
+{
+  "license_status_distribution": {
+    "allowed": 34
+  },
+  "records": [
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "katex-github-chrome-extension_0_1_0_to_0_2_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "subtidex_1_5_0_to_1_5_1",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "save_tabbed_images_0_4_0_to_0_4_1",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "save_tabbed_images_0_4_1_to_0_5_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "save_tabbed_images_0_5_0_to_0_6_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "save_tabbed_images_0_6_0_to_0_7_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "save-sora_2_0_196_to_2_0_355",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "save-sora_2_0_355_to_3_0_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "save-sora_3_0_0_to_3_0_10",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "screenity_4_5_0_to_4_5_1",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "ublock_origin_1_70_0_to_1_71_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "ublock_origin_1_71_0_to_1_72_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "ublock_origin_1_72_0_to_1_72_2",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "ublock_origin_1_72_2_to_1_73_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "sponsorblock_6_1_3_to_6_1_4",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "sponsorblock_6_1_4_to_6_1_5",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "sponsorblock_6_1_5_to_6_1_6",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "sponsorblock_6_1_6_to_6_1_7",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "Apache-2.0",
+      "license_status": "allowed",
+      "record_id": "duckduckgo_privacy_2025_11_3_to_2025_12_12",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "Apache-2.0",
+      "license_status": "allowed",
+      "record_id": "duckduckgo_privacy_2025_12_12_to_2025_12_14",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "Apache-2.0",
+      "license_status": "allowed",
+      "record_id": "duckduckgo_privacy_2025_12_14_to_2026_1_12",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "Apache-2.0",
+      "license_status": "allowed",
+      "record_id": "duckduckgo_privacy_2026_1_12_to_2026_4_28",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "keepassxc_browser_1_9_11_to_1_10_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "keepassxc_browser_1_10_0_to_1_10_0_1",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "keepassxc_browser_1_10_0_1_to_1_10_1",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "GPL-3.0",
+      "license_status": "allowed",
+      "record_id": "keepassxc_browser_1_10_1_to_1_10_2",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "refined_github_26_5_24_to_26_6_1",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "refined_github_26_6_1_to_26_6_7",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "refined_github_26_6_7_to_26_7",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "refined_github_26_7_to_26_7_11",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "violentmonkey_2_43_0_to_2_44_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "violentmonkey_2_44_0_to_2_45_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "violentmonkey_2_45_0_to_2_46_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    },
+    {
+      "attribution_required": true,
+      "license": "MIT",
+      "license_status": "allowed",
+      "record_id": "violentmonkey_2_46_0_to_2_47_0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "ACCEPTED"
+    }
+  ]
+}

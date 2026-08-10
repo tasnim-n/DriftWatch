@@ -1,0 +1,105 @@
+{
+  "controlled_record_count": 0,
+  "created_at": "2026-08-10T19:58:53.511314+00:00",
+  "dataset_manifest_hash": "c40beb6eb2832374a707a8c61480bb98b1df1106d8776ab4166674b208a26473",
+  "dataset_version": "driftbench-real-pilot-phase3e-v1",
+  "eligible_label_distribution": {
+    "benign_transition": 29,
+    "risky_transition": 3
+  },
+  "eligible_supervised_records": 32,
+  "experiment_id": "phase3e_real_pilot_v1",
+  "extension_ids_per_split": {
+    "test": [
+      "github:aaroncql/katex-github-chrome-extension",
+      "github:gorhill/ublock",
+      "github:yniijia/subtidex"
+    ],
+    "train": [
+      "github:duckduckgo/duckduckgo-privacy-extension",
+      "github:keepassxreboot/keepassxc-browser",
+      "github:kevinsqi/save_tabbed_images",
+      "github:refined-github/refined-github",
+      "github:violentmonkey/violentmonkey"
+    ],
+    "validation": [
+      "github:ajayyy/sponsorblock",
+      "github:alpha1337/save-sora",
+      "github:alyssaxuu/screenity"
+    ]
+  },
+  "feature_artifact_hashes": {
+    "full_driftwatch": "b2c9ff4a310da1ab772f6557e0b429eaef84f86ba1f6089b1cc6a47877ed4889",
+    "latest_version_static": "331eebfc376771c6059ff3c98aa99a357642e75131ca9f44ee0afd8438454d77",
+    "manifest_permission": "1c84c7bb1346ee767b138e76df369dedb772f6138970b40f9652caa1c4d27f99",
+    "permission_only": "4a08494266a8090fcd7235cb4c945b41d1d6715f862187b038dc4c868995cd00",
+    "simple_differential": "c201b79eb0c48e6196bd45c21fd4e2cf3dca77a98488adae34727744c603281e"
+  },
+  "feature_schema_version": "1.0",
+  "ineligible_records": 2,
+  "label_distribution": {
+    "benign_transition": 29,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "label_ontology_version": "phase3d-labels-v1",
+  "phase3d6_readiness_reference": {
+    "phase3e_block_reasons": [],
+    "phase3e_ml_re_evaluation_ready": true,
+    "warnings": null
+  },
+  "provenance_manifest_hash": "3643668d52bf736f72950d41cf3f415930c28af5aacf0e3508c54a44713405e8",
+  "real_record_count": 34,
+  "schema_version": "phase3d-intake-v1",
+  "source_dataset_version": "0.1.0-real-pilot",
+  "split_distribution": {
+    "test": {
+      "eligible": 6,
+      "extensions": [
+        "github:aaroncql/katex-github-chrome-extension",
+        "github:gorhill/ublock",
+        "github:yniijia/subtidex"
+      ],
+      "labels": {
+        "benign_transition": 5,
+        "risky_transition": 1
+      },
+      "records": 6
+    },
+    "train": {
+      "eligible": 20,
+      "extensions": [
+        "github:duckduckgo/duckduckgo-privacy-extension",
+        "github:keepassxreboot/keepassxc-browser",
+        "github:kevinsqi/save_tabbed_images",
+        "github:refined-github/refined-github",
+        "github:violentmonkey/violentmonkey"
+      ],
+      "labels": {
+        "benign_transition": 19,
+        "risky_transition": 1
+      },
+      "records": 20
+    },
+    "validation": {
+      "eligible": 6,
+      "extensions": [
+        "github:ajayyy/sponsorblock",
+        "github:alpha1337/save-sora",
+        "github:alyssaxuu/screenity"
+      ],
+      "labels": {
+        "benign_transition": 5,
+        "risky_transition": 1
+      },
+      "records": 8
+    }
+  },
+  "split_version": "phase3e-group-safe-label-aware-v1",
+  "total_records": 34,
+  "unique_extension_identities": 11,
+  "unresolved_uncertain_records": [
+    "save-sora_2_0_355_to_3_0_0",
+    "save-sora_3_0_0_to_3_0_10"
+  ]
+}

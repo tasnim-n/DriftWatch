@@ -1,0 +1,6 @@
+baseline,record_count,precision,recall,f1,balanced_accuracy,false_positive_rate,false_negative_rate,false_alerts_per_100_benign
+permission_only,2,1.0,1.0,1.0,1.0,0.0,0.0,0.0
+manifest_permission,2,1.0,1.0,1.0,1.0,0.0,0.0,0.0
+latest_version_static,2,0.5,1.0,0.666667,0.5,1.0,0.0,100.0
+simple_differential,2,1.0,1.0,1.0,1.0,0.0,0.0,0.0
+full_driftwatch,2,1.0,1.0,1.0,1.0,0.0,0.0,0.0

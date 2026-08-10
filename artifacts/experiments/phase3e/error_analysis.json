@@ -1,0 +1,150 @@
+{
+  "analyses": {
+    "current_deterministic_risk_scorer": {
+      "category_counts": {
+        "feature-rich benign update / network false positive": 4
+      },
+      "error_count": 4,
+      "errors": [
+        {
+          "extension_id": "github:yniijia/subtidex",
+          "failure_category": "feature-rich benign update / network false positive",
+          "feature_values": {
+            "added_obfuscation_score": 30.0,
+            "host_scope_score_delta": 0.0,
+            "new_external_network_count": 15.0,
+            "permission_risk_delta": 0.0,
+            "service_worker_introduced": 0.0,
+            "source_sink_flow_count": 2.0
+          },
+          "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+          "new_version": "1.5.1",
+          "old_version": "1.5.0",
+          "predicted_target": "REVIEW_WORTHY",
+          "record_id": "subtidex_1_5_0_to_1_5_1",
+          "score": 60.0,
+          "source_type": "open_source_repository",
+          "true_label": "benign_transition"
+        },
+        {
+          "extension_id": "github:gorhill/ublock",
+          "failure_category": "feature-rich benign update / network false positive",
+          "feature_values": {
+            "added_obfuscation_score": 95.0,
+            "host_scope_score_delta": 0.0,
+            "new_external_network_count": 16.0,
+            "permission_risk_delta": 0.0,
+            "service_worker_introduced": 0.0,
+            "source_sink_flow_count": 3.0
+          },
+          "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+          "new_version": "1.71.0",
+          "old_version": "1.70.0",
+          "predicted_target": "REVIEW_WORTHY",
+          "record_id": "ublock_origin_1_70_0_to_1_71_0",
+          "score": 60.0,
+          "source_type": "open_source_repository",
+          "true_label": "benign_transition"
+        },
+        {
+          "extension_id": "github:gorhill/ublock",
+          "failure_category": "feature-rich benign update / network false positive",
+          "feature_values": {
+            "added_obfuscation_score": 75.0,
+            "host_scope_score_delta": 0.0,
+            "new_external_network_count": 10.0,
+            "permission_risk_delta": 0.0,
+            "service_worker_introduced": 0.0,
+            "source_sink_flow_count": 3.0
+          },
+          "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+          "new_version": "1.72.0",
+          "old_version": "1.71.0",
+          "predicted_target": "REVIEW_WORTHY",
+          "record_id": "ublock_origin_1_71_0_to_1_72_0",
+          "score": 60.0,
+          "source_type": "open_source_repository",
+          "true_label": "benign_transition"
+        },
+        {
+          "extension_id": "github:gorhill/ublock",
+          "failure_category": "feature-rich benign update / network false positive",
+          "feature_values": {
+            "added_obfuscation_score": 45.0,
+            "host_scope_score_delta": 0.0,
+            "new_external_network_count": 5.0,
+            "permission_risk_delta": 0.0,
+            "service_worker_introduced": 0.0,
+            "source_sink_flow_count": 3.0
+          },
+          "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+          "new_version": "1.73.0",
+          "old_version": "1.72.2",
+          "predicted_target": "REVIEW_WORTHY",
+          "record_id": "ublock_origin_1_72_2_to_1_73_0",
+          "score": 60.0,
+          "source_type": "open_source_repository",
+          "true_label": "benign_transition"
+        }
+      ]
+    },
+    "logistic_regression": {
+      "category_counts": {
+        "model missed review-worthy transition despite available static drift": 1
+      },
+      "error_count": 1,
+      "errors": [
+        {
+          "extension_id": "github:aaroncql/katex-github-chrome-extension",
+          "failure_category": "model missed review-worthy transition despite available static drift",
+          "feature_values": {
+            "added_obfuscation_score": 530.0,
+            "host_scope_score_delta": 90.0,
+            "new_external_network_count": 822.0,
+            "permission_risk_delta": 10.0,
+            "service_worker_introduced": 1.0,
+            "source_sink_flow_count": 0.0
+          },
+          "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+          "new_version": "0.2.0",
+          "old_version": "0.1.0",
+          "predicted_target": "BENIGN",
+          "record_id": "katex-github-chrome-extension_0_1_0_to_0_2_0",
+          "score": 0.262991,
+          "source_type": "open_source_repository",
+          "true_label": "risky_transition"
+        }
+      ]
+    },
+    "random_forest": {
+      "category_counts": {
+        "model missed review-worthy transition despite available static drift": 1
+      },
+      "error_count": 1,
+      "errors": [
+        {
+          "extension_id": "github:aaroncql/katex-github-chrome-extension",
+          "failure_category": "model missed review-worthy transition despite available static drift",
+          "feature_values": {
+            "added_obfuscation_score": 530.0,
+            "host_scope_score_delta": 90.0,
+            "new_external_network_count": 822.0,
+            "permission_risk_delta": 10.0,
+            "service_worker_introduced": 1.0,
+            "source_sink_flow_count": 0.0
+          },
+          "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+          "new_version": "0.2.0",
+          "old_version": "0.1.0",
+          "predicted_target": "BENIGN",
+          "record_id": "katex-github-chrome-extension_0_1_0_to_0_2_0",
+          "score": 0.109542,
+          "source_type": "open_source_repository",
+          "true_label": "risky_transition"
+        }
+      ]
+    }
+  },
+  "scope": "held-out Phase 3E test split",
+  "summary": "Errors are pilot observations and may reflect static-analysis limitations or provisional labels."
+}

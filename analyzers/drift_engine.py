@@ -42,6 +42,7 @@ class DriftEngine:
         api_diff = cls._safe_analyzer("api_analyzer", {
             "v1_api_count": 0,
             "v2_api_count": 0,
+            "v2_apis": [],
             "added_apis": [],
             "retained_apis": [],
             "unique_added_api_names": [],
@@ -52,6 +53,7 @@ class DriftEngine:
         network_diff = cls._safe_analyzer("network_analyzer", {
             "v1_network_count": 0,
             "v2_network_count": 0,
+            "v2_indicators": [],
             "added_indicators": [],
             "new_external_destinations": [],
             "new_local_destinations": [],
@@ -65,6 +67,7 @@ class DriftEngine:
         obfuscation_diff = cls._safe_analyzer("obfuscation_analyzer", {
             "v1_indicator_count": 0,
             "v2_indicator_count": 0,
+            "v2_indicators": [],
             "added_indicators": [],
             "added_obfuscation_score": 0,
             "is_obfuscation_drift": False,

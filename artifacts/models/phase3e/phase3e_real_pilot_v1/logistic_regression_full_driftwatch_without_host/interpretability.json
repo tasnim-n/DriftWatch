@@ -1,0 +1,46 @@
+{
+  "intercept": -0.607494,
+  "note": "Coefficients are associations in this pilot corpus, not causal claims.",
+  "top_coefficients": [
+    {
+      "coefficient": 0.254031,
+      "feature": "optional_permission_change_count"
+    },
+    {
+      "coefficient": 0.130408,
+      "feature": "added_function_count"
+    },
+    {
+      "coefficient": -0.061851,
+      "feature": "obfuscation_count_delta"
+    },
+    {
+      "coefficient": 0.046991,
+      "feature": "added_api_count"
+    },
+    {
+      "coefficient": -0.031035,
+      "feature": "added_event_listener_count"
+    },
+    {
+      "coefficient": -0.028335,
+      "feature": "file_count_delta"
+    },
+    {
+      "coefficient": -0.027653,
+      "feature": "js_file_count_delta"
+    },
+    {
+      "coefficient": -0.025336,
+      "feature": "critical_api_added"
+    },
+    {
+      "coefficient": -0.02521,
+      "feature": "source_sink_flow_count"
+    },
+    {
+      "coefficient": -0.024241,
+      "feature": "dynamic_execution_added_count"
+    }
+  ]
+}

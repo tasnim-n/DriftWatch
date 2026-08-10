@@ -9,6 +9,16 @@ venv/
 *.db
 uploads/
 extracted/
+datasets/incoming/*
+datasets/quarantine/*
+datasets/validated/*
+datasets/excluded/*
+datasets/manifests/generated/*
+!datasets/incoming/.gitkeep
+!datasets/quarantine/.gitkeep
+!datasets/validated/.gitkeep
+!datasets/excluded/.gitkeep
+!datasets/manifests/.gitkeep
 reports/*.pdf
 reports/*.html
 !reports/.gitkeep

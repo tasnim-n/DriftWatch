@@ -1,0 +1,441 @@
+{
+  "logistic_regression:full_driftwatch": {
+    "intercept": -0.607494,
+    "note": "Coefficients are associations in this pilot corpus, not causal claims.",
+    "top_coefficients": [
+      {
+        "coefficient": 0.254031,
+        "feature": "optional_permission_change_count"
+      },
+      {
+        "coefficient": 0.130408,
+        "feature": "added_function_count"
+      },
+      {
+        "coefficient": -0.061851,
+        "feature": "obfuscation_count_delta"
+      },
+      {
+        "coefficient": 0.046991,
+        "feature": "added_api_count"
+      },
+      {
+        "coefficient": -0.031035,
+        "feature": "added_event_listener_count"
+      },
+      {
+        "coefficient": -0.028335,
+        "feature": "file_count_delta"
+      },
+      {
+        "coefficient": -0.027653,
+        "feature": "js_file_count_delta"
+      },
+      {
+        "coefficient": -0.025336,
+        "feature": "critical_api_added"
+      },
+      {
+        "coefficient": -0.02521,
+        "feature": "source_sink_flow_count"
+      },
+      {
+        "coefficient": -0.024241,
+        "feature": "dynamic_execution_added_count"
+      }
+    ]
+  },
+  "logistic_regression:latest_version_static": {
+    "intercept": -0.607388,
+    "note": "Coefficients are associations in this pilot corpus, not causal claims.",
+    "top_coefficients": [
+      {
+        "coefficient": 0.069522,
+        "feature": "v2_total_permission_count"
+      },
+      {
+        "coefficient": -0.068961,
+        "feature": "v2_total_host_count"
+      },
+      {
+        "coefficient": -0.068961,
+        "feature": "v2_wildcard_host_count"
+      },
+      {
+        "coefficient": -0.03163,
+        "feature": "v2_source_sink_indicator_count"
+      },
+      {
+        "coefficient": -0.030807,
+        "feature": "v2_sensitive_api_count"
+      },
+      {
+        "coefficient": -0.02532,
+        "feature": "v2_obfuscation_indicator_count"
+      },
+      {
+        "coefficient": -0.02521,
+        "feature": "v2_dynamic_execution_count"
+      },
+      {
+        "coefficient": -0.019646,
+        "feature": "v2_external_domain_count"
+      },
+      {
+        "coefficient": -0.018997,
+        "feature": "v2_hardcoded_ip_count"
+      },
+      {
+        "coefficient": -0.017393,
+        "feature": "v2_http_endpoint_count"
+      }
+    ]
+  },
+  "logistic_regression:manifest_permission": {
+    "intercept": -0.607374,
+    "note": "Coefficients are associations in this pilot corpus, not causal claims.",
+    "top_coefficients": [
+      {
+        "coefficient": 0.293504,
+        "feature": "optional_permission_change_count"
+      },
+      {
+        "coefficient": -0.015986,
+        "feature": "content_script_changed"
+      },
+      {
+        "coefficient": -0.008508,
+        "feature": "removed_permission_count"
+      },
+      {
+        "coefficient": -0.008508,
+        "feature": "removed_sensitive_permission_count"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "added_permission_count"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "added_sensitive_permission_count"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "permission_risk_delta"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "critical_permission_added"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "high_permission_added"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "host_count_delta"
+      }
+    ]
+  },
+  "logistic_regression:permission_only": {
+    "intercept": -0.607359,
+    "note": "Coefficients are associations in this pilot corpus, not causal claims.",
+    "top_coefficients": [
+      {
+        "coefficient": 0.293888,
+        "feature": "optional_permission_change_count"
+      },
+      {
+        "coefficient": -0.008221,
+        "feature": "removed_permission_count"
+      },
+      {
+        "coefficient": -0.008221,
+        "feature": "removed_sensitive_permission_count"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "added_permission_count"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "added_sensitive_permission_count"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "permission_risk_delta"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "critical_permission_added"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "high_permission_added"
+      }
+    ]
+  },
+  "logistic_regression:simple_differential": {
+    "intercept": -0.606625,
+    "note": "Coefficients are associations in this pilot corpus, not causal claims.",
+    "top_coefficients": [
+      {
+        "coefficient": -0.100964,
+        "feature": "obfuscation_count_delta"
+      },
+      {
+        "coefficient": 0.033445,
+        "feature": "package_size_delta_bytes"
+      },
+      {
+        "coefficient": -0.02801,
+        "feature": "file_count_delta"
+      },
+      {
+        "coefficient": 0.027413,
+        "feature": "network_destination_count_delta"
+      },
+      {
+        "coefficient": 0.020775,
+        "feature": "permission_count_delta"
+      },
+      {
+        "coefficient": -0.018379,
+        "feature": "js_file_count_delta"
+      },
+      {
+        "coefficient": 0.0136,
+        "feature": "api_count_delta"
+      },
+      {
+        "coefficient": -0.008935,
+        "feature": "function_count_delta"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "host_count_delta"
+      },
+      {
+        "coefficient": 0.0,
+        "feature": "api_analyzer_available"
+      }
+    ]
+  },
+  "random_forest:full_driftwatch": {
+    "note": "Impurity importances are descriptive and unstable on this small corpus.",
+    "top_feature_importances": [
+      {
+        "feature": "added_function_count",
+        "importance": 0.168961
+      },
+      {
+        "feature": "obfuscation_count_delta",
+        "importance": 0.135502
+      },
+      {
+        "feature": "network_destination_count_delta",
+        "importance": 0.10979
+      },
+      {
+        "feature": "api_count_delta",
+        "importance": 0.095659
+      },
+      {
+        "feature": "modified_file_count",
+        "importance": 0.088456
+      },
+      {
+        "feature": "function_count_delta",
+        "importance": 0.083561
+      },
+      {
+        "feature": "optional_permission_change_count",
+        "importance": 0.064082
+      },
+      {
+        "feature": "added_api_count",
+        "importance": 0.059278
+      },
+      {
+        "feature": "package_size_delta_bytes",
+        "importance": 0.058042
+      },
+      {
+        "feature": "added_obfuscation_score",
+        "importance": 0.043418
+      }
+    ]
+  },
+  "random_forest:latest_version_static": {
+    "note": "Impurity importances are descriptive and unstable on this small corpus.",
+    "top_feature_importances": [
+      {
+        "feature": "v2_function_count",
+        "importance": 0.230584
+      },
+      {
+        "feature": "v2_obfuscation_indicator_count",
+        "importance": 0.167565
+      },
+      {
+        "feature": "v2_external_domain_count",
+        "importance": 0.142852
+      },
+      {
+        "feature": "v2_http_endpoint_count",
+        "importance": 0.103566
+      },
+      {
+        "feature": "v2_dynamic_execution_count",
+        "importance": 0.100456
+      },
+      {
+        "feature": "v2_total_permission_count",
+        "importance": 0.09462
+      },
+      {
+        "feature": "v2_total_host_count",
+        "importance": 0.073445
+      },
+      {
+        "feature": "v2_sensitive_api_count",
+        "importance": 0.045401
+      },
+      {
+        "feature": "v2_sensitive_permission_count",
+        "importance": 0.025518
+      },
+      {
+        "feature": "v2_wildcard_host_count",
+        "importance": 0.01487
+      }
+    ]
+  },
+  "random_forest:manifest_permission": {
+    "note": "Impurity importances are descriptive and unstable on this small corpus.",
+    "top_feature_importances": [
+      {
+        "feature": "content_script_changed",
+        "importance": 1.0
+      },
+      {
+        "feature": "added_permission_count",
+        "importance": 0.0
+      },
+      {
+        "feature": "removed_permission_count",
+        "importance": 0.0
+      },
+      {
+        "feature": "added_sensitive_permission_count",
+        "importance": 0.0
+      },
+      {
+        "feature": "removed_sensitive_permission_count",
+        "importance": 0.0
+      },
+      {
+        "feature": "permission_risk_delta",
+        "importance": 0.0
+      },
+      {
+        "feature": "critical_permission_added",
+        "importance": 0.0
+      },
+      {
+        "feature": "high_permission_added",
+        "importance": 0.0
+      },
+      {
+        "feature": "optional_permission_change_count",
+        "importance": 0.0
+      },
+      {
+        "feature": "host_count_delta",
+        "importance": 0.0
+      }
+    ]
+  },
+  "random_forest:permission_only": {
+    "note": "Impurity importances are descriptive and unstable on this small corpus.",
+    "top_feature_importances": [
+      {
+        "feature": "added_permission_count",
+        "importance": 0.0
+      },
+      {
+        "feature": "removed_permission_count",
+        "importance": 0.0
+      },
+      {
+        "feature": "added_sensitive_permission_count",
+        "importance": 0.0
+      },
+      {
+        "feature": "removed_sensitive_permission_count",
+        "importance": 0.0
+      },
+      {
+        "feature": "permission_risk_delta",
+        "importance": 0.0
+      },
+      {
+        "feature": "critical_permission_added",
+        "importance": 0.0
+      },
+      {
+        "feature": "high_permission_added",
+        "importance": 0.0
+      },
+      {
+        "feature": "optional_permission_change_count",
+        "importance": 0.0
+      }
+    ]
+  },
+  "random_forest:simple_differential": {
+    "note": "Impurity importances are descriptive and unstable on this small corpus.",
+    "top_feature_importances": [
+      {
+        "feature": "obfuscation_count_delta",
+        "importance": 0.224017
+      },
+      {
+        "feature": "package_size_delta_bytes",
+        "importance": 0.211899
+      },
+      {
+        "feature": "function_count_delta",
+        "importance": 0.17138
+      },
+      {
+        "feature": "network_destination_count_delta",
+        "importance": 0.16144
+      },
+      {
+        "feature": "api_count_delta",
+        "importance": 0.158762
+      },
+      {
+        "feature": "file_count_delta",
+        "importance": 0.048407
+      },
+      {
+        "feature": "js_file_count_delta",
+        "importance": 0.021709
+      },
+      {
+        "feature": "permission_count_delta",
+        "importance": 0.002385
+      },
+      {
+        "feature": "host_count_delta",
+        "importance": 0.0
+      },
+      {
+        "feature": "api_analyzer_available",
+        "importance": 0.0
+      }
+    ]
+  }
+}

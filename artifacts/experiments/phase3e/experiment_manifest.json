@@ -1,0 +1,31 @@
+{
+  "artifact_paths": {
+    "confusion_matrices_dir": "artifacts\\experiments\\phase3e\\confusion_matrices",
+    "experiment_dir": "artifacts\\experiments\\phase3e",
+    "model_dir": "artifacts\\models\\phase3e\\phase3e_real_pilot_v1",
+    "predictions_dir": "artifacts\\experiments\\phase3e\\predictions"
+  },
+  "created_at": "2026-08-10T19:58:53.511314+00:00",
+  "dataset_version": "driftbench-real-pilot-phase3e-v1",
+  "experiment_id": "phase3e_real_pilot_v1",
+  "feature_loading_seconds": 0.016,
+  "feature_schema_version": "1.0",
+  "git_commit": "4e8a5b45ccf90f5b97fad1c65f880a1f73b31fd6",
+  "phase": "Phase 3E",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "quality_gate": {
+    "dataset_frozen": true,
+    "group_split_audit_passed": true,
+    "leakage_audit_passed": true,
+    "pilot_preliminary_only": true,
+    "production_ml_integration": false,
+    "training_eligibility_enforced": true,
+    "uncertain_excluded_from_supervised_training": true
+  },
+  "scikit_learn_version": "1.9.0",
+  "seed": 1337,
+  "split_version": "phase3e-group-safe-label-aware-v1",
+  "target_version": "phase3e-binary-review-worthy-v1",
+  "total_runtime_seconds": 17.8874
+}

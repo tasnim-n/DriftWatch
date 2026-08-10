@@ -127,6 +127,7 @@ class ObfuscationAnalyzer:
         return {
             "v1_indicator_count": len(v1_ind),
             "v2_indicator_count": len(v2_ind),
+            "v2_indicators": v2_ind,
             "added_indicators": added_indicators,
             "added_obfuscation_score": added_obfuscation_score,
             "is_obfuscation_drift": len(added_indicators) > 0 and added_obfuscation_score > 0

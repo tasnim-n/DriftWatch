@@ -18,9 +18,9 @@ DriftWatch addresses this challenge through version-to-version differential beha
 | **Week 1** | Foundation & Secure Ingestion | Fast-API setup, secure ZIP/CRX unpacking, path traversal/bomb protection, manifest parser, permission risk database. | **Completed (Phase 1)** |
 | **Week 2** | Core Drift Engine & Laboratory | Host-scope analyzer, package comparison, delta feature builder, rule-based scoring engine, controlled sample laboratory (`v1_safe`, `v2_risky`). | **Completed (Phase 1)** |
 | **Week 3** | Advanced Static Analysis | Safe JavaScript lexical preprocessing, sensitive API extraction, network endpoint extraction, bounded static Base64 endpoint decoding, obfuscation indicators, structural drift, source-to-sink heuristics, partial-analysis error reporting, and score breakdowns. | **Completed (Phase 2, verified 2026-08-10)** |
-| **Week 4** | DriftBench & Empirical Research Pipeline | Phase 3A dataset specification, label ontology, provenance tracking, validator, controlled mutation framework, leakage-safe split generator; Phase 3B feature extraction, baseline feature representations, leakage checks, and reproducible artifacts. ML baselines and models are deferred. | **Phase 3B implemented; ML deferred** |
+| **Week 4** | DriftBench & Empirical Research Pipeline | Phase 3A dataset specification, label ontology, provenance tracking, validator, controlled mutation framework, leakage-safe split generator; Phase 3B feature extraction, baseline feature representations, leakage checks, and reproducible artifacts; Phase 3C pilot evaluation harness, leakage audit, readiness gate, deterministic baseline comparison, and blocked-ML reporting. | **Phase 3C pilot infrastructure implemented; ML blocked by dataset readiness** |
 | **Week 5** | Dashboard & Visualization | Premium dark cybersecurity UI, executive summary, version progression timeline, report export (HTML/PDF). | **Completed (Phase 1 UI Foundation)** |
-| **Week 6** | Research Experiments & Verification | Feature ablation study, baseline comparison, security auditing tests, final demonstration scripts. | Planned (Phase 4) |
+| **Week 6** | Research Experiments & Verification | Phase 3D real-data intake architecture, provenance-rich curation, license governance, duplicate/split-leakage audits, dataset manifests, local import workflow, real-pilot expansion, label-quality tiers, review packets, split-stability gate, and Phase 3E pilot empirical evaluation. | **Phase 3E pilot evaluation complete; results remain preliminary** |
 
 ---
 
@@ -41,10 +41,10 @@ DriftWatch addresses this challenge through version-to-version differential beha
 - Implemented bounded static Base64 endpoint decoding. No arbitrary runtime emulation is attempted.
 - Implemented obfuscation, entropy, structural drift, and source-to-sink heuristic indicators.
 - Integrated Phase 2 signals into the analysis pipeline, JSON API, report UI, explanations, recommendations, and score breakdowns.
-- Verified test suite on 2026-08-10: `41 passed`.
+- Verified test suite on 2026-08-10: `104 passed, 2 warnings`.
 
 ## 5. Deferred / Not Started
-- Phase 3C baseline experiments, machine learning, DriftBench expansion, and performance metrics are not started.
+- Generalizable ML experiments, browser-store-scale DriftBench expansion, production ML integration, and real-world performance claims are not started.
 - Browser-store-scale dataset collection is not started.
 - The source-to-sink feature remains a heuristic indicator and does not prove confirmed exfiltration.
 
@@ -63,3 +63,57 @@ DriftWatch addresses this challenge through version-to-version differential beha
 - Added CSV and JSONL artifact writers plus `feature_schema.json`, `dataset_summary.json`, and `extraction_manifest.json`.
 - Generated controlled-sample artifacts under `artifacts/driftbench/` from two existing synthetic controlled records. These are descriptive controlled artifacts, not real-world performance evidence.
 - No ML model training or ML metrics have been introduced.
+
+## 8. Current Progress (Phase 3C)
+- Added empirical-evaluation support under `research/`: artifact loaders, binary metrics, dataset readiness reporting, leakage auditing, deterministic pilot baselines, and reproducible experiment artifact writing.
+- Generated verified Phase 3C pilot artifacts under `artifacts/experiments/` from the two controlled Phase 3B records.
+- Current readiness gate result: ML training is **not permitted** because there are fewer than 20 records, no train/test split assignments, and all records are controlled/synthetic.
+- Current leakage audit result: passed, with 43 feature columns audited and 0 violations.
+- Deterministic pilot baseline metrics are recorded for smoke-testing only. They are not generalizable research results.
+- Logistic Regression, Random Forest, ROC-AUC/PR-AUC, chronological evaluation, and ablation studies remain deferred until the dataset has enough real, leakage-safe train/test or chronological split data.
+
+## 9. Current Progress (Phase 3D)
+- Added source, licensing, dataset-stage, and data-quality governance constants.
+- Expanded the label ontology to include real malicious transitions, uncertain records, and excluded records while preserving existing labels.
+- Added local import-manifest curation with dry-run support: `python -m driftbench.ingest --manifest <path> --dry-run`.
+- Added safe static package validation for local ZIP/CRX-compatible archives, manifest presence checks, SHA-256 hashing, extension identity checks, and defensible version-order validation.
+- Added consecutive version-pair construction helpers for longitudinal update sequences.
+- Added duplicate detection for record IDs, version pairs, and package hashes.
+- Added split-leakage audits for extension identity, package hash overlap, and controlled mutation family leakage.
+- Added manual-review record support for evidence-based labels without using DriftWatch score as ground truth.
+- Added Phase 3D dataset manifests under `artifacts/driftbench/phase3d/`.
+- Current Phase 3D real-record count is `0`; no real corpus was present, so no real records were fabricated.
+- Phase 3D did not perform ML retraining; Phase 3E later ran a separate pilot evaluation after curated real data and quality gates were available.
+
+## 10. Current Progress (Phase 3D.5)
+- Acquired an initial lawful real pilot corpus from public GitHub release ZIP assets using normal HTTPS with size limits.
+- Accepted 10 real consecutive version-pair transitions across 5 open-source browser-extension repositories.
+- Generated curation reports, feature artifacts, and readiness report for the initial pilot.
+- Phase 3D.5 remained blocked for Phase 3E because the real corpus was too small, the test split was too small, two labels were uncertain, and single-reviewer provisional labels dominated.
+- No ML retraining or classifier metrics were produced.
+
+## 11. Current Progress (Phase 3D.6)
+- Expanded the real pilot corpus to 34 accepted real version-pair transitions across 11 open-source browser-extension repositories.
+- Source category distribution: `open_source_repository=34`.
+- Label distribution: `benign_transition=29`, `risky_transition=3`, `uncertain=2`.
+- Label quality tiers: `SINGLE_REVIEWER_PROVISIONAL=32`, `UNCERTAIN=2`.
+- Eligible supervised-training records: 32. The two `uncertain` records are retained for review history and are not eligible for supervised training.
+- License identifier distribution: `Apache-2.0=4`, `GPL-3.0=13`, `MIT=17`; license status distribution: `allowed=34`.
+- Split distribution: `train=16`, `validation=12`, `test=6`; test split has 3 extension identities and eligible labels `benign_transition=5`, `risky_transition=1`.
+- Duplicate audit passed, protected split-leakage audit passed with 0 violations, and provenance completeness is 34/34.
+- Generated structured review packets and a review queue for `save-sora_2_0_355_to_3_0_0` and `save-sora_3_0_0_to_3_0_10`; both remain `uncertain`.
+- Regenerated Phase 3B feature representations for all 34 records under `artifacts/driftbench/real_pilot_features/`.
+- Readiness gate at `artifacts/driftbench/real_pilot_readiness.json` was **READY** for Phase 3E pilot ML re-evaluation, with the explicit limitation that single-reviewer provisional labels remain.
+
+## 12. Current Progress (Phase 3E)
+- Frozen Phase 3E dataset snapshot: `driftbench-real-pilot-phase3e-v1`.
+- Phase 3E detected that the preserved Phase 3D.6 split had no `risky_transition` records in train, so it created a separate pre-training, label-aware, extension-group-safe experiment split: `phase3e-group-safe-label-aware-v1`.
+- Frozen supervised counts: 34 total records, 32 eligible supervised records, 2 ineligible `uncertain` records, 11 unique extensions, all real records, 0 controlled records.
+- Experiment split counts: train 20 eligible records (`benign_transition=19`, `risky_transition=1`), validation 6 eligible records (`benign_transition=5`, `risky_transition=1`) plus 2 retained uncertain records, test 6 eligible records (`benign_transition=5`, `risky_transition=1`).
+- Leakage audit passed across all five locked Phase 3B feature representations; labels, review metadata, eligibility, split metadata, paths, final scores, severities, and recommendations were excluded from feature matrices.
+- Group split audit passed with 0 extension overlaps, 0 package-hash overlaps, and 0 duplicate transition pairs across protected splits.
+- Current deterministic risk scorer baseline on the held-out Phase 3E test set: precision `0.20`, recall `1.00`, F1 `0.33`, balanced accuracy `0.60`, FPR `0.80`, FNR `0.00`, confusion matrix `tn=1, fp=4, fn=0, tp=1`.
+- Full DriftWatch Logistic Regression on the same held-out test set: precision `0.00`, recall `0.00`, F1 `0.00`, FPR `0.00`, FNR `1.00`, confusion matrix `tn=5, fp=0, fn=1, tp=0`.
+- Full DriftWatch Random Forest on the same held-out test set: precision `0.00`, recall `0.00`, F1 `0.00`, FPR `0.00`, FNR `1.00`, confusion matrix `tn=5, fp=0, fn=1, tp=0`.
+- Phase 3E artifacts are saved under `artifacts/experiments/phase3e/` and research models under `artifacts/models/phase3e/phase3e_real_pilot_v1/`.
+- ML was not integrated into production scoring. The evidence does not justify production ML deployment; results remain pilot/preliminary due small sample size, one positive held-out test record, and provisional labels.

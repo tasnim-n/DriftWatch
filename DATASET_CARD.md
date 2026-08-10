@@ -62,3 +62,136 @@ Current controlled artifact summary generated from existing synthetic samples:
 - `feature_count`: 57
 
 These are descriptive counts for controlled local artifacts only. They are not model-performance results and should not be interpreted as real-world dataset scale.
+
+---
+
+## 5. Phase 3C Pilot Experiment Artifacts
+Phase 3C evaluates the experiment pipeline against the current controlled feature artifacts and writes outputs to:
+
+`artifacts/experiments/`
+
+Verified current pilot state:
+- `record_count`: 2
+- `unique_extension_count`: 2
+- `controlled_record_count`: 2
+- `real_record_count`: 0
+- Leakage audit: passed, 43 feature columns audited, 0 violations, extension group split safe.
+- ML readiness: blocked.
+
+ML training is blocked because the dataset has fewer than 20 records, has no train/test split assignments, and contains only controlled synthetic records. The repository therefore does not claim Logistic Regression, Random Forest, ROC-AUC, PR-AUC, or generalizable detection performance.
+
+The deterministic baseline comparison is retained as a pipeline smoke test only. It must not be treated as empirical model performance.
+
+---
+
+## 6. Phase 3D Real-Data Intake
+Phase 3D introduces dataset version `0.1.0` and a local import-manifest workflow for real browser-extension version pairs.
+
+Supported source categories:
+- `real_public`
+- `research_dataset`
+- `open_source_repository`
+- `controlled`
+- `unknown/unverified`
+
+Unknown or unverified sources do not automatically enter the research dataset. Licensing metadata is tracked separately from labels and features.
+
+Current Phase 3D intake status:
+- Real records accepted: 0
+- Controlled records imported through Phase 3D intake: 0
+- Accepted version pairs through Phase 3D intake: 0
+- Quarantined records: 0
+- Excluded records: 0
+
+Generated Phase 3D manifest location:
+
+`artifacts/driftbench/phase3d/`
+
+Manifests include dataset, provenance, quality, duplicate, leakage, license, and validation reports. These reports are truthful empty-intake artifacts until lawful real source material is supplied.
+
+Labels include benign, risky, malicious transition, uncertain, controlled malicious, needs review, and excluded states. Uncertain and excluded records are supported for curation but are not training labels. Labels must not be derived from DriftWatch's own final score.
+
+Known biases and limitations:
+- A real pilot corpus is available as of Phase 3D.6, but it is still not a representative web-store sample.
+- Existing Phase 3B artifacts are controlled synthetic samples only.
+- Dataset representativeness and real-world prevalence are unknown.
+- Chronological evaluation depends on defensible release timestamps, not filesystem modification time.
+
+---
+
+## 7. Phase 3D.6 Real Pilot Corpus
+Phase 3D.6 expands the real pilot corpus and adds label-quality, review-queue, eligibility, and split-stability metadata.
+
+Artifact locations:
+- Curation reports: `artifacts/driftbench/real_pilot/`
+- Feature artifacts: `artifacts/driftbench/real_pilot_features/`
+- Readiness report: `artifacts/driftbench/real_pilot_readiness.json`
+- Import manifest: `datasets/manifests/real_pilot_import_manifest.json`
+
+Actual corpus statistics:
+- Real records: 34
+- Unique real extensions: 11
+- Accepted pairs: 34
+- Quarantined pairs: 0
+- Excluded pairs: 0
+- Controlled records in this intake: 0
+- Label distribution: `benign_transition=29`, `risky_transition=3`, `uncertain=2`
+- Label-source distribution: `repository_documented_change=1`, `single_reviewer_provisional=33`
+- Label quality tiers: `SINGLE_REVIEWER_PROVISIONAL=32`, `UNCERTAIN=2`
+- Eligible supervised-training records: 32
+- License identifiers: `Apache-2.0=4`, `GPL-3.0=13`, `MIT=17`
+- License status: `allowed=34`
+- Split distribution: `train=16`, `validation=12`, `test=6`
+- Unique extensions per split: `train=4`, `validation=4`, `test=3`
+- Test eligible labels: `benign_transition=5`, `risky_transition=1`
+- Leakage audit: passed with 0 protected split violations
+- Provenance completeness: 34/34
+
+The corpus uses public GitHub release ZIP assets from eleven open-source browser-extension repositories. Raw downloaded package hashes and normalized analysis-package hashes are preserved separately. Normalization only rewrites ZIP layout/compression for static analysis compatibility; extension JavaScript is never executed.
+
+Known limitations:
+- This is a pilot corpus, not a representative population sample.
+- Most labels are single-reviewer provisional and must be treated as a methodology limitation.
+- Two records are uncertain and are retained for review history but excluded from supervised eligibility.
+- Phase 3D.6 marked the corpus READY for Phase 3E pilot ML re-evaluation only.
+
+---
+
+## 8. Phase 3E Frozen Pilot Evaluation Snapshot
+Phase 3E froze a separate research-evaluation snapshot before model fitting:
+
+`artifacts/experiments/phase3e/dataset_snapshot.json`
+
+Snapshot facts:
+- Dataset version: `driftbench-real-pilot-phase3e-v1`
+- Source dataset version: `0.1.0-real-pilot`
+- Feature schema version: `1.0`
+- Label ontology version: `phase3d-labels-v1`
+- Split version: `phase3e-group-safe-label-aware-v1`
+- Total records: 34
+- Eligible supervised records: 32
+- Ineligible records: 2 `uncertain`
+- Unique extension identities: 11
+- Real records: 34
+- Controlled records: 0
+- Label distribution: `benign_transition=29`, `risky_transition=3`, `uncertain=2`
+
+The preserved Phase 3D.6 split had no risky training record, so Phase 3E did not train on it. Instead, it froze a label-aware extension-group-safe experiment split before model fitting:
+- Train: 20 eligible records, 5 extensions, `benign_transition=19`, `risky_transition=1`
+- Validation: 6 eligible records plus 2 retained uncertain records, 3 extensions, `benign_transition=5`, `risky_transition=1`
+- Test: 6 eligible records, 3 extensions, `benign_transition=5`, `risky_transition=1`
+
+Training target:
+- `benign_transition` -> `BENIGN`
+- `risky_transition` -> `REVIEW_WORTHY`
+- `uncertain` -> excluded from supervised fitting/evaluation
+
+Audit status:
+- Leakage audit: passed for all five Phase 3B feature representations.
+- Group split audit: passed with no extension overlap, package-hash overlap, or duplicate transition pair across protected splits.
+- Labels, review metadata, eligibility flags, splits, paths, final DriftWatch scores, severities, and recommendations were not used as ML features.
+
+Pilot result status:
+- The current deterministic rule engine achieved recall `1.00` on the held-out test set but had FPR `0.80` (`4 / 5` benign held-out updates alerted).
+- Full DriftWatch Logistic Regression and Random Forest both missed the single held-out risky transition (`fn=1`) and produced F1 `0.00`.
+- These are pilot/preliminary results from a 6-record held-out test set with one positive. They do not support production accuracy claims or broad generalization.

@@ -1,0 +1,23 @@
+{
+  "audited_feature_count": 43,
+  "extension_overlap": {},
+  "group_split_safe": true,
+  "metadata_columns": [
+    "controlled_mutation_type",
+    "extension_id",
+    "extension_name",
+    "label",
+    "new_timestamp",
+    "new_version",
+    "old_timestamp",
+    "old_version",
+    "provenance_id",
+    "record_id",
+    "source",
+    "source_type",
+    "split"
+  ],
+  "passed": true,
+  "violation_count": 0,
+  "violations": []
+}

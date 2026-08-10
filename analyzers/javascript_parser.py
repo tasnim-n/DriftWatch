@@ -142,21 +142,28 @@ class JavaScriptParser:
         results = []
         i = 0
         n = len(clean_code)
+        current_line = 1
 
         while i < n:
             char = clean_code[i]
+            if char == "\n":
+                current_line += 1
+                i += 1
+                continue
             if char not in ("'", '"', "`"):
                 i += 1
                 continue
 
             quote = char
             start = i
-            line_num = clean_code.count("\n", 0, start) + 1
+            line_num = current_line
             i += 1
             escaped = False
 
             while i < n:
                 current = clean_code[i]
+                if current == "\n":
+                    current_line += 1
                 if escaped:
                     escaped = False
                 elif current == "\\":

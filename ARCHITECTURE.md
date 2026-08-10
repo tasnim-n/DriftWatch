@@ -89,3 +89,43 @@ Phase 3A is methodology and data-engineering infrastructure only. It does not tr
 - Extraction manifests preserve record count, label counts, split counts, schema version, dataset identifier/version, warnings, failed records, and seed/code-version metadata where available.
 
 The feature pipeline does not train models, compute ML metrics, or use final risk score/classification as features.
+
+### 2.10 Phase 3C Research Evaluation Layer (`research/`)
+- `loaders.py` reads Phase 3B CSV artifacts and separates metadata from feature columns.
+- `readiness.py` checks whether the dataset is large enough, split correctly, non-duplicate, and sufficiently real to permit ML training.
+- `leakage.py` audits feature names and feature values for target-derived, path-derived, split-derived, and final-score-derived leakage indicators.
+- `metrics.py` computes binary confusion-matrix metrics including precision, recall, F1, balanced accuracy, FPR, FNR, and false alerts per 100 benign updates.
+- `baselines.py` runs deterministic pilot rules for the five Phase 3B feature representations.
+- `experiment_config.py`, `chronological.py`, and `ablation.py` validate experiment configuration, chronological eligibility, and feature-family removal plans.
+- `train_logistic.py` and `train_random_forest.py` provide gated, deterministic sklearn training routines for future datasets that pass readiness and leakage checks.
+- `evaluate.py` writes reproducible experiment artifacts under `artifacts/experiments/`.
+
+The current Phase 3C artifact set is a controlled pilot only. ML training is blocked by the readiness gate until there are enough real, leakage-safe records with valid train/test or chronological split assignments.
+
+### 2.11 Phase 3D Dataset Curation Layer (`driftbench/`)
+- `governance.py` defines source categories, license statuses, dataset lifecycle stages, data-quality statuses, and DriftBench dataset versioning.
+- `intake.py` reads local import manifests, validates provenance/licensing/identity/version order, computes raw package SHA-256 hashes, and separates accepted, quarantined, and excluded records.
+- `versioning.py` orders versions using trustworthy timestamps where available and semantic version parsing as a fallback.
+- `duplicates.py` detects duplicate record IDs, duplicate extension version pairs, and duplicate package hashes.
+- `split_audit.py` checks protected train/validation/test boundaries for extension identity, package-hash, and controlled-mutation-family leakage.
+- `manifests.py` writes machine-readable dataset, provenance, quality, duplicate, leakage, license, and validation reports.
+- `review.py` stores evidence-based manual review forms without treating DriftWatch score as the label source.
+
+Phase 3D curation produces existing `DatasetPairRecord` objects for Phase 3B feature extraction. It does not duplicate feature logic, execute extension code, perform live scraping, or retrain ML models.
+
+### 2.12 Phase 3D.5 Real Pilot Acquisition
+- `acquisition.py` validates HTTPS acquisition URLs, sanitizes filenames, enforces download size limits, and normalizes ZIP layouts for static analysis.
+- Normalization preserves raw package SHA-256 and normalized analysis-package SHA-256 separately.
+- `real_pilot.py` builds the real pilot readiness report from curation, duplicate, leakage, provenance, and feature-extraction artifacts.
+
+Phase 3D.5 uses the Phase 3D intake records and the Phase 3B feature extractor. It does not add a new feature schema and does not train or deploy ML models.
+
+### 2.13 Phase 3E Pilot Empirical Evaluation (`research/phase3e.py`)
+- Freezes the real pilot feature artifacts into `driftbench-real-pilot-phase3e-v1`.
+- Applies the Phase 3E experiment split `phase3e-group-safe-label-aware-v1`, which is extension-group-safe and label-aware because the preserved Phase 3D.6 split had no risky training record.
+- Enforces supervised eligibility by excluding `uncertain` and training-ineligible records from model fitting while retaining them in dataset audit artifacts.
+- Writes `target_definition.json`, `leakage_audit.json`, `group_split_audit.json`, predictions, confusion matrices, error analysis, confidence-interval metadata, ablations, and model-comparison tables under `artifacts/experiments/phase3e/`.
+- Trains Logistic Regression and Random Forest as research artifacts only, with train-only preprocessing and validation-only model selection.
+- Stores local, trusted, generated model artifacts under `artifacts/models/phase3e/phase3e_real_pilot_v1/`.
+
+Phase 3E does not replace or fuse with the production `risk_engine/` scoring path. ML outputs are empirical research artifacts and are not used by the FastAPI application for live risk classification.

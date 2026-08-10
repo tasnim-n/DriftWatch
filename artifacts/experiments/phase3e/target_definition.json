@@ -1,0 +1,27 @@
+{
+  "excluded_labels": {
+    "uncertain": "excluded from supervised fitting/evaluation; retained in dataset audit"
+  },
+  "justification": "The pilot corpus contains 29 benign, 3 risky, and 2 uncertain records. This is insufficient for defensible multiclass classification, so Phase 3E uses a binary security-review target while preserving original labels.",
+  "limitations": [
+    "REVIEW_WORTHY is a research target, not confirmed malicious intent.",
+    "All eligible labels remain pilot labels and most are single-reviewer provisional.",
+    "UNCERTAIN records are not deleted and require future adjudication."
+  ],
+  "mapping": {
+    "benign_transition": "BENIGN",
+    "controlled_malicious_transition": "REVIEW_WORTHY",
+    "risky_transition": "REVIEW_WORTHY"
+  },
+  "problem_type": "binary_classification",
+  "source_labels": {
+    "benign_transition": 29,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "target_labels": {
+    "BENIGN": 0,
+    "REVIEW_WORTHY": 1
+  },
+  "target_version": "phase3e-binary-review-worthy-v1"
+}

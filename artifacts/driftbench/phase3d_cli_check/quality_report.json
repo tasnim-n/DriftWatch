@@ -1,0 +1,19 @@
+{
+  "accepted": [],
+  "excluded": [
+    {
+      "extension_id": "example-extension-id",
+      "label": "uncertain",
+      "label_source": "single_reviewer_provisional",
+      "quality_status": "REJECTED",
+      "reasons": [
+        "old package path does not exist",
+        "new package path does not exist",
+        "label 'uncertain' is retained for review/exclusion and not automatically accepted"
+      ],
+      "record_id": "example-extension-1.0.0-to-1.1.0",
+      "stage": "EXCLUDED"
+    }
+  ],
+  "quarantined": []
+}

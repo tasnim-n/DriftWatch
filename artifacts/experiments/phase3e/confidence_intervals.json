@@ -1,0 +1,272 @@
+{
+  "logistic_regression:full_driftwatch": {
+    "intervals": {
+      "balanced_accuracy": {
+        "p05": 0.0,
+        "p50": 0.5,
+        "p95": 0.5
+      },
+      "f1": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "precision": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "recall": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      }
+    },
+    "reason": "held-out test sample has fewer than 20 records",
+    "status": "computed_but_not_reliable_for_inference",
+    "test_record_count": 6
+  },
+  "logistic_regression:latest_version_static": {
+    "intervals": {
+      "balanced_accuracy": {
+        "p05": 0.0,
+        "p50": 0.5,
+        "p95": 0.5
+      },
+      "f1": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "precision": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "recall": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      }
+    },
+    "reason": "held-out test sample has fewer than 20 records",
+    "status": "computed_but_not_reliable_for_inference",
+    "test_record_count": 6
+  },
+  "logistic_regression:manifest_permission": {
+    "intervals": {
+      "balanced_accuracy": {
+        "p05": 0.0,
+        "p50": 0.5,
+        "p95": 0.5
+      },
+      "f1": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "precision": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "recall": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      }
+    },
+    "reason": "held-out test sample has fewer than 20 records",
+    "status": "computed_but_not_reliable_for_inference",
+    "test_record_count": 6
+  },
+  "logistic_regression:permission_only": {
+    "intervals": {
+      "balanced_accuracy": {
+        "p05": 0.0,
+        "p50": 0.5,
+        "p95": 0.5
+      },
+      "f1": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "precision": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "recall": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      }
+    },
+    "reason": "held-out test sample has fewer than 20 records",
+    "status": "computed_but_not_reliable_for_inference",
+    "test_record_count": 6
+  },
+  "logistic_regression:simple_differential": {
+    "intervals": {
+      "balanced_accuracy": {
+        "p05": 0.0,
+        "p50": 0.5,
+        "p95": 0.5
+      },
+      "f1": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "precision": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "recall": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      }
+    },
+    "reason": "held-out test sample has fewer than 20 records",
+    "status": "computed_but_not_reliable_for_inference",
+    "test_record_count": 6
+  },
+  "random_forest:full_driftwatch": {
+    "intervals": {
+      "balanced_accuracy": {
+        "p05": 0.0,
+        "p50": 0.5,
+        "p95": 0.5
+      },
+      "f1": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "precision": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "recall": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      }
+    },
+    "reason": "held-out test sample has fewer than 20 records",
+    "status": "computed_but_not_reliable_for_inference",
+    "test_record_count": 6
+  },
+  "random_forest:latest_version_static": {
+    "intervals": {
+      "balanced_accuracy": {
+        "p05": 0.0,
+        "p50": 0.5,
+        "p95": 0.5
+      },
+      "f1": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "precision": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "recall": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      }
+    },
+    "reason": "held-out test sample has fewer than 20 records",
+    "status": "computed_but_not_reliable_for_inference",
+    "test_record_count": 6
+  },
+  "random_forest:manifest_permission": {
+    "intervals": {
+      "balanced_accuracy": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "f1": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "precision": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "recall": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      }
+    },
+    "reason": "held-out test sample has fewer than 20 records",
+    "status": "computed_but_not_reliable_for_inference",
+    "test_record_count": 6
+  },
+  "random_forest:permission_only": {
+    "intervals": {
+      "balanced_accuracy": {
+        "p05": 0.0,
+        "p50": 0.5,
+        "p95": 0.5
+      },
+      "f1": {
+        "p05": 0.0,
+        "p50": 0.285714,
+        "p95": 0.666667
+      },
+      "precision": {
+        "p05": 0.0,
+        "p50": 0.166667,
+        "p95": 0.5
+      },
+      "recall": {
+        "p05": 0.0,
+        "p50": 1.0,
+        "p95": 1.0
+      }
+    },
+    "reason": "held-out test sample has fewer than 20 records",
+    "status": "computed_but_not_reliable_for_inference",
+    "test_record_count": 6
+  },
+  "random_forest:simple_differential": {
+    "intervals": {
+      "balanced_accuracy": {
+        "p05": 0.0,
+        "p50": 0.5,
+        "p95": 0.5
+      },
+      "f1": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "precision": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      },
+      "recall": {
+        "p05": 0.0,
+        "p50": 0.0,
+        "p95": 0.0
+      }
+    },
+    "reason": "held-out test sample has fewer than 20 records",
+    "status": "computed_but_not_reliable_for_inference",
+    "test_record_count": 6
+  }
+}

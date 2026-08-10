@@ -1,0 +1,17 @@
+{
+  "accepted_count": 34,
+  "excluded_count": 0,
+  "quarantined_count": 0,
+  "reasons": {
+    "katex-github-chrome-extension_0_1_0_to_0_2_0": [
+      "manifest names differ; identity accepted only with external evidence"
+    ],
+    "save-sora_2_0_355_to_3_0_0": [
+      "label 'uncertain' is retained for review/exclusion and not automatically accepted"
+    ],
+    "save-sora_3_0_0_to_3_0_10": [
+      "label 'uncertain' is retained for review/exclusion and not automatically accepted"
+    ]
+  },
+  "validation_errors": []
+}

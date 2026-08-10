@@ -1,0 +1,17 @@
+{
+  "adjudicated_label": null,
+  "adjudication_rationale": null,
+  "adjudication_timestamp": null,
+  "adjudicator_id": null,
+  "disagreement_status": "pending",
+  "record_id": "",
+  "reviewer_labels": [
+    {
+      "rationale": "",
+      "reviewer_confidence": "",
+      "reviewer_id": "",
+      "reviewer_label": "",
+      "timestamp": ""
+    }
+  ]
+}

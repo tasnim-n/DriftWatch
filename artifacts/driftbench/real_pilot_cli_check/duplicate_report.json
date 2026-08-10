@@ -1,0 +1,28 @@
+{
+  "adjacent_version_reuse": {
+    "00b41c06a40fe91be3f636c71eb07cd58c54e632f492ad74eca179ec668d27ba": [
+      "save_tabbed_images_0_5_0_to_0_6_0:new",
+      "save_tabbed_images_0_6_0_to_0_7_0:old"
+    ],
+    "03e6aaa03f77c34c3a03c4e6cc83af902ef02ff2d03e462a977f1276e3524979": [
+      "save-sora_2_0_196_to_2_0_355:new",
+      "save-sora_2_0_355_to_3_0_0:old"
+    ],
+    "0af2a7e6d63b48d05fe08736dcab40be802104fec4ac8345ec0000869870fe7c": [
+      "save_tabbed_images_0_4_1_to_0_5_0:new",
+      "save_tabbed_images_0_5_0_to_0_6_0:old"
+    ],
+    "1e09e35534665a3e31df70f08cbcf8078c69095704d04feded267d03aec50e5e": [
+      "save-sora_2_0_355_to_3_0_0:new",
+      "save-sora_3_0_0_to_3_0_10:old"
+    ],
+    "ba23549f236431919fb3380140004790722cf9d26fb50e0fc7ff68a32612fedc": [
+      "save_tabbed_images_0_4_0_to_0_4_1:new",
+      "save_tabbed_images_0_4_1_to_0_5_0:old"
+    ]
+  },
+  "duplicate_package_hashes": {},
+  "duplicate_pairs": [],
+  "duplicate_record_ids": [],
+  "passed": true
+}

@@ -1,0 +1,46 @@
+{
+  "intercept": -0.607374,
+  "note": "Coefficients are associations in this pilot corpus, not causal claims.",
+  "top_coefficients": [
+    {
+      "coefficient": 0.293504,
+      "feature": "optional_permission_change_count"
+    },
+    {
+      "coefficient": -0.015986,
+      "feature": "content_script_changed"
+    },
+    {
+      "coefficient": -0.008508,
+      "feature": "removed_permission_count"
+    },
+    {
+      "coefficient": -0.008508,
+      "feature": "removed_sensitive_permission_count"
+    },
+    {
+      "coefficient": 0.0,
+      "feature": "added_permission_count"
+    },
+    {
+      "coefficient": 0.0,
+      "feature": "added_sensitive_permission_count"
+    },
+    {
+      "coefficient": 0.0,
+      "feature": "permission_risk_delta"
+    },
+    {
+      "coefficient": 0.0,
+      "feature": "critical_permission_added"
+    },
+    {
+      "coefficient": 0.0,
+      "feature": "high_permission_added"
+    },
+    {
+      "coefficient": 0.0,
+      "feature": "host_count_delta"
+    }
+  ]
+}

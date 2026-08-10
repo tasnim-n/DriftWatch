@@ -33,6 +33,12 @@ class DatasetPairRecord:
     provenance: ProvenanceRecord
     controlled_mutation_type: Optional[str] = None
     label_confidence: str = "high"
+    label_source: str = "unknown"
+    label_review_status: str = "unreviewed"
+    label_quality_tier: str = "UNCERTAIN"
+    eligible_for_supervised_training: bool = False
+    functional_category: Optional[str] = None
+    review_packet_path: Optional[str] = None
     feature_vector: Dict[str, Any] = field(default_factory=dict)
     drift_vector: Dict[str, Any] = field(default_factory=dict)
     split: Optional[str] = None
@@ -66,6 +72,12 @@ class DatasetPairRecord:
             },
             "controlled_mutation_type": self.controlled_mutation_type,
             "label_confidence": self.label_confidence,
+            "label_source": self.label_source,
+            "label_review_status": self.label_review_status,
+            "label_quality_tier": self.label_quality_tier,
+            "eligible_for_supervised_training": self.eligible_for_supervised_training,
+            "functional_category": self.functional_category,
+            "review_packet_path": self.review_packet_path,
             "feature_vector": dict(self.feature_vector),
             "drift_vector": dict(self.drift_vector),
             "split": self.split,

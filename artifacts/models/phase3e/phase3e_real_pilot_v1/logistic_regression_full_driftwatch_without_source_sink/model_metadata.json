@@ -1,0 +1,14 @@
+{
+  "experiment_id": "phase3e_real_pilot_v1",
+  "feature_count": 42,
+  "feature_set": "full_driftwatch_without_source_sink",
+  "model": "logistic_regression",
+  "model_artifact": "artifacts\\models\\phase3e\\phase3e_real_pilot_v1\\logistic_regression_full_driftwatch_without_source_sink\\model.joblib",
+  "random_seed": 1337,
+  "selected_hyperparameters": {
+    "C": 0.1,
+    "class_weight": null
+  },
+  "selection_protocol": "validation_f1_then_balanced_accuracy_then_lower_fpr",
+  "training_seconds": 0.002341
+}

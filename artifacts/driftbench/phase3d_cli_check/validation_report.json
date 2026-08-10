@@ -1,0 +1,13 @@
+{
+  "accepted_count": 0,
+  "excluded_count": 1,
+  "quarantined_count": 0,
+  "reasons": {
+    "example-extension-1.0.0-to-1.1.0": [
+      "old package path does not exist",
+      "new package path does not exist",
+      "label 'uncertain' is retained for review/exclusion and not automatically accepted"
+    ]
+  },
+  "validation_errors": []
+}

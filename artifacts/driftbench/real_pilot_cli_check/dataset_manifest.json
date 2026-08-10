@@ -1,0 +1,32 @@
+{
+  "accepted": 10,
+  "controlled_record_count": 0,
+  "creation_timestamp": "2026-08-10T17:50:40.672033+00:00",
+  "dataset_manifest_sha256": "c7dd7e75ff33d187cc45f5db7b84e5d7f4d4589b864e420923641f011ff110a0",
+  "dataset_version": "0.1.0-real-pilot",
+  "driftbench_version": "0.1.0",
+  "dry_run": true,
+  "excluded": 0,
+  "feature_schema_version": "1.0",
+  "imported": 10,
+  "label_distribution": {
+    "benign_transition": 6,
+    "risky_transition": 2,
+    "uncertain": 2
+  },
+  "label_ontology_version": "phase3d-labels-v1",
+  "label_source_distribution": {
+    "repository_documented_change": 1,
+    "single_reviewer_provisional": 9
+  },
+  "license_status_distribution": {
+    "allowed": 10
+  },
+  "quarantined": 0,
+  "real_record_count": 10,
+  "schema_version": "phase3d-intake-v1",
+  "source_manifest_sha256": "467d40d06f270eea9862f605fd55172479c10fdcd9b685657d8d628eb6a41b6c",
+  "split_version": "phase3d-preserved-splits-v1",
+  "unique_extension_count": 5,
+  "version_pair_count": 10
+}

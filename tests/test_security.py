@@ -24,7 +24,7 @@ def test_zip_bomb_file_count_limit():
     extract_target = os.path.join(temp_dir, "extract_target")
 
     with zipfile.ZipFile(zip_path, "w") as zf:
-        for i in range(505):
+        for i in range(1005):
             zf.writestr(f"file_{i}.txt", "dummy content")
 
     with pytest.raises(SecurityException) as exc_info:

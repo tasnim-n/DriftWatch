@@ -1,0 +1,42 @@
+{
+  "analyzer_availability": {
+    "api_analyzer_available": 2,
+    "network_analyzer_available": 2,
+    "obfuscation_analyzer_available": 2,
+    "structure_analyzer_available": 2
+  },
+  "controlled_record_count": 2,
+  "duplicate_records": [],
+  "label_distribution": {
+    "benign_transition": 1,
+    "risky_transition": 1
+  },
+  "labels": [
+    "benign_transition",
+    "risky_transition"
+  ],
+  "missingness": {
+    "api_analyzer_available": 0,
+    "network_analyzer_available": 0,
+    "obfuscation_analyzer_available": 0,
+    "structure_analyzer_available": 0
+  },
+  "ml_block_reasons": [
+    "fewer than 20 records",
+    "no train/test split assignments",
+    "all records are controlled/synthetic"
+  ],
+  "ml_training_permitted": false,
+  "provenance_complete_count": 2,
+  "provenance_incomplete_count": 0,
+  "real_record_count": 0,
+  "record_count": 2,
+  "split_counts": {
+    "controlled_holdout": 2
+  },
+  "unique_extension_count": 2,
+  "unique_extensions_per_split": {
+    "controlled_holdout": 2
+  },
+  "version_pair_count": 2
+}

@@ -1,0 +1,16 @@
+{
+  "license_status_distribution": {
+    "allowed": 1
+  },
+  "records": [
+    {
+      "attribution_required": true,
+      "license": "REPLACE_WITH_LICENSE_IDENTIFIER",
+      "license_status": "allowed",
+      "record_id": "example-extension-1.0.0-to-1.1.0",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "stage": "EXCLUDED"
+    }
+  ]
+}

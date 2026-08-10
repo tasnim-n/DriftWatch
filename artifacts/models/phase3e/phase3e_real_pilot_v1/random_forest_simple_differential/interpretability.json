@@ -1,0 +1,45 @@
+{
+  "note": "Impurity importances are descriptive and unstable on this small corpus.",
+  "top_feature_importances": [
+    {
+      "feature": "obfuscation_count_delta",
+      "importance": 0.224017
+    },
+    {
+      "feature": "package_size_delta_bytes",
+      "importance": 0.211899
+    },
+    {
+      "feature": "function_count_delta",
+      "importance": 0.17138
+    },
+    {
+      "feature": "network_destination_count_delta",
+      "importance": 0.16144
+    },
+    {
+      "feature": "api_count_delta",
+      "importance": 0.158762
+    },
+    {
+      "feature": "file_count_delta",
+      "importance": 0.048407
+    },
+    {
+      "feature": "js_file_count_delta",
+      "importance": 0.021709
+    },
+    {
+      "feature": "permission_count_delta",
+      "importance": 0.002385
+    },
+    {
+      "feature": "host_count_delta",
+      "importance": 0.0
+    },
+    {
+      "feature": "api_analyzer_available",
+      "importance": 0.0
+    }
+  ]
+}

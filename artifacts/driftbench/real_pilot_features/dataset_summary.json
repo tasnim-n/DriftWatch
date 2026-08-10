@@ -1,0 +1,15 @@
+{
+  "feature_count": 57,
+  "label_counts": {
+    "benign_transition": 29,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "missingness_counts": {},
+  "record_count": 34,
+  "split_counts": {
+    "test": 6,
+    "train": 16,
+    "validation": 12
+  }
+}

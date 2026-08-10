@@ -1,0 +1,44 @@
+{
+  "baselines": [
+    "permission_only",
+    "manifest_permission",
+    "latest_version_static",
+    "simple_differential",
+    "full_driftwatch"
+  ],
+  "code_version": "phase3d6",
+  "deterministic_seed": 1337,
+  "extraction_warnings": [
+    "record[7] save-sora_2_0_355_to_3_0_0: label 'uncertain' must be excluded from supervised training",
+    "record[8] save-sora_3_0_0_to_3_0_10: label 'uncertain' must be excluded from supervised training"
+  ],
+  "failed_records": [],
+  "feature_families": [
+    "analyzer_health",
+    "api_drift",
+    "host_drift",
+    "latest_static",
+    "manifest_permission",
+    "network_drift",
+    "obfuscation_drift",
+    "package_drift",
+    "permission_drift",
+    "simple_differential",
+    "structural_drift"
+  ],
+  "feature_schema_version": "1.0",
+  "generation_timestamp": "2026-08-10T00:00:00+00:00",
+  "label_counts": {
+    "benign_transition": 29,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "record_count": 34,
+  "source_dataset_identifier": "driftbench-real-pilot",
+  "source_dataset_version": "0.1.0-real-pilot",
+  "split_counts": {
+    "test": 6,
+    "train": 16,
+    "validation": 12
+  }
+}

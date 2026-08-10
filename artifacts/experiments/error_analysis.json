@@ -1,0 +1,42 @@
+{
+  "by_baseline": {
+    "full_driftwatch": {
+      "error_count": 0,
+      "errors": [],
+      "recurring_failure_modes": []
+    },
+    "latest_version_static": {
+      "error_count": 1,
+      "errors": [
+        {
+          "extension_id": "controlled-note-a",
+          "predicted_binary": 1,
+          "predicted_label": "risky_transition",
+          "record_id": "controlled-note-a-v1-v2",
+          "split": "controlled_holdout",
+          "true_binary": 0,
+          "true_label": "benign_transition"
+        }
+      ],
+      "recurring_failure_modes": [
+        "See per-record errors; dataset too small for recurring-pattern claims."
+      ]
+    },
+    "manifest_permission": {
+      "error_count": 0,
+      "errors": [],
+      "recurring_failure_modes": []
+    },
+    "permission_only": {
+      "error_count": 0,
+      "errors": [],
+      "recurring_failure_modes": []
+    },
+    "simple_differential": {
+      "error_count": 0,
+      "errors": [],
+      "recurring_failure_modes": []
+    }
+  },
+  "scope": "pilot_controlled_records"
+}

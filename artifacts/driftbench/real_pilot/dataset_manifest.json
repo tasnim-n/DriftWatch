@@ -1,0 +1,158 @@
+{
+  "accepted": 34,
+  "controlled_record_count": 0,
+  "creation_timestamp": "2026-08-10T18:15:08.538991+00:00",
+  "dataset_manifest_sha256": "c0fb03b6ca08cea1bda5bcc5456191365f8e433a3d054cba4370f2822b6f17a9",
+  "dataset_version": "0.1.0-real-pilot",
+  "driftbench_version": "0.1.0",
+  "dry_run": false,
+  "eligible_label_distribution": {
+    "benign_transition": 29,
+    "risky_transition": 3
+  },
+  "eligible_supervised_training_count": 32,
+  "eligible_uncertain_count": 0,
+  "excluded": 0,
+  "feature_schema_version": "1.0",
+  "functional_category_distribution": {
+    "content_blocking": 4,
+    "github_productivity": 4,
+    "image_download": 4,
+    "math_rendering": 1,
+    "password_management": 4,
+    "privacy": 4,
+    "screen_recording": 1,
+    "user_script_manager": 4,
+    "video_captioning": 1,
+    "video_download": 3,
+    "video_enhancement": 4
+  },
+  "imported": 34,
+  "label_distribution": {
+    "benign_transition": 29,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "label_ontology_version": "phase3d-labels-v1",
+  "label_quality_tier_distribution": {
+    "SINGLE_REVIEWER_PROVISIONAL": 32,
+    "UNCERTAIN": 2
+  },
+  "label_source_distribution": {
+    "repository_documented_change": 1,
+    "single_reviewer_provisional": 33
+  },
+  "license_identifier_distribution": {
+    "Apache-2.0": 4,
+    "GPL-3.0": 13,
+    "MIT": 17
+  },
+  "license_status_distribution": {
+    "allowed": 34
+  },
+  "quarantined": 0,
+  "real_record_count": 34,
+  "schema_version": "phase3d-intake-v1",
+  "source_manifest_sha256": "41ae28b9068d726746aba12b3502392b7e1eb92a6ec3c3fcdc25f07ab2d0e66b",
+  "source_type_distribution": {
+    "open_source_repository": 34
+  },
+  "split_counts": {
+    "test": 6,
+    "train": 16,
+    "validation": 12
+  },
+  "split_quality": {
+    "block_reasons": [],
+    "eligible_labels_per_split": {
+      "test": {
+        "benign_transition": 5,
+        "risky_transition": 1
+      },
+      "train": {
+        "benign_transition": 16
+      },
+      "validation": {
+        "benign_transition": 8,
+        "risky_transition": 2
+      }
+    },
+    "functional_category_distribution": {
+      "content_blocking": 4,
+      "github_productivity": 4,
+      "image_download": 4,
+      "math_rendering": 1,
+      "password_management": 4,
+      "privacy": 4,
+      "screen_recording": 1,
+      "user_script_manager": 4,
+      "video_captioning": 1,
+      "video_download": 3,
+      "video_enhancement": 4
+    },
+    "labels_per_split": {
+      "test": {
+        "benign_transition": 5,
+        "risky_transition": 1
+      },
+      "train": {
+        "benign_transition": 16
+      },
+      "validation": {
+        "benign_transition": 8,
+        "risky_transition": 2,
+        "uncertain": 2
+      }
+    },
+    "leakage_passed": true,
+    "leakage_violations": [],
+    "minimum_test_quality_passed": true,
+    "pair_count_stats_per_extension": {
+      "max": 4,
+      "median": 4,
+      "min": 1
+    },
+    "real_controlled_per_split": {
+      "test": {
+        "controlled": 0,
+        "real": 6
+      },
+      "train": {
+        "controlled": 0,
+        "real": 16
+      },
+      "validation": {
+        "controlled": 0,
+        "real": 12
+      }
+    },
+    "split_counts": {
+      "test": 6,
+      "train": 16,
+      "validation": 12
+    },
+    "unique_extension_count": 11,
+    "unique_extensions_per_split": {
+      "test": 3,
+      "train": 4,
+      "validation": 4
+    },
+    "version_pair_distribution_per_extension": {
+      "github:aaroncql/katex-github-chrome-extension": 1,
+      "github:ajayyy/sponsorblock": 4,
+      "github:alpha1337/save-sora": 3,
+      "github:alyssaxuu/screenity": 1,
+      "github:duckduckgo/duckduckgo-privacy-extension": 4,
+      "github:gorhill/ublock": 4,
+      "github:keepassxreboot/keepassxc-browser": 4,
+      "github:kevinsqi/save_tabbed_images": 4,
+      "github:refined-github/refined-github": 4,
+      "github:violentmonkey/violentmonkey": 4,
+      "github:yniijia/subtidex": 1
+    },
+    "warnings": []
+  },
+  "split_version": "phase3d-preserved-splits-v1",
+  "unique_extension_count": 11,
+  "version_pair_count": 34
+}

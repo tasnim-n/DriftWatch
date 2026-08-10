@@ -43,6 +43,7 @@ class NetworkAnalyzer:
     BASE64_CANDIDATE_REGEX = re.compile(r'^[A-Za-z0-9+/]+={0,2}$')
     MAX_ENCODED_LENGTH = 4096
     MAX_DECODED_LENGTH = 8192
+    MAX_NON_MANIFEST_JSON_SCAN_BYTES = 2 * 1024 * 1024
     NON_NETWORK_TLDS = {
         "js", "json", "html", "htm", "css", "png", "jpg", "jpeg", "gif",
         "svg", "wasm", "txt", "md", "map"
@@ -262,6 +263,12 @@ class NetworkAnalyzer:
             for file in files:
                 if file.endswith((".js", ".html", ".json")):
                     full_path = os.path.join(root, file)
+                    if (
+                        file.endswith(".json")
+                        and file != "manifest.json"
+                        and os.path.getsize(full_path) > cls.MAX_NON_MANIFEST_JSON_SCAN_BYTES
+                    ):
+                        continue
                     rel_path = os.path.relpath(full_path, extension_dir).replace("\\", "/")
                     indicators.extend(cls.extract_network_indicators(full_path, rel_path))
         return indicators
@@ -294,6 +301,7 @@ class NetworkAnalyzer:
         return {
             "v1_network_count": len(v1_ind),
             "v2_network_count": len(v2_ind),
+            "v2_indicators": v2_ind,
             "added_indicators": added_indicators,
             "new_external_destinations": new_external_destinations,
             "new_local_destinations": new_local_destinations,

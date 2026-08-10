@@ -1,0 +1,49 @@
+{
+  "dataset_version": "0.1.0",
+  "records": [
+    {
+      "record_id": "example-extension-1.0.0-to-1.1.0",
+      "extension_id": "example-extension-id",
+      "extension_name": "Example Extension",
+      "source_type": "open_source_repository",
+      "source_reference": "REPLACE_WITH_LOCAL_SOURCE_REFERENCE",
+      "source_repository": "REPLACE_WITH_REPOSITORY_URL_OR_NULL",
+      "source_url": null,
+      "source_dataset": null,
+      "acquisition_timestamp": "2026-08-10T00:00:00+00:00",
+      "collector": "REPLACE_WITH_COLLECTOR_CODE",
+      "license": "REPLACE_WITH_LICENSE_IDENTIFIER",
+      "license_status": "allowed",
+      "redistribution_allowed": true,
+      "research_use_allowed": true,
+      "attribution_required": true,
+      "is_controlled": false,
+      "label": "uncertain",
+      "label_source": "single_reviewer_provisional",
+      "label_confidence": "low",
+      "label_review_status": "provisional",
+      "label_rationale": "Replace with evidence-based rationale. Do not use DriftWatch score as ground truth.",
+      "evidence_references": [],
+      "split": null,
+      "old": {
+        "path": "../incoming/example-extension-1.0.0.zip",
+        "version": "1.0.0",
+        "timestamp": null,
+        "timestamp_source": null,
+        "timestamp_confidence": "unknown",
+        "extension_id": "example-extension-id"
+      },
+      "new": {
+        "path": "../incoming/example-extension-1.1.0.zip",
+        "version": "1.1.0",
+        "timestamp": null,
+        "timestamp_source": null,
+        "timestamp_confidence": "unknown",
+        "extension_id": "example-extension-id"
+      },
+      "notes": [
+        "This template is not a dataset record until real source material and provenance are supplied."
+      ]
+    }
+  ]
+}

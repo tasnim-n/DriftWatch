@@ -1,0 +1,46 @@
+{
+  "intercept": -0.607388,
+  "note": "Coefficients are associations in this pilot corpus, not causal claims.",
+  "top_coefficients": [
+    {
+      "coefficient": 0.069522,
+      "feature": "v2_total_permission_count"
+    },
+    {
+      "coefficient": -0.068961,
+      "feature": "v2_total_host_count"
+    },
+    {
+      "coefficient": -0.068961,
+      "feature": "v2_wildcard_host_count"
+    },
+    {
+      "coefficient": -0.03163,
+      "feature": "v2_source_sink_indicator_count"
+    },
+    {
+      "coefficient": -0.030807,
+      "feature": "v2_sensitive_api_count"
+    },
+    {
+      "coefficient": -0.02532,
+      "feature": "v2_obfuscation_indicator_count"
+    },
+    {
+      "coefficient": -0.02521,
+      "feature": "v2_dynamic_execution_count"
+    },
+    {
+      "coefficient": -0.019646,
+      "feature": "v2_external_domain_count"
+    },
+    {
+      "coefficient": -0.018997,
+      "feature": "v2_hardcoded_ip_count"
+    },
+    {
+      "coefficient": -0.017393,
+      "feature": "v2_http_endpoint_count"
+    }
+  ]
+}

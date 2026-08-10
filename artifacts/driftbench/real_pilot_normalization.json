@@ -1,0 +1,362 @@
+{
+  "duckduckgo_privacy_2025.11.3.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\duckduckgo_privacy_2025.11.3.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "afac27cc5f01937c2444b45fe411dc568f7c0472884fe55420f086867b01ac53",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\duckduckgo_privacy_2025.11.3.zip",
+    "raw_sha256": "1291393df653d4bcdf4093ecca7c54e1a699aaa4d4ed147d9ac612bd4f95b0ec"
+  },
+  "duckduckgo_privacy_2025.12.12.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\duckduckgo_privacy_2025.12.12.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "74186834ec1ff9b4ca45167bb031c4e3c36abf2cd230b440935425e64224ad5f",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\duckduckgo_privacy_2025.12.12.zip",
+    "raw_sha256": "ca3a9a8186e74e1835cca3a48f7ed57fc2e541c2b826d5ea7b4d2f89658b5fe0"
+  },
+  "duckduckgo_privacy_2025.12.14.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\duckduckgo_privacy_2025.12.14.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "26f521d348af14e5207a49980f35c343153a3a13e773fc7d821500cbd60e8db8",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\duckduckgo_privacy_2025.12.14.zip",
+    "raw_sha256": "ce10eca6a4a59699373d5c44afc55981c85b1ecfe3ad7f66af6e9b0ed3cfabed"
+  },
+  "duckduckgo_privacy_2026.1.12.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\duckduckgo_privacy_2026.1.12.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "7b41f623eb78027ecdb54e5be0afddcfb5396d9f877ab976be3544687b7f0d39",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\duckduckgo_privacy_2026.1.12.zip",
+    "raw_sha256": "86db43f037e15fae6cd4806a4be47441483f4d2f8d3705fd7b48b7b52ce717c3"
+  },
+  "duckduckgo_privacy_2026.4.28.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\duckduckgo_privacy_2026.4.28.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "58809de30502fd6eb406f67a89c044d578ea5379e5bbea2fc8f630ff9fd9ddf5",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\duckduckgo_privacy_2026.4.28.zip",
+    "raw_sha256": "c2786df6aacbe903ca163b6c8623c6fa014b412461b02bfbbe5b8bc04aafed7f"
+  },
+  "katex-github-chrome-extension_v0.1.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\katex-github-chrome-extension_v0.1.0.zip",
+    "manifest_path": "dist/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "a670842aaba9ccd950fc831c6aa35e9df445bef4c5e245c1752ddc3aefae1c22",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\katex-github-chrome-extension_v0.1.0.zip",
+    "raw_sha256": "df3b349737fb4aaa9082264e9917267c683c3b9c14dc0574fcc4d79753ca7c9d"
+  },
+  "katex-github-chrome-extension_v0.2.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\katex-github-chrome-extension_v0.2.0.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "8fd6a97bf90f8be2b1c3696ec28d00f6e1b8d38e03298214b05eb94c78be8f79",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\katex-github-chrome-extension_v0.2.0.zip",
+    "raw_sha256": "10fe113efd0eef9fdc12a98931cb96e77bce92b6157c152802f2576107252002"
+  },
+  "keepassxc_browser_1.10.0.1.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\keepassxc_browser_1.10.0.1.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "4b9a1ef9c4220aa83e803ed70000fd4142d8484153c48877eeb6893fbc8dbac0",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\keepassxc_browser_1.10.0.1.zip",
+    "raw_sha256": "4413299746340921e1d796f081b858b31ddbd66046d38cd6dce36dca33304780"
+  },
+  "keepassxc_browser_1.10.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\keepassxc_browser_1.10.0.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "802d13d2c72b35ef8e3f8d8c1af7584b695b45c7f1915222c3351220a6d692f7",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\keepassxc_browser_1.10.0.zip",
+    "raw_sha256": "751383e29e71d8fa0ec61fe42c0248e158d89b30ed19c6d24677c8e4cc574485"
+  },
+  "keepassxc_browser_1.10.1.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\keepassxc_browser_1.10.1.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "fa3c534a923a7fb15b16659116b3be1819c1b2078f6ea0f169ffd30e37583d04",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\keepassxc_browser_1.10.1.zip",
+    "raw_sha256": "91bc77cb4acd303f59835336c953162c19d21dbe4c8e90ef59e1bf484111a671"
+  },
+  "keepassxc_browser_1.10.2.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\keepassxc_browser_1.10.2.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "49649a8f7847eb63d6b0d77ee09f1c0a8ae485fe5a47b3326411f1225bb0a00b",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\keepassxc_browser_1.10.2.zip",
+    "raw_sha256": "bedb3f191928c8df4a7ae93d4468f0d49bec18961066d3440771fbe095063b36"
+  },
+  "keepassxc_browser_1.9.11.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\keepassxc_browser_1.9.11.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "db4e1901f49f66a8acb56b4ea354878bcf1e9b2ad67a349bbafdf57b7df9e329",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\keepassxc_browser_1.9.11.zip",
+    "raw_sha256": "e0cad61a63a2cab1fad4443e0916a51f888c63b90c4dde262a5368fc11745a87"
+  },
+  "refined_github_26.5.24.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\refined_github_26.5.24.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "4224170d0fa6f67ffd30491e069e9c0d27607cc5c9369d2b04cb2d1d825df9cf",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\refined_github_26.5.24.zip",
+    "raw_sha256": "b8c45e28b02491106c88d4bf32f83a2493bfc829a85f5ddb74e597e3ad65ac25"
+  },
+  "refined_github_26.6.1.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\refined_github_26.6.1.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "abf2dca4622e75f740c5ebe4f9eeba762a0cc9f266dbb807998ead88f0a11ca4",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\refined_github_26.6.1.zip",
+    "raw_sha256": "782342ed4f96ab837b63c44c7d0d29f092ef6247fef58ce619533a8688729117"
+  },
+  "refined_github_26.6.7.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\refined_github_26.6.7.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "f864fb501d710e40b10a986bee89d989b550975f08b0a1572a67a86e90428b58",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\refined_github_26.6.7.zip",
+    "raw_sha256": "1237aba30a32c56a0bcbddcf4fd0ac0106d4704b546d79384faaa831fb4ebab1"
+  },
+  "refined_github_26.7.11.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\refined_github_26.7.11.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "97fc88302225bdf7c93de3e94e46e475c7df3b5bc5ef8f3f8ca62d277af5d803",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\refined_github_26.7.11.zip",
+    "raw_sha256": "17cbd710a74cc9d91acff0cfc5a1e868d66c54b14380b62ef64c04183342db66"
+  },
+  "refined_github_26.7.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\refined_github_26.7.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "ac2f8bc556fcf6c5bdf532e39bb2c1fb49b7be87cff50d7060d38aed1a8b3bd3",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\refined_github_26.7.zip",
+    "raw_sha256": "046ccf78ba76be64b1fc9b97e673f0d240e74343f3e7da5194997235b9b1cd91"
+  },
+  "save-sora_v2.0.196.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\save-sora_v2.0.196.zip",
+    "manifest_path": "save-sora/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "3b3fe989a060a1bfaa4f43338bf9d80b97e7e5add2ed07652c2b9b54ccff6618",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\save-sora_v2.0.196.zip",
+    "raw_sha256": "c7b608241a900a2a11bea4467b18243b885922dc62348a2a315c613a5f045cb9"
+  },
+  "save-sora_v2.0.355.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\save-sora_v2.0.355.zip",
+    "manifest_path": "save-sora/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "3fb40f69c5d3992eb17a25aa199f2542146319e31013c815652a89087caf73b9",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\save-sora_v2.0.355.zip",
+    "raw_sha256": "643c90003ea63662511a41530ec9d31616e713c019492054a51bb4620b699c4a"
+  },
+  "save-sora_v3.0.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\save-sora_v3.0.0.zip",
+    "manifest_path": "save-sora/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "5740963b249690f3fe0a9ee5085f96c2567667e76392aa1e1af64da3c74783e2",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\save-sora_v3.0.0.zip",
+    "raw_sha256": "54ad44131412dbbd7ad97f73203c5023561ec6e1ef1b1346fd43bc57212719e2"
+  },
+  "save-sora_v3.0.10.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\save-sora_v3.0.10.zip",
+    "manifest_path": "save-sora/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "a7fa63ed573ff5d0ecb42fae142539bda5006449444bc1b057febc3e54167fc4",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\save-sora_v3.0.10.zip",
+    "raw_sha256": "e1cc8819cb0bd3d6484f228212e329b581736dd783899c67e71190498ca0d16c"
+  },
+  "save_tabbed_images_0.4.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\save_tabbed_images_0.4.0.zip",
+    "manifest_path": "dist/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "bfbbc836492dd2cfbac5352576e5a3ef50e8e395b94aa473e58989150b14db98",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\save_tabbed_images_0.4.0.zip",
+    "raw_sha256": "4435005e5f83867c01da38e9f58f0a491ef89c22a13bb4d5810d79ba2f60db90"
+  },
+  "save_tabbed_images_0.4.1.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\save_tabbed_images_0.4.1.zip",
+    "manifest_path": "dist/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "ef9fb316e4811f0f379554aac601b454fa17ea2cd8d36efa8db03080e56144dc",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\save_tabbed_images_0.4.1.zip",
+    "raw_sha256": "c6e220ccbd75f7583a47c9293ee8c9bbfcace240b60ca945ef1370b4131a08d5"
+  },
+  "save_tabbed_images_0.5.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\save_tabbed_images_0.5.0.zip",
+    "manifest_path": "dist/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "be758e0a0cd69d102a84e0bc407e91779313e1eaba0d8eca0f3fa01c899d3b82",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\save_tabbed_images_0.5.0.zip",
+    "raw_sha256": "572c8c8a3a428273b4e35f1b56082af9fdb4453d06462f90800b915296bc242f"
+  },
+  "save_tabbed_images_0.6.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\save_tabbed_images_0.6.0.zip",
+    "manifest_path": "dist/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "5cbf819d2561d7b7c740ebcd1e0c94de6a9c039ee2292f59646525e067398d6f",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\save_tabbed_images_0.6.0.zip",
+    "raw_sha256": "58dbf9c3e702fac499a2bf100e43a99a930baa1f6b2db49b56b4094568dcdd16"
+  },
+  "save_tabbed_images_0.7.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\save_tabbed_images_0.7.0.zip",
+    "manifest_path": "dist/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "6a752a29a368efb9f09c1dd945711e14f0c956d9fa9e9c5c3f4abf4cb8ba397d",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\save_tabbed_images_0.7.0.zip",
+    "raw_sha256": "8887c06c2c222a375d67fff5d3885365ed9a412ed831e83c7eef113172eb3e1c"
+  },
+  "screenity_v4.5.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\screenity_v4.5.0.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "41400c5f292659324bd4f8d8cd826a2d281567583ce1c70ed28b792815daea97",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\screenity_v4.5.0.zip",
+    "raw_sha256": "68e21a9763a354641ed53f247b79541431061f0cb013923b319f09fdcfea9357"
+  },
+  "screenity_v4.5.1.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\screenity_v4.5.1.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "f210c27eae42a8b5dee5744f74f695983c32240ba61379bf721a4fa41c485569",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\screenity_v4.5.1.zip",
+    "raw_sha256": "6e02d16f44b4ce4925b1d831eb1fe2b29c21a0f0629cd81c973965722331ee77"
+  },
+  "sponsorblock_6.1.3.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\sponsorblock_6.1.3.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "facf28891fef6e0804dfd0c1812a3fd4d1393cc39f63a468d8cd31bae19a709a",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\sponsorblock_6.1.3.zip",
+    "raw_sha256": "f5663ff2409fdc8fbb8d653b09948e30d34de233a0ce56a1bef8ebda21112c8e"
+  },
+  "sponsorblock_6.1.4.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\sponsorblock_6.1.4.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "61f721b7a52dadd2303b8b7c43bb30981b45050c0f19410bdf2f4d44c0ba1fef",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\sponsorblock_6.1.4.zip",
+    "raw_sha256": "531516bae243b69086dc975ae7e250812f22aaae318919bd7b2464d633067934"
+  },
+  "sponsorblock_6.1.5.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\sponsorblock_6.1.5.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "5e9486c94d9f8206d84279e70ef4289ae1f87908f7176ff44569df2449d98592",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\sponsorblock_6.1.5.zip",
+    "raw_sha256": "c25787af66a15ee378ff0ff975b6b1b6352cabc09b5e60be589bb1d7616bcc45"
+  },
+  "sponsorblock_6.1.6.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\sponsorblock_6.1.6.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "ad23df7c49ce9871383624db056057e89962dc8c39ff65a41215f0ce7ff7ebe1",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\sponsorblock_6.1.6.zip",
+    "raw_sha256": "a65ce718f70bfad221e19e0c229c6e11d207f97e61accf083565c1cce6bdcd46"
+  },
+  "sponsorblock_6.1.7.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\sponsorblock_6.1.7.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "b383293cb83c6d6555be5331bb753c66f6311468fbc4f19d43c625c11a98f1ab",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\sponsorblock_6.1.7.zip",
+    "raw_sha256": "7c8e3dc8b5e560b480ae8efdf28f4f1101fce0cc32434562a336a89e4962eda3"
+  },
+  "subtidex_v1.5.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\subtidex_v1.5.0.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "aa707402841a02a46e596e61e88a0f91a027a23cc6db10a9ba8c90ee196e59f1",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\subtidex_v1.5.0.zip",
+    "raw_sha256": "da500870e370c7ca412cac5ab31239dd68dd3bac5cb91111e69165f12b18aacb"
+  },
+  "subtidex_v1.5.1.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\subtidex_v1.5.1.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "61c25128735f3676e2e42adede6662b9bf6805d25e662201975b60d27e8bae60",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\subtidex_v1.5.1.zip",
+    "raw_sha256": "2134d25b5694ada970a7075064d8429f93e3e1e121fd554aa12a5b7ad352f57d"
+  },
+  "ublock_1.70.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\ublock_1.70.0.zip",
+    "manifest_path": "uBlock0.chromium/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "4442e78270848fc8dc3054e0a640566524bda70c395bd0f1efb25e3d1d0a7c35",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\ublock_1.70.0.zip",
+    "raw_sha256": "8d9c19b3ea45a44766177772688151b649a50e1276a3ed601edaabc2a4e515be"
+  },
+  "ublock_1.71.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\ublock_1.71.0.zip",
+    "manifest_path": "uBlock0.chromium/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "7a022c56fc0b98c6f529da100f248a32c5cdbab5e00133513e1079b517a36ebf",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\ublock_1.71.0.zip",
+    "raw_sha256": "5313a13fdbe748c23abdde6d24671635a3711a7ab0cf53f420bfa4aecdc36bf6"
+  },
+  "ublock_1.72.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\ublock_1.72.0.zip",
+    "manifest_path": "uBlock0.chromium/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "cfe7dc5d8bc9cc0c022735048cacdd009f7dc76a906b5733d4b4235d2492bee4",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\ublock_1.72.0.zip",
+    "raw_sha256": "c2900bbe9a783e645389cdeb19be632a033ad11d8bee7a94b0d0c316a20a2b05"
+  },
+  "ublock_1.72.2.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\ublock_1.72.2.zip",
+    "manifest_path": "uBlock0.chromium/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "4f587a0a4b18583ed5960f3016fa58aa133ca6c766a065eb0e7cd8085dea9eb2",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\ublock_1.72.2.zip",
+    "raw_sha256": "d104cac4e1f48d76b1c3ff88aede2eaa8269814ae06cc9c850d27afb5274e533"
+  },
+  "ublock_1.73.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\ublock_1.73.0.zip",
+    "manifest_path": "uBlock0.chromium/manifest.json",
+    "normalized_layout": true,
+    "normalized_sha256": "8b186819d92ae84855e0ba4255aa4896260db8ca3eca7f85ca2594cedf130088",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\ublock_1.73.0.zip",
+    "raw_sha256": "22c62bc0f35ed0c5e95d1fc831a829af199c7ca6fdb4f841be034c25719ce911"
+  },
+  "violentmonkey_2.43.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\violentmonkey_2.43.0.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "2ade05806c4c461925b5219f58f61c84c4af48e3e61a18dc8c4a22004c18b19d",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\violentmonkey_2.43.0.zip",
+    "raw_sha256": "475dfcaef3440919433f4682278a34c07ae9c693a005e448f72e4b920e8b66a6"
+  },
+  "violentmonkey_2.44.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\violentmonkey_2.44.0.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "95b3447fc493822d74d2fb216f651209542030a62aa99af57b9c276bea7e8103",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\violentmonkey_2.44.0.zip",
+    "raw_sha256": "6265e053d26254336a05e601dfa8fbfb26da9bb18613111c69fe32a8cd30878c"
+  },
+  "violentmonkey_2.45.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\violentmonkey_2.45.0.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "f245051e745d0dfaf7e77197218cd3d5044e0ec8d6e0711bb416d4fb62918d80",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\violentmonkey_2.45.0.zip",
+    "raw_sha256": "936ae3d0e43a733c74e8473e97fa7fdb1130b99dc999d7e90800b5991aff1af2"
+  },
+  "violentmonkey_2.46.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\violentmonkey_2.46.0.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "fecde4b15b69e04e8853256b9be1df7717c5d3e9997c08ef86a9ac186b9a4f0f",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\violentmonkey_2.46.0.zip",
+    "raw_sha256": "555277f9896e64343f6a2ee3e6878787b781cd984cd4a7ffa46722203d384624"
+  },
+  "violentmonkey_2.47.0.zip": {
+    "input_zip": "datasets\\incoming\\real_pilot\\violentmonkey_2.47.0.zip",
+    "manifest_path": "manifest.json",
+    "normalized_layout": false,
+    "normalized_sha256": "ecde72b82449d96122dc29debea4a27e39e15cc2a88f3d671946922b5412c70f",
+    "output_zip": "datasets\\validated\\real_pilot_packages\\violentmonkey_2.47.0.zip",
+    "raw_sha256": "3881979bad2c5c49b61e5dbeb580c77ded66a30b48c2d5f7765a1aaf3678ba60"
+  }
+}

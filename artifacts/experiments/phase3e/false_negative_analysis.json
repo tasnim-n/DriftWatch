@@ -1,0 +1,63 @@
+{
+  "current_deterministic_risk_scorer": {
+    "category_counts": {},
+    "false_negative_count": 0,
+    "records": []
+  },
+  "logistic_regression": {
+    "category_counts": {
+      "model missed review-worthy transition despite available static drift": 1
+    },
+    "false_negative_count": 1,
+    "records": [
+      {
+        "extension_id": "github:aaroncql/katex-github-chrome-extension",
+        "failure_category": "model missed review-worthy transition despite available static drift",
+        "feature_values": {
+          "added_obfuscation_score": 530.0,
+          "host_scope_score_delta": 90.0,
+          "new_external_network_count": 822.0,
+          "permission_risk_delta": 10.0,
+          "service_worker_introduced": 1.0,
+          "source_sink_flow_count": 0.0
+        },
+        "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+        "new_version": "0.2.0",
+        "old_version": "0.1.0",
+        "predicted_target": "BENIGN",
+        "record_id": "katex-github-chrome-extension_0_1_0_to_0_2_0",
+        "score": 0.262991,
+        "source_type": "open_source_repository",
+        "true_label": "risky_transition"
+      }
+    ]
+  },
+  "random_forest": {
+    "category_counts": {
+      "model missed review-worthy transition despite available static drift": 1
+    },
+    "false_negative_count": 1,
+    "records": [
+      {
+        "extension_id": "github:aaroncql/katex-github-chrome-extension",
+        "failure_category": "model missed review-worthy transition despite available static drift",
+        "feature_values": {
+          "added_obfuscation_score": 530.0,
+          "host_scope_score_delta": 90.0,
+          "new_external_network_count": 822.0,
+          "permission_risk_delta": 10.0,
+          "service_worker_introduced": 1.0,
+          "source_sink_flow_count": 0.0
+        },
+        "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+        "new_version": "0.2.0",
+        "old_version": "0.1.0",
+        "predicted_target": "BENIGN",
+        "record_id": "katex-github-chrome-extension_0_1_0_to_0_2_0",
+        "score": 0.109542,
+        "source_type": "open_source_repository",
+        "true_label": "risky_transition"
+      }
+    ]
+  }
+}

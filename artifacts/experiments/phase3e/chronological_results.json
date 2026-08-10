@@ -1,0 +1,8 @@
+{
+  "qualified_extension_count": 11,
+  "qualified_record_count": 32,
+  "reason": "All eligible records have timestamps, but only three review-worthy records across three extension groups are available. A chronological group-safe train/validation/test split would be dominated by split artifacts, so Phase 3E records it as a limitation.",
+  "risky_extension_count": 3,
+  "status": "not_reliable_pilot_too_small",
+  "timestamp_source": "version transition metadata from real pilot manifest"
+}
