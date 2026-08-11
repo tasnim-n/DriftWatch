@@ -160,3 +160,13 @@ Phase 3G is data and ground-truth infrastructure. It does not run production sco
 - Regenerates the five established Phase 3B feature representations for non-holdout records only, preserving feature schema version `1.0`.
 
 Phase 3H prepares future validation. It does not retrain ML, tune rules, change production scoring, or evaluate the locked holdout.
+
+### 2.17 Phase 3H.5 Independent Review Workflow (`research/phase3h5.py`)
+- Treats Phase 3H artifacts as frozen research history and writes separate `phase3h5` outputs only.
+- Builds blind review packets for Phase 3H records with provenance, release metadata, manifest diffs, and static feature summaries.
+- Hides DriftWatch numeric output, severity, rule recommendations, ML outputs, previous predictions, and current provisional labels from initial review packets.
+- Defines reviewer labels, confidence levels, evidence tiers, second-review workflow, adjudication templates, and Gold Set inclusion rules.
+- Preserves uncertainty and reports genuine reviewer/adjudication counts as zero when no real reviewer submissions exist.
+- Audits that reviewer metadata, evidence tiers, Gold Set flags, and eligibility metadata remain outside predictive feature matrices.
+
+Phase 3H.5 is a ground-truth qualification layer. It does not regenerate feature families, train models, deploy ML, tune rules, or change production scoring.

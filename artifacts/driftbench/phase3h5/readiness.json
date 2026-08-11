@@ -1,0 +1,61 @@
+{
+  "artifact_version": "driftbench-independent-review-phase3h5-v1",
+  "block_reasons": [
+    "no defensible real Gold Set exists",
+    "no genuine second-review/adjudication records exist",
+    "external holdout labels remain provisional",
+    "single-reviewer provisional labels still dominate",
+    "confirmed malicious-transition ground truth count is 0"
+  ],
+  "checks": {
+    "defensible_real_gold_set_exists": false,
+    "enough_held_out_extension_identities": false,
+    "external_holdout_ground_truth_sufficient": false,
+    "holdout_untouched_by_tuning": true,
+    "label_diversity_sufficient": false,
+    "labels_independent_of_driftwatch_output": true,
+    "leakage_audit_clean": true,
+    "provisional_label_dependence_acceptable": false
+  },
+  "controlled_gold_set_size": 0,
+  "external_holdout_size": 10,
+  "final_decision": "MORE INDEPENDENT REVIEW REQUIRED",
+  "label_quality_distribution": {
+    "CONTROLLED_GROUND_TRUTH": 0,
+    "EXTERNAL_CONFIRMED": 0,
+    "MULTI_REVIEWER_ADJUDICATED": 0,
+    "SINGLE_REVIEWER_PROVISIONAL": 74,
+    "UNCERTAIN": 2
+  },
+  "phase3h5_complete": true,
+  "phase3i_methodologically_ready": false,
+  "provenance_completeness": "76/76",
+  "real_gold_set_size": 0,
+  "recommended_next_phase": "CONTINUE GENUINE INDEPENDENT LABEL REVIEW AND TARGETED GROUND-TRUTH ACQUISITION",
+  "review_summary": {
+    "ai_assistance_ground_truth_authority": false,
+    "ai_assisted_packet_generation": true,
+    "artifact_version": "driftbench-independent-review-phase3h5-v1",
+    "benign_review_candidates": 71,
+    "blind_review_enforced": true,
+    "driftwatch_outputs_hidden": true,
+    "external_holdout_candidates": 10,
+    "genuine_reviewer_a_count": 0,
+    "genuine_reviewer_b_count": 0,
+    "malicious_candidates": 0,
+    "no_fake_reviewers_created": true,
+    "parent_dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+    "priority_policy": [
+      "risky or malicious candidate labels",
+      "uncertain labels",
+      "external holdout records",
+      "high-impact permission or host expansion",
+      "new sensitive APIs, network destinations, source-to-sink, or obfuscation indicators"
+    ],
+    "review_priority_records": 47,
+    "review_queue_records": 76,
+    "risky_review_candidates": 3,
+    "total_records_in_review_scope": 76,
+    "uncertain_records": 2
+  }
+}

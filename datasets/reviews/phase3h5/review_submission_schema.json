@@ -1,0 +1,68 @@
+{
+  "allowed_confidence": [
+    "HIGH",
+    "MEDIUM",
+    "LOW"
+  ],
+  "allowed_labels": [
+    "BENIGN_TRANSITION",
+    "RISKY_TRANSITION",
+    "MALICIOUS_TRANSITION",
+    "UNCERTAIN",
+    "EXCLUDED"
+  ],
+  "confidence_definitions": {
+    "HIGH": "Strong independent evidence and a clear version transition.",
+    "LOW": "Evidence is insufficient, indirect, or incomplete.",
+    "MEDIUM": "Reasonable evidence but some ambiguity remains."
+  },
+  "evidence_hierarchy": {
+    "TIER_1": "Peer-reviewed dataset or verified public security disclosure.",
+    "TIER_2": "Multiple reputable independent security reports.",
+    "TIER_3": "Maintainer or vendor disclosure with corroborating evidence.",
+    "TIER_4": "Repository history, release notes, package metadata, or commit evidence.",
+    "TIER_5": "Single-reviewer technical assessment.",
+    "TIER_6": "Weak, incomplete, or contradictory evidence."
+  },
+  "example_blank_submission": {
+    "blind_review": true,
+    "confidence": "",
+    "evidence_references": [],
+    "independent_label": "",
+    "rationale": "",
+    "record_id": "",
+    "review_id": "",
+    "review_round": "INITIAL_BLIND",
+    "review_status": "SUBMITTED",
+    "review_timestamp": "",
+    "reviewer_id": ""
+  },
+  "label_definitions": {
+    "BENIGN_TRANSITION": "A version update whose relevant security-sensitive changes have a documented, legitimate functional purpose and no independent evidence supporting harmful intent or unacceptable security behavior.",
+    "EXCLUDED": "The record is methodologically unsuitable due to identity, provenance, corruption, licensing, duplicate, or comparable quality problems.",
+    "MALICIOUS_TRANSITION": "A transition with strong independent evidence that the update introduced or enabled intentionally harmful behavior.",
+    "RISKY_TRANSITION": "A version update introducing meaningful security-sensitive capability or behavior warranting security review, even when malicious intent is not proven.",
+    "UNCERTAIN": "Available evidence is insufficient or contradictory."
+  },
+  "prohibited_ground_truth_sources": [
+    "DriftWatch final risk score",
+    "DriftWatch severity",
+    "rule recommendation",
+    "ML output",
+    "previous predictive model output"
+  ],
+  "required_fields": [
+    "review_id",
+    "reviewer_id",
+    "record_id",
+    "review_round",
+    "independent_label",
+    "confidence",
+    "rationale",
+    "evidence_references",
+    "blind_review",
+    "review_timestamp",
+    "review_status"
+  ],
+  "schema_version": "phase3h5-independent-review-schema-v1"
+}

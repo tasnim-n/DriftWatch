@@ -1,0 +1,13 @@
+{
+  "artifact_version": "driftbench-independent-review-phase3h5-v1",
+  "label_quality_distribution": {
+    "CONTROLLED_GROUND_TRUTH": 0,
+    "EXTERNAL_CONFIRMED": 0,
+    "MULTI_REVIEWER_ADJUDICATED": 0,
+    "SINGLE_REVIEWER_PROVISIONAL": 74,
+    "UNCERTAIN": 2
+  },
+  "phase3h5_new_genuine_reviews": 0,
+  "provisional_dependence_reduced": false,
+  "status": "review_workflow_ready_human_independent_review_pending"
+}

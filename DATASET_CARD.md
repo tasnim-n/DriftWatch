@@ -325,3 +325,47 @@ Known limitations:
 - No independently confirmed malicious-transition packages are present.
 - Review-worthy class support remains at 3 records.
 - All accepted Phase 3H records are still sourced from public GitHub release assets, so source-family diversity remains limited.
+
+---
+
+## 12. Phase 3H.5 Independent Review And Gold-Set Qualification
+Phase 3H.5 creates a reviewer workflow and Gold Set qualification gate. It does not add new labels, train models, or claim completed independent annotation.
+
+Artifact locations:
+- `artifacts/driftbench/phase3h5/`
+- `artifacts/experiments/phase3h5/`
+- `datasets/reviews/phase3h5/`
+- `REVIEWER_GUIDE.md`
+
+Methodology:
+- Initial review packets are blind: DriftWatch numeric output, severity, rule recommendations, model outputs, previous predictions, and current provisional labels are hidden.
+- Labels use explicit operational definitions for `BENIGN_TRANSITION`, `RISKY_TRANSITION`, `MALICIOUS_TRANSITION`, `UNCERTAIN`, and `EXCLUDED`.
+- Evidence tiers range from Tier 1 verified public disclosure or peer-reviewed datasets to Tier 6 weak or contradictory evidence.
+- `MALICIOUS_TRANSITION` requires independent evidence of intentional harmful behavior. Permission expansion, minification, network endpoints, or DriftWatch scores are insufficient.
+- Disagreements must preserve both original reviews and can be adjudicated only with genuine reviewer history.
+
+Current Phase 3H.5 facts:
+- Review scope: 76 records
+- Priority review records: 47
+- Genuine Reviewer A records: 0
+- Genuine Reviewer B records: 0
+- Double-reviewed records: 0
+- Adjudicated records: 0
+- Inter-rater agreement: not available
+- Label quality distribution: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
+- Real Gold Set: 0
+- Controlled Gold Set: 0
+- Confirmed malicious-transition records: 0
+- Training-eligible records after recheck: 74
+
+Gold Set exclusion:
+- No Phase 3H record currently has external confirmation or genuine multi-reviewer adjudication.
+- The two `UNCERTAIN` records remain unresolved and ineligible for supervised training.
+- External holdout labels remain provisional and must not be used for model tuning.
+
+Known limitations:
+- Independent human review remains pending.
+- The corpus remains GitHub/open-source biased.
+- Benign transitions dominate.
+- No confirmed malicious-transition ground truth exists.
+- Phase 3I external holdout replication is not methodologically ready.

@@ -120,3 +120,11 @@ Uploaded archives, manifests, JavaScript, decoded strings, and derived indicator
 - Holdout records are locked in `external_holdout_manifest.json` and excluded from non-holdout feature artifacts to reduce tuning and model-selection leakage.
 - Gold Set membership is metadata only and is not a predictive feature. The current Gold Set is empty because no real records have sufficiently strong independent ground truth.
 - Phase 3H does not contact embedded extension endpoints, execute bundled binaries, load arbitrary model artifacts, retrain ML, or change production risk scoring.
+
+### 2.17 Phase 3H.5 Review Safety
+- Phase 3H.5 review packets contain metadata, release references, manifest diffs, and static analyzer summaries only.
+- Review packet generation never installs extensions, executes extension JavaScript, executes decoded payloads, contacts embedded endpoints, or loads arbitrary model artifacts.
+- Blind review packets hide DriftWatch numeric output, severity, rule recommendations, ML outputs, previous predictive outputs, and current provisional labels.
+- Reviewer metadata, evidence tiers, review rationales, adjudication status, Gold Set flags, timestamps, and eligibility metadata are blocked from predictive feature matrices.
+- AI-assisted packet organization is recorded as `ai_assisted=true` but is not treated as independent review, external confirmation, or ground truth.
+- External holdout records may receive neutral review packets, but their labels must not be decided using DriftWatch predictions or used for training, threshold tuning, rule tuning, or feature redesign.

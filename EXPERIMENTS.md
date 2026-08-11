@@ -345,3 +345,43 @@ Interpretation:
 - It did not improve review-worthy class representation or label quality.
 - A genuine Gold Set is not yet available.
 - Evidence-based decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`.
+
+## Phase 3H.5 Independent Review And Ground-Truth Qualification - 2026-08-11
+
+Phase 3H.5 implements the next evidence-based step from Phase 3H: independent label-review workflow and Gold Set qualification. It does not train or deploy ML and does not change production scoring.
+
+Artifacts:
+- `artifacts/driftbench/phase3h5/`
+- `artifacts/experiments/phase3h5/`
+- `datasets/reviews/phase3h5/`
+- `REVIEWER_GUIDE.md`
+
+Verified outputs:
+- Artifact version: `driftbench-independent-review-phase3h5-v1`
+- Parent dataset version: `driftbench-real-adjudication-holdout-phase3h-v1`
+- Review scope: 76 records
+- Priority records: 47
+- Blind review packets: 76
+- Genuine Reviewer A count: 0
+- Genuine Reviewer B count: 0
+- Double-reviewed count: 0
+- Agreement count: 0
+- Disagreement count: 0
+- Adjudicated count: 0
+- Inter-rater agreement: not available
+- Label quality: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
+- Real Gold Set size: 0
+- Controlled Gold Set size: 0
+- Training-eligible records after recheck: 74
+- Confirmed malicious-transition records: 0
+
+Quality gates:
+- Phase 3H reference frozen.
+- Review packets hide DriftWatch numeric output, severity, recommendations, ML outputs, previous predictions, and current provisional labels.
+- Reviewer metadata leakage audit passed for predictive feature columns.
+- External holdout remains isolated from model training and tuning.
+- Research-integrity audit passed: no completed independent review, Gold Set, inter-rater agreement, or confirmed malicious records are claimed.
+
+Decision:
+- Final Phase 3H.5 decision: `MORE INDEPENDENT REVIEW REQUIRED`.
+- Phase 3I is not methodologically ready.

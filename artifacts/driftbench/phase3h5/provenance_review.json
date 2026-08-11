@@ -1,0 +1,8 @@
+{
+  "provenance_complete_count": 76,
+  "provenance_completeness": "76/76",
+  "record_count": 76,
+  "timestamp_complete_count": 76,
+  "timestamp_completeness": "76/76",
+  "trust_boundary": "review packets expose metadata and static summaries only; extension JavaScript is not executed"
+}

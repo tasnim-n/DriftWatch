@@ -1,0 +1,19 @@
+{
+  "adjudication_coverage": {
+    "adjudicated": 0
+  },
+  "controlled_gold_records": 0,
+  "evidence_tier_distribution": {},
+  "gold_set_version": "phase3h5-gold-set-methodology-v1",
+  "label_distribution": {},
+  "model_metrics": "not_computed_phase3h5_ground_truth_only",
+  "provenance_completeness": "0/0",
+  "real_gold_records": 0,
+  "reviewer_coverage": {
+    "double_reviewed": 0,
+    "single_reviewed": 0
+  },
+  "timestamp_completeness": "0/0",
+  "total_gold_records": 0,
+  "unique_extensions": 0
+}

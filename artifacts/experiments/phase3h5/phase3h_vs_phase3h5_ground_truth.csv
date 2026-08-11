@@ -1,0 +1,9 @@
+metric,phase3h,phase3h5
+total_records,76,76
+single_reviewer_provisional,74,74
+genuine_reviewer_a_count,0,0
+genuine_reviewer_b_count,0,0
+real_gold_set_size,0,0
+controlled_gold_set_size,0,0
+external_holdout_size,10,10
+phase3i_ready,False,False

@@ -1,0 +1,39 @@
+{
+  "count": 2,
+  "records": [
+    {
+      "additional_evidence_needed": [
+        "independent reviewer assessment",
+        "maintainer or vendor clarification",
+        "corroborating public security report or issue discussion"
+      ],
+      "eligible_for_supervised_training": false,
+      "evidence_summary": [
+        "PILOT_BASELINE record preserved from Phase 3E; labels and archives unchanged.",
+        "Preserved unchanged from frozen Phase 3F dataset history.",
+        "Preserved unchanged from frozen Phase 3G dataset history."
+      ],
+      "extension_id": "github:alpha1337/save-sora",
+      "reason_uncertainty_exists": "Carried forward unchanged from frozen Phase 3E pilot baseline for replication comparison.",
+      "record_id": "save-sora_2_0_355_to_3_0_0",
+      "review_outcome": "UNCERTAIN"
+    },
+    {
+      "additional_evidence_needed": [
+        "independent reviewer assessment",
+        "maintainer or vendor clarification",
+        "corroborating public security report or issue discussion"
+      ],
+      "eligible_for_supervised_training": false,
+      "evidence_summary": [
+        "PILOT_BASELINE record preserved from Phase 3E; labels and archives unchanged.",
+        "Preserved unchanged from frozen Phase 3F dataset history.",
+        "Preserved unchanged from frozen Phase 3G dataset history."
+      ],
+      "extension_id": "github:alpha1337/save-sora",
+      "reason_uncertainty_exists": "Carried forward unchanged from frozen Phase 3E pilot baseline for replication comparison.",
+      "record_id": "save-sora_3_0_0_to_3_0_10",
+      "review_outcome": "UNCERTAIN"
+    }
+  ]
+}

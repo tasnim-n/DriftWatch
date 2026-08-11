@@ -1,0 +1,12 @@
+{
+  "artifact_version": "driftbench-independent-review-phase3h5-v1",
+  "controlled_gold_count": 0,
+  "exclusion_reason": "No Phase 3H records currently meet external-confirmation or genuine multi-reviewer-adjudication requirements.",
+  "gold_record_count": 0,
+  "gold_set_policy": "Only EXTERNAL_CONFIRMED, genuine MULTI_REVIEWER_ADJUDICATED, or explicitly separated CONTROLLED_GROUND_TRUTH records with complete provenance qualify.",
+  "gold_set_version": "phase3h5-gold-set-methodology-v1",
+  "manifest_hash": "5a7a24fcd8121a0f64f74afe7b6f3349e60f1ae4b12154ec1380b285dc535930",
+  "parent_dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+  "real_gold_count": 0,
+  "records": []
+}

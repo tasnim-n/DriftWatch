@@ -1,0 +1,115 @@
+{
+  "ai_assisted": true,
+  "artifact_version": "driftbench-independent-review-phase3h5-v1",
+  "blind_review": true,
+  "evidence_tier": "TIER_5",
+  "extension_id": "github:clearurls/addon",
+  "extension_name": "ClearURLs",
+  "ground_truth_authority": "pending genuine independent reviewer or documented external evidence",
+  "hidden_from_reviewer": {
+    "current_dataset_label": true,
+    "driftwatch_numeric_output": true,
+    "driftwatch_severity": true,
+    "ml_output": true,
+    "previous_predictive_model_output": true,
+    "reviewer_a_label": true,
+    "rule_recommendation": true
+  },
+  "host_scope_diff": {
+    "available": false,
+    "reason": "external holdout or missing Phase 3H non-holdout feature row"
+  },
+  "independent_public_security_evidence": [],
+  "license": "LGPL-3.0",
+  "manifest_diff": {
+    "added_hosts": [],
+    "added_permissions": [],
+    "available": true,
+    "background_added": false,
+    "content_scripts_changed": false,
+    "externally_connectable_changed": false,
+    "removed_hosts": [],
+    "removed_permissions": [
+      "clipboardWrite"
+    ],
+    "web_accessible_resources_changed": false
+  },
+  "network_destination_diff": {
+    "available": false,
+    "reason": "external holdout or missing Phase 3H non-holdout feature row"
+  },
+  "new_timestamp": "2021-03-24T12:23:25Z",
+  "new_version": "1.21.0",
+  "obfuscation_diff": {
+    "available": false,
+    "reason": "external holdout or missing Phase 3H non-holdout feature row"
+  },
+  "old_timestamp": "2020-11-21T20:33:36Z",
+  "old_version": "1.20.0",
+  "permission_diff": {
+    "available": false,
+    "reason": "external holdout or missing Phase 3H non-holdout feature row"
+  },
+  "provenance_id": "open_source_repository:clearurls_addon_1_20_0_to_1_21_0",
+  "provenance_references": [],
+  "record_id": "clearurls_addon_1_20_0_to_1_21_0",
+  "release_notes": [
+    "Phase 3H corpus maturation record.",
+    "Public GitHub release assets acquired over normal HTTPS.",
+    "Extension JavaScript was never executed.",
+    "old_release=https://github.com/ClearURLs/Addon/releases/tag/1.20.0",
+    "new_release=https://github.com/ClearURLs/Addon/releases/tag/1.21.0"
+  ],
+  "relevant_commit_or_release_evidence": [
+    {
+      "evidence_tier": "TIER_5",
+      "reference": "Phase 3H corpus maturation record."
+    },
+    {
+      "evidence_tier": "TIER_5",
+      "reference": "Public GitHub release assets acquired over normal HTTPS."
+    },
+    {
+      "evidence_tier": "TIER_5",
+      "reference": "Extension JavaScript was never executed."
+    },
+    {
+      "evidence_tier": "TIER_5",
+      "reference": "old_release=https://github.com/ClearURLs/Addon/releases/tag/1.20.0"
+    },
+    {
+      "evidence_tier": "TIER_5",
+      "reference": "new_release=https://github.com/ClearURLs/Addon/releases/tag/1.21.0"
+    }
+  ],
+  "repository": "https://github.com/ClearURLs/Addon",
+  "review_form": {
+    "blind_review": true,
+    "confidence": "",
+    "evidence_references": [],
+    "independent_label": "",
+    "rationale": "",
+    "record_id": "clearurls_addon_1_20_0_to_1_21_0",
+    "review_id": "",
+    "review_round": "INITIAL_BLIND",
+    "review_status": "PENDING",
+    "review_timestamp": "",
+    "reviewer_id": ""
+  },
+  "schema_version": "phase3h5-independent-review-schema-v1",
+  "sensitive_api_diff": {
+    "available": false,
+    "reason": "external holdout or missing Phase 3H non-holdout feature row"
+  },
+  "source": "https://github.com/ClearURLs/Addon",
+  "source_to_sink_evidence": {
+    "available": false,
+    "claim_limit": "heuristic indicator only; not confirmed exfiltration",
+    "heuristic_indicator_count": 0
+  },
+  "source_url": "https://github.com/ClearURLs/Addon",
+  "structural_diff": {
+    "available": false,
+    "reason": "external holdout or missing Phase 3H non-holdout feature row"
+  }
+}

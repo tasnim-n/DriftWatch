@@ -1,0 +1,140 @@
+{
+  "ai_assisted": true,
+  "artifact_version": "driftbench-independent-review-phase3h5-v1",
+  "blind_review": true,
+  "evidence_tier": "TIER_5",
+  "extension_id": "github:ruffle-rs/ruffle",
+  "extension_name": "Ruffle Web Extension",
+  "ground_truth_authority": "pending genuine independent reviewer or documented external evidence",
+  "hidden_from_reviewer": {
+    "current_dataset_label": true,
+    "driftwatch_numeric_output": true,
+    "driftwatch_severity": true,
+    "ml_output": true,
+    "previous_predictive_model_output": true,
+    "reviewer_a_label": true,
+    "rule_recommendation": true
+  },
+  "host_scope_diff": {
+    "added_host_count": 0,
+    "all_urls_introduced": 0,
+    "available": true,
+    "host_count_delta": 0,
+    "host_scope_score_delta": 0,
+    "wildcard_host_introduced": 0
+  },
+  "independent_public_security_evidence": [],
+  "license": "MIT OR Apache-2.0",
+  "manifest_diff": {
+    "added_hosts": [],
+    "added_permissions": [],
+    "available": true,
+    "background_added": false,
+    "content_scripts_changed": false,
+    "externally_connectable_changed": false,
+    "removed_hosts": [],
+    "removed_permissions": [],
+    "web_accessible_resources_changed": false
+  },
+  "network_destination_diff": {
+    "available": true,
+    "decoded_endpoint_addition_count": 0,
+    "hardcoded_ip_addition_count": 0,
+    "network_analyzer_available": 1,
+    "network_destination_count_delta": 0,
+    "new_external_network_count": 0,
+    "new_local_network_count": 0,
+    "plain_http_addition_count": 0
+  },
+  "new_timestamp": "2026-08-05T00:27:57Z",
+  "new_version": "nightly-2026-08-05",
+  "obfuscation_diff": {
+    "added_obfuscation_score": 730,
+    "available": true,
+    "dynamic_execution_added_count": 12,
+    "obfuscation_analyzer_available": 1,
+    "obfuscation_count_delta": 0
+  },
+  "old_timestamp": "2026-08-04T00:26:15Z",
+  "old_version": "nightly-2026-08-04",
+  "permission_diff": {
+    "added_permission_count": 0,
+    "added_sensitive_permission_count": 0,
+    "available": true,
+    "critical_permission_added": 0,
+    "high_permission_added": 0,
+    "optional_permission_change_count": 0,
+    "permission_risk_delta": 0,
+    "removed_permission_count": 0,
+    "removed_sensitive_permission_count": 0
+  },
+  "provenance_id": "open_source_repository:ruffle_rs_ruffle_nightly_2026_08_04_to_nightly_2026_08_05",
+  "provenance_references": [],
+  "record_id": "ruffle_rs_ruffle_nightly_2026_08_04_to_nightly_2026_08_05",
+  "release_notes": [
+    "Phase 3H corpus maturation record.",
+    "Public GitHub release assets acquired over normal HTTPS.",
+    "Extension JavaScript was never executed.",
+    "old_release=https://github.com/ruffle-rs/ruffle/releases/tag/nightly-2026-08-04",
+    "new_release=https://github.com/ruffle-rs/ruffle/releases/tag/nightly-2026-08-05"
+  ],
+  "relevant_commit_or_release_evidence": [
+    {
+      "evidence_tier": "TIER_5",
+      "reference": "Phase 3H corpus maturation record."
+    },
+    {
+      "evidence_tier": "TIER_5",
+      "reference": "Public GitHub release assets acquired over normal HTTPS."
+    },
+    {
+      "evidence_tier": "TIER_5",
+      "reference": "Extension JavaScript was never executed."
+    },
+    {
+      "evidence_tier": "TIER_5",
+      "reference": "old_release=https://github.com/ruffle-rs/ruffle/releases/tag/nightly-2026-08-04"
+    },
+    {
+      "evidence_tier": "TIER_5",
+      "reference": "new_release=https://github.com/ruffle-rs/ruffle/releases/tag/nightly-2026-08-05"
+    }
+  ],
+  "repository": "https://github.com/ruffle-rs/ruffle",
+  "review_form": {
+    "blind_review": true,
+    "confidence": "",
+    "evidence_references": [],
+    "independent_label": "",
+    "rationale": "",
+    "record_id": "ruffle_rs_ruffle_nightly_2026_08_04_to_nightly_2026_08_05",
+    "review_id": "",
+    "review_round": "INITIAL_BLIND",
+    "review_status": "PENDING",
+    "review_timestamp": "",
+    "reviewer_id": ""
+  },
+  "schema_version": "phase3h5-independent-review-schema-v1",
+  "sensitive_api_diff": {
+    "added_api_count": 0,
+    "api_analyzer_available": 1,
+    "api_count_delta": 0,
+    "available": true,
+    "critical_api_added": 0
+  },
+  "source": "https://github.com/ruffle-rs/ruffle",
+  "source_to_sink_evidence": {
+    "available": true,
+    "claim_limit": "heuristic indicator only; not confirmed exfiltration",
+    "heuristic_indicator_count": 4
+  },
+  "source_url": "https://github.com/ruffle-rs/ruffle",
+  "structural_diff": {
+    "added_event_listener_count": 0,
+    "added_function_count": 0,
+    "available": true,
+    "function_count_delta": 0,
+    "modified_file_count": 10,
+    "structure_analyzer_available": 1
+  }
+}

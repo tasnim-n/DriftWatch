@@ -1,0 +1,34 @@
+{
+  "artifact_version": "driftbench-independent-review-phase3h5-v1",
+  "controlled_gold_set_size": 0,
+  "controlled_records": 0,
+  "external_holdout_size": 10,
+  "final_decision": "MORE INDEPENDENT REVIEW REQUIRED",
+  "label_distribution": {
+    "benign_transition": 71,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "label_quality_distribution": {
+    "CONTROLLED_GROUND_TRUTH": 0,
+    "EXTERNAL_CONFIRMED": 0,
+    "MULTI_REVIEWER_ADJUDICATED": 0,
+    "SINGLE_REVIEWER_PROVISIONAL": 74,
+    "UNCERTAIN": 2
+  },
+  "parent_dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+  "phase3h_frozen_reference": {
+    "dataset_manifest_hash": "88368dd15a813d6b9ff845c92087f1f25a35ea80bd0b58b4c989c0f67dd7353a",
+    "dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+    "experiment_snapshot_hash": "9e1f1ea7d429841f2ea89975e794edd2562c115e0988cca0c333f3aea6b924aa",
+    "feature_extraction_manifest_hash": "50cdcde1ff87fa779133a7fd1adc9bd62543edfabd2218949c258b53a98d8a50",
+    "preservation_policy": "Phase 3H.5 reads Phase 3H as immutable research history and writes only phase3h5 outputs.",
+    "provenance_manifest_hash": "256c232e7828abd491d0bbba59ea11dd777584fafadf7ca7a7da3609f9609f93",
+    "status": "FROZEN_PHASE3H_BASELINE"
+  },
+  "real_gold_set_size": 0,
+  "real_records": 76,
+  "review_priority_records": 47,
+  "total_records": 76,
+  "unique_extensions": 21
+}

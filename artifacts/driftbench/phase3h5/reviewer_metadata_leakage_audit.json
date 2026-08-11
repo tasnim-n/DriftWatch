@@ -1,0 +1,26 @@
+{
+  "base_feature_leakage_passed": true,
+  "blocked_metadata_fields": [
+    "adjudicated_label",
+    "adjudication_status",
+    "blind_review",
+    "confidence",
+    "eligible_for_supervised_training",
+    "evidence_tier",
+    "gold_label_source",
+    "gold_set_flag",
+    "label_source",
+    "manual_review_notes",
+    "rationale",
+    "review_id",
+    "review_rationale",
+    "review_timestamp",
+    "reviewer_confidence",
+    "reviewer_id",
+    "training_eligible"
+  ],
+  "passed": true,
+  "policy": "Reviewer metadata, evidence tiers, gold-set flags, and eligibility metadata must not enter predictive feature matrices.",
+  "prohibited_column_hits": [],
+  "protected_pattern_hits": []
+}

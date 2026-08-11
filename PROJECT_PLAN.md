@@ -156,3 +156,13 @@ DriftWatch addresses this challenge through version-to-version differential beha
 - Phase 3B feature artifacts were regenerated for non-holdout records under `artifacts/driftbench/phase3h_features/`; schema remains `1.0`.
 - Duplicate, leakage, provenance, timestamp, analyzer-health, and security-boundary audits passed.
 - Phase 3H decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`. Production ML integration remains unjustified.
+
+## 16. Current Progress (Phase 3H.5)
+- New artifact version: `driftbench-independent-review-phase3h5-v1`.
+- Phase 3H is treated as frozen research history. Phase 3H.5 writes only `artifacts/driftbench/phase3h5/`, `artifacts/experiments/phase3h5/`, and `datasets/reviews/phase3h5/`.
+- Built a blind independent-review workflow for all 76 Phase 3H records, with 47 records prioritized for near-term review.
+- Created standardized review packets, reviewer schema, confidence definitions, evidence hierarchy, second-review queue, adjudication report, inter-rater guard, unresolved-record report, eligibility report, reviewer-metadata leakage audit, and Gold Set qualification artifacts.
+- Current genuine Reviewer A count: 0. Current genuine Reviewer B count: 0. No fake reviewer, adjudication, or inter-rater agreement was created.
+- Real Gold Set size: 0. Controlled Gold Set size: 0. No confirmed malicious-transition record exists.
+- External holdout remains isolated from training, tuning, rule changes, and feature redesign.
+- Phase 3H.5 decision: `MORE INDEPENDENT REVIEW REQUIRED`. Phase 3I is not methodologically ready.

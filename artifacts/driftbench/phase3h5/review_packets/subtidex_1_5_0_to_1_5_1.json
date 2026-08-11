@@ -1,0 +1,130 @@
+{
+  "ai_assisted": true,
+  "artifact_version": "driftbench-independent-review-phase3h5-v1",
+  "blind_review": true,
+  "evidence_tier": "TIER_4",
+  "extension_id": "github:yniijia/subtidex",
+  "extension_name": "SubtideX",
+  "ground_truth_authority": "pending genuine independent reviewer or documented external evidence",
+  "hidden_from_reviewer": {
+    "current_dataset_label": true,
+    "driftwatch_numeric_output": true,
+    "driftwatch_severity": true,
+    "ml_output": true,
+    "previous_predictive_model_output": true,
+    "reviewer_a_label": true,
+    "rule_recommendation": true
+  },
+  "host_scope_diff": {
+    "added_host_count": 0,
+    "all_urls_introduced": 0,
+    "available": true,
+    "host_count_delta": 0,
+    "host_scope_score_delta": 0,
+    "wildcard_host_introduced": 0
+  },
+  "independent_public_security_evidence": [],
+  "license": "MIT",
+  "manifest_diff": {
+    "added_hosts": [],
+    "added_permissions": [],
+    "available": true,
+    "background_added": false,
+    "content_scripts_changed": false,
+    "externally_connectable_changed": false,
+    "removed_hosts": [],
+    "removed_permissions": [],
+    "web_accessible_resources_changed": false
+  },
+  "network_destination_diff": {
+    "available": true,
+    "decoded_endpoint_addition_count": 0,
+    "hardcoded_ip_addition_count": 0,
+    "network_analyzer_available": 1,
+    "network_destination_count_delta": -1,
+    "new_external_network_count": 15,
+    "new_local_network_count": 0,
+    "plain_http_addition_count": 0
+  },
+  "new_timestamp": "2026-05-28T06:44:00Z",
+  "new_version": "1.5.1",
+  "obfuscation_diff": {
+    "added_obfuscation_score": 30,
+    "available": true,
+    "dynamic_execution_added_count": 1,
+    "obfuscation_analyzer_available": 1,
+    "obfuscation_count_delta": 1
+  },
+  "old_timestamp": "2026-05-23T18:06:57Z",
+  "old_version": "1.5.0",
+  "permission_diff": {
+    "added_permission_count": 0,
+    "added_sensitive_permission_count": 0,
+    "available": true,
+    "critical_permission_added": 0,
+    "high_permission_added": 0,
+    "optional_permission_change_count": 0,
+    "permission_risk_delta": 0,
+    "removed_permission_count": 0,
+    "removed_sensitive_permission_count": 0
+  },
+  "provenance_id": "open_source_repository:subtidex_1_5_0_to_1_5_1",
+  "provenance_references": [],
+  "record_id": "subtidex_1_5_0_to_1_5_1",
+  "release_notes": [
+    "PILOT_BASELINE record preserved from Phase 3E; labels and archives unchanged.",
+    "Preserved unchanged from frozen Phase 3F dataset history.",
+    "Preserved unchanged from frozen Phase 3G dataset history."
+  ],
+  "relevant_commit_or_release_evidence": [
+    {
+      "evidence_tier": "TIER_4",
+      "reference": "PILOT_BASELINE record preserved from Phase 3E; labels and archives unchanged."
+    },
+    {
+      "evidence_tier": "TIER_4",
+      "reference": "Preserved unchanged from frozen Phase 3F dataset history."
+    },
+    {
+      "evidence_tier": "TIER_4",
+      "reference": "Preserved unchanged from frozen Phase 3G dataset history."
+    }
+  ],
+  "repository": "https://github.com/yniijia/SubtideX",
+  "review_form": {
+    "blind_review": true,
+    "confidence": "",
+    "evidence_references": [],
+    "independent_label": "",
+    "rationale": "",
+    "record_id": "subtidex_1_5_0_to_1_5_1",
+    "review_id": "",
+    "review_round": "INITIAL_BLIND",
+    "review_status": "PENDING",
+    "review_timestamp": "",
+    "reviewer_id": ""
+  },
+  "schema_version": "phase3h5-independent-review-schema-v1",
+  "sensitive_api_diff": {
+    "added_api_count": 0,
+    "api_analyzer_available": 1,
+    "api_count_delta": 0,
+    "available": true,
+    "critical_api_added": 0
+  },
+  "source": "https://github.com/yniijia/SubtideX",
+  "source_to_sink_evidence": {
+    "available": true,
+    "claim_limit": "heuristic indicator only; not confirmed exfiltration",
+    "heuristic_indicator_count": 2
+  },
+  "source_url": "https://github.com/yniijia/SubtideX",
+  "structural_diff": {
+    "added_event_listener_count": 0,
+    "added_function_count": 12,
+    "available": true,
+    "function_count_delta": 11,
+    "modified_file_count": 2,
+    "structure_analyzer_available": 1
+  }
+}

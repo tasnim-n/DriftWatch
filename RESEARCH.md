@@ -431,3 +431,49 @@ Research answers:
 - Q10: the evidence base is not strong enough for Phase 3I empirical replication until independent label review/adjudication improves.
 
 Evidence-based decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`.
+
+## 17. Phase 3H.5 Independent Label Review And Gold-Set Qualification
+
+Phase 3H.5 addresses the ground-truth limitation identified by Phase 3H. It creates blind review packets, reviewer schemas, second-review queues, adjudication tracking, eligibility rechecks, reviewer-metadata leakage audits, and Gold Set qualification artifacts. It does not train models, rerun Phase 3I, tune scoring rules, or change production behavior.
+
+Dataset and review scope:
+- Parent dataset version: `driftbench-real-adjudication-holdout-phase3h-v1`
+- Phase 3H.5 artifact version: `driftbench-independent-review-phase3h5-v1`
+- Review scope: 76 real records
+- Priority review records: 47
+- Benign review candidates: 71
+- Risky review candidates: 3
+- Malicious candidates: 0
+- Uncertain records: 2
+- External holdout candidates: 10
+
+Reviewer protocol:
+- Initial review is blind to DriftWatch numeric output, severity, rule recommendations, ML outputs, previous predictive outputs, and current provisional dataset label.
+- Reviewer confidence is ordinal: `HIGH`, `MEDIUM`, or `LOW`.
+- AI assistance may organize packets, but AI output is not an independent human review or ground truth.
+- No fake Reviewer B, adjudication, or inter-rater agreement is created.
+
+Current ground-truth status:
+- Genuine Reviewer A count: 0
+- Genuine Reviewer B count: 0
+- Double-reviewed records: 0
+- Adjudicated records: 0
+- Inter-rater agreement: not available
+- `EXTERNAL_CONFIRMED`: 0
+- `MULTI_REVIEWER_ADJUDICATED`: 0
+- `SINGLE_REVIEWER_PROVISIONAL`: 74
+- `UNCERTAIN`: 2
+- Confirmed malicious-transition records: 0
+
+Gold Set:
+- Real Gold Set: 0
+- Controlled Gold Set: 0
+- Gold Set unique-extension count: 0
+- Gold Set label distribution: empty
+
+Interpretation:
+- Phase 3H.5 improves auditability and review readiness, not label strength by itself.
+- The external holdout remains untouched by model training, feature tuning, rule tuning, threshold tuning, and feature-family redesign.
+- Phase 3I is not methodologically ready because a defensible real Gold Set does not exist, holdout labels remain provisional, label diversity is weak, and provisional labels still dominate.
+
+Evidence-based decision: `MORE INDEPENDENT REVIEW REQUIRED`.

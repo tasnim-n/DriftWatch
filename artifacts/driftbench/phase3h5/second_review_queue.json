@@ -1,0 +1,678 @@
+{
+  "no_fake_second_reviewer": true,
+  "records": [
+    {
+      "blind_review": true,
+      "extension_id": "github:alpha1337/save-sora",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/save-sora_2_0_196_to_2_0_355.json",
+      "priority_reasons": [
+        "RISKY_TRANSITION requires independent confirmation",
+        "wildcard host expansion",
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 230,
+      "rank": 1,
+      "record_id": "save-sora_2_0_196_to_2_0_355",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:aaroncql/katex-github-chrome-extension",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/katex-github-chrome-extension_0_1_0_to_0_2_0.json",
+      "priority_reasons": [
+        "RISKY_TRANSITION requires independent confirmation",
+        "wildcard host expansion",
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 220,
+      "rank": 2,
+      "record_id": "katex-github-chrome-extension_0_1_0_to_0_2_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:alpha1337/save-sora",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/save-sora_3_0_0_to_3_0_10.json",
+      "priority_reasons": [
+        "UNCERTAIN label requires resolution attempt",
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 200,
+      "rank": 3,
+      "record_id": "save-sora_3_0_0_to_3_0_10",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:violentmonkey/violentmonkey",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/violentmonkey_2_45_0_to_2_46_0.json",
+      "priority_reasons": [
+        "RISKY_TRANSITION requires independent confirmation",
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 180,
+      "rank": 4,
+      "record_id": "violentmonkey_2_45_0_to_2_46_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:alpha1337/save-sora",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/save-sora_2_0_355_to_3_0_0.json",
+      "priority_reasons": [
+        "UNCERTAIN label requires resolution attempt",
+        "new sensitive browser API usage",
+        "source-to-sink heuristic indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 175,
+      "rank": 5,
+      "record_id": "save-sora_2_0_355_to_3_0_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:automaapp/automa",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/automaapp_automa_1_29_11_to_1_29_12.json",
+      "priority_reasons": [
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 130,
+      "rank": 6,
+      "record_id": "automaapp_automa_1_29_11_to_1_29_12",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:duckduckgo/duckduckgo-privacy-extension",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/duckduckgo_privacy_2026_1_12_to_2026_4_28.json",
+      "priority_reasons": [
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 130,
+      "rank": 7,
+      "record_id": "duckduckgo_privacy_2026_1_12_to_2026_4_28",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:refined-github/refined-github",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/refined_github_26_6_7_to_26_7.json",
+      "priority_reasons": [
+        "new critical browser API",
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 115,
+      "rank": 8,
+      "record_id": "refined_github_26_6_7_to_26_7",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:automaapp/automa",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/automaapp_automa_1_29_10_to_1_29_11.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 9,
+      "record_id": "automaapp_automa_1_29_10_to_1_29_11",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:automaapp/automa",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/automaapp_automa_1_29_8_to_1_29_9.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 10,
+      "record_id": "automaapp_automa_1_29_8_to_1_29_9",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:automaapp/automa",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/automaapp_automa_1_29_9_to_1_29_10.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 11,
+      "record_id": "automaapp_automa_1_29_9_to_1_29_10",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:bitwarden/clients-browser",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/bitwarden_clients_browser_v2026_6_1_to_browser_v2026_7_0.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 12,
+      "record_id": "bitwarden_clients_browser_v2026_6_1_to_browser_v2026_7_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:browserpass/browserpass-extension",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/browserpass_browserpass_extension_3_10_2_to_3_11_0.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 13,
+      "record_id": "browserpass_browserpass_extension_3_10_2_to_3_11_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:browserpass/browserpass-extension",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/browserpass_browserpass_extension_3_11_0_to_3_12_0.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 14,
+      "record_id": "browserpass_browserpass_extension_3_11_0_to_3_12_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:duckduckgo/duckduckgo-privacy-extension",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/duckduckgo_privacy_2025_11_3_to_2025_12_12.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 15,
+      "record_id": "duckduckgo_privacy_2025_11_3_to_2025_12_12",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:duckduckgo/duckduckgo-privacy-extension",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/duckduckgo_privacy_2025_12_12_to_2025_12_14.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 16,
+      "record_id": "duckduckgo_privacy_2025_12_12_to_2025_12_14",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:duckduckgo/duckduckgo-privacy-extension",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/duckduckgo_privacy_2025_12_14_to_2026_1_12.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 17,
+      "record_id": "duckduckgo_privacy_2025_12_14_to_2026_1_12",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:keepassxreboot/keepassxc-browser",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/keepassxc_browser_1_10_1_to_1_10_2.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 18,
+      "record_id": "keepassxc_browser_1_10_1_to_1_10_2",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:openstyles/stylus",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/openstyles_stylus_2_4_6_to_2_4_7.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 19,
+      "record_id": "openstyles_stylus_2_4_6_to_2_4_7",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:openstyles/stylus",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/openstyles_stylus_2_4_7_to_2_4_8.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 20,
+      "record_id": "openstyles_stylus_2_4_7_to_2_4_8",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:openstyles/stylus",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/openstyles_stylus_2_4_8_to_2_4_9.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 21,
+      "record_id": "openstyles_stylus_2_4_8_to_2_4_9",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:openstyles/stylus",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/openstyles_stylus_2_4_9_to_2_4_10.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 22,
+      "record_id": "openstyles_stylus_2_4_9_to_2_4_10",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:yniijia/subtidex",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/subtidex_1_5_0_to_1_5_1.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 23,
+      "record_id": "subtidex_1_5_0_to_1_5_1",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:gorhill/ublock",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/ublock_origin_1_72_2_to_1_73_0.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 105,
+      "rank": 24,
+      "record_id": "ublock_origin_1_72_2_to_1_73_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:web-scrobbler/web-scrobbler",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/web_scrobbler_web_scrobbler_3_21_0_to_3_22_0.json",
+      "priority_reasons": [
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 100,
+      "rank": 25,
+      "record_id": "web_scrobbler_web_scrobbler_3_21_0_to_3_22_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:darkreader/darkreader",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/darkreader_darkreader_4_9_125_to_4_9_126.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 85,
+      "rank": 26,
+      "record_id": "darkreader_darkreader_4_9_125_to_4_9_126",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:darkreader/darkreader",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/darkreader_darkreader_4_9_128_to_4_9_129.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 85,
+      "rank": 27,
+      "record_id": "darkreader_darkreader_4_9_128_to_4_9_129",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:gorhill/ublock",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/ublock_origin_1_70_0_to_1_71_0.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 85,
+      "rank": 28,
+      "record_id": "ublock_origin_1_70_0_to_1_71_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:gorhill/ublock",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/ublock_origin_1_71_0_to_1_72_0.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "source-to-sink heuristic indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 85,
+      "rank": 29,
+      "record_id": "ublock_origin_1_71_0_to_1_72_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:refined-github/refined-github",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/refined_github_26_7_to_26_7_11.json",
+      "priority_reasons": [
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 80,
+      "rank": 30,
+      "record_id": "refined_github_26_7_to_26_7_11",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:ruffle-rs/ruffle",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/ruffle_rs_ruffle_nightly_2026_08_04_to_nightly_2026_08_05.json",
+      "priority_reasons": [
+        "source-to-sink heuristic indicator",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 80,
+      "rank": 31,
+      "record_id": "ruffle_rs_ruffle_nightly_2026_08_04_to_nightly_2026_08_05",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:web-scrobbler/web-scrobbler",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/web_scrobbler_web_scrobbler_3_18_0_to_3_19_0.json",
+      "priority_reasons": [
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 80,
+      "rank": 32,
+      "record_id": "web_scrobbler_web_scrobbler_3_18_0_to_3_19_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:web-scrobbler/web-scrobbler",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/web_scrobbler_web_scrobbler_3_19_0_to_3_20_0.json",
+      "priority_reasons": [
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 80,
+      "rank": 33,
+      "record_id": "web_scrobbler_web_scrobbler_3_19_0_to_3_20_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:web-scrobbler/web-scrobbler",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/web_scrobbler_web_scrobbler_3_20_0_to_3_21_0.json",
+      "priority_reasons": [
+        "new sensitive browser API usage",
+        "new external network destinations",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 80,
+      "rank": 34,
+      "record_id": "web_scrobbler_web_scrobbler_3_20_0_to_3_21_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:kevinsqi/save_tabbed_images",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/save_tabbed_images_0_4_0_to_0_4_1.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 75,
+      "rank": 35,
+      "record_id": "save_tabbed_images_0_4_0_to_0_4_1",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:kevinsqi/save_tabbed_images",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/save_tabbed_images_0_4_1_to_0_5_0.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 75,
+      "rank": 36,
+      "record_id": "save_tabbed_images_0_4_1_to_0_5_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:kevinsqi/save_tabbed_images",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/save_tabbed_images_0_6_0_to_0_7_0.json",
+      "priority_reasons": [
+        "new external network destinations",
+        "new dynamic execution indicator",
+        "substantial obfuscation change"
+      ],
+      "priority_score": 75,
+      "rank": 37,
+      "record_id": "save_tabbed_images_0_6_0_to_0_7_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:clearurls/addon",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/clearurls_addon_1_20_0_to_1_21_0.json",
+      "priority_reasons": [
+        "external holdout label quality should be strengthened without tuning leakage"
+      ],
+      "priority_score": 50,
+      "rank": 38,
+      "record_id": "clearurls_addon_1_20_0_to_1_21_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:clearurls/addon",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/clearurls_addon_1_21_0_to_1_22_0.json",
+      "priority_reasons": [
+        "external holdout label quality should be strengthened without tuning leakage"
+      ],
+      "priority_score": 50,
+      "rank": 39,
+      "record_id": "clearurls_addon_1_21_0_to_1_22_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:clearurls/addon",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/clearurls_addon_1_22_0_to_1_23_0.json",
+      "priority_reasons": [
+        "external holdout label quality should be strengthened without tuning leakage"
+      ],
+      "priority_score": 50,
+      "rank": 40,
+      "record_id": "clearurls_addon_1_22_0_to_1_23_0",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:clearurls/addon",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/clearurls_addon_1_23_0_to_1_23_1.json",
+      "priority_reasons": [
+        "external holdout label quality should be strengthened without tuning leakage"
+      ],
+      "priority_score": 50,
+      "rank": 41,
+      "record_id": "clearurls_addon_1_23_0_to_1_23_1",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:clearurls/addon",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/clearurls_addon_1_23_1_to_1_27_3.json",
+      "priority_reasons": [
+        "external holdout label quality should be strengthened without tuning leakage"
+      ],
+      "priority_score": 50,
+      "rank": 42,
+      "record_id": "clearurls_addon_1_23_1_to_1_27_3",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:firefoxbar/headereditor",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/firefoxbar_headereditor_5_2_10_to_5_2_11.json",
+      "priority_reasons": [
+        "external holdout label quality should be strengthened without tuning leakage"
+      ],
+      "priority_score": 50,
+      "rank": 43,
+      "record_id": "firefoxbar_headereditor_5_2_10_to_5_2_11",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:firefoxbar/headereditor",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/firefoxbar_headereditor_5_2_11_to_5_2_12.json",
+      "priority_reasons": [
+        "external holdout label quality should be strengthened without tuning leakage"
+      ],
+      "priority_score": 50,
+      "rank": 44,
+      "record_id": "firefoxbar_headereditor_5_2_11_to_5_2_12",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:firefoxbar/headereditor",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/firefoxbar_headereditor_5_2_7_to_5_2_8.json",
+      "priority_reasons": [
+        "external holdout label quality should be strengthened without tuning leakage"
+      ],
+      "priority_score": 50,
+      "rank": 45,
+      "record_id": "firefoxbar_headereditor_5_2_7_to_5_2_8",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:firefoxbar/headereditor",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/firefoxbar_headereditor_5_2_8_to_5_2_9.json",
+      "priority_reasons": [
+        "external holdout label quality should be strengthened without tuning leakage"
+      ],
+      "priority_score": 50,
+      "rank": 46,
+      "record_id": "firefoxbar_headereditor_5_2_8_to_5_2_9",
+      "review_status": "SECOND_REVIEW_PENDING"
+    },
+    {
+      "blind_review": true,
+      "extension_id": "github:firefoxbar/headereditor",
+      "packet_path": "artifacts/driftbench/phase3h5/review_packets/firefoxbar_headereditor_5_2_9_to_5_2_10.json",
+      "priority_reasons": [
+        "external holdout label quality should be strengthened without tuning leakage"
+      ],
+      "priority_score": 50,
+      "rank": 47,
+      "record_id": "firefoxbar_headereditor_5_2_9_to_5_2_10",
+      "review_status": "SECOND_REVIEW_PENDING"
+    }
+  ],
+  "reviewer_a_label_hidden_until_reviewer_b_decision": true,
+  "schema_version": "phase3h5-second-review-queue-v1",
+  "status": "SECOND_REVIEW_PENDING"
+}

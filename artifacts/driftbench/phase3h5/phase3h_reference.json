@@ -1,0 +1,9 @@
+{
+  "dataset_manifest_hash": "88368dd15a813d6b9ff845c92087f1f25a35ea80bd0b58b4c989c0f67dd7353a",
+  "dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+  "experiment_snapshot_hash": "9e1f1ea7d429841f2ea89975e794edd2562c115e0988cca0c333f3aea6b924aa",
+  "feature_extraction_manifest_hash": "50cdcde1ff87fa779133a7fd1adc9bd62543edfabd2218949c258b53a98d8a50",
+  "preservation_policy": "Phase 3H.5 reads Phase 3H as immutable research history and writes only phase3h5 outputs.",
+  "provenance_manifest_hash": "256c232e7828abd491d0bbba59ea11dd777584fafadf7ca7a7da3609f9609f93",
+  "status": "FROZEN_PHASE3H_BASELINE"
+}

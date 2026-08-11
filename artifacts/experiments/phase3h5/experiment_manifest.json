@@ -1,0 +1,12 @@
+{
+  "artifact_version": "driftbench-independent-review-phase3h5-v1",
+  "code_version": "aeda37410513dcb73f3ba5448a8f00213526f1d2",
+  "feature_regeneration_performed": false,
+  "final_decision": "MORE INDEPENDENT REVIEW REQUIRED",
+  "model_training_performed": false,
+  "parent_dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+  "phase": "Phase 3H.5",
+  "production_ml_integration": false,
+  "production_scoring_changed": false,
+  "purpose": "independent label review workflow, adjudication readiness, and gold-set qualification"
+}

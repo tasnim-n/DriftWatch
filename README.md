@@ -237,6 +237,31 @@ Verified Phase 3H dataset:
 
 The accepted Phase 3H sources are public GitHub release assets for Bitwarden Browser, ClearURLs, HeaderEditor, and Ruffle Web Extension. The holdout is locked for future validation and excluded from non-holdout feature artifacts. Phase 3H decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`.
 
+### Phase 3H.5 Independent Review Workflow
+Phase 3H.5 implements ground-truth qualification infrastructure only. It does not train ML, deploy ML, tune thresholds, or change production scoring.
+
+Artifacts:
+- `artifacts/driftbench/phase3h5/`
+- `artifacts/experiments/phase3h5/`
+- `datasets/reviews/phase3h5/`
+- `REVIEWER_GUIDE.md`
+
+Verified Phase 3H.5 state:
+- Artifact version: `driftbench-independent-review-phase3h5-v1`
+- Review scope: 76 Phase 3H records
+- Prioritized records: 47
+- Genuine Reviewer A records: 0
+- Genuine Reviewer B records: 0
+- Double-reviewed records: 0
+- Adjudicated records: 0
+- Inter-rater agreement: not available
+- Label quality: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
+- Real Gold Set: 0
+- Controlled Gold Set: 0
+- Confirmed malicious-transition records: 0
+
+The workflow prepares blind review packets and queues for genuine reviewers. It intentionally does not fabricate independent reviews or treat DriftWatch outputs as ground truth. Current decision: `MORE INDEPENDENT REVIEW REQUIRED`.
+
 ---
 
 ## Repository Structure
