@@ -1,0 +1,373 @@
+{
+  "records": [
+    {
+      "extension_id": "github:aaroncql/katex-github-chrome-extension",
+      "label": "risky_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 110,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "katex-github-chrome-extension_0_1_0_to_0_2_0"
+    },
+    {
+      "extension_id": "github:alpha1337/save-sora",
+      "label": "risky_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 110,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "save-sora_2_0_196_to_2_0_355"
+    },
+    {
+      "extension_id": "github:violentmonkey/violentmonkey",
+      "label": "risky_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 110,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "violentmonkey_2_45_0_to_2_46_0"
+    },
+    {
+      "extension_id": "github:alpha1337/save-sora",
+      "label": "uncertain",
+      "label_quality_tier": "UNCERTAIN",
+      "priority_score": 80,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "save-sora_2_0_355_to_3_0_0"
+    },
+    {
+      "extension_id": "github:alpha1337/save-sora",
+      "label": "uncertain",
+      "label_quality_tier": "UNCERTAIN",
+      "priority_score": 80,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "save-sora_3_0_0_to_3_0_10"
+    },
+    {
+      "extension_id": "github:browserpass/browserpass-extension",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "browserpass_browserpass_extension_3_10_0_to_3_10_1"
+    },
+    {
+      "extension_id": "github:browserpass/browserpass-extension",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "browserpass_browserpass_extension_3_10_1_to_3_10_2"
+    },
+    {
+      "extension_id": "github:browserpass/browserpass-extension",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "browserpass_browserpass_extension_3_10_2_to_3_11_0"
+    },
+    {
+      "extension_id": "github:browserpass/browserpass-extension",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "browserpass_browserpass_extension_3_11_0_to_3_12_0"
+    },
+    {
+      "extension_id": "github:darkreader/darkreader",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "darkreader_darkreader_4_9_125_to_4_9_126"
+    },
+    {
+      "extension_id": "github:darkreader/darkreader",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "darkreader_darkreader_4_9_126_to_4_9_127"
+    },
+    {
+      "extension_id": "github:darkreader/darkreader",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "darkreader_darkreader_4_9_127_to_4_9_128"
+    },
+    {
+      "extension_id": "github:darkreader/darkreader",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "darkreader_darkreader_4_9_128_to_4_9_129"
+    },
+    {
+      "extension_id": "github:openstyles/stylus",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "openstyles_stylus_2_4_6_to_2_4_7"
+    },
+    {
+      "extension_id": "github:openstyles/stylus",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "openstyles_stylus_2_4_7_to_2_4_8"
+    },
+    {
+      "extension_id": "github:openstyles/stylus",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "openstyles_stylus_2_4_8_to_2_4_9"
+    },
+    {
+      "extension_id": "github:openstyles/stylus",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 30,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "openstyles_stylus_2_4_9_to_2_4_10"
+    },
+    {
+      "extension_id": "github:yniijia/subtidex",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "subtidex_1_5_0_to_1_5_1"
+    },
+    {
+      "extension_id": "github:kevinsqi/save_tabbed_images",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "save_tabbed_images_0_4_0_to_0_4_1"
+    },
+    {
+      "extension_id": "github:kevinsqi/save_tabbed_images",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "save_tabbed_images_0_4_1_to_0_5_0"
+    },
+    {
+      "extension_id": "github:kevinsqi/save_tabbed_images",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "save_tabbed_images_0_5_0_to_0_6_0"
+    },
+    {
+      "extension_id": "github:kevinsqi/save_tabbed_images",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "save_tabbed_images_0_6_0_to_0_7_0"
+    },
+    {
+      "extension_id": "github:alyssaxuu/screenity",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "screenity_4_5_0_to_4_5_1"
+    },
+    {
+      "extension_id": "github:gorhill/ublock",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "ublock_origin_1_70_0_to_1_71_0"
+    },
+    {
+      "extension_id": "github:gorhill/ublock",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "ublock_origin_1_71_0_to_1_72_0"
+    },
+    {
+      "extension_id": "github:gorhill/ublock",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "ublock_origin_1_72_0_to_1_72_2"
+    },
+    {
+      "extension_id": "github:gorhill/ublock",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "ublock_origin_1_72_2_to_1_73_0"
+    },
+    {
+      "extension_id": "github:ajayyy/sponsorblock",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "sponsorblock_6_1_3_to_6_1_4"
+    },
+    {
+      "extension_id": "github:ajayyy/sponsorblock",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "sponsorblock_6_1_4_to_6_1_5"
+    },
+    {
+      "extension_id": "github:ajayyy/sponsorblock",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "sponsorblock_6_1_5_to_6_1_6"
+    },
+    {
+      "extension_id": "github:ajayyy/sponsorblock",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "sponsorblock_6_1_6_to_6_1_7"
+    },
+    {
+      "extension_id": "github:duckduckgo/duckduckgo-privacy-extension",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "duckduckgo_privacy_2025_11_3_to_2025_12_12"
+    },
+    {
+      "extension_id": "github:duckduckgo/duckduckgo-privacy-extension",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "duckduckgo_privacy_2025_12_12_to_2025_12_14"
+    },
+    {
+      "extension_id": "github:duckduckgo/duckduckgo-privacy-extension",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "duckduckgo_privacy_2025_12_14_to_2026_1_12"
+    },
+    {
+      "extension_id": "github:duckduckgo/duckduckgo-privacy-extension",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "duckduckgo_privacy_2026_1_12_to_2026_4_28"
+    },
+    {
+      "extension_id": "github:keepassxreboot/keepassxc-browser",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "keepassxc_browser_1_9_11_to_1_10_0"
+    },
+    {
+      "extension_id": "github:keepassxreboot/keepassxc-browser",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "keepassxc_browser_1_10_0_to_1_10_0_1"
+    },
+    {
+      "extension_id": "github:keepassxreboot/keepassxc-browser",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "keepassxc_browser_1_10_0_1_to_1_10_1"
+    },
+    {
+      "extension_id": "github:keepassxreboot/keepassxc-browser",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "keepassxc_browser_1_10_1_to_1_10_2"
+    },
+    {
+      "extension_id": "github:refined-github/refined-github",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "refined_github_26_5_24_to_26_6_1"
+    },
+    {
+      "extension_id": "github:refined-github/refined-github",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "refined_github_26_6_1_to_26_6_7"
+    },
+    {
+      "extension_id": "github:refined-github/refined-github",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "refined_github_26_6_7_to_26_7"
+    },
+    {
+      "extension_id": "github:refined-github/refined-github",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "refined_github_26_7_to_26_7_11"
+    },
+    {
+      "extension_id": "github:violentmonkey/violentmonkey",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "violentmonkey_2_43_0_to_2_44_0"
+    },
+    {
+      "extension_id": "github:violentmonkey/violentmonkey",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "violentmonkey_2_44_0_to_2_45_0"
+    },
+    {
+      "extension_id": "github:violentmonkey/violentmonkey",
+      "label": "benign_transition",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "priority_score": 10,
+      "reason": "prioritize risky, uncertain, replication, and provisional records",
+      "record_id": "violentmonkey_2_46_0_to_2_47_0"
+    }
+  ],
+  "status": "second_review_queue_created_no_second_reviewer_fabricated"
+}

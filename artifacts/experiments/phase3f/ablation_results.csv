@@ -1,0 +1,8 @@
+family_removed,status,remaining_feature_count,base_f1,f1,delta_f1,base_recall,recall,delta_recall,base_fpr,false_positive_rate,delta_fpr,base_balanced_accuracy,balanced_accuracy,delta_balanced_accuracy
+permission,completed,34,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.0
+host,completed,38,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.0
+api,completed,39,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.0
+network,completed,38,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.0
+obfuscation,completed,39,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.0
+structural,completed,40,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.0
+source_sink,completed,42,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.0

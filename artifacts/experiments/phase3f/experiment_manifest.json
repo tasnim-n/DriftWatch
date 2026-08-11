@@ -1,0 +1,13 @@
+{
+  "dataset_version": "driftbench-real-replication-phase3f-v1",
+  "experiment_id": "phase3f_replication_v1",
+  "feature_extraction_seconds": 0.0,
+  "feature_schema_version": "1.0",
+  "phase": "Phase 3F",
+  "phase3e_baseline_dataset_version": "driftbench-real-pilot-phase3e-v1",
+  "production_ml_integration": false,
+  "replication_conclusion": "INCONCLUSIVE",
+  "seed": 1337,
+  "split_version": "phase3f-replication-group-safe-v1",
+  "total_runtime_seconds": 13.0412
+}

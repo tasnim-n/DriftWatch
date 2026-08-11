@@ -1,0 +1,29 @@
+{
+  "extension_ids_per_split": {
+    "test": [
+      "github:aaroncql/katex-github-chrome-extension",
+      "github:gorhill/ublock",
+      "github:openstyles/stylus",
+      "github:yniijia/subtidex"
+    ],
+    "train": [
+      "github:browserpass/browserpass-extension",
+      "github:duckduckgo/duckduckgo-privacy-extension",
+      "github:keepassxreboot/keepassxc-browser",
+      "github:kevinsqi/save_tabbed_images",
+      "github:refined-github/refined-github",
+      "github:violentmonkey/violentmonkey"
+    ],
+    "validation": [
+      "github:ajayyy/sponsorblock",
+      "github:alpha1337/save-sora",
+      "github:alyssaxuu/screenity",
+      "github:darkreader/darkreader"
+    ]
+  },
+  "extension_overlap": {},
+  "package_hash_overlap": {},
+  "passed": true,
+  "split_version": "phase3f-replication-group-safe-v1",
+  "violations": []
+}

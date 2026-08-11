@@ -195,3 +195,43 @@ Pilot result status:
 - The current deterministic rule engine achieved recall `1.00` on the held-out test set but had FPR `0.80` (`4 / 5` benign held-out updates alerted).
 - Full DriftWatch Logistic Regression and Random Forest both missed the single held-out risky transition (`fn=1`) and produced F1 `0.00`.
 - These are pilot/preliminary results from a 6-record held-out test set with one positive. They do not support production accuracy claims or broad generalization.
+
+---
+
+## 9. Phase 3F Independent Replication Snapshot
+Phase 3F preserves the Phase 3E pilot as `PILOT_BASELINE` and creates a separate replication dataset:
+
+`artifacts/experiments/phase3f/dataset_snapshot.json`
+
+Snapshot facts:
+- Dataset version: `driftbench-real-replication-phase3f-v1`
+- Feature schema version: `1.0`
+- Split version: `phase3f-replication-group-safe-v1`
+- Total records: 46
+- New independent replication records: 12
+- Unique extension identities: 14
+- Real records: 46
+- Controlled records: 0
+- Label distribution: `benign_transition=41`, `risky_transition=3`, `uncertain=2`
+- Label quality distribution: `SINGLE_REVIEWER_PROVISIONAL=44`, `UNCERTAIN=2`
+
+The new Phase 3F records come from public GitHub release ZIP assets for Browserpass, Dark Reader, and Stylus. Public release URLs, raw archive hashes, normalized analysis-package hashes, timestamps, license identifiers, label provenance, and split assignments are preserved in Phase 3F artifacts.
+
+Quality status:
+- Provenance completeness: 46/46
+- Duplicate audit: passed
+- Group/package-hash leakage audit: passed
+- Feature leakage audit: passed
+- Double-reviewed records: 0
+- Inter-rater agreement: not available
+
+Replication result status:
+- Deterministic rule engine on the Phase 3F held-out test: precision `0.111111`, recall `1.0`, F1 `0.2`, FPR `0.888889`, confusion matrix `tn=1, fp=8, fn=0, tp=1`.
+- Full DriftWatch Logistic Regression and Random Forest both missed the single held-out risky transition and produced F1 `0.0`.
+- Replication conclusion: `INCONCLUSIVE`.
+- Production ML integration remains unjustified.
+
+Known limitations:
+- Phase 3F improves dataset size and extension diversity but remains below the preferred independent real-pair and unique-extension targets for stronger conclusions.
+- Most labels remain single-reviewer provisional.
+- The corpus remains open-source-repository biased and is not representative of browser-store-scale extension updates.

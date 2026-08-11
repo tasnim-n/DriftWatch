@@ -1,0 +1,28 @@
+{
+  "block_reasons": [],
+  "dataset_version": "driftbench-real-replication-phase3f-v1",
+  "label_distribution": {
+    "benign_transition": 41,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "label_quality_distribution": {
+    "SINGLE_REVIEWER_PROVISIONAL": 44,
+    "UNCERTAIN": 2
+  },
+  "new_replication_record_count": 12,
+  "phase3f_replication_ready": true,
+  "real_record_count": 46,
+  "record_count": 46,
+  "split_counts": {
+    "test": 10,
+    "train": 24,
+    "validation": 12
+  },
+  "unique_extension_count": 14,
+  "warnings": [
+    "dataset did not reach preferred 50+ real-pair target",
+    "dataset did not reach preferred 15+ unique-extension target",
+    "single-reviewer provisional labels remain"
+  ]
+}

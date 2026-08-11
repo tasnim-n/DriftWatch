@@ -1,0 +1,9 @@
+{
+  "dataset_snapshot_hash": "940ebb5f562b05c3bdf02063881add2cfc8a9029f651434de1905365b48e1980",
+  "dataset_version": "driftbench-real-pilot-phase3e-v1",
+  "experiment_id": "phase3e_real_pilot_v1",
+  "feature_set_comparison_hash": "2288c4ca72b73242f7c270a8979a89ef7b7a8d4248d9f4464a978a12053226f9",
+  "preservation_policy": "Phase 3F reads these artifacts as immutable baseline references and does not overwrite them.",
+  "rule_baseline_hash": "fd6cbb3e18b6ecb65d80797b6fafcefe2aa4ac913332d5afbb85016d28729c8c",
+  "status": "PILOT_BASELINE"
+}

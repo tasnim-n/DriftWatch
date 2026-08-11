@@ -129,3 +129,13 @@ Phase 3D.5 uses the Phase 3D intake records and the Phase 3B feature extractor. 
 - Stores local, trusted, generated model artifacts under `artifacts/models/phase3e/phase3e_real_pilot_v1/`.
 
 Phase 3E does not replace or fuse with the production `risk_engine/` scoring path. ML outputs are empirical research artifacts and are not used by the FastAPI application for live risk classification.
+
+### 2.14 Phase 3F Independent Replication (`research/phase3f.py`)
+- Preserves Phase 3E artifacts as `PILOT_BASELINE` by recording hashes of the frozen Phase 3E dataset snapshot, feature comparison, and deterministic-rule baseline.
+- Acquires or replays public GitHub release-asset metadata for a separate replication corpus and writes `datasets/manifests/phase3f_import_manifest.json`.
+- Adds independent real version-pair records while preserving provenance, raw package hashes, normalized analysis-package hashes, license identifiers, label-source metadata, and label-quality tiers.
+- Reuses frozen Phase 3E feature rows for baseline records and extracts Phase 3B schema-compatible features only for new replication records.
+- Runs duplicate, protected group/package-hash leakage, feature leakage, label-quality, diversity, chronological, error-analysis, and Phase 3E-vs-Phase 3F comparison reports.
+- Writes research artifacts under `artifacts/driftbench/phase3f/`, `artifacts/driftbench/phase3f_features/`, `artifacts/experiments/phase3f/`, and `artifacts/models/phase3f/phase3f_replication_v1/`.
+
+Phase 3F remains a research replication layer. It does not alter the production FastAPI analysis pipeline, does not tune scoring rules to the observed test outcome, and does not deploy ML into `risk_engine/`.

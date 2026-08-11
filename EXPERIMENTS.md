@@ -195,3 +195,59 @@ Interpretation:
 - Chronological evaluation was marked `not_reliable_pilot_too_small`.
 - Label-quality sensitivity could not be rerun because the corpus has no sufficiently large higher-confidence subset with both target classes.
 - Real-only evaluation is the primary Phase 3E result. Controlled-only and combined evaluations were not run.
+
+## Phase 3F Independent Replication Study - 2026-08-11
+
+Phase 3F preserves Phase 3E as `PILOT_BASELINE` and creates a separate replication dataset and experiment series.
+
+Artifacts:
+- `datasets/manifests/phase3f_import_manifest.json`
+- `artifacts/driftbench/phase3f/`
+- `artifacts/driftbench/phase3f_features/`
+- `artifacts/experiments/phase3f/`
+- `artifacts/models/phase3f/phase3f_replication_v1/`
+
+Dataset:
+- Dataset version: `driftbench-real-replication-phase3f-v1`
+- Real records: 46
+- New independent replication records: 12
+- Unique extensions: 14
+- Controlled records: 0
+- Labels: `benign_transition=41`, `risky_transition=3`, `uncertain=2`
+- Label quality: `SINGLE_REVIEWER_PROVISIONAL=44`, `UNCERTAIN=2`
+- Double-reviewed records: 0
+- Inter-rater agreement: not available
+- Licenses: `Apache-2.0=4`, `GPL-3.0=16`, `ISC=4`, `MIT=22`
+- Splits: `train=24`, `validation=12`, `test=10`
+
+Quality gates:
+- Provenance completeness: 46/46
+- Duplicate audit: passed
+- Group/package-hash leakage audit: passed
+- Feature leakage audit: passed
+- Feature schema: unchanged at `1.0`
+- UNCERTAIN records remained training-ineligible
+- ML was not deployed to production
+
+Held-out replication metrics:
+
+| Method | Feature Set | Precision | Recall | F1 | Balanced Accuracy | FPR | FNR | False Alerts / 100 Benign | Confusion Matrix |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---|
+| Rule engine | Full DriftWatch | 0.111111 | 1.0 | 0.2 | 0.555556 | 0.888889 | 0.0 | 88.888889 | `tn=1, fp=8, fn=0, tp=1` |
+| Logistic Regression | Full DriftWatch | 0.0 | 0.0 | 0.0 | 0.5 | 0.0 | 1.0 | 0.0 | `tn=9, fp=0, fn=1, tp=0` |
+| Random Forest | Full DriftWatch | 0.0 | 0.0 | 0.0 | 0.5 | 0.0 | 1.0 | 0.0 | `tn=9, fp=0, fn=1, tp=0` |
+| Random Forest | Permission-only | 0.1 | 1.0 | 0.181818 | 0.5 | 1.0 | 0.0 | 100.0 | `tn=0, fp=9, fn=0, tp=1` |
+
+Phase 3E vs Phase 3F:
+- Rule-engine F1: `0.333333` -> `0.2`
+- Rule-engine recall: `1.0` -> `1.0`
+- Rule-engine FPR: `0.8` -> `0.888889`
+- Full DriftWatch Logistic Regression F1: `0.0` -> `0.0`
+- Full DriftWatch Random Forest F1: `0.0` -> `0.0`
+
+Interpretation:
+- The Phase 3E finding did not become deployment-positive after replication.
+- Rules still catch the single held-out risky transition but continue to over-alert on feature-rich benign updates.
+- ML remains not justified for production integration.
+- Replication conclusion: `INCONCLUSIVE`.
+- Evidence-based next phase: `CONTINUE DATASET EXPANSION`.

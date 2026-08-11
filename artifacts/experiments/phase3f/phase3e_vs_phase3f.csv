@@ -1,0 +1,12 @@
+model,feature_set,phase3e_test_n,phase3f_test_n,phase3e_f1,phase3f_f1,phase3e_recall,phase3f_recall,phase3e_fpr,phase3f_fpr
+logistic_regression,full_driftwatch,6,10,0.0,0.0,0.0,0.0,0.0,0.0
+logistic_regression,latest_version_static,6,10,0.0,0.0,0.0,0.0,0.0,0.0
+logistic_regression,manifest_permission,6,10,0.0,0.0,0.0,0.0,0.0,0.0
+logistic_regression,permission_only,6,10,0.0,0.0,0.0,0.0,0.0,0.0
+logistic_regression,simple_differential,6,10,0.0,0.0,0.0,0.0,0.0,0.0
+random_forest,full_driftwatch,6,10,0.0,0.0,0.0,0.0,0.0,0.0
+random_forest,latest_version_static,6,10,0.0,0.0,0.0,0.0,0.0,0.0
+random_forest,manifest_permission,6,10,0.0,0.0,0.0,0.0,1.0,1.0
+random_forest,permission_only,6,10,0.285714,0.181818,1.0,1.0,1.0,1.0
+random_forest,simple_differential,6,10,0.0,0.0,0.0,0.0,0.0,0.0
+rule_engine,full_driftwatch,6,10,0.333333,0.2,1.0,1.0,0.8,0.888889

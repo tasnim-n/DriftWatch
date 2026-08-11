@@ -59,4 +59,27 @@ Imported packages are hostile files. DriftWatch parses archives and JavaScript s
 - Provenance completeness: 34/34
 - Review queue: two original `uncertain` Save Sora transitions remain unresolved and ineligible
 
-The real pilot passes the Phase 3D.6 readiness gate for Phase 3E pilot ML re-evaluation. Phase 3E has not started, and no ML performance metrics are claimed.
+The real pilot passed the Phase 3D.6 readiness gate for Phase 3E pilot ML re-evaluation. Phase 3E and Phase 3F have since produced research-only evaluation artifacts; those results remain preliminary and do not justify production ML integration.
+
+## Current Phase 3F Replication Governance State
+- Dataset version: `driftbench-real-replication-phase3f-v1`
+- Real records accepted: 46
+- New independent replication records: 12
+- Unique extension identities: 14
+- Source type: public open-source GitHub release assets
+- License identifiers: `Apache-2.0=4`, `GPL-3.0=16`, `ISC=4`, `MIT=22`
+- Label states: `benign_transition=41`, `risky_transition=3`, `uncertain=2`
+- Label quality tiers: `SINGLE_REVIEWER_PROVISIONAL=44`, `UNCERTAIN=2`
+- Split distribution: `train=24`, `validation=12`, `test=10`
+- Duplicate audit: passed
+- Protected group/package-hash leakage audit: passed
+- Feature leakage audit: passed
+- Provenance completeness: 46/46
+- Double-reviewed records: 0
+- Inter-rater agreement: not available
+
+Phase 3F preserves Phase 3E as `PILOT_BASELINE` and writes separate replication artifacts under `artifacts/driftbench/phase3f/`, `artifacts/driftbench/phase3f_features/`, and `artifacts/experiments/phase3f/`.
+
+Rejected or unsuitable candidate packages must remain excluded when they fail DriftWatch security limits, licensing checks, provenance checks, or accepted-source criteria. Security controls must not be weakened to force a candidate into the corpus.
+
+Phase 3F conclusion is `INCONCLUSIVE`; the evidence-based decision gate is `CONTINUE DATASET EXPANSION`.

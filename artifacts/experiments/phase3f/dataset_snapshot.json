@@ -1,0 +1,60 @@
+{
+  "controlled_record_count": 0,
+  "created_at": "2026-08-11T00:48:40.679534+00:00",
+  "dataset_manifest_hash": "27c1ea3f731f8e629d4f585b5a8cb40e472362037128610a209ff4c98fb90757",
+  "dataset_version": "driftbench-real-replication-phase3f-v1",
+  "extension_ids_per_split": {
+    "test": [
+      "github:aaroncql/katex-github-chrome-extension",
+      "github:gorhill/ublock",
+      "github:openstyles/stylus",
+      "github:yniijia/subtidex"
+    ],
+    "train": [
+      "github:browserpass/browserpass-extension",
+      "github:duckduckgo/duckduckgo-privacy-extension",
+      "github:keepassxreboot/keepassxc-browser",
+      "github:kevinsqi/save_tabbed_images",
+      "github:refined-github/refined-github",
+      "github:violentmonkey/violentmonkey"
+    ],
+    "validation": [
+      "github:ajayyy/sponsorblock",
+      "github:alpha1337/save-sora",
+      "github:alyssaxuu/screenity",
+      "github:darkreader/darkreader"
+    ]
+  },
+  "feature_schema_version": "1.0",
+  "label_distribution": {
+    "benign_transition": 41,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "label_ontology_version": "phase3d-labels-v1",
+  "label_quality_distribution": {
+    "SINGLE_REVIEWER_PROVISIONAL": 44,
+    "UNCERTAIN": 2
+  },
+  "new_replication_record_count": 12,
+  "phase3e_pilot_baseline": {
+    "dataset_snapshot_hash": "940ebb5f562b05c3bdf02063881add2cfc8a9029f651434de1905365b48e1980",
+    "dataset_version": "driftbench-real-pilot-phase3e-v1",
+    "experiment_id": "phase3e_real_pilot_v1",
+    "feature_set_comparison_hash": "2288c4ca72b73242f7c270a8979a89ef7b7a8d4248d9f4464a978a12053226f9",
+    "preservation_policy": "Phase 3F reads these artifacts as immutable baseline references and does not overwrite them.",
+    "rule_baseline_hash": "fd6cbb3e18b6ecb65d80797b6fafcefe2aa4ac913332d5afbb85016d28729c8c",
+    "status": "PILOT_BASELINE"
+  },
+  "provenance_manifest_hash": "df4a49c59ef9809cfb326d7a562793625f6a4d26d4d932458fc6a8e56a9bd3d6",
+  "real_record_count": 46,
+  "record_count": 46,
+  "schema_version": "phase3d-intake-v1",
+  "split_distribution": {
+    "test": 10,
+    "train": 24,
+    "validation": 12
+  },
+  "split_version": "phase3f-replication-group-safe-v1",
+  "unique_extension_identities": 14
+}

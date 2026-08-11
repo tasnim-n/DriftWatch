@@ -1,0 +1,43 @@
+{
+  "baselines": [
+    "permission_only",
+    "manifest_permission",
+    "latest_version_static",
+    "simple_differential",
+    "full_driftwatch"
+  ],
+  "code_version": "56f6a94a275283f3e4bcbdd3b19f9c7a9acc500e",
+  "deterministic_seed": 1337,
+  "extraction_warnings": [],
+  "failed_records": [],
+  "feature_families": [
+    "analyzer_health",
+    "api_drift",
+    "host_drift",
+    "latest_static",
+    "manifest_permission",
+    "network_drift",
+    "obfuscation_drift",
+    "package_drift",
+    "permission_drift",
+    "simple_differential",
+    "structural_drift"
+  ],
+  "feature_schema_version": "1.0",
+  "generation_timestamp": "2026-08-11T00:40:49.667552+00:00",
+  "label_counts": {
+    "benign_transition": 41,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "phase3e_baseline_feature_reuse": true,
+  "phase3f_new_records_extracted_only": true,
+  "record_count": 46,
+  "source_dataset_identifier": "DriftBench Phase 3F",
+  "source_dataset_version": "driftbench-real-replication-phase3f-v1",
+  "split_counts": {
+    "test": 10,
+    "train": 24,
+    "validation": 12
+  }
+}

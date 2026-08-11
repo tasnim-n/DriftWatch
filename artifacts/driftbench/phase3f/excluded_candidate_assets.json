@@ -1,0 +1,12 @@
+{
+  "assets": {},
+  "excluded_count": 0,
+  "reason": "Candidate assets were not accepted into Phase 3F because they failed DriftWatch extraction safety limits or are not in the frozen Phase 3F accepted-source set.",
+  "security_screening_notes": [
+    {
+      "candidate": "AdGuard Browser Extension Chrome release assets",
+      "outcome": "excluded_from_phase3f",
+      "reason": "Candidate archives were rejected during screening because raw assets triggered extraction safety controls or normalized archives exceeded configured upload-analysis limits. DriftWatch security limits were preserved."
+    }
+  ]
+}

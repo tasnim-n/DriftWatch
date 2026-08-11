@@ -290,3 +290,52 @@ Q10: broader claims require more independently labeled real records, more review
 Artifacts:
 - `artifacts/experiments/phase3e/`
 - `artifacts/models/phase3e/phase3e_real_pilot_v1/`
+
+## 14. Phase 3F Independent Replication Study
+
+Phase 3F treats Phase 3E as the immutable `PILOT_BASELINE` and creates a new replication dataset/version. It does not tune labels, features, splits, rules, or models to improve Phase 3E outcomes.
+
+### Dataset
+- Dataset version: `driftbench-real-replication-phase3f-v1`
+- Total real records: 46
+- New independent replication records: 12
+- Unique extensions: 14
+- Controlled records: 0
+- Label distribution: `benign_transition=41`, `risky_transition=3`, `uncertain=2`
+- Label quality distribution: `SINGLE_REVIEWER_PROVISIONAL=44`, `UNCERTAIN=2`
+- License distribution: `Apache-2.0=4`, `GPL-3.0=16`, `ISC=4`, `MIT=22`
+
+The 12 new replication records come from public GitHub release assets for Browserpass, Dark Reader, and Stylus. They were marked `SINGLE_REVIEWER_PROVISIONAL`; no second reviewer was available, so inter-rater agreement is not available.
+
+Split:
+- Train: 24 records, 6 extensions
+- Validation: 12 records, 4 extensions
+- Test: 10 records, 4 extensions
+
+Leakage and duplicate audits passed. The feature schema remained `1.0`; no Phase 3E error-driven features were added.
+
+### Replication Results
+
+| Method | Feature Set | Precision | Recall | F1 | Balanced Acc. | FPR | FNR | Confusion Matrix |
+|---|---|---:|---:|---:|---:|---:|---:|---|
+| Rule engine | Full DriftWatch | 0.11 | 1.00 | 0.20 | 0.56 | 0.89 | 0.00 | `tn=1, fp=8, fn=0, tp=1` |
+| Logistic Regression | Full DriftWatch | 0.00 | 0.00 | 0.00 | 0.50 | 0.00 | 1.00 | `tn=9, fp=0, fn=1, tp=0` |
+| Random Forest | Full DriftWatch | 0.00 | 0.00 | 0.00 | 0.50 | 0.00 | 1.00 | `tn=9, fp=0, fn=1, tp=0` |
+| Random Forest | Permission-only | 0.10 | 1.00 | 0.18 | 0.50 | 1.00 | 0.00 | `tn=0, fp=9, fn=0, tp=1` |
+
+Phase 3E vs Phase 3F:
+- Rule engine F1 changed from `0.333333` to `0.2`; recall stayed `1.0`; FPR changed from `0.8` to `0.888889`.
+- Full DriftWatch Logistic Regression remained F1 `0.0`, recall `0.0`, FPR `0.0`.
+- Full DriftWatch Random Forest remained F1 `0.0`, recall `0.0`, FPR `0.0`.
+
+### Error Analysis
+The deterministic rule engine again caught the single held-out risky transition but produced many false positives. The recurring false-positive pattern is feature-rich benign updates with static network, obfuscation-like/minification, and source-to-sink indicators. Stylus replication records added more examples of this failure pattern.
+
+The ML models again missed the held-out risky `katex-github-chrome-extension` transition despite strong static drift. This remains consistent with insufficient positive class support and limited label diversity.
+
+### Replication Interpretation
+Replication conclusion: `INCONCLUSIVE`.
+
+Phase 3F partially reinforces the Phase 3E caution: transparent rules still detect the single risky held-out example, but at high false-alert cost; ML still does not show deployable value. The dataset improved in size and diversity, but it remains too small and too provisionally labeled for production ML integration or broad claims.
+
+Recommended decision gate: `CONTINUE DATASET EXPANSION`.

@@ -1,0 +1,136 @@
+{
+  "adjacent_version_reuse": {
+    "027767da2e13db479ac758b3fe67c041893923706f3548a20d017019db27d618": [
+      "openstyles_stylus_2_4_7_to_2_4_8:new",
+      "openstyles_stylus_2_4_8_to_2_4_9:old"
+    ],
+    "1118e1b67828e3fde2c7390976731b8088ae629755a0819ad342cb5efe853486": [
+      "openstyles_stylus_2_4_6_to_2_4_7:new",
+      "openstyles_stylus_2_4_7_to_2_4_8:old"
+    ],
+    "2684487d60bcc3fc2a4d5febce123f823649ade45bf3312016a150d6ce661e3c": [
+      "darkreader_darkreader_4_9_125_to_4_9_126:new",
+      "darkreader_darkreader_4_9_126_to_4_9_127:old"
+    ],
+    "26f521d348af14e5207a49980f35c343153a3a13e773fc7d821500cbd60e8db8": [
+      "duckduckgo_privacy_2025_12_12_to_2025_12_14:new",
+      "duckduckgo_privacy_2025_12_14_to_2026_1_12:old"
+    ],
+    "273d6edccbaaf7f2ed2482ba01c8d4b574eeaca83355e18617caa58b41228711": [
+      "darkreader_darkreader_4_9_127_to_4_9_128:new",
+      "darkreader_darkreader_4_9_128_to_4_9_129:old"
+    ],
+    "27a12f1c730665ad9b5f52f2ff2691e9c2158be7aafe6a533ef9fb88623a8957": [
+      "darkreader_darkreader_4_9_126_to_4_9_127:new",
+      "darkreader_darkreader_4_9_127_to_4_9_128:old"
+    ],
+    "27ad108082984bfaf4c61e14950f31a7e6dc0129d844011239cb2f1371227083": [
+      "browserpass_browserpass_extension_3_10_1_to_3_10_2:new",
+      "browserpass_browserpass_extension_3_10_2_to_3_11_0:old"
+    ],
+    "3fb40f69c5d3992eb17a25aa199f2542146319e31013c815652a89087caf73b9": [
+      "save-sora_2_0_196_to_2_0_355:new",
+      "save-sora_2_0_355_to_3_0_0:old"
+    ],
+    "4b9a1ef9c4220aa83e803ed70000fd4142d8484153c48877eeb6893fbc8dbac0": [
+      "keepassxc_browser_1_10_0_1_to_1_10_1:old",
+      "keepassxc_browser_1_10_0_to_1_10_0_1:new"
+    ],
+    "4f587a0a4b18583ed5960f3016fa58aa133ca6c766a065eb0e7cd8085dea9eb2": [
+      "ublock_origin_1_72_0_to_1_72_2:new",
+      "ublock_origin_1_72_2_to_1_73_0:old"
+    ],
+    "5740963b249690f3fe0a9ee5085f96c2567667e76392aa1e1af64da3c74783e2": [
+      "save-sora_2_0_355_to_3_0_0:new",
+      "save-sora_3_0_0_to_3_0_10:old"
+    ],
+    "576f509107353aeb822cc10684384bc34beb76300f1a6d2bd1ddcd59994c3701": [
+      "browserpass_browserpass_extension_3_10_2_to_3_11_0:new",
+      "browserpass_browserpass_extension_3_11_0_to_3_12_0:old"
+    ],
+    "5cbf819d2561d7b7c740ebcd1e0c94de6a9c039ee2292f59646525e067398d6f": [
+      "save_tabbed_images_0_5_0_to_0_6_0:new",
+      "save_tabbed_images_0_6_0_to_0_7_0:old"
+    ],
+    "5e9486c94d9f8206d84279e70ef4289ae1f87908f7176ff44569df2449d98592": [
+      "sponsorblock_6_1_4_to_6_1_5:new",
+      "sponsorblock_6_1_5_to_6_1_6:old"
+    ],
+    "5f3c118298ede2200ff87488257910224b0a95e160e3fb515032f850fcf8377d": [
+      "browserpass_browserpass_extension_3_10_0_to_3_10_1:new",
+      "browserpass_browserpass_extension_3_10_1_to_3_10_2:old"
+    ],
+    "61f721b7a52dadd2303b8b7c43bb30981b45050c0f19410bdf2f4d44c0ba1fef": [
+      "sponsorblock_6_1_3_to_6_1_4:new",
+      "sponsorblock_6_1_4_to_6_1_5:old"
+    ],
+    "74186834ec1ff9b4ca45167bb031c4e3c36abf2cd230b440935425e64224ad5f": [
+      "duckduckgo_privacy_2025_11_3_to_2025_12_12:new",
+      "duckduckgo_privacy_2025_12_12_to_2025_12_14:old"
+    ],
+    "7a022c56fc0b98c6f529da100f248a32c5cdbab5e00133513e1079b517a36ebf": [
+      "ublock_origin_1_70_0_to_1_71_0:new",
+      "ublock_origin_1_71_0_to_1_72_0:old"
+    ],
+    "7b41f623eb78027ecdb54e5be0afddcfb5396d9f877ab976be3544687b7f0d39": [
+      "duckduckgo_privacy_2025_12_14_to_2026_1_12:new",
+      "duckduckgo_privacy_2026_1_12_to_2026_4_28:old"
+    ],
+    "802d13d2c72b35ef8e3f8d8c1af7584b695b45c7f1915222c3351220a6d692f7": [
+      "keepassxc_browser_1_10_0_to_1_10_0_1:old",
+      "keepassxc_browser_1_9_11_to_1_10_0:new"
+    ],
+    "95b3447fc493822d74d2fb216f651209542030a62aa99af57b9c276bea7e8103": [
+      "violentmonkey_2_43_0_to_2_44_0:new",
+      "violentmonkey_2_44_0_to_2_45_0:old"
+    ],
+    "abf2dca4622e75f740c5ebe4f9eeba762a0cc9f266dbb807998ead88f0a11ca4": [
+      "refined_github_26_5_24_to_26_6_1:new",
+      "refined_github_26_6_1_to_26_6_7:old"
+    ],
+    "ac2f8bc556fcf6c5bdf532e39bb2c1fb49b7be87cff50d7060d38aed1a8b3bd3": [
+      "refined_github_26_6_7_to_26_7:new",
+      "refined_github_26_7_to_26_7_11:old"
+    ],
+    "ad23df7c49ce9871383624db056057e89962dc8c39ff65a41215f0ce7ff7ebe1": [
+      "sponsorblock_6_1_5_to_6_1_6:new",
+      "sponsorblock_6_1_6_to_6_1_7:old"
+    ],
+    "be758e0a0cd69d102a84e0bc407e91779313e1eaba0d8eca0f3fa01c899d3b82": [
+      "save_tabbed_images_0_4_1_to_0_5_0:new",
+      "save_tabbed_images_0_5_0_to_0_6_0:old"
+    ],
+    "c7aca6b93c1e352e06ef89880fb095ff8d85909831617089b9d08715eb58a5ef": [
+      "openstyles_stylus_2_4_8_to_2_4_9:new",
+      "openstyles_stylus_2_4_9_to_2_4_10:old"
+    ],
+    "cfe7dc5d8bc9cc0c022735048cacdd009f7dc76a906b5733d4b4235d2492bee4": [
+      "ublock_origin_1_71_0_to_1_72_0:new",
+      "ublock_origin_1_72_0_to_1_72_2:old"
+    ],
+    "ef9fb316e4811f0f379554aac601b454fa17ea2cd8d36efa8db03080e56144dc": [
+      "save_tabbed_images_0_4_0_to_0_4_1:new",
+      "save_tabbed_images_0_4_1_to_0_5_0:old"
+    ],
+    "f245051e745d0dfaf7e77197218cd3d5044e0ec8d6e0711bb416d4fb62918d80": [
+      "violentmonkey_2_44_0_to_2_45_0:new",
+      "violentmonkey_2_45_0_to_2_46_0:old"
+    ],
+    "f864fb501d710e40b10a986bee89d989b550975f08b0a1572a67a86e90428b58": [
+      "refined_github_26_6_1_to_26_6_7:new",
+      "refined_github_26_6_7_to_26_7:old"
+    ],
+    "fa3c534a923a7fb15b16659116b3be1819c1b2078f6ea0f169ffd30e37583d04": [
+      "keepassxc_browser_1_10_0_1_to_1_10_1:new",
+      "keepassxc_browser_1_10_1_to_1_10_2:old"
+    ],
+    "fecde4b15b69e04e8853256b9be1df7717c5d3e9997c08ef86a9ac186b9a4f0f": [
+      "violentmonkey_2_45_0_to_2_46_0:new",
+      "violentmonkey_2_46_0_to_2_47_0:old"
+    ]
+  },
+  "duplicate_package_hashes": {},
+  "duplicate_pairs": [],
+  "duplicate_record_ids": [],
+  "passed": true
+}

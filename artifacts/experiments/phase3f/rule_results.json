@@ -1,0 +1,529 @@
+{
+  "baseline": "current_deterministic_risk_scorer",
+  "metrics": {
+    "accuracy": 0.2,
+    "balanced_accuracy": 0.555556,
+    "confusion_matrix": {
+      "fn": 0,
+      "fp": 8,
+      "tn": 1,
+      "tp": 1
+    },
+    "f1": 0.2,
+    "false_alert_specificity": 0.111111,
+    "false_alerts_per_100_benign": 88.888889,
+    "false_negative_rate": 0.0,
+    "false_positive_rate": 0.888889,
+    "n": 10,
+    "negative_count": 9,
+    "positive_count": 1,
+    "pr_auc": 1.0,
+    "precision": 0.111111,
+    "recall": 1.0,
+    "roc_auc": 1.0,
+    "specificity": 0.111111
+  },
+  "predictions": [
+    {
+      "extension_id": "github:aaroncql/katex-github-chrome-extension",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "predicted_binary": 1,
+      "predicted_target": "REVIEW_WORTHY",
+      "record_id": "katex-github-chrome-extension_0_1_0_to_0_2_0",
+      "risk_classification": "Critical",
+      "risk_score": 70.5,
+      "score_breakdown": {
+        "api_contribution": 4.0,
+        "combination_contribution": 5.0,
+        "combination_rules": [
+          {
+            "contribution": 5.0,
+            "rule_id": "RULE_MODERATE_NEW_BACKGROUND_WORKER",
+            "title": "Background Service Worker Introduced"
+          }
+        ],
+        "host_contribution": 15.0,
+        "network_contribution": 20.0,
+        "obfuscation_contribution": 15.0,
+        "permission_contribution": 4.5,
+        "structural_contribution": 7.0
+      },
+      "source_type": "open_source_repository",
+      "triggered_rules": [
+        {
+          "evidence": "The update introduced 1 dynamic code / obfuscation indicators (e.g. eval, new Function, high entropy strings).",
+          "recommendation": "Inspect obfuscated code locations or demand non-minified source for manual review.",
+          "rule_id": "RULE_HIGH_OBFUSCATION_INTRODUCED",
+          "score_category": "obfuscation",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Dynamic Code Evaluation or String Obfuscation Introduced"
+        },
+        {
+          "evidence": "The update introduced communication with new external destinations: external-0.example, external-1.example, external-2.example.",
+          "recommendation": "Audit external host endpoints for reputation and privacy compliance.",
+          "rule_id": "RULE_HIGH_NEW_EXTERNAL_NETWORK",
+          "score_category": "network",
+          "score_weight": 0,
+          "severity": "High",
+          "title": "New External Network Destinations Introduced"
+        },
+        {
+          "evidence": "The update introduced a new background service worker script that executes persistently.",
+          "recommendation": "Audit background script event listeners and network fetch requests.",
+          "rule_id": "RULE_MODERATE_NEW_BACKGROUND_WORKER",
+          "score_category": "combination",
+          "score_weight": 5,
+          "severity": "Moderate",
+          "title": "Background Service Worker Introduced"
+        }
+      ],
+      "true_label": "risky_transition",
+      "true_target": "REVIEW_WORTHY"
+    },
+    {
+      "extension_id": "github:yniijia/subtidex",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "predicted_binary": 1,
+      "predicted_target": "REVIEW_WORTHY",
+      "record_id": "subtidex_1_5_0_to_1_5_1",
+      "risk_classification": "High",
+      "risk_score": 60.0,
+      "score_breakdown": {
+        "api_contribution": 0.0,
+        "combination_contribution": 0.0,
+        "combination_rules": [],
+        "host_contribution": 0.0,
+        "network_contribution": 20.0,
+        "obfuscation_contribution": 15.0,
+        "permission_contribution": 0.0,
+        "structural_contribution": 25.0
+      },
+      "source_type": "open_source_repository",
+      "triggered_rules": [
+        {
+          "evidence": "Code heuristic identified sensitive source APIs (sensitive_source) in the same file as outbound sinks (network_sink). This is not confirmed exfiltration.",
+          "recommendation": "Manually audit the file and verify whether sensitive data can reach outbound communication.",
+          "rule_id": "RULE_CRITICAL_SOURCE_SINK_HEURISTIC",
+          "score_category": "structural",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Sensitive Source-to-Sink Heuristic Indicator"
+        },
+        {
+          "evidence": "The update introduced 1 dynamic code / obfuscation indicators (e.g. eval, new Function, high entropy strings).",
+          "recommendation": "Inspect obfuscated code locations or demand non-minified source for manual review.",
+          "rule_id": "RULE_HIGH_OBFUSCATION_INTRODUCED",
+          "score_category": "obfuscation",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Dynamic Code Evaluation or String Obfuscation Introduced"
+        },
+        {
+          "evidence": "The update introduced communication with new external destinations: external-0.example, external-1.example, external-2.example.",
+          "recommendation": "Audit external host endpoints for reputation and privacy compliance.",
+          "rule_id": "RULE_HIGH_NEW_EXTERNAL_NETWORK",
+          "score_category": "network",
+          "score_weight": 0,
+          "severity": "High",
+          "title": "New External Network Destinations Introduced"
+        }
+      ],
+      "true_label": "benign_transition",
+      "true_target": "BENIGN"
+    },
+    {
+      "extension_id": "github:gorhill/ublock",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "predicted_binary": 1,
+      "predicted_target": "REVIEW_WORTHY",
+      "record_id": "ublock_origin_1_70_0_to_1_71_0",
+      "risk_classification": "High",
+      "risk_score": 60.0,
+      "score_breakdown": {
+        "api_contribution": 0.0,
+        "combination_contribution": 0.0,
+        "combination_rules": [],
+        "host_contribution": 0.0,
+        "network_contribution": 20.0,
+        "obfuscation_contribution": 15.0,
+        "permission_contribution": 0.0,
+        "structural_contribution": 25.0
+      },
+      "source_type": "open_source_repository",
+      "triggered_rules": [
+        {
+          "evidence": "Code heuristic identified sensitive source APIs (sensitive_source) in the same file as outbound sinks (network_sink). This is not confirmed exfiltration.",
+          "recommendation": "Manually audit the file and verify whether sensitive data can reach outbound communication.",
+          "rule_id": "RULE_CRITICAL_SOURCE_SINK_HEURISTIC",
+          "score_category": "structural",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Sensitive Source-to-Sink Heuristic Indicator"
+        },
+        {
+          "evidence": "The update introduced 1 dynamic code / obfuscation indicators (e.g. eval, new Function, high entropy strings).",
+          "recommendation": "Inspect obfuscated code locations or demand non-minified source for manual review.",
+          "rule_id": "RULE_HIGH_OBFUSCATION_INTRODUCED",
+          "score_category": "obfuscation",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Dynamic Code Evaluation or String Obfuscation Introduced"
+        },
+        {
+          "evidence": "The update introduced communication with new external destinations: external-0.example, external-1.example, external-2.example.",
+          "recommendation": "Audit external host endpoints for reputation and privacy compliance.",
+          "rule_id": "RULE_HIGH_NEW_EXTERNAL_NETWORK",
+          "score_category": "network",
+          "score_weight": 0,
+          "severity": "High",
+          "title": "New External Network Destinations Introduced"
+        }
+      ],
+      "true_label": "benign_transition",
+      "true_target": "BENIGN"
+    },
+    {
+      "extension_id": "github:gorhill/ublock",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "predicted_binary": 1,
+      "predicted_target": "REVIEW_WORTHY",
+      "record_id": "ublock_origin_1_71_0_to_1_72_0",
+      "risk_classification": "High",
+      "risk_score": 60.0,
+      "score_breakdown": {
+        "api_contribution": 0.0,
+        "combination_contribution": 0.0,
+        "combination_rules": [],
+        "host_contribution": 0.0,
+        "network_contribution": 20.0,
+        "obfuscation_contribution": 15.0,
+        "permission_contribution": 0.0,
+        "structural_contribution": 25.0
+      },
+      "source_type": "open_source_repository",
+      "triggered_rules": [
+        {
+          "evidence": "Code heuristic identified sensitive source APIs (sensitive_source) in the same file as outbound sinks (network_sink). This is not confirmed exfiltration.",
+          "recommendation": "Manually audit the file and verify whether sensitive data can reach outbound communication.",
+          "rule_id": "RULE_CRITICAL_SOURCE_SINK_HEURISTIC",
+          "score_category": "structural",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Sensitive Source-to-Sink Heuristic Indicator"
+        },
+        {
+          "evidence": "The update introduced 1 dynamic code / obfuscation indicators (e.g. eval, new Function, high entropy strings).",
+          "recommendation": "Inspect obfuscated code locations or demand non-minified source for manual review.",
+          "rule_id": "RULE_HIGH_OBFUSCATION_INTRODUCED",
+          "score_category": "obfuscation",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Dynamic Code Evaluation or String Obfuscation Introduced"
+        },
+        {
+          "evidence": "The update introduced communication with new external destinations: external-0.example, external-1.example, external-2.example.",
+          "recommendation": "Audit external host endpoints for reputation and privacy compliance.",
+          "rule_id": "RULE_HIGH_NEW_EXTERNAL_NETWORK",
+          "score_category": "network",
+          "score_weight": 0,
+          "severity": "High",
+          "title": "New External Network Destinations Introduced"
+        }
+      ],
+      "true_label": "benign_transition",
+      "true_target": "BENIGN"
+    },
+    {
+      "extension_id": "github:gorhill/ublock",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "predicted_binary": 0,
+      "predicted_target": "BENIGN",
+      "record_id": "ublock_origin_1_72_0_to_1_72_2",
+      "risk_classification": "Moderate",
+      "risk_score": 22.0,
+      "score_breakdown": {
+        "api_contribution": 0.0,
+        "combination_contribution": 0.0,
+        "combination_rules": [],
+        "host_contribution": 0.0,
+        "network_contribution": 0.0,
+        "obfuscation_contribution": 0.0,
+        "permission_contribution": 0.0,
+        "structural_contribution": 22.0
+      },
+      "source_type": "open_source_repository",
+      "triggered_rules": [
+        {
+          "evidence": "Code heuristic identified sensitive source APIs (sensitive_source) in the same file as outbound sinks (network_sink). This is not confirmed exfiltration.",
+          "recommendation": "Manually audit the file and verify whether sensitive data can reach outbound communication.",
+          "rule_id": "RULE_CRITICAL_SOURCE_SINK_HEURISTIC",
+          "score_category": "structural",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Sensitive Source-to-Sink Heuristic Indicator"
+        }
+      ],
+      "true_label": "benign_transition",
+      "true_target": "BENIGN"
+    },
+    {
+      "extension_id": "github:gorhill/ublock",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "predicted_binary": 1,
+      "predicted_target": "REVIEW_WORTHY",
+      "record_id": "ublock_origin_1_72_2_to_1_73_0",
+      "risk_classification": "High",
+      "risk_score": 60.0,
+      "score_breakdown": {
+        "api_contribution": 0.0,
+        "combination_contribution": 0.0,
+        "combination_rules": [],
+        "host_contribution": 0.0,
+        "network_contribution": 20.0,
+        "obfuscation_contribution": 15.0,
+        "permission_contribution": 0.0,
+        "structural_contribution": 25.0
+      },
+      "source_type": "open_source_repository",
+      "triggered_rules": [
+        {
+          "evidence": "Code heuristic identified sensitive source APIs (sensitive_source) in the same file as outbound sinks (network_sink). This is not confirmed exfiltration.",
+          "recommendation": "Manually audit the file and verify whether sensitive data can reach outbound communication.",
+          "rule_id": "RULE_CRITICAL_SOURCE_SINK_HEURISTIC",
+          "score_category": "structural",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Sensitive Source-to-Sink Heuristic Indicator"
+        },
+        {
+          "evidence": "The update introduced 1 dynamic code / obfuscation indicators (e.g. eval, new Function, high entropy strings).",
+          "recommendation": "Inspect obfuscated code locations or demand non-minified source for manual review.",
+          "rule_id": "RULE_HIGH_OBFUSCATION_INTRODUCED",
+          "score_category": "obfuscation",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Dynamic Code Evaluation or String Obfuscation Introduced"
+        },
+        {
+          "evidence": "The update introduced communication with new external destinations: external-0.example, external-1.example, external-2.example.",
+          "recommendation": "Audit external host endpoints for reputation and privacy compliance.",
+          "rule_id": "RULE_HIGH_NEW_EXTERNAL_NETWORK",
+          "score_category": "network",
+          "score_weight": 0,
+          "severity": "High",
+          "title": "New External Network Destinations Introduced"
+        }
+      ],
+      "true_label": "benign_transition",
+      "true_target": "BENIGN"
+    },
+    {
+      "extension_id": "github:openstyles/stylus",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "predicted_binary": 1,
+      "predicted_target": "REVIEW_WORTHY",
+      "record_id": "openstyles_stylus_2_4_6_to_2_4_7",
+      "risk_classification": "High",
+      "risk_score": 57.0,
+      "score_breakdown": {
+        "api_contribution": 0.0,
+        "combination_contribution": 0.0,
+        "combination_rules": [],
+        "host_contribution": 0.0,
+        "network_contribution": 20.0,
+        "obfuscation_contribution": 15.0,
+        "permission_contribution": 0.0,
+        "structural_contribution": 22.0
+      },
+      "source_type": "open_source_repository",
+      "triggered_rules": [
+        {
+          "evidence": "Code heuristic identified sensitive source APIs (sensitive_source) in the same file as outbound sinks (network_sink). This is not confirmed exfiltration.",
+          "recommendation": "Manually audit the file and verify whether sensitive data can reach outbound communication.",
+          "rule_id": "RULE_CRITICAL_SOURCE_SINK_HEURISTIC",
+          "score_category": "structural",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Sensitive Source-to-Sink Heuristic Indicator"
+        },
+        {
+          "evidence": "The update introduced 1 dynamic code / obfuscation indicators (e.g. eval, new Function, high entropy strings).",
+          "recommendation": "Inspect obfuscated code locations or demand non-minified source for manual review.",
+          "rule_id": "RULE_HIGH_OBFUSCATION_INTRODUCED",
+          "score_category": "obfuscation",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Dynamic Code Evaluation or String Obfuscation Introduced"
+        },
+        {
+          "evidence": "The update introduced communication with new external destinations: external-0.example, external-1.example, external-2.example.",
+          "recommendation": "Audit external host endpoints for reputation and privacy compliance.",
+          "rule_id": "RULE_HIGH_NEW_EXTERNAL_NETWORK",
+          "score_category": "network",
+          "score_weight": 0,
+          "severity": "High",
+          "title": "New External Network Destinations Introduced"
+        }
+      ],
+      "true_label": "benign_transition",
+      "true_target": "BENIGN"
+    },
+    {
+      "extension_id": "github:openstyles/stylus",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "predicted_binary": 1,
+      "predicted_target": "REVIEW_WORTHY",
+      "record_id": "openstyles_stylus_2_4_7_to_2_4_8",
+      "risk_classification": "High",
+      "risk_score": 54.0,
+      "score_breakdown": {
+        "api_contribution": 0.0,
+        "combination_contribution": 0.0,
+        "combination_rules": [],
+        "host_contribution": 0.0,
+        "network_contribution": 16.0,
+        "obfuscation_contribution": 15.0,
+        "permission_contribution": 0.0,
+        "structural_contribution": 23.0
+      },
+      "source_type": "open_source_repository",
+      "triggered_rules": [
+        {
+          "evidence": "Code heuristic identified sensitive source APIs (sensitive_source) in the same file as outbound sinks (network_sink). This is not confirmed exfiltration.",
+          "recommendation": "Manually audit the file and verify whether sensitive data can reach outbound communication.",
+          "rule_id": "RULE_CRITICAL_SOURCE_SINK_HEURISTIC",
+          "score_category": "structural",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Sensitive Source-to-Sink Heuristic Indicator"
+        },
+        {
+          "evidence": "The update introduced 1 dynamic code / obfuscation indicators (e.g. eval, new Function, high entropy strings).",
+          "recommendation": "Inspect obfuscated code locations or demand non-minified source for manual review.",
+          "rule_id": "RULE_HIGH_OBFUSCATION_INTRODUCED",
+          "score_category": "obfuscation",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Dynamic Code Evaluation or String Obfuscation Introduced"
+        },
+        {
+          "evidence": "The update introduced communication with new external destinations: external-0.example, external-1.example.",
+          "recommendation": "Audit external host endpoints for reputation and privacy compliance.",
+          "rule_id": "RULE_HIGH_NEW_EXTERNAL_NETWORK",
+          "score_category": "network",
+          "score_weight": 0,
+          "severity": "High",
+          "title": "New External Network Destinations Introduced"
+        }
+      ],
+      "true_label": "benign_transition",
+      "true_target": "BENIGN"
+    },
+    {
+      "extension_id": "github:openstyles/stylus",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "predicted_binary": 1,
+      "predicted_target": "REVIEW_WORTHY",
+      "record_id": "openstyles_stylus_2_4_8_to_2_4_9",
+      "risk_classification": "High",
+      "risk_score": 58.0,
+      "score_breakdown": {
+        "api_contribution": 0.0,
+        "combination_contribution": 0.0,
+        "combination_rules": [],
+        "host_contribution": 0.0,
+        "network_contribution": 20.0,
+        "obfuscation_contribution": 15.0,
+        "permission_contribution": 0.0,
+        "structural_contribution": 23.0
+      },
+      "source_type": "open_source_repository",
+      "triggered_rules": [
+        {
+          "evidence": "Code heuristic identified sensitive source APIs (sensitive_source) in the same file as outbound sinks (network_sink). This is not confirmed exfiltration.",
+          "recommendation": "Manually audit the file and verify whether sensitive data can reach outbound communication.",
+          "rule_id": "RULE_CRITICAL_SOURCE_SINK_HEURISTIC",
+          "score_category": "structural",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Sensitive Source-to-Sink Heuristic Indicator"
+        },
+        {
+          "evidence": "The update introduced 1 dynamic code / obfuscation indicators (e.g. eval, new Function, high entropy strings).",
+          "recommendation": "Inspect obfuscated code locations or demand non-minified source for manual review.",
+          "rule_id": "RULE_HIGH_OBFUSCATION_INTRODUCED",
+          "score_category": "obfuscation",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Dynamic Code Evaluation or String Obfuscation Introduced"
+        },
+        {
+          "evidence": "The update introduced communication with new external destinations: external-0.example, external-1.example, external-2.example.",
+          "recommendation": "Audit external host endpoints for reputation and privacy compliance.",
+          "rule_id": "RULE_HIGH_NEW_EXTERNAL_NETWORK",
+          "score_category": "network",
+          "score_weight": 0,
+          "severity": "High",
+          "title": "New External Network Destinations Introduced"
+        }
+      ],
+      "true_label": "benign_transition",
+      "true_target": "BENIGN"
+    },
+    {
+      "extension_id": "github:openstyles/stylus",
+      "label_quality_tier": "SINGLE_REVIEWER_PROVISIONAL",
+      "predicted_binary": 1,
+      "predicted_target": "REVIEW_WORTHY",
+      "record_id": "openstyles_stylus_2_4_9_to_2_4_10",
+      "risk_classification": "High",
+      "risk_score": 60.0,
+      "score_breakdown": {
+        "api_contribution": 0.0,
+        "combination_contribution": 0.0,
+        "combination_rules": [],
+        "host_contribution": 0.0,
+        "network_contribution": 20.0,
+        "obfuscation_contribution": 15.0,
+        "permission_contribution": 0.0,
+        "structural_contribution": 25.0
+      },
+      "source_type": "open_source_repository",
+      "triggered_rules": [
+        {
+          "evidence": "Code heuristic identified sensitive source APIs (sensitive_source) in the same file as outbound sinks (network_sink). This is not confirmed exfiltration.",
+          "recommendation": "Manually audit the file and verify whether sensitive data can reach outbound communication.",
+          "rule_id": "RULE_CRITICAL_SOURCE_SINK_HEURISTIC",
+          "score_category": "structural",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Sensitive Source-to-Sink Heuristic Indicator"
+        },
+        {
+          "evidence": "The update introduced 1 dynamic code / obfuscation indicators (e.g. eval, new Function, high entropy strings).",
+          "recommendation": "Inspect obfuscated code locations or demand non-minified source for manual review.",
+          "rule_id": "RULE_HIGH_OBFUSCATION_INTRODUCED",
+          "score_category": "obfuscation",
+          "score_weight": 0,
+          "severity": "Critical",
+          "title": "Dynamic Code Evaluation or String Obfuscation Introduced"
+        },
+        {
+          "evidence": "The update introduced communication with new external destinations: external-0.example, external-1.example, external-2.example.",
+          "recommendation": "Audit external host endpoints for reputation and privacy compliance.",
+          "rule_id": "RULE_HIGH_NEW_EXTERNAL_NETWORK",
+          "score_category": "network",
+          "score_weight": 0,
+          "severity": "High",
+          "title": "New External Network Destinations Introduced"
+        }
+      ],
+      "true_label": "benign_transition",
+      "true_target": "BENIGN"
+    }
+  ],
+  "protocol": "fixed High-or-Critical threshold; no test-set tuning",
+  "record_count": 10,
+  "threshold": "risk_score >= 40.0"
+}

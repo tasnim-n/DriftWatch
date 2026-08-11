@@ -96,3 +96,11 @@ Uploaded archives, manifests, JavaScript, decoded strings, and derived indicator
 - DriftWatch must not load arbitrary or user-supplied pickle/joblib model files. Serialized model loading is permitted only for locally generated, trusted research artifacts during controlled experiments.
 - Model training uses numeric feature columns only. Labels, review status, eligibility flags, split assignments, paths, final risk scores, rule severities, and recommendations remain metadata and are excluded from training matrices.
 - Phase 3E does not execute extension JavaScript, decoded strings, or model-derived code.
+
+### 2.14 Phase 3F Replication Safety
+- Phase 3F uses public release assets and cached acquisition manifests for reproducible replay. Live metadata acquisition is not required when `datasets/manifests/phase3f_import_manifest.json` is present.
+- Phase 3E artifacts are preserved as `PILOT_BASELINE`; Phase 3F writes separate replication artifacts and must not overwrite frozen Phase 3E outputs.
+- New replication packages remain hostile archives. They are hashed, validated, normalized only when needed for static analysis, and never installed or executed.
+- Candidate packages that trigger extraction safety controls, exceed configured analysis limits, fail provenance/licensing checks, or fall outside the frozen accepted-source set are excluded rather than force-extracted.
+- Single-reviewer provisional labels remain a governance limitation. Phase 3F does not fabricate second-reviewer agreement or inter-rater reliability.
+- Research model artifacts from Phase 3F are not loaded by the FastAPI application and are not used for production risk scoring.

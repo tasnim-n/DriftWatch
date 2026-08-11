@@ -1,0 +1,45 @@
+{
+  "note": "Impurity importances are descriptive and unstable on this small corpus.",
+  "top_feature_importances": [
+    {
+      "feature": "v2_function_count",
+      "importance": 0.2045
+    },
+    {
+      "feature": "v2_obfuscation_indicator_count",
+      "importance": 0.19639
+    },
+    {
+      "feature": "v2_external_domain_count",
+      "importance": 0.130959
+    },
+    {
+      "feature": "v2_dynamic_execution_count",
+      "importance": 0.116674
+    },
+    {
+      "feature": "v2_http_endpoint_count",
+      "importance": 0.105038
+    },
+    {
+      "feature": "v2_total_host_count",
+      "importance": 0.076742
+    },
+    {
+      "feature": "v2_total_permission_count",
+      "importance": 0.076441
+    },
+    {
+      "feature": "v2_sensitive_api_count",
+      "importance": 0.047006
+    },
+    {
+      "feature": "v2_wildcard_host_count",
+      "importance": 0.026085
+    },
+    {
+      "feature": "v2_sensitive_permission_count",
+      "importance": 0.019324
+    }
+  ]
+}

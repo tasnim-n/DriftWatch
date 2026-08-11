@@ -1,0 +1,16 @@
+{
+  "experiment_id": "phase3f_replication_v1",
+  "feature_count": 8,
+  "feature_set": "permission_only",
+  "model": "random_forest",
+  "model_artifact": "artifacts\\models\\phase3f\\phase3f_replication_v1\\random_forest_permission_only\\model.joblib",
+  "random_seed": 1337,
+  "selected_hyperparameters": {
+    "class_weight": "balanced",
+    "max_depth": 2,
+    "min_samples_leaf": 2,
+    "n_estimators": 50
+  },
+  "selection_protocol": "validation_f1_then_balanced_accuracy_then_lower_fpr",
+  "training_seconds": 0.053643
+}

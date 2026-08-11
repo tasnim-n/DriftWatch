@@ -1,0 +1,6 @@
+{
+  "qualified_record_count": 44,
+  "reason": "Phase 3F improves timestamp coverage, but review-worthy class support remains too small for a reliable chronological evaluation.",
+  "risky_record_count": 3,
+  "status": "not_reliable_class_support_too_small"
+}

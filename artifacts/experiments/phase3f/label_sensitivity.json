@@ -1,0 +1,11 @@
+{
+  "all_eligible_count": 44,
+  "all_eligible_label_distribution": {
+    "benign_transition": 41,
+    "risky_transition": 3
+  },
+  "higher_confidence_count": 0,
+  "higher_confidence_label_distribution": {},
+  "reason": "The current real pilot does not yet contain a sufficient multi-reviewer or externally confirmed subset with both target classes. Results remain sensitive to provisional labels.",
+  "status": "not_run_high_confidence_subset_too_small"
+}

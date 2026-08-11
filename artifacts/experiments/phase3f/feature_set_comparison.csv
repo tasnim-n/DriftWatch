@@ -1,0 +1,11 @@
+model,feature_set,feature_count,train_records,validation_records,test_records,precision,recall,f1,balanced_accuracy,specificity,false_positive_rate,false_negative_rate,false_alerts_per_100_benign,accuracy,roc_auc,pr_auc,confusion_matrix
+logistic_regression,permission_only,8,24,10,10,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.9,0.5,0.1,"{""fn"": 1, ""fp"": 0, ""tn"": 9, ""tp"": 0}"
+random_forest,permission_only,8,24,10,10,0.1,1.0,0.181818,0.5,0.0,1.0,0.0,100.0,0.1,0.5,0.1,"{""fn"": 0, ""fp"": 9, ""tn"": 0, ""tp"": 1}"
+logistic_regression,manifest_permission,18,24,10,10,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.9,0.0,0.1,"{""fn"": 1, ""fp"": 0, ""tn"": 9, ""tp"": 0}"
+random_forest,manifest_permission,18,24,10,10,0.0,0.0,0.0,0.0,0.0,1.0,1.0,100.0,0.0,0.0,0.1,"{""fn"": 1, ""fp"": 9, ""tn"": 0, ""tp"": 0}"
+logistic_regression,latest_version_static,18,24,10,10,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.9,0.555556,0.2,"{""fn"": 1, ""fp"": 0, ""tn"": 9, ""tp"": 0}"
+random_forest,latest_version_static,18,24,10,10,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.9,0.888889,0.5,"{""fn"": 1, ""fp"": 0, ""tn"": 9, ""tp"": 0}"
+logistic_regression,simple_differential,13,24,10,10,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.9,0.0,0.1,"{""fn"": 1, ""fp"": 0, ""tn"": 9, ""tp"": 0}"
+random_forest,simple_differential,13,24,10,10,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.9,0.444444,0.166667,"{""fn"": 1, ""fp"": 0, ""tn"": 9, ""tp"": 0}"
+logistic_regression,full_driftwatch,43,24,10,10,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.9,1.0,1.0,"{""fn"": 1, ""fp"": 0, ""tn"": 9, ""tp"": 0}"
+random_forest,full_driftwatch,43,24,10,10,0.0,0.0,0.0,0.5,1.0,0.0,1.0,0.0,0.9,0.888889,0.5,"{""fn"": 1, ""fp"": 0, ""tn"": 9, ""tp"": 0}"

@@ -1,0 +1,98 @@
+{
+  "block_reasons": [],
+  "eligible_labels_per_split": {
+    "test": {
+      "benign_transition": 9,
+      "risky_transition": 1
+    },
+    "train": {
+      "benign_transition": 23,
+      "risky_transition": 1
+    },
+    "validation": {
+      "benign_transition": 9,
+      "risky_transition": 1
+    }
+  },
+  "functional_category_distribution": {
+    "accessibility": 4,
+    "content_blocking": 4,
+    "developer_tools": 4,
+    "github_productivity": 4,
+    "image_download": 4,
+    "math_rendering": 1,
+    "password_management": 4,
+    "password_security_helper": 4,
+    "privacy": 4,
+    "screen_recording": 1,
+    "user_script_manager": 4,
+    "video_captioning": 1,
+    "video_download": 3,
+    "video_enhancement": 4
+  },
+  "labels_per_split": {
+    "test": {
+      "benign_transition": 9,
+      "risky_transition": 1
+    },
+    "train": {
+      "benign_transition": 23,
+      "risky_transition": 1
+    },
+    "validation": {
+      "benign_transition": 9,
+      "risky_transition": 1,
+      "uncertain": 2
+    }
+  },
+  "leakage_passed": true,
+  "leakage_violations": [],
+  "minimum_test_quality_passed": true,
+  "pair_count_stats_per_extension": {
+    "max": 4,
+    "median": 4.0,
+    "min": 1
+  },
+  "real_controlled_per_split": {
+    "test": {
+      "controlled": 0,
+      "real": 10
+    },
+    "train": {
+      "controlled": 0,
+      "real": 24
+    },
+    "validation": {
+      "controlled": 0,
+      "real": 12
+    }
+  },
+  "split_counts": {
+    "test": 10,
+    "train": 24,
+    "validation": 12
+  },
+  "unique_extension_count": 14,
+  "unique_extensions_per_split": {
+    "test": 4,
+    "train": 6,
+    "validation": 4
+  },
+  "version_pair_distribution_per_extension": {
+    "github:aaroncql/katex-github-chrome-extension": 1,
+    "github:ajayyy/sponsorblock": 4,
+    "github:alpha1337/save-sora": 3,
+    "github:alyssaxuu/screenity": 1,
+    "github:browserpass/browserpass-extension": 4,
+    "github:darkreader/darkreader": 4,
+    "github:duckduckgo/duckduckgo-privacy-extension": 4,
+    "github:gorhill/ublock": 4,
+    "github:keepassxreboot/keepassxc-browser": 4,
+    "github:kevinsqi/save_tabbed_images": 4,
+    "github:openstyles/stylus": 4,
+    "github:refined-github/refined-github": 4,
+    "github:violentmonkey/violentmonkey": 4,
+    "github:yniijia/subtidex": 1
+  },
+  "warnings": []
+}

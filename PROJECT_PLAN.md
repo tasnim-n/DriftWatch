@@ -20,7 +20,7 @@ DriftWatch addresses this challenge through version-to-version differential beha
 | **Week 3** | Advanced Static Analysis | Safe JavaScript lexical preprocessing, sensitive API extraction, network endpoint extraction, bounded static Base64 endpoint decoding, obfuscation indicators, structural drift, source-to-sink heuristics, partial-analysis error reporting, and score breakdowns. | **Completed (Phase 2, verified 2026-08-10)** |
 | **Week 4** | DriftBench & Empirical Research Pipeline | Phase 3A dataset specification, label ontology, provenance tracking, validator, controlled mutation framework, leakage-safe split generator; Phase 3B feature extraction, baseline feature representations, leakage checks, and reproducible artifacts; Phase 3C pilot evaluation harness, leakage audit, readiness gate, deterministic baseline comparison, and blocked-ML reporting. | **Phase 3C pilot infrastructure implemented; ML blocked by dataset readiness** |
 | **Week 5** | Dashboard & Visualization | Premium dark cybersecurity UI, executive summary, version progression timeline, report export (HTML/PDF). | **Completed (Phase 1 UI Foundation)** |
-| **Week 6** | Research Experiments & Verification | Phase 3D real-data intake architecture, provenance-rich curation, license governance, duplicate/split-leakage audits, dataset manifests, local import workflow, real-pilot expansion, label-quality tiers, review packets, split-stability gate, and Phase 3E pilot empirical evaluation. | **Phase 3E pilot evaluation complete; results remain preliminary** |
+| **Week 6** | Research Experiments & Verification | Phase 3D real-data intake architecture, provenance-rich curation, license governance, duplicate/split-leakage audits, dataset manifests, local import workflow, real-pilot expansion, label-quality tiers, review packets, split-stability gate, Phase 3E pilot empirical evaluation, and Phase 3F replication expansion. | **Phase 3F replication complete; conclusion inconclusive** |
 
 ---
 
@@ -117,3 +117,16 @@ DriftWatch addresses this challenge through version-to-version differential beha
 - Full DriftWatch Random Forest on the same held-out test set: precision `0.00`, recall `0.00`, F1 `0.00`, FPR `0.00`, FNR `1.00`, confusion matrix `tn=5, fp=0, fn=1, tp=0`.
 - Phase 3E artifacts are saved under `artifacts/experiments/phase3e/` and research models under `artifacts/models/phase3e/phase3e_real_pilot_v1/`.
 - ML was not integrated into production scoring. The evidence does not justify production ML deployment; results remain pilot/preliminary due small sample size, one positive held-out test record, and provisional labels.
+
+## 13. Current Progress (Phase 3F)
+- Phase 3E artifacts were preserved as `PILOT_BASELINE`; Phase 3F references their hashes without overwriting Phase 3E metrics, predictions, models, or error analysis.
+- New dataset version: `driftbench-real-replication-phase3f-v1`.
+- Added 12 independent real replication transitions from public GitHub release ZIP assets across 3 additional extension identities: Browserpass, Dark Reader, and Stylus.
+- Accepted Phase 3F corpus: 46 real records, 14 unique extensions, 0 controlled records.
+- Label distribution: `benign_transition=41`, `risky_transition=3`, `uncertain=2`.
+- Label quality distribution: `SINGLE_REVIEWER_PROVISIONAL=44`, `UNCERTAIN=2`. No genuine second human reviewer was available, so inter-rater agreement is not available.
+- Split distribution: `train=24`, `validation=12`, `test=10`; protected group and package-hash leakage audits passed.
+- Feature schema remains `1.0`; Phase 3F reused frozen Phase 3E baseline feature rows and extracted features only for the 12 new replication records.
+- Current deterministic rule scorer on Phase 3F held-out test: precision `0.111111`, recall `1.0`, F1 `0.2`, FPR `0.888889`, FNR `0.0`, confusion matrix `tn=1, fp=8, fn=0, tp=1`.
+- Full DriftWatch Logistic Regression and Random Forest both remained F1 `0.0` on the Phase 3F held-out test, each missing the single risky held-out transition.
+- Replication conclusion: `INCONCLUSIVE`. ML integration remains unjustified; the evidence-based next phase is `CONTINUE DATASET EXPANSION`.

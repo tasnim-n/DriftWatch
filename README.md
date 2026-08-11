@@ -27,6 +27,7 @@ Browser extensions receive extensive access to sensitive web browsing data, auth
 - **Phase 3C Pilot Evaluation Harness**: Produces readiness, leakage-audit, deterministic baseline, confusion-matrix, prediction, and blocked-experiment artifacts without fabricating ML metrics.
 - **Phase 3D Dataset Curation Intake**: Provides local import manifests, provenance capture, license governance, package hashing, duplicate/split-leakage audits, manual-review records, review queues, label-quality tiers, training eligibility, and dataset manifests for real records.
 - **Phase 3E Pilot Empirical Evaluation**: Freezes a real-pilot dataset snapshot, audits leakage and group splits, evaluates the deterministic rule engine, Logistic Regression, and Random Forest across five locked feature representations, and stores research-only model artifacts without production integration.
+- **Phase 3F Independent Replication Study**: Expands the real corpus with independent public release assets, preserves Phase 3E as `PILOT_BASELINE`, repeats leakage-safe evaluation, and records an inconclusive decision gate without production ML integration.
 - **Controlled Extension Laboratory**: Pre-packaged synthetic lab samples (`v1_safe_note` and `v2_risky_note`) for reproducible demonstration.
 - **Executive Dark-Theme Dashboard**: Polished cybersecurity UI built with FastAPI, Jinja2, custom CSS, and responsive visualization.
 
@@ -157,6 +158,33 @@ Held-out pilot results on 6 test records (`benign_transition=5`, `risky_transiti
 - Full DriftWatch Random Forest: precision `0.00`, recall `0.00`, F1 `0.00`, FPR `0.00`, FNR `1.00`, confusion matrix `tn=5, fp=0, fn=1, tp=0`.
 
 Interpretation: the deterministic rule engine catches the single risky held-out transition but currently over-alerts on feature-rich benign updates. The ML models do not yet provide evidence of added operational value. A larger independently reviewed corpus is required before broader claims.
+
+### Phase 3F Independent Replication Study
+Phase 3F preserves Phase 3E as `PILOT_BASELINE`, adds independent public GitHub release ZIP assets, and reruns the fixed research evaluation without deploying ML.
+
+Artifacts:
+- `datasets/manifests/phase3f_import_manifest.json`
+- `artifacts/driftbench/phase3f/`
+- `artifacts/driftbench/phase3f_features/`
+- `artifacts/experiments/phase3f/`
+- `artifacts/models/phase3f/phase3f_replication_v1/`
+
+Verified Phase 3F dataset:
+- Dataset version: `driftbench-real-replication-phase3f-v1`
+- Real records: 46
+- New independent replication records: 12
+- Unique extensions: 14
+- Labels: `benign_transition=41`, `risky_transition=3`, `uncertain=2`
+- Label quality tiers: `SINGLE_REVIEWER_PROVISIONAL=44`, `UNCERTAIN=2`
+- Splits: `train=24`, `validation=12`, `test=10`
+- Leakage, duplicate, and provenance audits: passed
+
+Held-out Phase 3F result summary:
+- Rule engine: precision `0.111111`, recall `1.0`, F1 `0.2`, FPR `0.888889`, confusion matrix `tn=1, fp=8, fn=0, tp=1`.
+- Full DriftWatch Logistic Regression: F1 `0.0`, confusion matrix `tn=9, fp=0, fn=1, tp=0`.
+- Full DriftWatch Random Forest: F1 `0.0`, confusion matrix `tn=9, fp=0, fn=1, tp=0`.
+
+Replication conclusion: `INCONCLUSIVE`. Production ML integration remains unjustified; the next evidence-based step is continued dataset expansion and label strengthening.
 
 ---
 
