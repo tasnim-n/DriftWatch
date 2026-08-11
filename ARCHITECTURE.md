@@ -149,3 +149,14 @@ Phase 3F remains a research replication layer. It does not alter the production 
 - Writes duplicate, leakage, readiness, analyzer-missingness, diversity, excluded-candidate, and Phase 3F-vs-Phase 3G dataset comparison artifacts.
 
 Phase 3G is data and ground-truth infrastructure. It does not run production scoring changes, does not tune rules, and does not deploy ML models.
+
+### 2.16 Phase 3H Holdout And Gold-Set Readiness (`research/phase3h.py`)
+- Treats Phase 3G as frozen research history and writes only versioned Phase 3H outputs.
+- Acquires or replays public release assets for lawful open-source browser-extension records.
+- Creates a Phase 3H dataset manifest, provenance manifest, duplicate report, leakage report, dataset statistics, data-quality report, temporal coverage report, and analyzer-health report.
+- Builds blind-review metadata, second-review queue, adjudication report, and inter-rater guard artifacts without fabricating reviewers.
+- Creates `gold_set_manifest.json`; it remains empty until external confirmation or genuine multi-reviewer adjudication exists.
+- Creates `external_holdout_manifest.json` for `EXTERNAL_REPLICATION_HOLDOUT`. Holdout records remain in curation metadata but are excluded from non-holdout feature artifacts.
+- Regenerates the five established Phase 3B feature representations for non-holdout records only, preserving feature schema version `1.0`.
+
+Phase 3H prepares future validation. It does not retrain ML, tune rules, change production scoring, or evaluate the locked holdout.

@@ -1,0 +1,9 @@
+{
+  "dataset_manifest_hash": "6aa1c7acb6868653b113b54bd176c425cdf48be4b0f0609256b51f772422feee",
+  "dataset_version": "driftbench-real-maturation-phase3g-v1",
+  "experiment_snapshot_hash": "60f2192c30355e747dbd0f6ede74ddd3dd119671bbbcff069130a22c88acb856",
+  "feature_extraction_manifest_hash": "36a96f3e663a99b902622db7e30690daf47e073ed0631d5e8128671cb5426c8f",
+  "preservation_policy": "Phase 3H reads Phase 3G as immutable research history and writes only phase3h outputs.",
+  "provenance_manifest_hash": "0acab7d6211119b43ed253376cf55502320fa58a0c6e1700dbd01595630b0b6b",
+  "status": "FROZEN_PHASE3G_BASELINE"
+}

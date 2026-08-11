@@ -1,0 +1,88 @@
+{
+  "controlled_record_count": 0,
+  "creation_timestamp": "2026-08-11T05:20:12.694447+00:00",
+  "dataset_manifest_hash": "88368dd15a813d6b9ff845c92087f1f25a35ea80bd0b58b4c989c0f67dd7353a",
+  "dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+  "extension_ids_per_split": {
+    "external_holdout": [],
+    "test": [
+      "github:aaroncql/katex-github-chrome-extension",
+      "github:bitwarden/clients-browser",
+      "github:clearurls/addon",
+      "github:firefoxbar/headereditor",
+      "github:gorhill/ublock",
+      "github:openstyles/stylus",
+      "github:yniijia/subtidex"
+    ],
+    "train": [
+      "github:automaapp/automa",
+      "github:browserpass/browserpass-extension",
+      "github:duckduckgo/duckduckgo-privacy-extension",
+      "github:keepassxreboot/keepassxc-browser",
+      "github:kevinsqi/save_tabbed_images",
+      "github:libredirect/browser_extension",
+      "github:refined-github/refined-github",
+      "github:violentmonkey/violentmonkey"
+    ],
+    "validation": [
+      "github:ajayyy/sponsorblock",
+      "github:alpha1337/save-sora",
+      "github:alyssaxuu/screenity",
+      "github:darkreader/darkreader",
+      "github:ruffle-rs/ruffle",
+      "github:web-scrobbler/web-scrobbler"
+    ]
+  },
+  "external_holdout_extension_ids": [
+    "github:clearurls/addon",
+    "github:firefoxbar/headereditor"
+  ],
+  "external_holdout_size": 10,
+  "feature_schema_version": "1.0",
+  "gold_set_size": 0,
+  "label_distribution": {
+    "benign_transition": 71,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "label_quality_distribution": {
+    "SINGLE_REVIEWER_PROVISIONAL": 74,
+    "UNCERTAIN": 2
+  },
+  "license_distribution": {
+    "Apache-2.0": 4,
+    "GPL-3.0": 25,
+    "ISC": 4,
+    "LGPL-3.0": 5,
+    "MIT": 31,
+    "MIT OR Apache-2.0": 7
+  },
+  "new_phase3h_record_count": 18,
+  "ontology_version": "phase3d-labels-v1",
+  "phase3g_frozen_baseline": {
+    "dataset_manifest_hash": "6aa1c7acb6868653b113b54bd176c425cdf48be4b0f0609256b51f772422feee",
+    "dataset_version": "driftbench-real-maturation-phase3g-v1",
+    "experiment_snapshot_hash": "60f2192c30355e747dbd0f6ede74ddd3dd119671bbbcff069130a22c88acb856",
+    "feature_extraction_manifest_hash": "36a96f3e663a99b902622db7e30690daf47e073ed0631d5e8128671cb5426c8f",
+    "preservation_policy": "Phase 3H reads Phase 3G as immutable research history and writes only phase3h outputs.",
+    "provenance_manifest_hash": "0acab7d6211119b43ed253376cf55502320fa58a0c6e1700dbd01595630b0b6b",
+    "status": "FROZEN_PHASE3G_BASELINE"
+  },
+  "previous_dataset_version": "driftbench-real-maturation-phase3g-v1",
+  "provenance_completeness": "76/76",
+  "provenance_manifest_hash": "256c232e7828abd491d0bbba59ea11dd777584fafadf7ca7a7da3609f9609f93",
+  "provenance_schema_version": "phase3h-provenance-v1",
+  "real_record_count": 76,
+  "record_count": 76,
+  "schema_version": "phase3d-intake-v1",
+  "split_distribution": {
+    "test": 21,
+    "train": 32,
+    "validation": 23
+  },
+  "split_version": "phase3h-group-safe-gold-holdout-v1",
+  "timestamp_completeness": "76/76",
+  "training_eligible_count": 74,
+  "uncertain_count": 2,
+  "unique_extension_count": 21
+}

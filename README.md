@@ -29,6 +29,7 @@ Browser extensions receive extensive access to sensitive web browsing data, auth
 - **Phase 3E Pilot Empirical Evaluation**: Freezes a real-pilot dataset snapshot, audits leakage and group splits, evaluates the deterministic rule engine, Logistic Regression, and Random Forest across five locked feature representations, and stores research-only model artifacts without production integration.
 - **Phase 3F Independent Replication Study**: Expands the real corpus with independent public release assets, preserves Phase 3E as `PILOT_BASELINE`, repeats leakage-safe evaluation, and records an inconclusive decision gate without production ML integration.
 - **Phase 3G Dataset Maturation**: Expands the real corpus again, strengthens provenance/review artifacts, preserves Phase 3F as frozen history, regenerates feature artifacts, and keeps ML out of production.
+- **Phase 3H Holdout & Gold-Set Readiness**: Expands the real corpus, preserves Phase 3G as frozen history, creates an external replication holdout, and documents that a genuine Gold Set is not yet available.
 - **Controlled Extension Laboratory**: Pre-packaged synthetic lab samples (`v1_safe_note` and `v2_risky_note`) for reproducible demonstration.
 - **Executive Dark-Theme Dashboard**: Polished cybersecurity UI built with FastAPI, Jinja2, custom CSS, and responsive visualization.
 
@@ -212,6 +213,29 @@ Verified Phase 3G dataset:
 The new accepted records come from Automa, LibRedirect, and Web Scrobbler. uBlacklist candidate assets were excluded after triggering DriftWatch extraction safety controls; the archive protections were not weakened. The two original Save Sora `uncertain` records remain unresolved and training-ineligible, with refreshed review packets.
 
 Phase 3G decision: `DATASET STILL TOO WEAK - CONTINUE EXPANSION`. The corpus improved, but single-reviewer provisional labels still dominate and inter-rater agreement is not available.
+
+### Phase 3H Holdout And Ground-Truth Readiness
+Phase 3H is a corpus, review, and holdout-preparation phase. It does not retrain ML, deploy ML, or change production scoring.
+
+Artifacts:
+- `datasets/manifests/phase3h_import_manifest.json`
+- `artifacts/driftbench/phase3h/`
+- `artifacts/driftbench/phase3h_features/`
+- `artifacts/experiments/phase3h/`
+
+Verified Phase 3H dataset:
+- Dataset version: `driftbench-real-adjudication-holdout-phase3h-v1`
+- Real records: 76
+- New Phase 3H records: 18
+- Unique extensions: 21
+- Labels: `benign_transition=71`, `risky_transition=3`, `uncertain=2`
+- Label quality tiers: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
+- Gold Set size: 0
+- External replication holdout: 10 records across 2 extensions
+- Provenance and timestamp completeness: 76/76
+- Duplicate, leakage, and feature-leakage audits: passed
+
+The accepted Phase 3H sources are public GitHub release assets for Bitwarden Browser, ClearURLs, HeaderEditor, and Ruffle Web Extension. The holdout is locked for future validation and excluded from non-holdout feature artifacts. Phase 3H decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`.
 
 ---
 

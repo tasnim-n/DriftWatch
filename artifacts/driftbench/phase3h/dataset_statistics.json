@@ -1,0 +1,77 @@
+{
+  "category_distribution": {
+    "accessibility": 4,
+    "browser_automation": 4,
+    "content_blocking": 4,
+    "developer_tools": 9,
+    "github_productivity": 4,
+    "image_download": 4,
+    "math_rendering": 1,
+    "media": 7,
+    "media_scrobbling": 4,
+    "password_management": 4,
+    "password_security_helper": 5,
+    "privacy": 4,
+    "privacy_redirect": 4,
+    "privacy_security": 5,
+    "screen_recording": 1,
+    "user_script_manager": 4,
+    "video_captioning": 1,
+    "video_download": 3,
+    "video_enhancement": 4
+  },
+  "controlled_record_count": 0,
+  "label_distribution": {
+    "benign_transition": 71,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "label_quality_distribution": {
+    "SINGLE_REVIEWER_PROVISIONAL": 74,
+    "UNCERTAIN": 2
+  },
+  "license_distribution": {
+    "Apache-2.0": 4,
+    "GPL-3.0": 25,
+    "ISC": 4,
+    "LGPL-3.0": 5,
+    "MIT": 31,
+    "MIT OR Apache-2.0": 7
+  },
+  "pairs_per_extension": {
+    "github:aaroncql/katex-github-chrome-extension": 1,
+    "github:ajayyy/sponsorblock": 4,
+    "github:alpha1337/save-sora": 3,
+    "github:alyssaxuu/screenity": 1,
+    "github:automaapp/automa": 4,
+    "github:bitwarden/clients-browser": 1,
+    "github:browserpass/browserpass-extension": 4,
+    "github:clearurls/addon": 5,
+    "github:darkreader/darkreader": 4,
+    "github:duckduckgo/duckduckgo-privacy-extension": 4,
+    "github:firefoxbar/headereditor": 5,
+    "github:gorhill/ublock": 4,
+    "github:keepassxreboot/keepassxc-browser": 4,
+    "github:kevinsqi/save_tabbed_images": 4,
+    "github:libredirect/browser_extension": 4,
+    "github:openstyles/stylus": 4,
+    "github:refined-github/refined-github": 4,
+    "github:ruffle-rs/ruffle": 7,
+    "github:violentmonkey/violentmonkey": 4,
+    "github:web-scrobbler/web-scrobbler": 4,
+    "github:yniijia/subtidex": 1
+  },
+  "provenance_completeness": 76,
+  "real_record_count": 76,
+  "record_count": 76,
+  "source_family_distribution": {
+    "public_github_release_assets": 76
+  },
+  "split_distribution": {
+    "test": 21,
+    "train": 32,
+    "validation": 23
+  },
+  "timestamp_completeness": 76,
+  "unique_extension_count": 21
+}

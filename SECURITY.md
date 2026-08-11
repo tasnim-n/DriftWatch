@@ -112,3 +112,11 @@ Uploaded archives, manifests, JavaScript, decoded strings, and derived indicator
 - Review packets and second-review queues are metadata artifacts for human review. They must not be treated as independent adjudication or inter-rater agreement unless genuine reviewers are recorded.
 - Label quality, reviewer status, training eligibility, splits, paths, and final risk outputs remain metadata and must not be predictive feature inputs.
 - Phase 3G performs no production ML integration and does not alter `risk_engine/`.
+
+### 2.16 Phase 3H Holdout And Acquisition Safety
+- Phase 3H preserves Phase 3G artifacts and writes only `phase3h` outputs.
+- All acquired packages are treated as hostile static archives. They are fetched over HTTPS, named safely, hashed, normalized only for static analysis compatibility, and never installed or executed.
+- Secure extraction controls remain unchanged: Zip-Slip protection, compression-ratio checks, file-count limits, extracted-size limits, symlink rejection, path isolation, and static-only JavaScript parsing.
+- Holdout records are locked in `external_holdout_manifest.json` and excluded from non-holdout feature artifacts to reduce tuning and model-selection leakage.
+- Gold Set membership is metadata only and is not a predictive feature. The current Gold Set is empty because no real records have sufficiently strong independent ground truth.
+- Phase 3H does not contact embedded extension endpoints, execute bundled binaries, load arbitrary model artifacts, retrain ML, or change production risk scoring.

@@ -1,0 +1,15 @@
+{
+  "new_transition_year_distribution": {
+    "2016": 3,
+    "2019": 1,
+    "2020": 1,
+    "2021": 2,
+    "2022": 2,
+    "2025": 13,
+    "2026": 54
+  },
+  "record_count": 76,
+  "temporal_holdout_status": "external_holdout_locked; prospective temporal validation deferred to Phase 3I",
+  "timestamp_complete_count": 76,
+  "timestamp_source_policy": "GitHub release published_at or preserved trusted release metadata; filesystem timestamps are not used."
+}

@@ -379,3 +379,55 @@ Split counts:
 Phase 3G improves corpus size, extension diversity, provenance, timestamp coverage, review packets, and second-review workflow infrastructure. It does not materially strengthen ground truth enough for production ML integration because single-reviewer provisional labels still dominate and no genuine inter-rater agreement exists.
 
 Evidence-based decision: `DATASET STILL TOO WEAK - CONTINUE EXPANSION`.
+
+## 16. Phase 3H Holdout, Gold-Set, And Adjudication Readiness
+
+Phase 3H strengthens the evidence base without running model replication or production ML integration.
+
+Dataset facts:
+- Dataset version: `driftbench-real-adjudication-holdout-phase3h-v1`
+- Parent dataset version: `driftbench-real-maturation-phase3g-v1`
+- Total real records: 76
+- New Phase 3H real records: 18
+- Unique extensions: 21
+- Controlled records: 0
+- Label distribution: `benign_transition=71`, `risky_transition=3`, `uncertain=2`
+- Label quality distribution: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
+- License distribution: `Apache-2.0=4`, `GPL-3.0=25`, `ISC=4`, `LGPL-3.0=5`, `MIT=31`, `MIT OR Apache-2.0=7`
+
+Phase 3H adds public GitHub release-asset records for Bitwarden Browser, ClearURLs, HeaderEditor, and Ruffle Web Extension. All accepted records preserve SHA-256 hashes, source URLs, release timestamps, license metadata, split assignment, and training eligibility.
+
+Ground-truth status:
+- Genuine double-reviewed records: 0
+- Genuine adjudicated records: 0
+- Inter-rater agreement: not available
+- Gold Set size: 0
+- Malicious-transition records: 0
+
+The Gold Set is intentionally empty because no real records currently meet the required external-confirmation or genuine multi-reviewer-adjudication threshold.
+
+External holdout:
+- Holdout name: `EXTERNAL_REPLICATION_HOLDOUT`
+- Holdout size: 10 records
+- Holdout unique extensions: 2
+- Holdout labels are retained in curation metadata but are not used for tuning.
+- Holdout records are excluded from non-holdout Phase 3H feature artifacts.
+
+Audits:
+- Provenance completeness: 76/76
+- Timestamp completeness: 76/76
+- Duplicate audit: passed
+- Leakage audit: passed
+- Feature leakage audit: passed
+- Analyzer missingness: 0 tracked missing optional analyzers
+
+Research answers:
+- Q1/Q2: corpus and unique-extension diversity increased.
+- Q3: review-worthy class representation did not improve.
+- Q4/Q5: provisional-label dependence did not decrease; no stronger independent label set exists yet.
+- Q6: a genuine Gold Set could not be created.
+- Q7: an untouched external holdout was created.
+- Q8/Q9: provenance and leakage checks remained clean.
+- Q10: the evidence base is not strong enough for Phase 3I empirical replication until independent label review/adjudication improves.
+
+Evidence-based decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`.

@@ -1,0 +1,30 @@
+{
+  "allowed_labels": [
+    "benign_transition",
+    "risky_transition",
+    "malicious_transition",
+    "uncertain",
+    "excluded"
+  ],
+  "fields": [
+    "reviewer_id",
+    "independent_reviewer_label",
+    "reviewer_confidence",
+    "reviewer_rationale",
+    "timestamp",
+    "evidence_references",
+    "blind_review_status",
+    "disagreement_flag",
+    "adjudication_status",
+    "adjudicated_label",
+    "adjudication_rationale"
+  ],
+  "quality_tiers": [
+    "CONTROLLED_GROUND_TRUTH",
+    "EXTERNAL_CONFIRMED",
+    "MULTI_REVIEWER_ADJUDICATED",
+    "SINGLE_REVIEWER_PROVISIONAL",
+    "UNCERTAIN"
+  ],
+  "schema_version": "phase3h-reviewer-schema-v1"
+}

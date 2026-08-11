@@ -1,0 +1,5 @@
+{
+  "excluded": {},
+  "excluded_extension_count": 0,
+  "policy": "Candidate packages that fail DriftWatch security limits are excluded rather than force-extracted."
+}

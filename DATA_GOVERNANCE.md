@@ -109,3 +109,25 @@ Phase 3G adds accepted records for Automa, LibRedirect, and Web Scrobbler. uBlac
 The two original Save Sora `uncertain` records remain unresolved and ineligible for supervised training. Phase 3G creates refreshed review packets and a second-review priority queue without inventing reviewers, reviewer agreement, or adjudicated labels.
 
 Phase 3G decision: `DATASET STILL TOO WEAK - CONTINUE EXPANSION`.
+
+## Current Phase 3H Holdout Governance State
+- Dataset version: `driftbench-real-adjudication-holdout-phase3h-v1`
+- Parent dataset version: `driftbench-real-maturation-phase3g-v1`
+- Real records accepted: 76
+- New Phase 3H records accepted: 18
+- Unique extension identities: 21
+- Source family: `public_github_release_assets=76`
+- Label states: `benign_transition=71`, `risky_transition=3`, `uncertain=2`
+- Label quality tiers: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
+- Gold Set size: 0
+- External replication holdout size: 10
+- Double-reviewed records: 0
+- Adjudicated records: 0
+- Inter-rater agreement: not available
+- Provenance completeness: 76/76
+- Timestamp completeness: 76/76
+- Duplicate and leakage audits: passed
+
+The Phase 3H holdout is locked for future validation and must not be used for threshold tuning, rule tuning, model selection, or hyperparameter selection. A genuine Gold Set could not be created because no real record currently has external confirmation or multi-reviewer adjudication.
+
+Phase 3H decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`.

@@ -1,0 +1,8 @@
+{
+  "adjudicated_count": 0,
+  "dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+  "disagreement_count": 0,
+  "history_preserved": true,
+  "records": [],
+  "status": "NO_GENUINE_MULTI_REVIEWER_ADJUDICATION_AVAILABLE"
+}

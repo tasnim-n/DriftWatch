@@ -20,7 +20,7 @@ DriftWatch addresses this challenge through version-to-version differential beha
 | **Week 3** | Advanced Static Analysis | Safe JavaScript lexical preprocessing, sensitive API extraction, network endpoint extraction, bounded static Base64 endpoint decoding, obfuscation indicators, structural drift, source-to-sink heuristics, partial-analysis error reporting, and score breakdowns. | **Completed (Phase 2, verified 2026-08-10)** |
 | **Week 4** | DriftBench & Empirical Research Pipeline | Phase 3A dataset specification, label ontology, provenance tracking, validator, controlled mutation framework, leakage-safe split generator; Phase 3B feature extraction, baseline feature representations, leakage checks, and reproducible artifacts; Phase 3C pilot evaluation harness, leakage audit, readiness gate, deterministic baseline comparison, and blocked-ML reporting. | **Phase 3C pilot infrastructure implemented; ML blocked by dataset readiness** |
 | **Week 5** | Dashboard & Visualization | Premium dark cybersecurity UI, executive summary, version progression timeline, report export (HTML/PDF). | **Completed (Phase 1 UI Foundation)** |
-| **Week 6** | Research Experiments & Verification | Phase 3D real-data intake architecture, provenance-rich curation, license governance, duplicate/split-leakage audits, dataset manifests, local import workflow, real-pilot expansion, label-quality tiers, review packets, split-stability gate, Phase 3E pilot empirical evaluation, Phase 3F replication expansion, and Phase 3G dataset maturation. | **Phase 3G complete; dataset still needs expansion** |
+| **Week 6** | Research Experiments & Verification | Phase 3D real-data intake architecture, provenance-rich curation, license governance, duplicate/split-leakage audits, dataset manifests, local import workflow, real-pilot expansion, label-quality tiers, review packets, split-stability gate, Phase 3E pilot empirical evaluation, Phase 3F replication expansion, Phase 3G dataset maturation, and Phase 3H holdout/gold-set readiness. | **Phase 3H complete; label adjudication still needed** |
 
 ---
 
@@ -143,3 +143,16 @@ DriftWatch addresses this challenge through version-to-version differential beha
 - Phase 3B feature artifacts were regenerated for all five established representations under `artifacts/driftbench/phase3g_features/`; schema remains `1.0`.
 - uBlacklist candidate releases were excluded because they triggered DriftWatch extraction safety controls. Security limits were not weakened.
 - Phase 3G decision: `DATASET STILL TOO WEAK - CONTINUE EXPANSION`. Production ML integration remains unjustified.
+
+## 15. Current Progress (Phase 3H)
+- New dataset version: `driftbench-real-adjudication-holdout-phase3h-v1`.
+- Phase 3G artifacts were preserved as frozen baseline history. Phase 3H writes only `phase3h` outputs.
+- Added 18 lawful real version-pair records from public GitHub release assets across 4 new extension identities: Bitwarden Browser, ClearURLs, HeaderEditor, and Ruffle Web Extension.
+- Accepted Phase 3H corpus: 76 real records, 21 unique extensions, 0 controlled records.
+- Label distribution: `benign_transition=71`, `risky_transition=3`, `uncertain=2`; no malicious-transition records are independently confirmed.
+- Label quality distribution: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`; genuine double-review and adjudication counts remain 0.
+- Gold Set size is 0 because no real records have external confirmation or genuine multi-reviewer adjudication.
+- External replication holdout size is 10 records across 2 new extension identities. Holdout rows are excluded from non-holdout feature artifacts and locked for future Phase 3I validation.
+- Phase 3B feature artifacts were regenerated for non-holdout records under `artifacts/driftbench/phase3h_features/`; schema remains `1.0`.
+- Duplicate, leakage, provenance, timestamp, analyzer-health, and security-boundary audits passed.
+- Phase 3H decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`. Production ML integration remains unjustified.

@@ -1,0 +1,17 @@
+{
+  "feature_count": 57,
+  "label_counts": {
+    "benign_transition": 61,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "missingness_counts": {},
+  "phase3g_parent_rows_reused": 58,
+  "phase3h_new_rows_extracted": 8,
+  "record_count": 66,
+  "split_counts": {
+    "test": 11,
+    "train": 32,
+    "validation": 23
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "bias_analysis": {
+    "benign_class_dominance": "Benign transitions remain dominant.",
+    "github_source_bias": "All accepted Phase 3H records currently come from public GitHub release assets.",
+    "malicious_ground_truth_scarcity": "No independently confirmed malicious-transition packages are present.",
+    "open_source_bias": "Corpus remains open-source-repository biased.",
+    "reviewer_bias": "Most labels remain single-reviewer provisional.",
+    "risky_ground_truth_scarcity": "Risky/review-worthy labels remain scarce."
+  },
+  "dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+  "dimensions": {
+    "analyzer_coverage": {
+      "missingness_counts": {},
+      "policy": "Analyzer failures are tracked explicitly through *_available feature columns and never interpreted as no threat detected.",
+      "record_count": 76,
+      "total_missingness_count": 0
+    },
+    "duplicate_cleanliness": true,
+    "extension_diversity": 21,
+    "external_holdout_size": 10,
+    "gold_set_size": 0,
+    "labeling_strength": {
+      "SINGLE_REVIEWER_PROVISIONAL": 74,
+      "UNCERTAIN": 2
+    },
+    "provenance_completeness": "76/76",
+    "review_coverage": {
+      "double_reviewed": 0,
+      "inter_rater_available": false
+    },
+    "single_reviewer_provisional_percentage": 97.368421,
+    "source_diversity": {
+      "public_github_release_assets": 76
+    },
+    "split_integrity": {
+      "duplicate_audit_passed": true,
+      "leakage_audit_passed": true
+    },
+    "timestamp_completeness": "76/76"
+  }
+}

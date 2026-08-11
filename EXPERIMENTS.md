@@ -299,3 +299,49 @@ Interpretation:
 - uBlacklist was excluded after triggering extraction safety controls; security gates were not weakened.
 - Single-reviewer provisional labels still dominate, the risky/review-worthy class remains small, and no genuine second-review agreement exists.
 - Evidence-based decision: `DATASET STILL TOO WEAK - CONTINUE EXPANSION`.
+
+## Phase 3H Holdout And Gold-Set Readiness - 2026-08-11
+
+Phase 3H expands the corpus and prepares future external validation. It does not run model replication, retrain ML, deploy ML, or change production scoring.
+
+Artifacts:
+- `datasets/manifests/phase3h_import_manifest.json`
+- `artifacts/driftbench/phase3h/`
+- `artifacts/driftbench/phase3h_features/`
+- `artifacts/experiments/phase3h/`
+
+Dataset:
+- Dataset version: `driftbench-real-adjudication-holdout-phase3h-v1`
+- Parent dataset version: `driftbench-real-maturation-phase3g-v1`
+- Real records: 76
+- New Phase 3H records: 18
+- Unique extensions: 21
+- Controlled records: 0
+- Labels: `benign_transition=71`, `risky_transition=3`, `uncertain=2`
+- Label quality: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
+- Gold Set size: 0
+- External holdout size: 10 records across 2 extensions
+
+Quality gates:
+- Provenance completeness: 76/76
+- Timestamp completeness: 76/76
+- Duplicate audit: passed
+- Leakage audit: passed
+- Feature leakage audit: passed
+- Analyzer missingness: 0
+- Inter-rater agreement: not available
+
+Phase 3G vs Phase 3H:
+- Real records: `58` -> `76`
+- Unique extensions: `17` -> `21`
+- Risky or malicious records: `3` -> `3`
+- Uncertain records: `2` -> `2`
+- Double-reviewed records: `0` -> `0`
+- Gold Set size: `0` -> `0`
+- External holdout size: `0` -> `10`
+
+Interpretation:
+- Phase 3H materially increased corpus size and extension diversity and created an untouched external holdout.
+- It did not improve review-worthy class representation or label quality.
+- A genuine Gold Set is not yet available.
+- Evidence-based decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`.

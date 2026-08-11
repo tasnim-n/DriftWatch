@@ -1,0 +1,96 @@
+{
+  "creation_timestamp": "2026-08-11T05:20:12.635856+00:00",
+  "dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+  "holdout_name": "EXTERNAL_REPLICATION_HOLDOUT",
+  "label_distribution": {
+    "benign_transition": 10
+  },
+  "label_visibility_policy": "Holdout labels are retained in curation metadata but holdout rows are excluded from non-holdout feature artifacts and must not be used for tuning.",
+  "record_count": 10,
+  "records": [
+    {
+      "extension_id": "github:clearurls/addon",
+      "holdout_status": "EXTERNAL_REPLICATION_HOLDOUT",
+      "new_sha256": "1351345ab52e81a26ee9fb36dc17285a4d2b8026ca4770a3ab57a70fc113d9af",
+      "old_sha256": "fab4893f046523348ab602d6c8af23b2fd871326f42419bb1d77918b4d55197c",
+      "record_id": "clearurls_addon_1_20_0_to_1_21_0",
+      "split": "test"
+    },
+    {
+      "extension_id": "github:clearurls/addon",
+      "holdout_status": "EXTERNAL_REPLICATION_HOLDOUT",
+      "new_sha256": "4af9a67ea3d1ec329042df04a4779fad319f13cb36c9b10886d2b982fecbf535",
+      "old_sha256": "1351345ab52e81a26ee9fb36dc17285a4d2b8026ca4770a3ab57a70fc113d9af",
+      "record_id": "clearurls_addon_1_21_0_to_1_22_0",
+      "split": "test"
+    },
+    {
+      "extension_id": "github:clearurls/addon",
+      "holdout_status": "EXTERNAL_REPLICATION_HOLDOUT",
+      "new_sha256": "066d23346beedfcba0999b48896924f6059895e19c51db6d9fb768c149dcaeff",
+      "old_sha256": "4af9a67ea3d1ec329042df04a4779fad319f13cb36c9b10886d2b982fecbf535",
+      "record_id": "clearurls_addon_1_22_0_to_1_23_0",
+      "split": "test"
+    },
+    {
+      "extension_id": "github:clearurls/addon",
+      "holdout_status": "EXTERNAL_REPLICATION_HOLDOUT",
+      "new_sha256": "44107290032392054e852e121822c18f7718740cd4d4afab962fc21bc9ce0dc9",
+      "old_sha256": "066d23346beedfcba0999b48896924f6059895e19c51db6d9fb768c149dcaeff",
+      "record_id": "clearurls_addon_1_23_0_to_1_23_1",
+      "split": "test"
+    },
+    {
+      "extension_id": "github:clearurls/addon",
+      "holdout_status": "EXTERNAL_REPLICATION_HOLDOUT",
+      "new_sha256": "2d5c879d3e7d8f562b0ffbb4bd5b4a94884ef404d8ed5637bf4da2601556d148",
+      "old_sha256": "44107290032392054e852e121822c18f7718740cd4d4afab962fc21bc9ce0dc9",
+      "record_id": "clearurls_addon_1_23_1_to_1_27_3",
+      "split": "test"
+    },
+    {
+      "extension_id": "github:firefoxbar/headereditor",
+      "holdout_status": "EXTERNAL_REPLICATION_HOLDOUT",
+      "new_sha256": "1b5f4da4cfb924ae48be3a3c1f2455f848e2e129b5e6c1466fe0f94fd45bf289",
+      "old_sha256": "6e7f93506c91a4158d2eb1c7f909dc8888c1679868b620caad0184ee95943700",
+      "record_id": "firefoxbar_headereditor_5_2_7_to_5_2_8",
+      "split": "test"
+    },
+    {
+      "extension_id": "github:firefoxbar/headereditor",
+      "holdout_status": "EXTERNAL_REPLICATION_HOLDOUT",
+      "new_sha256": "403d66078c93a019961d51fd26760446cc7c3d6ca9331be50c34b8e93a8cf595",
+      "old_sha256": "1b5f4da4cfb924ae48be3a3c1f2455f848e2e129b5e6c1466fe0f94fd45bf289",
+      "record_id": "firefoxbar_headereditor_5_2_8_to_5_2_9",
+      "split": "test"
+    },
+    {
+      "extension_id": "github:firefoxbar/headereditor",
+      "holdout_status": "EXTERNAL_REPLICATION_HOLDOUT",
+      "new_sha256": "e680fa2809177a483560e036d8a2b88914fd6e078d76b115fd30fd3e5e2bebc3",
+      "old_sha256": "403d66078c93a019961d51fd26760446cc7c3d6ca9331be50c34b8e93a8cf595",
+      "record_id": "firefoxbar_headereditor_5_2_9_to_5_2_10",
+      "split": "test"
+    },
+    {
+      "extension_id": "github:firefoxbar/headereditor",
+      "holdout_status": "EXTERNAL_REPLICATION_HOLDOUT",
+      "new_sha256": "c886155782b94d56ff5c043fdb967ce344c862fd300d6c984a8b2c6a2d4596c5",
+      "old_sha256": "e680fa2809177a483560e036d8a2b88914fd6e078d76b115fd30fd3e5e2bebc3",
+      "record_id": "firefoxbar_headereditor_5_2_10_to_5_2_11",
+      "split": "test"
+    },
+    {
+      "extension_id": "github:firefoxbar/headereditor",
+      "holdout_status": "EXTERNAL_REPLICATION_HOLDOUT",
+      "new_sha256": "3ff2fe5f949636d32e5811f652786dd1f3f1ab43bc6d32a4883ee0e38af10970",
+      "old_sha256": "c886155782b94d56ff5c043fdb967ce344c862fd300d6c984a8b2c6a2d4596c5",
+      "record_id": "firefoxbar_headereditor_5_2_11_to_5_2_12",
+      "split": "test"
+    }
+  ],
+  "split_policy": "phase3h-group-safe-gold-holdout-v1",
+  "training_use_allowed": false,
+  "tuning_use_allowed": false,
+  "unique_extension_count": 2
+}

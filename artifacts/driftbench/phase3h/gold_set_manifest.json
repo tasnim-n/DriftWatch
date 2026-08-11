@@ -1,0 +1,8 @@
+{
+  "dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+  "exclusion_reason": "No real Phase 3H records currently have external confirmation or genuine multi-reviewer adjudication.",
+  "gold_record_count": 0,
+  "gold_set_policy": "Only externally confirmed, controlled-ground-truth, or genuine multi-reviewer-adjudicated records qualify.",
+  "label_distribution": {},
+  "records": []
+}

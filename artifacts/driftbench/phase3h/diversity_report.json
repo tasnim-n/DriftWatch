@@ -1,0 +1,106 @@
+{
+  "extensions_per_category": {
+    "accessibility": 1,
+    "browser_automation": 1,
+    "content_blocking": 1,
+    "developer_tools": 2,
+    "github_productivity": 1,
+    "image_download": 1,
+    "math_rendering": 1,
+    "media": 1,
+    "media_scrobbling": 1,
+    "password_management": 1,
+    "password_security_helper": 2,
+    "privacy": 1,
+    "privacy_redirect": 1,
+    "privacy_security": 1,
+    "screen_recording": 1,
+    "user_script_manager": 1,
+    "video_captioning": 1,
+    "video_download": 1,
+    "video_enhancement": 1
+  },
+  "labels_per_category": {
+    "accessibility": {
+      "benign_transition": 4
+    },
+    "browser_automation": {
+      "benign_transition": 4
+    },
+    "content_blocking": {
+      "benign_transition": 4
+    },
+    "developer_tools": {
+      "benign_transition": 9
+    },
+    "github_productivity": {
+      "benign_transition": 4
+    },
+    "image_download": {
+      "benign_transition": 4
+    },
+    "math_rendering": {
+      "risky_transition": 1
+    },
+    "media": {
+      "benign_transition": 7
+    },
+    "media_scrobbling": {
+      "benign_transition": 4
+    },
+    "password_management": {
+      "benign_transition": 4
+    },
+    "password_security_helper": {
+      "benign_transition": 5
+    },
+    "privacy": {
+      "benign_transition": 4
+    },
+    "privacy_redirect": {
+      "benign_transition": 4
+    },
+    "privacy_security": {
+      "benign_transition": 5
+    },
+    "screen_recording": {
+      "benign_transition": 1
+    },
+    "user_script_manager": {
+      "benign_transition": 3,
+      "risky_transition": 1
+    },
+    "video_captioning": {
+      "benign_transition": 1
+    },
+    "video_download": {
+      "risky_transition": 1,
+      "uncertain": 2
+    },
+    "video_enhancement": {
+      "benign_transition": 4
+    }
+  },
+  "transitions_per_category": {
+    "accessibility": 4,
+    "browser_automation": 4,
+    "content_blocking": 4,
+    "developer_tools": 9,
+    "github_productivity": 4,
+    "image_download": 4,
+    "math_rendering": 1,
+    "media": 7,
+    "media_scrobbling": 4,
+    "password_management": 4,
+    "password_security_helper": 5,
+    "privacy": 4,
+    "privacy_redirect": 4,
+    "privacy_security": 5,
+    "screen_recording": 1,
+    "user_script_manager": 4,
+    "video_captioning": 1,
+    "video_download": 3,
+    "video_enhancement": 4
+  },
+  "unique_extension_count": 21
+}

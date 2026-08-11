@@ -1,0 +1,12 @@
+metric,phase3g,phase3h
+total_real_records,58,76
+unique_extensions,17,21
+risky_or_malicious_records,3,3
+uncertain_records,2,2
+double_reviewed_count,0,0
+provisional_label_percentage,96.551724,97.368421
+provenance_completeness,58/58,76/76
+timestamp_completeness,58/58,76/76
+gold_set_size,0,0
+external_holdout_size,0,10
+train_validation_test_counts,"{""test"": 10, ""train"": 32, ""validation"": 16}","{""test"": 21, ""train"": 32, ""validation"": 23}"

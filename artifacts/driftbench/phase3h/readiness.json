@@ -1,0 +1,42 @@
+{
+  "analyzer_missingness": {
+    "missingness_counts": {},
+    "policy": "Analyzer failures are tracked explicitly through *_available feature columns and never interpreted as no threat detected.",
+    "record_count": 76,
+    "total_missingness_count": 0
+  },
+  "block_reasons": [],
+  "controlled_records": 0,
+  "dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+  "double_reviewed_records": 0,
+  "duplicate_audit_passed": true,
+  "eligible_records": 74,
+  "excluded_records": 0,
+  "label_quality": {
+    "SINGLE_REVIEWER_PROVISIONAL": 74,
+    "UNCERTAIN": 2
+  },
+  "labels": {
+    "benign_transition": 71,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "leakage_audit_passed": true,
+  "phase3h_complete": true,
+  "previous_dataset_version": "driftbench-real-maturation-phase3g-v1",
+  "provenance_completeness": "76/76",
+  "real_records": 76,
+  "recommended_next_phase": "CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION",
+  "split_counts": {
+    "test": 21,
+    "train": 32,
+    "validation": 23
+  },
+  "timestamp_completeness": "76/76",
+  "uncertain_records": 2,
+  "unique_extensions": 21,
+  "warnings": [
+    "single-reviewer provisional labels still dominate",
+    "uncertain records remain in review queue and are training-ineligible"
+  ]
+}

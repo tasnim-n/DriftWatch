@@ -278,3 +278,50 @@ Known limitations:
 - Single-reviewer provisional labels still dominate.
 - Risky/review-worthy class support remains small.
 - The corpus remains open-source-repository biased and not representative of browser-store-scale updates.
+
+---
+
+## 11. Phase 3H External-Holdout And Gold-Set Snapshot
+Phase 3H creates a new dataset version for independent holdout readiness and stronger label-governance infrastructure:
+
+`artifacts/experiments/phase3h/dataset_snapshot.json`
+
+Snapshot facts:
+- Dataset version: `driftbench-real-adjudication-holdout-phase3h-v1`
+- Parent dataset version: `driftbench-real-maturation-phase3g-v1`
+- Provenance schema version: `phase3h-provenance-v1`
+- Feature schema version: `1.0`
+- Split policy version: `phase3h-group-safe-gold-holdout-v1`
+- Total records: 76
+- Real records: 76
+- Controlled records: 0
+- New Phase 3H records: 18
+- Unique extension identities: 21
+- Training-eligible records: 74
+- Label distribution: `benign_transition=71`, `risky_transition=3`, `uncertain=2`
+- Label quality distribution: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
+
+Gold Set:
+- Gold records: 0
+- Rationale: no real records currently have external confirmation or genuine multi-reviewer adjudication.
+
+External holdout:
+- Holdout name: `EXTERNAL_REPLICATION_HOLDOUT`
+- Holdout records: 10
+- Holdout unique extensions: 2
+- Training/tuning use: not allowed
+- Holdout rows are excluded from non-holdout feature artifacts.
+
+Quality status:
+- Provenance completeness: 76/76
+- Timestamp completeness: 76/76
+- Duplicate audit: passed
+- Leakage audit: passed
+- Feature leakage audit: passed
+- Inter-rater agreement: not available
+
+Known limitations:
+- Single-reviewer provisional labels still dominate.
+- No independently confirmed malicious-transition packages are present.
+- Review-worthy class support remains at 3 records.
+- All accepted Phase 3H records are still sourced from public GitHub release assets, so source-family diversity remains limited.
