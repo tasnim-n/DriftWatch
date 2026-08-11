@@ -1,0 +1,21 @@
+{
+  "double_reviewed_count": 0,
+  "eligible_supervised_training_count": 56,
+  "label_distribution": {
+    "benign_transition": 53,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "label_quality_distribution": {
+    "SINGLE_REVIEWER_PROVISIONAL": 56,
+    "UNCERTAIN": 2
+  },
+  "label_source_distribution": {
+    "repository_documented_change": 1,
+    "single_reviewer_manifest_and_release_review": 24,
+    "single_reviewer_provisional": 33
+  },
+  "status": "single_reviewer_provisional_labels_remain",
+  "uncertain_count": 2,
+  "uncertain_training_eligible_count": 0
+}

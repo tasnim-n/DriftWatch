@@ -104,3 +104,11 @@ Uploaded archives, manifests, JavaScript, decoded strings, and derived indicator
 - Candidate packages that trigger extraction safety controls, exceed configured analysis limits, fail provenance/licensing checks, or fall outside the frozen accepted-source set are excluded rather than force-extracted.
 - Single-reviewer provisional labels remain a governance limitation. Phase 3F does not fabricate second-reviewer agreement or inter-rater reliability.
 - Research model artifacts from Phase 3F are not loaded by the FastAPI application and are not used for production risk scoring.
+
+### 2.15 Phase 3G Dataset-Maturation Safety
+- Phase 3G keeps Phase 3F artifacts frozen and writes only versioned `phase3g` outputs.
+- New candidate packages are acquired over HTTPS, hashed, normalized only for static analysis compatibility, and never installed or executed.
+- Candidate packages that trigger archive security controls are excluded. Phase 3G excluded uBlacklist candidate assets after DriftWatch extraction safety checks rejected them; extraction limits were not weakened.
+- Review packets and second-review queues are metadata artifacts for human review. They must not be treated as independent adjudication or inter-rater agreement unless genuine reviewers are recorded.
+- Label quality, reviewer status, training eligibility, splits, paths, and final risk outputs remain metadata and must not be predictive feature inputs.
+- Phase 3G performs no production ML integration and does not alter `risk_engine/`.

@@ -339,3 +339,43 @@ Replication conclusion: `INCONCLUSIVE`.
 Phase 3F partially reinforces the Phase 3E caution: transparent rules still detect the single risky held-out example, but at high false-alert cost; ML still does not show deployable value. The dataset improved in size and diversity, but it remains too small and too provisionally labeled for production ML integration or broad claims.
 
 Recommended decision gate: `CONTINUE DATASET EXPANSION`.
+
+## 15. Phase 3G Real-Corpus Maturation
+
+Phase 3G strengthens DriftBench data quality and review infrastructure. It does not optimize model scores, tune production rules, deploy ML, or claim real-world detection performance.
+
+### Dataset
+- Dataset version: `driftbench-real-maturation-phase3g-v1`
+- Previous dataset version: `driftbench-real-replication-phase3f-v1`
+- Total real records: 58
+- New Phase 3G real records: 12
+- Unique extensions: 17
+- Controlled records: 0
+- Label distribution: `benign_transition=53`, `risky_transition=3`, `uncertain=2`
+- Label quality distribution: `SINGLE_REVIEWER_PROVISIONAL=56`, `UNCERTAIN=2`
+- Training-eligible records: 56
+- License distribution: `Apache-2.0=4`, `GPL-3.0=24`, `ISC=4`, `MIT=26`
+
+The new accepted Phase 3G records come from public GitHub release ZIP assets for Automa, LibRedirect, and Web Scrobbler. uBlacklist was screened but excluded because candidate packages triggered DriftWatch extraction safety controls. This exclusion is a data-quality and security-boundary result, not a security-risk claim about the extension.
+
+### Review Quality
+The two original Save Sora `uncertain` records remain unresolved and training-ineligible. Phase 3G creates refreshed static review packets and a second-review priority queue. No second reviewer was fabricated, and inter-rater agreement remains `NOT_AVAILABLE`.
+
+### Audits
+- Provenance completeness: 58/58
+- Timestamp completeness: 58/58
+- Duplicate audit: passed
+- Protected split leakage audit: passed
+- Feature leakage audit: passed
+- Feature schema: unchanged at `1.0`
+- Feature regeneration: completed for all five established Phase 3B representations
+
+Split counts:
+- Train: 32 records, 8 extensions
+- Validation: 16 records, 5 extensions
+- Test: 10 records, 4 extensions
+
+### Interpretation
+Phase 3G improves corpus size, extension diversity, provenance, timestamp coverage, review packets, and second-review workflow infrastructure. It does not materially strengthen ground truth enough for production ML integration because single-reviewer provisional labels still dominate and no genuine inter-rater agreement exists.
+
+Evidence-based decision: `DATASET STILL TOO WEAK - CONTINUE EXPANSION`.

@@ -1,0 +1,74 @@
+{
+  "controlled_record_count": 0,
+  "creation_timestamp": "2026-08-11T02:12:51.102092+00:00",
+  "dataset_manifest_hash": "6aa1c7acb6868653b113b54bd176c425cdf48be4b0f0609256b51f772422feee",
+  "dataset_version": "driftbench-real-maturation-phase3g-v1",
+  "extension_ids_per_split": {
+    "test": [
+      "github:aaroncql/katex-github-chrome-extension",
+      "github:gorhill/ublock",
+      "github:openstyles/stylus",
+      "github:yniijia/subtidex"
+    ],
+    "train": [
+      "github:automaapp/automa",
+      "github:browserpass/browserpass-extension",
+      "github:duckduckgo/duckduckgo-privacy-extension",
+      "github:keepassxreboot/keepassxc-browser",
+      "github:kevinsqi/save_tabbed_images",
+      "github:libredirect/browser_extension",
+      "github:refined-github/refined-github",
+      "github:violentmonkey/violentmonkey"
+    ],
+    "validation": [
+      "github:ajayyy/sponsorblock",
+      "github:alpha1337/save-sora",
+      "github:alyssaxuu/screenity",
+      "github:darkreader/darkreader",
+      "github:web-scrobbler/web-scrobbler"
+    ]
+  },
+  "feature_schema_version": "1.0",
+  "label_distribution": {
+    "benign_transition": 53,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "label_quality_distribution": {
+    "SINGLE_REVIEWER_PROVISIONAL": 56,
+    "UNCERTAIN": 2
+  },
+  "license_distribution": {
+    "Apache-2.0": 4,
+    "GPL-3.0": 24,
+    "ISC": 4,
+    "MIT": 26
+  },
+  "new_phase3g_record_count": 12,
+  "ontology_version": "phase3d-labels-v1",
+  "phase3f_frozen_baseline": {
+    "dataset_manifest_hash": "27c1ea3f731f8e629d4f585b5a8cb40e472362037128610a209ff4c98fb90757",
+    "dataset_version": "driftbench-real-replication-phase3f-v1",
+    "experiment_snapshot_hash": "c98beb6e69b362a96b31b134d4f83afe6adaa3a6ee51eb9780b0ee959a6f8752",
+    "feature_extraction_manifest_hash": "a1131977e3ea930c8c5708d8549d13305488effbb91ac9b84fa8ec12227f3505",
+    "preservation_policy": "Phase 3G reads Phase 3F as immutable research history and writes only phase3g outputs.",
+    "provenance_manifest_hash": "df4a49c59ef9809cfb326d7a562793625f6a4d26d4d932458fc6a8e56a9bd3d6",
+    "status": "FROZEN_PHASE3F_BASELINE"
+  },
+  "previous_dataset_version": "driftbench-real-replication-phase3f-v1",
+  "provenance_completeness": "58/58",
+  "provenance_manifest_hash": "0acab7d6211119b43ed253376cf55502320fa58a0c6e1700dbd01595630b0b6b",
+  "real_record_count": 58,
+  "record_count": 58,
+  "schema_version": "phase3d-intake-v1",
+  "split_distribution": {
+    "test": 10,
+    "train": 32,
+    "validation": 16
+  },
+  "split_version": "phase3g-group-safe-label-quality-v1",
+  "timestamp_completeness": "58/58",
+  "training_eligible_count": 56,
+  "uncertain_count": 2,
+  "unique_extension_count": 17
+}

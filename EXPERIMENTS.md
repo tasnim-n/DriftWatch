@@ -251,3 +251,51 @@ Interpretation:
 - ML remains not justified for production integration.
 - Replication conclusion: `INCONCLUSIVE`.
 - Evidence-based next phase: `CONTINUE DATASET EXPANSION`.
+
+## Phase 3G Real-Corpus Maturation - 2026-08-11
+
+Phase 3G is a data-quality and ground-truth maturation phase. It does not retrain/deploy ML or change production scoring.
+
+Artifacts:
+- `datasets/manifests/phase3g_import_manifest.json`
+- `artifacts/driftbench/phase3g/`
+- `artifacts/driftbench/phase3g_features/`
+- `artifacts/experiments/phase3g/`
+
+Dataset:
+- Dataset version: `driftbench-real-maturation-phase3g-v1`
+- Previous dataset version: `driftbench-real-replication-phase3f-v1`
+- Real records: 58
+- New Phase 3G records: 12
+- Unique extensions: 17
+- Controlled records: 0
+- Labels: `benign_transition=53`, `risky_transition=3`, `uncertain=2`
+- Label quality: `SINGLE_REVIEWER_PROVISIONAL=56`, `UNCERTAIN=2`
+- Training-eligible records: 56
+- Licenses: `Apache-2.0=4`, `GPL-3.0=24`, `ISC=4`, `MIT=26`
+- Splits: `train=32`, `validation=16`, `test=10`
+
+Quality gates:
+- Provenance completeness: 58/58
+- Timestamp completeness: 58/58
+- Duplicate audit: passed
+- Protected leakage audit: passed
+- Feature leakage audit: passed
+- Feature schema: unchanged at `1.0`
+- Feature regeneration: completed for all five established Phase 3B representations
+- Inter-rater agreement: not available
+
+Phase 3F vs Phase 3G dataset comparison:
+- Total real records: `46` -> `58`
+- Unique extensions: `14` -> `17`
+- Risky or malicious records: `3` -> `3`
+- Uncertain records: `2` -> `2`
+- Double-reviewed records: `0` -> `0`
+- Provenance completeness: `46/46` -> `58/58`
+- Timestamp completeness: `46/46` -> `58/58`
+
+Interpretation:
+- Phase 3G improved corpus size, extension diversity, provenance, timestamp coverage, review packets, and feature artifacts.
+- uBlacklist was excluded after triggering extraction safety controls; security gates were not weakened.
+- Single-reviewer provisional labels still dominate, the risky/review-worthy class remains small, and no genuine second-review agreement exists.
+- Evidence-based decision: `DATASET STILL TOO WEAK - CONTINUE EXPANSION`.

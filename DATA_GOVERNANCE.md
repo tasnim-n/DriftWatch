@@ -83,3 +83,29 @@ Phase 3F preserves Phase 3E as `PILOT_BASELINE` and writes separate replication 
 Rejected or unsuitable candidate packages must remain excluded when they fail DriftWatch security limits, licensing checks, provenance checks, or accepted-source criteria. Security controls must not be weakened to force a candidate into the corpus.
 
 Phase 3F conclusion is `INCONCLUSIVE`; the evidence-based decision gate is `CONTINUE DATASET EXPANSION`.
+
+## Current Phase 3G Maturation Governance State
+- Dataset version: `driftbench-real-maturation-phase3g-v1`
+- Previous dataset version: `driftbench-real-replication-phase3f-v1`
+- Real records accepted: 58
+- New Phase 3G records accepted: 12
+- Unique extension identities: 17
+- Source type: public open-source GitHub release assets
+- License identifiers: `Apache-2.0=4`, `GPL-3.0=24`, `ISC=4`, `MIT=26`
+- Label states: `benign_transition=53`, `risky_transition=3`, `uncertain=2`
+- Label quality tiers: `SINGLE_REVIEWER_PROVISIONAL=56`, `UNCERTAIN=2`
+- Training-eligible records: 56
+- Split distribution: `train=32`, `validation=16`, `test=10`
+- Provenance completeness: 58/58
+- Timestamp completeness: 58/58
+- Duplicate audit: passed
+- Protected group/package-hash leakage audit: passed
+- Feature leakage audit: passed
+- Double-reviewed records: 0
+- Inter-rater agreement: not available
+
+Phase 3G adds accepted records for Automa, LibRedirect, and Web Scrobbler. uBlacklist candidate assets were excluded after triggering DriftWatch extraction safety controls; this is an archive-safety decision and must not be represented as a maliciousness finding.
+
+The two original Save Sora `uncertain` records remain unresolved and ineligible for supervised training. Phase 3G creates refreshed review packets and a second-review priority queue without inventing reviewers, reviewer agreement, or adjudicated labels.
+
+Phase 3G decision: `DATASET STILL TOO WEAK - CONTINUE EXPANSION`.

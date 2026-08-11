@@ -1,0 +1,10 @@
+metric,phase3f,phase3g
+total_real_records,46,58
+unique_extensions,14,17
+risky_or_malicious_records,3,3
+uncertain_records,2,2
+double_reviewed_count,0,0
+provisional_label_percentage,95.652174,96.551724
+provenance_completeness,46/46,58/58
+timestamp_completeness,46/46,58/58
+train_validation_test_counts,"{""test"": 10, ""train"": 24, ""validation"": 12}","{""test"": 10, ""train"": 32, ""validation"": 16}"

@@ -1,0 +1,6 @@
+{
+  "missingness_counts": {},
+  "policy": "Analyzer failures are tracked explicitly through *_available feature columns and never interpreted as no threat detected.",
+  "record_count": 58,
+  "total_missingness_count": 0
+}

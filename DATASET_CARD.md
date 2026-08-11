@@ -235,3 +235,46 @@ Known limitations:
 - Phase 3F improves dataset size and extension diversity but remains below the preferred independent real-pair and unique-extension targets for stronger conclusions.
 - Most labels remain single-reviewer provisional.
 - The corpus remains open-source-repository biased and is not representative of browser-store-scale extension updates.
+
+---
+
+## 10. Phase 3G Real-Corpus Maturation Snapshot
+Phase 3G creates a new dataset version for corpus expansion and label-quality infrastructure:
+
+`artifacts/experiments/phase3g/dataset_snapshot.json`
+
+Snapshot facts:
+- Dataset version: `driftbench-real-maturation-phase3g-v1`
+- Previous dataset version: `driftbench-real-replication-phase3f-v1`
+- Schema version: `phase3d-intake-v1`
+- Ontology version: `phase3d-labels-v1`
+- Feature schema version: `1.0`
+- Split version: `phase3g-group-safe-label-quality-v1`
+- Total records: 58
+- Real records: 58
+- Controlled records: 0
+- New Phase 3G records: 12
+- Unique extension identities: 17
+- Training-eligible records: 56
+- Label distribution: `benign_transition=53`, `risky_transition=3`, `uncertain=2`
+- Label quality distribution: `SINGLE_REVIEWER_PROVISIONAL=56`, `UNCERTAIN=2`
+- License distribution: `Apache-2.0=4`, `GPL-3.0=24`, `ISC=4`, `MIT=26`
+
+The accepted Phase 3G records add Automa, LibRedirect, and Web Scrobbler. uBlacklist candidate releases were not accepted because they triggered archive extraction safety controls during feature extraction. Security limits were preserved.
+
+Quality status:
+- Provenance completeness: 58/58
+- Timestamp completeness: 58/58
+- Duplicate audit: passed
+- Group/package-hash leakage audit: passed
+- Feature leakage audit: passed
+- Feature regeneration: completed for all five established feature representations
+- Inter-rater agreement: not available
+
+The two original Save Sora `uncertain` records remain unresolved and training-ineligible. Phase 3G stores refreshed review packets and a second-review queue but does not fabricate reviewers or adjudicated labels.
+
+Known limitations:
+- The planning targets of 60+ records and 18+ extensions were not reached with packages that passed the current safety gates.
+- Single-reviewer provisional labels still dominate.
+- Risky/review-worthy class support remains small.
+- The corpus remains open-source-repository biased and not representative of browser-store-scale updates.

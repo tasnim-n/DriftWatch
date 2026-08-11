@@ -139,3 +139,13 @@ Phase 3E does not replace or fuse with the production `risk_engine/` scoring pat
 - Writes research artifacts under `artifacts/driftbench/phase3f/`, `artifacts/driftbench/phase3f_features/`, `artifacts/experiments/phase3f/`, and `artifacts/models/phase3f/phase3f_replication_v1/`.
 
 Phase 3F remains a research replication layer. It does not alter the production FastAPI analysis pipeline, does not tune scoring rules to the observed test outcome, and does not deploy ML into `risk_engine/`.
+
+### 2.15 Phase 3G Dataset Maturation (`research/phase3g.py`)
+- Treats Phase 3F as frozen research history and records hashes for Phase 3F curation, feature, and experiment artifacts.
+- Acquires or replays public GitHub release ZIP metadata for accepted Phase 3G sources and writes `datasets/manifests/phase3g_import_manifest.json`.
+- Adds new records only under the Phase 3G dataset version, preserving source URLs, release timestamps, raw/normalized hashes, licenses, reviewer metadata, label quality, split, and training eligibility.
+- Refreshes structured review packets for unresolved `uncertain` records and writes reviewer schema, second-review queue, adjudication fields, and inter-rater guard artifacts without fabricating reviewers.
+- Regenerates the five established Phase 3B feature representations under `artifacts/driftbench/phase3g_features/` while preserving feature schema version `1.0`.
+- Writes duplicate, leakage, readiness, analyzer-missingness, diversity, excluded-candidate, and Phase 3F-vs-Phase 3G dataset comparison artifacts.
+
+Phase 3G is data and ground-truth infrastructure. It does not run production scoring changes, does not tune rules, and does not deploy ML models.

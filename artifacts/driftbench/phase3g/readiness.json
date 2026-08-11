@@ -1,0 +1,44 @@
+{
+  "analyzer_missingness": {
+    "missingness_counts": {},
+    "policy": "Analyzer failures are tracked explicitly through *_available feature columns and never interpreted as no threat detected.",
+    "record_count": 58,
+    "total_missingness_count": 0
+  },
+  "block_reasons": [],
+  "controlled_records": 0,
+  "dataset_version": "driftbench-real-maturation-phase3g-v1",
+  "double_reviewed_records": 0,
+  "duplicate_audit_passed": true,
+  "eligible_records": 56,
+  "excluded_records": 0,
+  "label_quality": {
+    "SINGLE_REVIEWER_PROVISIONAL": 56,
+    "UNCERTAIN": 2
+  },
+  "labels": {
+    "benign_transition": 53,
+    "risky_transition": 3,
+    "uncertain": 2
+  },
+  "leakage_audit_passed": true,
+  "phase3g_complete": true,
+  "previous_dataset_version": "driftbench-real-replication-phase3f-v1",
+  "provenance_completeness": "58/58",
+  "real_records": 58,
+  "recommended_next_phase": "DATASET STILL TOO WEAK - CONTINUE EXPANSION",
+  "split_counts": {
+    "test": 10,
+    "train": 32,
+    "validation": 16
+  },
+  "timestamp_completeness": "58/58",
+  "uncertain_records": 2,
+  "unique_extensions": 17,
+  "warnings": [
+    "planning target of 60+ real records was not reached",
+    "planning target of 18+ unique extensions was not reached",
+    "single-reviewer provisional labels still dominate",
+    "uncertain records remain in review queue and are training-ineligible"
+  ]
+}

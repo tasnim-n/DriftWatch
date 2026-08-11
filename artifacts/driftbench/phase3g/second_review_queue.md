@@ -1,0 +1,54 @@
+# Phase 3G Second Review Queue
+
+No second reviewer has been fabricated. Records below require independent review before stronger label-quality tiers can be claimed.
+
+- `katex-github-chrome-extension_0_1_0_to_0_2_0` | `risky_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `110`
+- `save-sora_2_0_196_to_2_0_355` | `risky_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `110`
+- `violentmonkey_2_45_0_to_2_46_0` | `risky_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `110`
+- `save-sora_2_0_355_to_3_0_0` | `uncertain` | `UNCERTAIN` | priority `90`
+- `save-sora_3_0_0_to_3_0_10` | `uncertain` | `UNCERTAIN` | priority `90`
+- `automaapp_automa_1_29_8_to_1_29_9` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `automaapp_automa_1_29_9_to_1_29_10` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `automaapp_automa_1_29_10_to_1_29_11` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `automaapp_automa_1_29_11_to_1_29_12` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `libredirect_browser_extension_3_0_2_to_3_1_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `libredirect_browser_extension_3_1_0_to_3_2_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `libredirect_browser_extension_3_2_0_to_3_3_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `libredirect_browser_extension_3_3_0_to_3_4_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `web_scrobbler_web_scrobbler_3_18_0_to_3_19_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `web_scrobbler_web_scrobbler_3_19_0_to_3_20_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `web_scrobbler_web_scrobbler_3_20_0_to_3_21_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `web_scrobbler_web_scrobbler_3_21_0_to_3_22_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `30`
+- `subtidex_1_5_0_to_1_5_1` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `save_tabbed_images_0_4_0_to_0_4_1` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `save_tabbed_images_0_4_1_to_0_5_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `save_tabbed_images_0_5_0_to_0_6_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `save_tabbed_images_0_6_0_to_0_7_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `screenity_4_5_0_to_4_5_1` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `ublock_origin_1_70_0_to_1_71_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `ublock_origin_1_71_0_to_1_72_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `ublock_origin_1_72_0_to_1_72_2` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `ublock_origin_1_72_2_to_1_73_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `sponsorblock_6_1_3_to_6_1_4` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `sponsorblock_6_1_4_to_6_1_5` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `sponsorblock_6_1_5_to_6_1_6` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `sponsorblock_6_1_6_to_6_1_7` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `duckduckgo_privacy_2025_11_3_to_2025_12_12` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `duckduckgo_privacy_2025_12_12_to_2025_12_14` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `duckduckgo_privacy_2025_12_14_to_2026_1_12` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `duckduckgo_privacy_2026_1_12_to_2026_4_28` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `keepassxc_browser_1_9_11_to_1_10_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `keepassxc_browser_1_10_0_to_1_10_0_1` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `keepassxc_browser_1_10_0_1_to_1_10_1` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `keepassxc_browser_1_10_1_to_1_10_2` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `refined_github_26_5_24_to_26_6_1` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `refined_github_26_6_1_to_26_6_7` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `refined_github_26_6_7_to_26_7` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `refined_github_26_7_to_26_7_11` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `violentmonkey_2_43_0_to_2_44_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `violentmonkey_2_44_0_to_2_45_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `violentmonkey_2_46_0_to_2_47_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `browserpass_browserpass_extension_3_10_0_to_3_10_1` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `browserpass_browserpass_extension_3_10_1_to_3_10_2` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `browserpass_browserpass_extension_3_10_2_to_3_11_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`
+- `browserpass_browserpass_extension_3_11_0_to_3_12_0` | `benign_transition` | `SINGLE_REVIEWER_PROVISIONAL` | priority `10`

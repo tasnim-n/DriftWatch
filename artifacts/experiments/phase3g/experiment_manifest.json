@@ -1,0 +1,19 @@
+{
+  "dataset_version": "driftbench-real-maturation-phase3g-v1",
+  "feature_regeneration_status": "completed",
+  "feature_schema_version": "1.0",
+  "model_training_performed": false,
+  "phase": "Phase 3G",
+  "production_ml_integration": false,
+  "purpose": "real-corpus expansion and independent label-strengthening infrastructure",
+  "split_version": "phase3g-group-safe-label-quality-v1",
+  "total_runtime_seconds": 367.4477,
+  "warnings_investigated": {
+    "status": "non_blocking_dependency_or_development_warnings",
+    "warnings": [
+      "Starlette/FastAPI TestClient httpx deprecation",
+      "joblib/NumPy array shape deprecation during trusted local research artifact loading",
+      "pytest cache path warning for generated .pytest_cache state"
+    ]
+  }
+}

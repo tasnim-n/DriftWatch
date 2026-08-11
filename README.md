@@ -28,6 +28,7 @@ Browser extensions receive extensive access to sensitive web browsing data, auth
 - **Phase 3D Dataset Curation Intake**: Provides local import manifests, provenance capture, license governance, package hashing, duplicate/split-leakage audits, manual-review records, review queues, label-quality tiers, training eligibility, and dataset manifests for real records.
 - **Phase 3E Pilot Empirical Evaluation**: Freezes a real-pilot dataset snapshot, audits leakage and group splits, evaluates the deterministic rule engine, Logistic Regression, and Random Forest across five locked feature representations, and stores research-only model artifacts without production integration.
 - **Phase 3F Independent Replication Study**: Expands the real corpus with independent public release assets, preserves Phase 3E as `PILOT_BASELINE`, repeats leakage-safe evaluation, and records an inconclusive decision gate without production ML integration.
+- **Phase 3G Dataset Maturation**: Expands the real corpus again, strengthens provenance/review artifacts, preserves Phase 3F as frozen history, regenerates feature artifacts, and keeps ML out of production.
 - **Controlled Extension Laboratory**: Pre-packaged synthetic lab samples (`v1_safe_note` and `v2_risky_note`) for reproducible demonstration.
 - **Executive Dark-Theme Dashboard**: Polished cybersecurity UI built with FastAPI, Jinja2, custom CSS, and responsive visualization.
 
@@ -185,6 +186,32 @@ Held-out Phase 3F result summary:
 - Full DriftWatch Random Forest: F1 `0.0`, confusion matrix `tn=9, fp=0, fn=1, tp=0`.
 
 Replication conclusion: `INCONCLUSIVE`. Production ML integration remains unjustified; the next evidence-based step is continued dataset expansion and label strengthening.
+
+### Phase 3G Dataset Maturation
+Phase 3G is a dataset and ground-truth strengthening phase, not a model-deployment phase.
+
+Artifacts:
+- `datasets/manifests/phase3g_import_manifest.json`
+- `artifacts/driftbench/phase3g/`
+- `artifacts/driftbench/phase3g_features/`
+- `artifacts/experiments/phase3g/`
+
+Verified Phase 3G dataset:
+- Dataset version: `driftbench-real-maturation-phase3g-v1`
+- Real records: 58
+- New Phase 3G records: 12
+- Unique extensions: 17
+- Labels: `benign_transition=53`, `risky_transition=3`, `uncertain=2`
+- Label quality tiers: `SINGLE_REVIEWER_PROVISIONAL=56`, `UNCERTAIN=2`
+- Training-eligible records: 56
+- Splits: `train=32`, `validation=16`, `test=10`
+- Provenance completeness: 58/58
+- Timestamp completeness: 58/58
+- Duplicate, group leakage, and feature leakage audits: passed
+
+The new accepted records come from Automa, LibRedirect, and Web Scrobbler. uBlacklist candidate assets were excluded after triggering DriftWatch extraction safety controls; the archive protections were not weakened. The two original Save Sora `uncertain` records remain unresolved and training-ineligible, with refreshed review packets.
+
+Phase 3G decision: `DATASET STILL TOO WEAK - CONTINUE EXPANSION`. The corpus improved, but single-reviewer provisional labels still dominate and inter-rater agreement is not available.
 
 ---
 
