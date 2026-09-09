@@ -373,7 +373,7 @@ Verified outputs:
 - Label quality: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
 - Real Gold Set size: 0
 - Controlled Gold Set size: 0
-- Label-level training-eligible records after recheck: 74
+- Supervised-training eligible records after recheck and external-holdout exclusion: 64
 - Confirmed malicious-transition records: 0
 
 Simulated secondary-review/adjudication exercise:

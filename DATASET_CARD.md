@@ -358,7 +358,7 @@ Current Phase 3H.5 facts:
 - Real Gold Set: 0
 - Controlled Gold Set: 0
 - Confirmed malicious-transition records: 0
-- Label-level training-eligible records after recheck: 74
+- Supervised-training eligible records after recheck and external-holdout exclusion: 64
 
 Simulated secondary-review/adjudication demonstration:
 - A 15-record secondary-review exercise was performed using simulated/AI-assisted assessments.
@@ -373,7 +373,7 @@ Gold Set and holdout exclusion:
 - No Phase 3H record currently has external confirmation or genuine multi-reviewer adjudication.
 - The two `UNCERTAIN` records remain unresolved and ineligible for supervised training.
 - External holdout labels remain provisional and must not be used for model tuning, rule tuning, Gold Set construction, adjudication-driven label changes, training, or development decisions.
-- The label-level eligibility count above does not override external-holdout restrictions.
+- The eligibility count above reflects external-holdout restrictions.
 
 Known limitations:
 - Independent human review remains pending.

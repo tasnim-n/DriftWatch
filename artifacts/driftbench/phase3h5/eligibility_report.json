@@ -1,6 +1,6 @@
 {
-  "eligible_for_supervised_training_count": 74,
-  "ineligible_count": 2,
+  "eligible_for_supervised_training_count": 64,
+  "ineligible_count": 12,
   "policy": "Gold-set inclusion and training eligibility are distinct concepts.",
   "records": [
     {
@@ -364,62 +364,82 @@
       "record_id": "bitwarden_clients_browser_v2026_6_1_to_browser_v2026_7_0"
     },
     {
-      "eligibility_reasons": [],
-      "eligible_for_supervised_training": true,
+      "eligibility_reasons": [
+        "external holdout excluded from supervised training"
+      ],
+      "eligible_for_supervised_training": false,
       "final_research_label": "benign_transition",
       "record_id": "clearurls_addon_1_20_0_to_1_21_0"
     },
     {
-      "eligibility_reasons": [],
-      "eligible_for_supervised_training": true,
+      "eligibility_reasons": [
+        "external holdout excluded from supervised training"
+      ],
+      "eligible_for_supervised_training": false,
       "final_research_label": "benign_transition",
       "record_id": "clearurls_addon_1_21_0_to_1_22_0"
     },
     {
-      "eligibility_reasons": [],
-      "eligible_for_supervised_training": true,
+      "eligibility_reasons": [
+        "external holdout excluded from supervised training"
+      ],
+      "eligible_for_supervised_training": false,
       "final_research_label": "benign_transition",
       "record_id": "clearurls_addon_1_22_0_to_1_23_0"
     },
     {
-      "eligibility_reasons": [],
-      "eligible_for_supervised_training": true,
+      "eligibility_reasons": [
+        "external holdout excluded from supervised training"
+      ],
+      "eligible_for_supervised_training": false,
       "final_research_label": "benign_transition",
       "record_id": "clearurls_addon_1_23_0_to_1_23_1"
     },
     {
-      "eligibility_reasons": [],
-      "eligible_for_supervised_training": true,
+      "eligibility_reasons": [
+        "external holdout excluded from supervised training"
+      ],
+      "eligible_for_supervised_training": false,
       "final_research_label": "benign_transition",
       "record_id": "clearurls_addon_1_23_1_to_1_27_3"
     },
     {
-      "eligibility_reasons": [],
-      "eligible_for_supervised_training": true,
+      "eligibility_reasons": [
+        "external holdout excluded from supervised training"
+      ],
+      "eligible_for_supervised_training": false,
       "final_research_label": "benign_transition",
       "record_id": "firefoxbar_headereditor_5_2_7_to_5_2_8"
     },
     {
-      "eligibility_reasons": [],
-      "eligible_for_supervised_training": true,
+      "eligibility_reasons": [
+        "external holdout excluded from supervised training"
+      ],
+      "eligible_for_supervised_training": false,
       "final_research_label": "benign_transition",
       "record_id": "firefoxbar_headereditor_5_2_8_to_5_2_9"
     },
     {
-      "eligibility_reasons": [],
-      "eligible_for_supervised_training": true,
+      "eligibility_reasons": [
+        "external holdout excluded from supervised training"
+      ],
+      "eligible_for_supervised_training": false,
       "final_research_label": "benign_transition",
       "record_id": "firefoxbar_headereditor_5_2_9_to_5_2_10"
     },
     {
-      "eligibility_reasons": [],
-      "eligible_for_supervised_training": true,
+      "eligibility_reasons": [
+        "external holdout excluded from supervised training"
+      ],
+      "eligible_for_supervised_training": false,
       "final_research_label": "benign_transition",
       "record_id": "firefoxbar_headereditor_5_2_10_to_5_2_11"
     },
     {
-      "eligibility_reasons": [],
-      "eligible_for_supervised_training": true,
+      "eligibility_reasons": [
+        "external holdout excluded from supervised training"
+      ],
+      "eligible_for_supervised_training": false,
       "final_research_label": "benign_transition",
       "record_id": "firefoxbar_headereditor_5_2_11_to_5_2_12"
     },

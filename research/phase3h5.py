@@ -140,7 +140,7 @@ def run_phase3h5_review_workflow(
     unresolved = build_unresolved_records(records, review_items)
     adjudication = build_adjudication_report(review_submissions)
     inter_rater = build_inter_rater_agreement(adjudication)
-    eligibility = build_eligibility_report(records, adjudication)
+    eligibility = build_eligibility_report(records, adjudication, holdout_ids)
     gold_set = build_gold_set_manifest(records, provenance_by_id, adjudication)
     gold_quality = build_gold_set_quality(gold_set)
     provenance_review = build_provenance_review(provenance_manifest)
@@ -743,7 +743,12 @@ def build_inter_rater_agreement(adjudication: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def build_eligibility_report(records: Sequence[Dict[str, Any]], adjudication: Dict[str, Any]) -> Dict[str, Any]:
+def build_eligibility_report(
+    records: Sequence[Dict[str, Any]],
+    adjudication: Dict[str, Any],
+    holdout_ids: Iterable[str] = (),
+) -> Dict[str, Any]:
+    holdout_id_set = set(holdout_ids)
     disagreement_ids = {
         record["record_id"]
         for record in adjudication.get("records", [])
@@ -759,6 +764,8 @@ def build_eligibility_report(records: Sequence[Dict[str, Any]], adjudication: Di
             reasons.append("unresolved reviewer disagreement")
         if record.get("label_quality_tier") == "UNCERTAIN":
             reasons.append("uncertain label-quality tier")
+        if record["pair_id"] in holdout_id_set:
+            reasons.append("external holdout excluded from supervised training")
         eligible = bool(record.get("eligible_for_supervised_training")) and not reasons
         eligible_count += int(eligible)
         eligibility_rows.append({

@@ -149,11 +149,19 @@ def test_phase3h5_gold_set_is_empty_and_real_controlled_split_is_explicit():
 def test_phase3h5_external_holdout_is_isolated_from_feature_tuning():
     holdout = read_json(PHASE3H / "external_holdout_manifest.json")
     feature_rows = read_csv(PHASE3H_FEATURES / "full_driftwatch.csv")
+    eligibility = read_json(PHASE3H5 / "eligibility_report.json")
     holdout_ids = {record["record_id"] for record in holdout["records"]}
+    eligibility_by_id = {record["record_id"]: record for record in eligibility["records"]}
 
     assert holdout["training_use_allowed"] is False
     assert holdout["tuning_use_allowed"] is False
     assert holdout_ids.isdisjoint({row["record_id"] for row in feature_rows})
+    for record_id in holdout_ids:
+        assert eligibility_by_id[record_id]["eligible_for_supervised_training"] is False
+        assert "external holdout excluded from supervised training" in eligibility_by_id[record_id]["eligibility_reasons"]
+    assert eligibility["eligible_for_supervised_training_count"] == sum(
+        1 for record in eligibility["records"] if record["eligible_for_supervised_training"]
+    )
 
 
 def test_phase3h5_reviewer_metadata_leakage_audit_passes():
