@@ -1,4 +1,4 @@
-# DriftWatch Experiment Log
+﻿# DriftWatch Experiment Log
 
 ## Phase 3C Pilot - 2026-08-10
 
@@ -355,6 +355,7 @@ Artifacts:
 - `artifacts/experiments/phase3h5/`
 - `datasets/reviews/phase3h5/`
 - `REVIEWER_GUIDE.md`
+- `reviewer_b_blind/`
 
 Verified outputs:
 - Artifact version: `driftbench-independent-review-phase3h5-v1`
@@ -365,23 +366,33 @@ Verified outputs:
 - Genuine Reviewer A count: 0
 - Genuine Reviewer B count: 0
 - Double-reviewed count: 0
-- Agreement count: 0
-- Disagreement count: 0
-- Adjudicated count: 0
+- Genuine agreement count: 0
+- Genuine disagreement count: 0
+- Genuine adjudicated count: 0
 - Inter-rater agreement: not available
 - Label quality: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
 - Real Gold Set size: 0
 - Controlled Gold Set size: 0
-- Training-eligible records after recheck: 74
+- Label-level training-eligible records after recheck: 74
 - Confirmed malicious-transition records: 0
+
+Simulated secondary-review/adjudication exercise:
+- A 15-record simulated/AI-assisted secondary-review exercise was run. It is not a genuine human Reviewer B review.
+- Initial comparison produced 15 comparable selected records, 2 direct agreements, 13 disagreements, and a simulated label-match rate of `13.33%`.
+- The 13 disagreements entered a simulated adjudication workflow; no genuine human adjudication was created.
+- `clearurls_addon_1_20_0_to_1_21_0` was confirmed through `artifacts/driftbench/phase3h/external_holdout_manifest.json` as an external holdout and marked `EXTERNAL_HOLDOUT_LOCKED` in the simulated adjudication queue.
+- The locked holdout record must not be used for model tuning, rule tuning, Gold Set construction, adjudication-driven label changes, training, or development decisions.
+- Excluding that external holdout, the simulated 14-record outcome was `RISKY_TRANSITION=7`, `BENIGN_TRANSITION=4`, `UNCERTAIN=3`.
+- Existing research labels were not automatically overwritten.
 
 Quality gates:
 - Phase 3H reference frozen.
 - Review packets hide DriftWatch numeric output, severity, recommendations, ML outputs, previous predictions, and current provisional labels.
 - Reviewer metadata leakage audit passed for predictive feature columns.
-- External holdout remains isolated from model training and tuning.
+- External holdout remains isolated from model training, rule tuning, Gold Set construction, adjudication-driven label changes, and development decisions.
 - Research-integrity audit passed: no completed independent review, Gold Set, inter-rater agreement, or confirmed malicious records are claimed.
 
 Decision:
+- Current status: Phase 3H.5 simulated review/adjudication workflow demonstration is complete, and external-holdout protection was successfully preserved.
 - Final Phase 3H.5 decision: `MORE INDEPENDENT REVIEW REQUIRED`.
 - Phase 3I is not methodologically ready.

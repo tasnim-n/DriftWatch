@@ -1,0 +1,16 @@
+﻿{
+    "review_id":  "RB-013",
+    "reviewer_id":  "reviewer_b_simulated",
+    "record_id":  "darkreader_darkreader_4_9_125_to_4_9_126",
+    "review_round":  "SECONDARY_REVIEW",
+    "independent_label":  "RISKY_TRANSITION",
+    "confidence":  "LOW",
+    "rationale":  "The update introduces 37 new external-network indicators, an overall network-destination increase, three source-to-sink heuristic indicators, and limited structural changes. No new permissions, host-scope expansion, sensitive API additions, or dynamic-execution indicators were detected. There is also no independent evidence of malicious behavior. The observed network and heuristic changes warrant review, but the available evidence is insufficient to establish a stronger conclusion, resulting in a RISKY_TRANSITION assessment with LOW confidence.",
+    "evidence_references":  [
+                                "Blind review packet: darkreader_darkreader_4_9_125_to_4_9_126",
+                                "https://github.com/darkreader/darkreader"
+                            ],
+    "blind_review":  true,
+    "review_timestamp":  "2026-09-09T02:15:53.3209942+06:00",
+    "review_status":  "SUBMITTED"
+}

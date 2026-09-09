@@ -1,0 +1,15 @@
+﻿{
+    "review_id":  "RB-001",
+    "reviewer_id":  "reviewer_b_simulated",
+    "record_id":  "save-sora_2_0_196_to_2_0_355",
+    "review_round":  "SECONDARY_REVIEW",
+    "independent_label":  "RISKY_TRANSITION",
+    "confidence":  "MEDIUM",
+    "rationale":  "The update introduces a new external host, two new sensitive API usages, substantial network and structural changes, and a source-to-sink heuristic indicator. These changes are security-sensitive and warrant review. However, no strong independent evidence of malicious intent or confirmed exfiltration is available, and no new browser permissions, all-URLs access, hardcoded IP addresses, plain HTTP endpoints, or dynamic execution indicators were introduced.",
+    "evidence_references":  [
+                                "Blind review packet for save-sora_2_0_196_to_2_0_355"
+                            ],
+    "blind_review":  true,
+    "review_status":  "SUBMITTED",
+    "review_timestamp":  "2026-09-09T02:16:26.3028193+06:00"
+}

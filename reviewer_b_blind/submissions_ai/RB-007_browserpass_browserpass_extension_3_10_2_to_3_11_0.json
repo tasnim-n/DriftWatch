@@ -1,0 +1,15 @@
+﻿{
+    "review_id":  "RB-007",
+    "reviewer_id":  "reviewer_b_simulated",
+    "record_id":  "browserpass_browserpass_extension_3_10_2_to_3_11_0",
+    "review_round":  "SECONDARY_REVIEW",
+    "independent_label":  "RISKY_TRANSITION",
+    "confidence":  "LOW",
+    "rationale":  "The update shows limited but security-relevant behavioral changes, including one new dynamic-execution indicator, two source-to-sink heuristic indicators, and a small number of new external network indicators. However, no new permissions, host-scope expansion, or newly added sensitive APIs were detected, structural changes are relatively small, and the overall network destination count decreased. The obfuscation-related score is high in absolute terms but the corresponding count delta decreased, so this signal should not be treated as strong evidence by itself. No independent public evidence of malicious behavior is available. Therefore, the transition is assessed as RISKY_TRANSITION with LOW confidence because the available evidence is insufficient to determine whether the observed changes represent meaningful harmful behavior or normal implementation changes.",
+    "evidence_references":  [
+                                "Blind review packet: browserpass_browserpass_extension_3_10_2_to_3_11_0"
+                            ],
+    "blind_review":  true,
+    "review_status":  "SUBMITTED",
+    "review_timestamp":  "2026-09-09T02:16:26.4004277+06:00"
+}

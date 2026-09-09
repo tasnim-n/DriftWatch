@@ -1,0 +1,16 @@
+﻿{
+    "review_id":  "RB-014",
+    "reviewer_id":  "reviewer_b_simulated",
+    "record_id":  "save_tabbed_images_0_4_0_to_0_4_1",
+    "review_round":  "SECONDARY_REVIEW",
+    "independent_label":  "RISKY_TRANSITION",
+    "confidence":  "MEDIUM",
+    "rationale":  "The transition shows substantial network behavioral drift, including 206 new external-network indicators and an increase of 122 network destinations, together with one dynamic-execution indicator, additional event listeners, new functions, and increased obfuscation-related signals. No new permissions, host-scope expansion, sensitive API additions, source-to-sink indicators, or independent malicious evidence were detected. The magnitude of the network change warrants security review, so the transition is assessed as RISKY_TRANSITION with MEDIUM confidence rather than MALICIOUS_TRANSITION.",
+    "evidence_references":  [
+                                "Blind review packet: save_tabbed_images_0_4_0_to_0_4_1",
+                                "https://github.com/kevinsqi/save_tabbed_images"
+                            ],
+    "blind_review":  true,
+    "review_timestamp":  "2026-09-09T02:15:53.3260908+06:00",
+    "review_status":  "SUBMITTED"
+}

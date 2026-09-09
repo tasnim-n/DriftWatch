@@ -1,0 +1,15 @@
+﻿{
+    "review_id":  "RB-004",
+    "reviewer_id":  "reviewer_b_simulated",
+    "record_id":  "duckduckgo_privacy_2026_1_12_to_2026_4_28",
+    "review_round":  "SECONDARY_REVIEW",
+    "independent_label":  "RISKY_TRANSITION",
+    "confidence":  "MEDIUM",
+    "rationale":  "The update introduces security-relevant behavioral changes, including one new sensitive API usage, fourteen dynamic-execution indicators, six source-to-sink heuristic indicators, substantial obfuscation-related signals, and broad structural modifications across the extension. Network destinations also changed substantially, although the overall destination-count delta decreased, so the new external-network count should not be interpreted as a simple expansion in network access. No new permissions or host-scope expansion were introduced, and there is no independent public evidence confirming malicious intent or data exfiltration. Therefore, the transition is assessed as RISKY_TRANSITION rather than MALICIOUS_TRANSITION.",
+    "evidence_references":  [
+                                "Blind review packet: duckduckgo_privacy_2026_1_12_to_2026_4_28"
+                            ],
+    "blind_review":  true,
+    "review_status":  "SUBMITTED",
+    "review_timestamp":  "2026-09-09T02:16:26.3855397+06:00"
+}

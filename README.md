@@ -1,4 +1,4 @@
-# DriftWatch
+﻿# DriftWatch
 
 **Full Academic Title**: *DriftWatch: A Longitudinal and Explainable Framework for Detecting Dangerous Behavioural Changes in Browser-Extension Updates*
 
@@ -30,6 +30,7 @@ Browser extensions receive extensive access to sensitive web browsing data, auth
 - **Phase 3F Independent Replication Study**: Expands the real corpus with independent public release assets, preserves Phase 3E as `PILOT_BASELINE`, repeats leakage-safe evaluation, and records an inconclusive decision gate without production ML integration.
 - **Phase 3G Dataset Maturation**: Expands the real corpus again, strengthens provenance/review artifacts, preserves Phase 3F as frozen history, regenerates feature artifacts, and keeps ML out of production.
 - **Phase 3H Holdout & Gold-Set Readiness**: Expands the real corpus, preserves Phase 3G as frozen history, creates an external replication holdout, and documents that a genuine Gold Set is not yet available.
+- **Phase 3H.5 Simulated Review Workflow**: Demonstrates the secondary-review and adjudication workflow with simulated/AI-assisted assessments, preserves external-holdout protection, and keeps genuine Reviewer B, inter-rater agreement, and Gold Set status marked unavailable.
 - **Controlled Extension Laboratory**: Pre-packaged synthetic lab samples (`v1_safe_note` and `v2_risky_note`) for reproducible demonstration.
 - **Executive Dark-Theme Dashboard**: Polished cybersecurity UI built with FastAPI, Jinja2, custom CSS, and responsive visualization.
 
@@ -238,12 +239,13 @@ Verified Phase 3H dataset:
 The accepted Phase 3H sources are public GitHub release assets for Bitwarden Browser, ClearURLs, HeaderEditor, and Ruffle Web Extension. The holdout is locked for future validation and excluded from non-holdout feature artifacts. Phase 3H decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`.
 
 ### Phase 3H.5 Independent Review Workflow
-Phase 3H.5 implements ground-truth qualification infrastructure only. It does not train ML, deploy ML, tune thresholds, or change production scoring.
+Phase 3H.5 implements ground-truth qualification infrastructure and a simulated review/adjudication workflow demonstration. It does not train ML, deploy ML, tune thresholds, change production scoring, or create genuine human ground truth.
 
 Artifacts:
 - `artifacts/driftbench/phase3h5/`
 - `artifacts/experiments/phase3h5/`
 - `datasets/reviews/phase3h5/`
+- `reviewer_b_blind/`
 - `REVIEWER_GUIDE.md`
 
 Verified Phase 3H.5 state:
@@ -253,51 +255,58 @@ Verified Phase 3H.5 state:
 - Genuine Reviewer A records: 0
 - Genuine Reviewer B records: 0
 - Double-reviewed records: 0
-- Adjudicated records: 0
+- Genuine adjudicated records: 0
 - Inter-rater agreement: not available
 - Label quality: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
 - Real Gold Set: 0
 - Controlled Gold Set: 0
 - Confirmed malicious-transition records: 0
 
-The workflow prepares blind review packets and queues for genuine reviewers. It intentionally does not fabricate independent reviews or treat DriftWatch outputs as ground truth. Current decision: `MORE INDEPENDENT REVIEW REQUIRED`.
+Simulated review/adjudication demonstration:
+- 15 simulated/AI-assisted secondary assessments were compared with existing research labels.
+- Initial simulated comparison: 2 direct agreements, 13 disagreements, simulated label-match rate `13.33%`.
+- The 13 disagreements entered simulated adjudication; this is not genuine human adjudication.
+- `clearurls_addon_1_20_0_to_1_21_0` is confirmed as an external holdout and marked `EXTERNAL_HOLDOUT_LOCKED`.
+- Excluding that holdout, the simulated 14-record outcome is `RISKY_TRANSITION=7`, `BENIGN_TRANSITION=4`, `UNCERTAIN=3`.
+
+The workflow prepares blind review packets and queues for genuine reviewers. It intentionally does not fabricate independent reviews or treat DriftWatch outputs, simulated assessments, or simulated adjudication outcomes as ground truth. Existing research labels were not automatically overwritten. Current status: Phase 3H.5 simulated review/adjudication workflow demonstration is complete, and external-holdout protection was successfully preserved. Current decision: `MORE INDEPENDENT REVIEW REQUIRED`; Phase 3I is not methodologically ready.
 
 ---
 
 ## Repository Structure
 ```
 DriftWatch/
-├── app/                  # FastAPI Web Gateway, Core Settings & Routes
-│   ├── api/              # API endpoints
-│   ├── core/             # Configuration & Security Unpacking Sandbox
-│   ├── database/         # SQLAlchemy ORM Session & Base Models
-│   ├── models/           # DB Analysis Records
-│   ├── schemas/          # Pydantic Schemas
-│   ├── static/           # CSS, JS, Media Assets
-│   └── templates/        # Jinja2 Templates (Dark Cybersecurity Theme)
-├── analyzers/            # Differential Analysis Engine
-│   ├── package_analyzer.py      # Archive File Differences & Hashes
-│   ├── manifest_analyzer.py     # Manifest V2/V3 Differential Parser
-│   ├── permission_analyzer.py   # Permission Risk Knowledge Base
-│   ├── host_scope_analyzer.py   # Host Pattern Expansion Model
-│   └── drift_engine.py          # Feature Vector Calculator
-├── risk_engine/          # Hybrid Scoring & Explanation Engine
-│   ├── rules.py                 # Security Rules Registry
-│   ├── scoring.py               # Risk Score Calculation
-│   └── explanations.py          # Human-Readable Finding Generator
-├── samples/              # Controlled Laboratory Extension Pairs
-│   ├── v1_safe_note/     # Baseline Safe Note Extension
-│   └── v2_risky_note/    # Updated Version with Permission Creep & Host Expansion
-├── tests/                # Pytest Automated Test Suite
-├── PROJECT_PLAN.md       # Implementation Roadmap & Milestone Tracker
-├── ARCHITECTURE.md       # System Architecture & Technical Design
-├── RESEARCH.md           # Research Questions & Differential Analysis Formulae
-├── SECURITY.md           # Threat Model & Self-Protection Specification
-├── DATASET_CARD.md       # DriftBench Dataset Specifications
-└── DEMO_GUIDE.md         # Live Demonstration Script
+â”œâ”€â”€ app/                  # FastAPI Web Gateway, Core Settings & Routes
+â”‚   â”œâ”€â”€ api/              # API endpoints
+â”‚   â”œâ”€â”€ core/             # Configuration & Security Unpacking Sandbox
+â”‚   â”œâ”€â”€ database/         # SQLAlchemy ORM Session & Base Models
+â”‚   â”œâ”€â”€ models/           # DB Analysis Records
+â”‚   â”œâ”€â”€ schemas/          # Pydantic Schemas
+â”‚   â”œâ”€â”€ static/           # CSS, JS, Media Assets
+â”‚   â””â”€â”€ templates/        # Jinja2 Templates (Dark Cybersecurity Theme)
+â”œâ”€â”€ analyzers/            # Differential Analysis Engine
+â”‚   â”œâ”€â”€ package_analyzer.py      # Archive File Differences & Hashes
+â”‚   â”œâ”€â”€ manifest_analyzer.py     # Manifest V2/V3 Differential Parser
+â”‚   â”œâ”€â”€ permission_analyzer.py   # Permission Risk Knowledge Base
+â”‚   â”œâ”€â”€ host_scope_analyzer.py   # Host Pattern Expansion Model
+â”‚   â””â”€â”€ drift_engine.py          # Feature Vector Calculator
+â”œâ”€â”€ risk_engine/          # Hybrid Scoring & Explanation Engine
+â”‚   â”œâ”€â”€ rules.py                 # Security Rules Registry
+â”‚   â”œâ”€â”€ scoring.py               # Risk Score Calculation
+â”‚   â””â”€â”€ explanations.py          # Human-Readable Finding Generator
+â”œâ”€â”€ samples/              # Controlled Laboratory Extension Pairs
+â”‚   â”œâ”€â”€ v1_safe_note/     # Baseline Safe Note Extension
+â”‚   â””â”€â”€ v2_risky_note/    # Updated Version with Permission Creep & Host Expansion
+â”œâ”€â”€ tests/                # Pytest Automated Test Suite
+â”œâ”€â”€ PROJECT_PLAN.md       # Implementation Roadmap & Milestone Tracker
+â”œâ”€â”€ ARCHITECTURE.md       # System Architecture & Technical Design
+â”œâ”€â”€ RESEARCH.md           # Research Questions & Differential Analysis Formulae
+â”œâ”€â”€ SECURITY.md           # Threat Model & Self-Protection Specification
+â”œâ”€â”€ DATASET_CARD.md       # DriftBench Dataset Specifications
+â””â”€â”€ DEMO_GUIDE.md         # Live Demonstration Script
 ```
 
 ---
 
 ## Ethical Statement & Limitations
-DriftWatch is strictly designed for cybersecurity research, extension security auditing, and academic analysis. Laboratory test samples use synthetic controlled endpoints (`http://analytics.untrusted-domain.com`) and contain no malicious exploits, weaponized payloads, or real user data exfiltration logic. Source-to-sink results are heuristic indicators for analyst review, not claims of confirmed exfiltration.
+DriftWatch is strictly designed for cybersecurity research, extension security auditing, and academic analysis. Laboratory test samples use synthetic controlled endpoints (`http://analytics.untrusted-domain.com`) and contain no malicious exploits, weaponized payloads, or real user data exfiltration logic. High DriftWatch risk means review-worthy behavioural drift, not malware probability. Source-to-sink results are heuristic indicators for analyst review, not claims of confirmed exfiltration, and obfuscation is contextual evidence rather than proof of maliciousness.

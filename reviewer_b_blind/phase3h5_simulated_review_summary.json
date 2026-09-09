@@ -1,0 +1,47 @@
+﻿{
+    "phase":  "3H.5",
+    "review_type":  "SIMULATED_SECONDARY_REVIEW_AND_ADJUDICATION",
+    "selected_records":  15,
+    "non_holdout_records":  14,
+    "external_holdout_locked":  1,
+    "initial_comparison":  {
+                               "direct_agreements":  2,
+                               "disagreements":  13,
+                               "simulated_label_match_rate_percent":  13.33
+                           },
+    "simulated_adjudication":  {
+                                   "adjudicated_disagreements":  12,
+                                   "external_holdout_excluded":  1
+                               },
+    "final_non_holdout_outcome":  {
+                                      "benign_transition":  4,
+                                      "uncertain":  3,
+                                      "risky_transition":  7,
+                                      "total":  14
+                                  },
+    "holdout_record":  {
+                           "used_for_adjudication":  false,
+                           "used_for_rule_tuning":  false,
+                           "used_for_model_tuning":  false,
+                           "used_for_gold_set":  false,
+                           "used_for_training":  false,
+                           "status":  "EXTERNAL_HOLDOUT_LOCKED",
+                           "record_id":  "clearurls_addon_1_20_0_to_1_21_0"
+                       },
+    "methodological_status":  {
+                                  "genuine_gold_set_ready":  false,
+                                  "malicious_transition_confirmed":  false,
+                                  "genuine_inter_rater_agreement":  false,
+                                  "external_holdout_preserved":  true,
+                                  "phase3i_external_validation_ready":  false,
+                                  "genuine_independent_reviewer_b":  false
+                              },
+    "notes":  [
+                  "Secondary assessments and adjudication were simulated/AI-assisted.",
+                  "They must not be represented as genuine human Reviewer B decisions.",
+                  "Existing research labels were not automatically overwritten.",
+                  "ClearURLs 1.20.0 to 1.21.0 was confirmed as an external holdout and remains locked.",
+                  "The external holdout must not influence training, tuning, rule development, model development, Gold Set construction, or adjudication-driven label changes.",
+                  "No confirmed malicious real transition was established."
+              ]
+}

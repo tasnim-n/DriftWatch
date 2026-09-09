@@ -1,0 +1,17 @@
+﻿{
+    "review_id":  "RB-012",
+    "reviewer_id":  "reviewer_b_simulated",
+    "record_id":  "web_scrobbler_web_scrobbler_3_21_0_to_3_22_0",
+    "review_round":  "SECONDARY_REVIEW",
+    "independent_label":  "RISKY_TRANSITION",
+    "confidence":  "MEDIUM",
+    "rationale":  "The update introduces two new sensitive API usages, 134 new external-network indicators, one plain-HTTP endpoint indicator, three dynamic-execution indicators, eight added event listeners, and substantial structural changes. These represent meaningful security-sensitive behavioral drift. However, no new permissions or host-scope expansion were introduced, no source-to-sink indicators were detected, and no independent malicious evidence is available. Therefore, the transition is assessed as RISKY_TRANSITION with MEDIUM confidence.",
+    "evidence_references":  [
+                                "Blind review packet: web_scrobbler_web_scrobbler_3_21_0_to_3_22_0",
+                                "https://github.com/web-scrobbler/web-scrobbler/releases/tag/v3.21.0",
+                                "https://github.com/web-scrobbler/web-scrobbler/releases/tag/v3.22.0"
+                            ],
+    "blind_review":  true,
+    "review_timestamp":  "2026-09-09T02:15:53.3170004+06:00",
+    "review_status":  "SUBMITTED"
+}

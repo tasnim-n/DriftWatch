@@ -1,0 +1,19 @@
+﻿{
+    "review_id":  "RB-015",
+    "reviewer_id":  "reviewer_b_simulated",
+    "record_id":  "clearurls_addon_1_20_0_to_1_21_0",
+    "review_round":  "SECONDARY_REVIEW",
+    "independent_label":  "UNCERTAIN",
+    "confidence":  "LOW",
+    "rationale":  "Most behavioral-drift feature families are unavailable for this record because it is identified as either an external holdout or as missing the corresponding Phase 3H feature row. The available manifest evidence shows removal of the clipboardWrite permission and no newly added permissions or hosts, but the absence of network, API, obfuscation, structural, and other drift evidence prevents a reliable behavioral assessment. Therefore, the transition is classified as UNCERTAIN with LOW confidence.",
+    "evidence_references":  [
+                                "Blind review packet: clearurls_addon_1_20_0_to_1_21_0",
+                                "https://github.com/ClearURLs/Addon/releases/tag/1.20.0",
+                                "https://github.com/ClearURLs/Addon/releases/tag/1.21.0"
+                            ],
+    "blind_review":  true,
+    "review_timestamp":  "2026-09-09T02:15:53.3367376+06:00",
+    "review_status":  "EXCLUDED_FROM_TUNING_EXTERNAL_HOLDOUT",
+    "holdout_status":  "EXTERNAL_HOLDOUT_LOCKED",
+    "methodological_note":  "Preserved for audit history only. This simulated assessment must not influence tuning, adjudication, Gold Set construction, model development, rule development, or training."
+}

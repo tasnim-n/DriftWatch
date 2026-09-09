@@ -1,0 +1,17 @@
+﻿{
+    "review_id":  "RB-003",
+    "reviewer_id":  "reviewer_b_simulated",
+    "record_id":  "automaapp_automa_1_29_11_to_1_29_12",
+    "review_round":  "SECONDARY_REVIEW",
+    "independent_label":  "RISKY_TRANSITION",
+    "confidence":  "MEDIUM",
+    "rationale":  "The update introduces substantial security-relevant behavioural changes, including three new sensitive API usages, a large increase in external network indicators, five dynamic-execution indicators, five source-to-sink heuristic indicators, increased obfuscation signals, and extensive structural modifications. These changes warrant security review. However, no new browser permissions or host-scope expansion were introduced, and the available evidence contains no independent confirmation of malicious intent or confirmed data exfiltration. Therefore, the transition is assessed as RISKY_TRANSITION rather than MALICIOUS_TRANSITION.",
+    "evidence_references":  [
+                                "Blind review packet: automaapp_automa_1_29_11_to_1_29_12",
+                                "https://github.com/AutomaApp/automa/releases/tag/v1.29.11",
+                                "https://github.com/AutomaApp/automa/releases/tag/v1.29.12"
+                            ],
+    "blind_review":  true,
+    "review_status":  "SUBMITTED",
+    "review_timestamp":  "2026-09-09T02:16:26.3630765+06:00"
+}

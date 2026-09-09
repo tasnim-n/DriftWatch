@@ -1,0 +1,16 @@
+﻿{
+    "review_id":  "RB-011",
+    "reviewer_id":  "reviewer_b_simulated",
+    "record_id":  "ublock_origin_1_72_2_to_1_73_0",
+    "review_round":  "SECONDARY_REVIEW",
+    "independent_label":  "RISKY_TRANSITION",
+    "confidence":  "LOW",
+    "rationale":  "The transition contains one new dynamic-execution indicator, three source-to-sink heuristic indicators, several new external-network indicators, two added event listeners, and modifications across 65 files. No new permissions, host-scope expansion, or sensitive API additions were detected, and there is no independent public evidence of malicious behavior. These signals justify security review, but they are not strong enough to establish harmful intent, so the transition is assessed as RISKY_TRANSITION with LOW confidence.",
+    "evidence_references":  [
+                                "Blind review packet: ublock_origin_1_72_2_to_1_73_0",
+                                "https://github.com/gorhill/uBlock"
+                            ],
+    "blind_review":  true,
+    "review_timestamp":  "2026-09-09T02:15:53.3130025+06:00",
+    "review_status":  "SUBMITTED"
+}

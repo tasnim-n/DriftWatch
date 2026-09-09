@@ -1,4 +1,4 @@
-# DriftWatch Project Plan
+﻿# DriftWatch Project Plan
 
 **Full Academic Title**: DriftWatch: A Longitudinal and Explainable Framework for Detecting Dangerous Behavioural Changes in Browser-Extension Updates
 
@@ -20,7 +20,7 @@ DriftWatch addresses this challenge through version-to-version differential beha
 | **Week 3** | Advanced Static Analysis | Safe JavaScript lexical preprocessing, sensitive API extraction, network endpoint extraction, bounded static Base64 endpoint decoding, obfuscation indicators, structural drift, source-to-sink heuristics, partial-analysis error reporting, and score breakdowns. | **Completed (Phase 2, verified 2026-08-10)** |
 | **Week 4** | DriftBench & Empirical Research Pipeline | Phase 3A dataset specification, label ontology, provenance tracking, validator, controlled mutation framework, leakage-safe split generator; Phase 3B feature extraction, baseline feature representations, leakage checks, and reproducible artifacts; Phase 3C pilot evaluation harness, leakage audit, readiness gate, deterministic baseline comparison, and blocked-ML reporting. | **Phase 3C pilot infrastructure implemented; ML blocked by dataset readiness** |
 | **Week 5** | Dashboard & Visualization | Premium dark cybersecurity UI, executive summary, version progression timeline, report export (HTML/PDF). | **Completed (Phase 1 UI Foundation)** |
-| **Week 6** | Research Experiments & Verification | Phase 3D real-data intake architecture, provenance-rich curation, license governance, duplicate/split-leakage audits, dataset manifests, local import workflow, real-pilot expansion, label-quality tiers, review packets, split-stability gate, Phase 3E pilot empirical evaluation, Phase 3F replication expansion, Phase 3G dataset maturation, and Phase 3H holdout/gold-set readiness. | **Phase 3H complete; label adjudication still needed** |
+| **Week 6** | Research Experiments & Verification | Phase 3D real-data intake architecture, provenance-rich curation, license governance, duplicate/split-leakage audits, dataset manifests, local import workflow, real-pilot expansion, label-quality tiers, review packets, split-stability gate, Phase 3E pilot empirical evaluation, Phase 3F replication expansion, Phase 3G dataset maturation, Phase 3H holdout/gold-set readiness, and Phase 3H.5 simulated review/adjudication workflow demonstration. | **Phase 3H.5 simulated workflow complete; genuine review and Gold Set still needed** |
 
 ---
 
@@ -159,10 +159,14 @@ DriftWatch addresses this challenge through version-to-version differential beha
 
 ## 16. Current Progress (Phase 3H.5)
 - New artifact version: `driftbench-independent-review-phase3h5-v1`.
-- Phase 3H is treated as frozen research history. Phase 3H.5 writes only `artifacts/driftbench/phase3h5/`, `artifacts/experiments/phase3h5/`, and `datasets/reviews/phase3h5/`.
+Phase 3H is treated as frozen research history. Phase 3H.5 canonical pipeline artifacts remain under artifacts/driftbench/phase3h5/, artifacts/experiments/phase3h5/, and datasets/reviews/phase3h5/. The separate reviewer_b_blind/ directory preserves simulated/AI-assisted workflow and audit artifacts and does not modify frozen Phase 3H history.
 - Built a blind independent-review workflow for all 76 Phase 3H records, with 47 records prioritized for near-term review.
 - Created standardized review packets, reviewer schema, confidence definitions, evidence hierarchy, second-review queue, adjudication report, inter-rater guard, unresolved-record report, eligibility report, reviewer-metadata leakage audit, and Gold Set qualification artifacts.
-- Current genuine Reviewer A count: 0. Current genuine Reviewer B count: 0. No fake reviewer, adjudication, or inter-rater agreement was created.
+- Ran a 15-record simulated/AI-assisted secondary-review exercise under `reviewer_b_blind/`. It produced 2 direct agreements and 13 disagreements, for a simulated initial agreement rate of `13.33%`; this is not genuine human inter-rater agreement.
+- The 13 disagreements entered simulated adjudication. `clearurls_addon_1_20_0_to_1_21_0` was confirmed as an external holdout through `artifacts/driftbench/phase3h/external_holdout_manifest.json` and is now `EXTERNAL_HOLDOUT_LOCKED`.
+- Excluding the locked external holdout, the simulated 14-record outcome is `RISKY_TRANSITION=7`, `BENIGN_TRANSITION=4`, `UNCERTAIN=3`.
+- Existing research labels were not automatically overwritten by simulated assessments or simulated adjudication outcomes.
+- Current genuine Reviewer A count: 0. Current genuine Reviewer B count: 0. No fake genuine reviewer, genuine adjudication, or inter-rater agreement was created.
 - Real Gold Set size: 0. Controlled Gold Set size: 0. No confirmed malicious-transition record exists.
-- External holdout remains isolated from training, tuning, rule changes, and feature redesign.
+- External holdout remains isolated from training, model tuning, rule tuning, adjudication-driven label changes, Gold Set construction, development decisions, and feature redesign.
 - Phase 3H.5 decision: `MORE INDEPENDENT REVIEW REQUIRED`. Phase 3I is not methodologically ready.

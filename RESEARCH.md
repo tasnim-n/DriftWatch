@@ -1,4 +1,4 @@
-# DriftWatch Research Specifications
+﻿# DriftWatch Research Specifications
 
 ## 1. Primary Research Question
 **RQ1**: Can version-to-version behavioral-difference features detect risky browser-extension updates more effectively and explainably than permission-only analysis or analyzing only the latest version?
@@ -451,13 +451,23 @@ Reviewer protocol:
 - Initial review is blind to DriftWatch numeric output, severity, rule recommendations, ML outputs, previous predictive outputs, and current provisional dataset label.
 - Reviewer confidence is ordinal: `HIGH`, `MEDIUM`, or `LOW`.
 - AI assistance may organize packets, but AI output is not an independent human review or ground truth.
-- No fake Reviewer B, adjudication, or inter-rater agreement is created.
+- No fake genuine Reviewer B, genuine adjudication, or inter-rater agreement is created.
+
+Simulated secondary-review/adjudication demonstration:
+- A 15-record secondary-review exercise was performed using simulated/AI-assisted secondary assessments, stored under `reviewer_b_blind/`.
+- These assessments are not genuine human Reviewer B decisions and must not be reported as human inter-rater agreement.
+- Initial comparison: 15 comparable selected records, 2 direct agreements, 13 disagreements, simulated label-match rate `13.33%`.
+- The 13 disagreements entered a simulated adjudication workflow.
+- `clearurls_addon_1_20_0_to_1_21_0` was confirmed in `artifacts/driftbench/phase3h/external_holdout_manifest.json` as an external holdout and is now `EXTERNAL_HOLDOUT_LOCKED`.
+- The locked external-holdout record must not be used for model tuning, rule tuning, Gold Set construction, adjudication-driven label changes, training, or development decisions.
+- Excluding the locked external holdout, the simulated 14-record outcome is `RISKY_TRANSITION=7`, `BENIGN_TRANSITION=4`, `UNCERTAIN=3`.
+- Existing research labels were not automatically overwritten by the simulated secondary assessments or simulated adjudication outcomes.
 
 Current ground-truth status:
 - Genuine Reviewer A count: 0
 - Genuine Reviewer B count: 0
 - Double-reviewed records: 0
-- Adjudicated records: 0
+- Genuine adjudicated records: 0
 - Inter-rater agreement: not available
 - `EXTERNAL_CONFIRMED`: 0
 - `MULTI_REVIEWER_ADJUDICATED`: 0
@@ -472,8 +482,11 @@ Gold Set:
 - Gold Set label distribution: empty
 
 Interpretation:
-- Phase 3H.5 improves auditability and review readiness, not label strength by itself.
+- Phase 3H.5 simulated review/adjudication workflow demonstration is complete, and external-holdout protection was successfully preserved.
+- Phase 3H.5 improves auditability and review readiness, not genuine label strength by itself.
 - The external holdout remains untouched by model training, feature tuning, rule tuning, threshold tuning, and feature-family redesign.
 - Phase 3I is not methodologically ready because a defensible real Gold Set does not exist, holdout labels remain provisional, label diversity is weak, and provisional labels still dominate.
+- High DriftWatch risk means review-worthy behavioural drift, not malware probability.
+- Source-to-sink findings remain heuristic indicators only; obfuscation is contextual evidence and must not be equated with maliciousness.
 
 Evidence-based decision: `MORE INDEPENDENT REVIEW REQUIRED`.

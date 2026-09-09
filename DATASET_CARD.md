@@ -1,4 +1,4 @@
-# DriftBench Dataset Card
+﻿# DriftBench Dataset Card
 
 ## 1. Dataset Overview
 **Name**: DriftBench: A Version-Pair Dataset for Browser-Extension Behavioural Drift Analysis  
@@ -329,12 +329,13 @@ Known limitations:
 ---
 
 ## 12. Phase 3H.5 Independent Review And Gold-Set Qualification
-Phase 3H.5 creates a reviewer workflow and Gold Set qualification gate. It does not add new labels, train models, or claim completed independent annotation.
+Phase 3H.5 creates a reviewer workflow, Gold Set qualification gate, and simulated review/adjudication workflow demonstration. It does not add genuine human labels, train models, or claim completed independent annotation.
 
 Artifact locations:
 - `artifacts/driftbench/phase3h5/`
 - `artifacts/experiments/phase3h5/`
 - `datasets/reviews/phase3h5/`
+- `reviewer_b_blind/`
 - `REVIEWER_GUIDE.md`
 
 Methodology:
@@ -343,6 +344,7 @@ Methodology:
 - Evidence tiers range from Tier 1 verified public disclosure or peer-reviewed datasets to Tier 6 weak or contradictory evidence.
 - `MALICIOUS_TRANSITION` requires independent evidence of intentional harmful behavior. Permission expansion, minification, network endpoints, or DriftWatch scores are insufficient.
 - Disagreements must preserve both original reviews and can be adjudicated only with genuine reviewer history.
+- Simulated assessments and simulated adjudication outcomes must remain separate from existing research labels and from genuine human ground truth.
 
 Current Phase 3H.5 facts:
 - Review scope: 76 records
@@ -350,18 +352,28 @@ Current Phase 3H.5 facts:
 - Genuine Reviewer A records: 0
 - Genuine Reviewer B records: 0
 - Double-reviewed records: 0
-- Adjudicated records: 0
+- Genuine adjudicated records: 0
 - Inter-rater agreement: not available
 - Label quality distribution: `SINGLE_REVIEWER_PROVISIONAL=74`, `UNCERTAIN=2`
 - Real Gold Set: 0
 - Controlled Gold Set: 0
 - Confirmed malicious-transition records: 0
-- Training-eligible records after recheck: 74
+- Label-level training-eligible records after recheck: 74
 
-Gold Set exclusion:
+Simulated secondary-review/adjudication demonstration:
+- A 15-record secondary-review exercise was performed using simulated/AI-assisted assessments.
+- The initial comparison had 15 comparable selected records, 2 direct agreements, 13 disagreements, and a simulated label-match rate of `13.33%`.
+- This is not genuine human inter-rater agreement.
+- The 13 disagreements entered simulated adjudication.
+- `clearurls_addon_1_20_0_to_1_21_0` was confirmed in `artifacts/driftbench/phase3h/external_holdout_manifest.json` as an external holdout and is now `EXTERNAL_HOLDOUT_LOCKED`.
+- Excluding that locked external holdout, the simulated 14-record outcome is `RISKY_TRANSITION=7`, `BENIGN_TRANSITION=4`, `UNCERTAIN=3`.
+- Existing research labels were not automatically overwritten.
+
+Gold Set and holdout exclusion:
 - No Phase 3H record currently has external confirmation or genuine multi-reviewer adjudication.
 - The two `UNCERTAIN` records remain unresolved and ineligible for supervised training.
-- External holdout labels remain provisional and must not be used for model tuning.
+- External holdout labels remain provisional and must not be used for model tuning, rule tuning, Gold Set construction, adjudication-driven label changes, training, or development decisions.
+- The label-level eligibility count above does not override external-holdout restrictions.
 
 Known limitations:
 - Independent human review remains pending.
