@@ -28,3 +28,9 @@ htmlcov/
 *.log
 .ds_store
 Thumbs.db
+artifacts/driftbench/phase3h5/review_packets/practice_automa_review.json
+artifacts/driftbench/phase3h5/review_packets/practice_katex_review.json
+reviewer_b_blind/adjudication_evidence_bundle.txt
+reviewer_b_blind/packets/
+reviewer_b_blind/remaining_packets.txt
+reviewer_b_blind/review_submission_schema.json
