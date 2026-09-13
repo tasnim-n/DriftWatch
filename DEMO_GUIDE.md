@@ -43,7 +43,7 @@ Follow this step-by-step guide to run the live demonstration for DriftWatch Phas
    - Observe **Decoded Static Endpoint Indicator**: A bounded static Base64 decode identifies the controlled endpoint `http://analytics.untrusted-domain.com/collect`.
    - Observe **Source-to-Sink Heuristic**: A heuristic indicator links sensitive sources and outbound sinks within `background.js`; this is not proof of confirmed exfiltration.
    - Observe **Service Worker Addition**: Background worker added for telemetry.
-   - Review **Recommended Actions**: Immediate block or security audit required before browser deployment.
+   - Review **Recommended Actions**: Hold risky updates for manual security review before browser deployment.
 
 ## 4. Benign Control Run
 Use `samples/v1_note_benign.zip` as V1 and `samples/v2_note_benign.zip` as V2.

@@ -5,6 +5,7 @@ import tempfile
 
 from analyzers.drift_engine import DriftEngine
 from analyzers.network_analyzer import NetworkAnalyzer
+from risk_engine.explanations import ExplanationGenerator
 from risk_engine.scoring import RiskScorer
 
 
@@ -118,3 +119,22 @@ def test_confidence_reflects_optional_analyzer_completeness():
     assert full_result["confidence_score"] == 1.0
     assert partial_result["confidence_score"] == 0.75
     assert partial_result["confidence_breakdown"]["meaning"] == "Static-analysis completeness score; not a malware probability."
+
+
+def test_recommendations_use_review_oriented_static_analysis_language():
+    critical = ExplanationGenerator.generate_overall_recommendation("Critical", [])
+    high = ExplanationGenerator.generate_overall_recommendation("High", [])
+    low = ExplanationGenerator.generate_overall_recommendation("Low", [])
+
+    assert critical.startswith("HOLD FOR MANUAL SECURITY REVIEW")
+    assert high.startswith("HOLD FOR MANUAL SECURITY REVIEW")
+    assert low == (
+        "LOW REVIEW PRIORITY: No significant security-sensitive behavioral drift was identified by the current static analysis. "
+        "Standard validation is still recommended before deployment."
+    )
+
+    combined = " ".join([critical, high, low])
+    assert "REJECT / BLOCK UPDATE" not in combined
+    assert "APPROVED" not in combined
+    assert "safe for deployment" not in combined
+    assert "malware probability" not in combined

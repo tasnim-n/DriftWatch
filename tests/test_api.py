@@ -33,6 +33,10 @@ def test_full_risky_analysis_workflow(client):
     assert report_resp.status_code == 200
     assert "Critical Risk" in report_resp.text
     assert "Quick Note Safe" in report_resp.text
+    assert "HOLD FOR MANUAL SECURITY REVIEW" in report_resp.text
+    assert "REJECT / BLOCK UPDATE" not in report_resp.text
+    assert "Differential Security Feature Vector: D<sub>t</sub> = F(V<sub>t</sub>) &minus; F(V<sub>t-1</sub>)" in report_resp.text
+    assert r"\( D_t = F(V_t)" not in report_resp.text
 
     # Test JSON API
     api_resp = client.get(f"/api/v1/analysis/{analysis_id}")
@@ -43,6 +47,7 @@ def test_full_risky_analysis_workflow(client):
     assert data["host_scope_expanded"] == 1
     assert data["score_breakdown"]["permission_contribution"] > 0
     assert data["score_breakdown"]["host_contribution"] > 0
+    assert data["recommendation"].startswith("HOLD FOR MANUAL SECURITY REVIEW")
 
 def test_full_benign_analysis_workflow(client):
     v1_zip = "samples/v1_note_benign.zip"
@@ -64,12 +69,18 @@ def test_full_benign_analysis_workflow(client):
     assert response.status_code == 303
     report_url = response.headers["location"]
     analysis_id = report_url.split("/")[-1]
+    low_review_priority = (
+        "LOW REVIEW PRIORITY: No significant security-sensitive behavioral drift was identified by the current static analysis. "
+        "Standard validation is still recommended before deployment."
+    )
 
     # Test HTML report for benign update
     report_resp = client.get(report_url)
     assert report_resp.status_code == 200
     assert "Low Risk" in report_resp.text or "Moderate Risk" in report_resp.text
     assert "Critical Risk" not in report_resp.text
+    assert "APPROVED" not in report_resp.text
+    assert "safe for deployment" not in report_resp.text
 
     # Test JSON API for benign update
     api_resp = client.get(f"/api/v1/analysis/{analysis_id}")
@@ -78,6 +89,8 @@ def test_full_benign_analysis_workflow(client):
     assert data["risk_classification"] in ["Low", "Moderate"]
     assert data["permission_drift_count"] == 0
     assert data["host_scope_expanded"] == 0
+    if data["risk_classification"] == "Low":
+        assert data["recommendation"] == low_review_priority
 
 def test_invalid_upload_returns_error_page(client):
     response = client.post(

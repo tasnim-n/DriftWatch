@@ -43,7 +43,7 @@ class RuleRegistry:
                 "score_weight": 15,
                 "score_category": "combination",
                 "evidence": f"The update expanded host access to global wildcard (<all_urls>) while adding critical permissions: {', '.join(added_perms & {'cookies', 'history', 'scripting'})}.",
-                "recommendation": "Block update immediately. High risk of authentication session theft or user activity tracking across all sites."
+                "recommendation": "HOLD FOR MANUAL SECURITY REVIEW: The update introduces security-sensitive capabilities that could affect authentication sessions or browsing activity across all sites."
             })
 
         # Rule 3: Obfuscation / Dynamic Code Introduced
@@ -106,7 +106,7 @@ class RuleRegistry:
                 "severity": "Moderate",
                 "score_weight": 5,
                 "score_category": "combination",
-                "evidence": "The update introduced a new background service worker script that executes persistently.",
+                "evidence": "The update introduced a background service worker to handle background events and extension tasks.",
                 "recommendation": "Audit background script event listeners and network fetch requests."
             })
 

@@ -133,7 +133,7 @@ class ExplanationGenerator:
                 "title": "New Background Service Worker Introduced",
                 "category": "background",
                 "severity": "Moderate",
-                "impact": "A background script runs persistently to handle network events, storage updates, or telemetry.",
+                "impact": "A background service worker was introduced to handle background events and extension tasks.",
                 "old_value": "No background script",
                 "new_value": str(manifest_diff["v2_raw"].get("background", {})),
                 "evidence": "Background service worker field added to manifest.json.",
@@ -159,10 +159,10 @@ class ExplanationGenerator:
     @classmethod
     def generate_overall_recommendation(cls, classification: str, findings: List[Dict[str, Any]]) -> str:
         if classification == "Critical":
-            return "REJECT / BLOCK UPDATE: Critical security risks detected including permission creep, host expansion, sensitive API introductions, or source-to-sink heuristic indicators."
+            return "HOLD FOR MANUAL SECURITY REVIEW: Important security-sensitive behavioral drift was detected, including permission creep, host expansion, sensitive API introductions, or source-to-sink heuristic indicators."
         elif classification == "High":
-            return "MANUAL REVIEW REQUIRED: Significant behavioral expansion or new network endpoints detected. Conduct code audit before deployment."
+            return "HOLD FOR MANUAL SECURITY REVIEW: Significant behavioral expansion or new network endpoints detected. Conduct code audit before deployment."
         elif classification == "Moderate":
             return "PROCEED WITH CAUTION: Moderate permission or structural changes detected. Review update release notes."
         else:
-            return "APPROVED: Low behavioral drift detected between versions. The update appears safe for deployment."
+            return "LOW REVIEW PRIORITY: No significant security-sensitive behavioral drift was identified by the current static analysis. Standard validation is still recommended before deployment."
