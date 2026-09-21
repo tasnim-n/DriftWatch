@@ -2,75 +2,90 @@
 
 {% block content %}
 <div class="hero">
-  <h1>Differential Behavioral Analysis</h1>
-  <p>Compare consecutive Chromium extension versions to detect permission creep, host-scope expansion, and dangerous behavioral drift.</p>
+  <p class="eyebrow">Explainable version-to-version review</p>
+  <h1>Differential Behavioural Analysis</h1>
+  <p>Upload a previous Chromium extension version and its update. DriftWatch compares their static security behaviour and highlights changes for manual review.</p>
 </div>
 
 {% if error %}
-<div class="card" style="border-color: var(--risk-critical); background: rgba(239, 68, 68, 0.1);">
-  <h3 style="color: var(--risk-critical);">Security & Upload Error</h3>
+<div class="card error-card">
+  <h3>Security &amp; Upload Error</h3>
   <p>{{ error }}</p>
 </div>
 {% endif %}
 
 <div class="card">
-  <h2 style="margin-bottom: 1.25rem;">New Differential Audit</h2>
+  <div class="section-heading">
+    <div>
+      <p class="section-kicker">New comparison</p>
+      <h2>New Differential Audit</h2>
+    </div>
+    <span class="static-analysis-label">Static analysis only</span>
+  </div>
+
+  <div class="comparison-flow" aria-label="Analysis flow">
+    <div><strong>V1</strong><span>Previous version</span></div>
+    <span aria-hidden="true">+</span>
+    <div><strong>V2</strong><span>Updated version</span></div>
+    <span aria-hidden="true">&rarr;</span>
+    <div><strong>&Delta;</strong><span>Behavioural change</span></div>
+  </div>
+
   <form action="/analyze" method="post" enctype="multipart/form-data">
     <div class="upload-grid">
       <div class="dropzone">
         <label for="v1_file">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">📦</div>
-          <strong style="color: var(--accent-cyan);">Previous Version (V1)</strong>
-          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Upload baseline zip archive</div>
-          <input type="file" id="v1_file" name="v1_file" accept=".zip" required style="margin-top: 0.75rem;">
+          <span class="upload-step">V1</span>
+          <strong>Upload previous version (V1)</strong>
+          <span class="upload-help">Select the historical baseline ZIP archive.</span>
+          <input type="file" id="v1_file" name="v1_file" accept=".zip" required>
         </label>
       </div>
 
-      <div class="dropzone">
+      <div class="dropzone dropzone-updated">
         <label for="v2_file">
-          <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚠️</div>
-          <strong style="color: var(--risk-high);">Updated Version (V2)</strong>
-          <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Upload candidate update zip archive</div>
-          <input type="file" id="v2_file" name="v2_file" accept=".zip" required style="margin-top: 0.75rem;">
+          <span class="upload-step">V2</span>
+          <strong>Upload updated version (V2)</strong>
+          <span class="upload-help">Select the candidate update ZIP archive.</span>
+          <input type="file" id="v2_file" name="v2_file" accept=".zip" required>
         </label>
       </div>
     </div>
 
-    <button type="submit" class="btn-primary">⚡ Run Differential Security Analysis</button>
+    <p class="upload-boundary">Archives are securely extracted for static comparison. Extension JavaScript is never executed.</p>
+    <button type="submit" class="btn-primary">Compare V1 and V2</button>
   </form>
 </div>
 
 <div class="card">
   <h3>Recent Audit History</h3>
   {% if recent_analyses %}
-    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
-      <thead>
-        <tr style="text-align: left; border-bottom: 1px solid var(--border-color); color: var(--text-muted);">
-          <th style="padding: 0.75rem;">Extension Name</th>
-          <th style="padding: 0.75rem;">Transition</th>
-          <th style="padding: 0.75rem;">Risk Classification</th>
-          <th style="padding: 0.75rem;">Score</th>
-          <th style="padding: 0.75rem;">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for item in recent_analyses %}
-        <tr style="border-bottom: 1px solid var(--border-color);">
-          <td style="padding: 0.75rem; font-weight: 600;">{{ item.extension_name }}</td>
-          <td style="padding: 0.75rem; color: var(--text-muted);">v{{ item.v1_version }} &rarr; v{{ item.v2_version }}</td>
-          <td style="padding: 0.75rem;">
-            <span class="badge badge-{{ item.risk_classification.lower() }}">{{ item.risk_classification }}</span>
-          </td>
-          <td style="padding: 0.75rem; font-weight: 700; color: var(--accent-cyan);">{{ item.risk_score }}/100</td>
-          <td style="padding: 0.75rem;">
-            <a href="/report/{{ item.id }}" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">View Report &rarr;</a>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="history-table-wrap">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th scope="col">Extension Name</th>
+            <th scope="col">Version Comparison</th>
+            <th scope="col">Review Priority</th>
+            <th scope="col">Score</th>
+            <th scope="col">Report</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in recent_analyses %}
+          <tr>
+            <td><strong>{{ item.extension_name }}</strong></td>
+            <td>v{{ item.v1_version }} &rarr; v{{ item.v2_version }}</td>
+            <td><span class="badge badge-{{ item.risk_classification.lower() }}">{{ item.risk_classification }}</span></td>
+            <td class="history-score">{{ item.risk_score }}/100</td>
+            <td><a href="/report/{{ item.id }}" class="report-link">View Report &rarr;</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   {% else %}
-    <p style="color: var(--text-muted); margin-top: 0.5rem;">No historical audits performed yet. Upload a version pair above to start.</p>
+    <p class="empty-history">No historical audits performed yet. Upload a version pair above to start.</p>
   {% endif %}
 </div>
 {% endblock %}

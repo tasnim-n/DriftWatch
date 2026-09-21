@@ -1,25 +1,29 @@
 {% extends "base.html" %}
 
-{% block title %}Audit Report - {{ record.extension_name }}{% endblock %}
+{% block title %}Differential Review Report - {{ record.extension_name }}{% endblock %}
 
 {% block content %}
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+{% set findings = findings_data.get("findings", []) %}
+<div class="report-heading">
   <div>
-    <a href="/" style="color: var(--text-muted); text-decoration: none;">&larr; Back to Dashboard</a>
-    <h1 style="margin-top: 0.5rem;">{{ record.extension_name }}</h1>
-    <div style="color: var(--text-muted);">Version Transition: <strong>v{{ record.v1_version }}</strong> &rarr; <strong>v{{ record.v2_version }}</strong></div>
+    <a href="/" class="back-link">&larr; Back to Dashboard</a>
+    <p class="eyebrow">Differential security review</p>
+    <h1>{{ record.extension_name }}</h1>
+    <div class="version-transition" aria-label="Versions compared">
+      <span><strong>V1</strong> v{{ record.v1_version }}</span>
+      <span class="transition-arrow" aria-hidden="true">&rarr;</span>
+      <span><strong>V2</strong> v{{ record.v2_version }}</span>
+    </div>
   </div>
-  <div>
-    <span class="badge badge-{{ record.risk_classification.lower() }}" style="font-size: 1.1rem; padding: 0.5rem 1.25rem;">
-      {{ record.risk_classification }} Risk
-    </span>
-  </div>
+  <span class="badge badge-{{ record.risk_classification.lower() }} report-priority-badge">
+    {{ record.risk_classification }} Review Priority
+  </span>
 </div>
 
-<div class="metrics-row">
+<div class="metrics-row" aria-label="Analysis summary">
   <div class="metric-card">
     <div class="metric-value">{{ record.risk_score }}</div>
-    <div class="metric-label">Risk Score / 100</div>
+    <div class="metric-label">Review Priority Score / 100</div>
   </div>
   <div class="metric-card">
     <div class="metric-value">{{ (record.confidence_score * 100) | int }}%</div>
@@ -35,30 +39,163 @@
   </div>
 </div>
 
-<div class="card" style="border-left: 4px solid var(--accent-cyan);">
-  <h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">Recommended Security Action</h3>
-  <p style="font-size: 1.05rem; font-weight: 500;">{{ record.recommendation }}</p>
+<div class="claims-boundary" role="note">
+  <strong>Interpretation boundary:</strong>
+  Risk score reflects manual security-review priority, not malware probability.
+  Static findings require analyst interpretation and do not establish malicious intent.
 </div>
 
+<section class="card recommendation-card" aria-labelledby="recommended-action-heading">
+  <p class="section-kicker">Overall assessment</p>
+  <h2 id="recommended-action-heading">Recommended Reviewer Action</h2>
+  <p class="recommendation-text">{{ record.recommendation }}</p>
+</section>
+
+<section class="card" aria-labelledby="change-summary-heading">
+  <div class="section-heading">
+    <div>
+      <p class="section-kicker">At-a-glance comparison</p>
+      <h2 id="change-summary-heading">V1 &rarr; V2 Behavioural Change Summary</h2>
+    </div>
+    <span class="finding-count">{{ findings | length }} finding{% if findings | length != 1 %}s{% endif %}</span>
+  </div>
+
+  {% if findings %}
+  <div class="comparison-table-wrap">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th scope="col">Changed capability</th>
+          <th scope="col">V1 state</th>
+          <th scope="col">V2 state</th>
+          <th scope="col">Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for finding in findings %}
+        <tr>
+          <td>
+            <strong>{{ finding.title }}</strong>
+            <span class="table-category">{{ finding.category | replace("_", " ") | title }}</span>
+          </td>
+          <td>{% if finding.old_value is not none %}{{ finding.old_value }}{% else %}<span class="unavailable">Unavailable</span>{% endif %}</td>
+          <td>{% if finding.new_value is not none %}{{ finding.new_value }}{% else %}<span class="unavailable">Unavailable</span>{% endif %}</td>
+          <td><span class="badge badge-{{ finding.severity.lower() }}">{{ finding.severity }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty-state">
+    No reportable security-sensitive behavioural changes were identified by the current static analysis.
+    This is not a certification that the update is safe.
+  </div>
+  {% endif %}
+</section>
+
+<section class="card" aria-labelledby="evidence-heading">
+  <div class="section-heading">
+    <div>
+      <p class="section-kicker">Analyst-facing explanations</p>
+      <h2 id="evidence-heading">Evidence Cards</h2>
+    </div>
+  </div>
+
+  {% if findings %}
+  <div class="evidence-list">
+    {% for finding in findings %}
+    <article class="evidence-card severity-{{ finding.severity }}">
+      <div class="evidence-card-header">
+        <div>
+          <p class="evidence-category">{{ finding.category | replace("_", " ") | title }}</p>
+          <h3>{{ finding.title }}</h3>
+        </div>
+        <div class="evidence-badges">
+          <span class="badge badge-{{ finding.severity.lower() }}">{{ finding.severity }}</span>
+          <span class="confidence-badge">{{ (finding.confidence * 100) | int }}% finding confidence</span>
+        </div>
+      </div>
+
+      <div class="state-comparison" aria-label="V1 to V2 comparison">
+        <div class="state-column">
+          <span class="state-label">Previous State (V1)</span>
+          <div class="state-value">{% if finding.old_value is not none %}{{ finding.old_value }}{% else %}<span class="unavailable">Unavailable</span>{% endif %}</div>
+        </div>
+        <div class="state-arrow" aria-hidden="true">&rarr;</div>
+        <div class="state-column">
+          <span class="state-label">Updated State (V2)</span>
+          <div class="state-value">{% if finding.new_value is not none %}{{ finding.new_value }}{% else %}<span class="unavailable">Unavailable</span>{% endif %}</div>
+        </div>
+      </div>
+
+      <dl class="evidence-details">
+        <div>
+          <dt>Observed change / evidence</dt>
+          <dd>{{ finding.evidence }}</dd>
+        </div>
+        <div>
+          <dt>Why this matters</dt>
+          <dd>{{ finding.impact }}</dd>
+        </div>
+        <div>
+          <dt>Recommended reviewer action</dt>
+          <dd>{{ finding.recommendation }}</dd>
+        </div>
+      </dl>
+
+      {% if finding.category == "network" %}
+      <p class="finding-caution"><strong>Analysis limitation:</strong> Static endpoint evidence does not prove malicious communication.</p>
+      {% elif finding.category == "code_structure" %}
+      <p class="finding-caution"><strong>Analysis limitation:</strong> Heuristic source/sink co-occurrence does not prove exfiltration.</p>
+      {% elif finding.category == "obfuscation" %}
+      <p class="finding-caution"><strong>Analysis limitation:</strong> Obfuscation/minification indicators do not establish malicious intent.</p>
+      {% elif finding.category == "analysis_error" %}
+      <p class="finding-caution"><strong>Analysis limitation:</strong> Missing analyzer output reduces completeness and must not be interpreted as evidence that no issue exists.</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state">No evidence cards were generated for this version comparison.</div>
+  {% endif %}
+</section>
+
 {% if findings_data.confidence_breakdown %}
-<div class="card" style="border-left: 4px solid var(--risk-low);">
-  <h3 style="color: var(--risk-low); margin-bottom: 0.5rem;">Analysis Confidence</h3>
+<section class="card" aria-labelledby="coverage-heading">
+  <p class="section-kicker">Execution coverage</p>
+  <h2 id="coverage-heading">Analyzer Completeness</h2>
   <p>{{ findings_data.confidence_breakdown.meaning }}</p>
-  <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">
-    Formula: {{ findings_data.confidence_breakdown.formula }}.
-    Succeeded: {{ findings_data.confidence_breakdown.succeeded_analyzers | length }}/{{ findings_data.confidence_breakdown.expected_analyzers | length }}.
-  </p>
+
+  <div class="coverage-summary">
+    <div>
+      <span class="coverage-value">{{ findings_data.confidence_breakdown.succeeded_analyzers | length }}/{{ findings_data.confidence_breakdown.expected_analyzers | length }}</span>
+      <span class="coverage-label">optional analyzers completed</span>
+    </div>
+    <div class="coverage-list">
+      {% for analyzer in findings_data.confidence_breakdown.expected_analyzers %}
+      <span class="coverage-chip {% if analyzer in findings_data.confidence_breakdown.failed_analyzers %}coverage-failed{% else %}coverage-complete{% endif %}">
+        {{ analyzer | replace("_", " ") | title }}:
+        {% if analyzer in findings_data.confidence_breakdown.failed_analyzers %}unavailable{% else %}completed{% endif %}
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+
   {% if findings_data.confidence_breakdown.failed_analyzers %}
-  <p style="color: var(--risk-high); font-size: 0.9rem; margin-top: 0.5rem;">
-    Failed analyzers: {{ findings_data.confidence_breakdown.failed_analyzers | join(", ") }}
+  <p class="coverage-warning">
+    Unavailable analyzer output makes this report partial. Missing evidence is not a negative security conclusion.
   </p>
   {% endif %}
-</div>
+  <p class="coverage-note">Analyzer status describes execution completeness only; it is not confidence that the extension is safe or malicious.</p>
+</section>
 {% endif %}
 
 {% if findings_data.score_breakdown %}
-<div class="card">
-  <h2>Risk Score Breakdown</h2>
+<section class="card" aria-labelledby="score-breakdown-heading">
+  <p class="section-kicker">Deterministic scoring details</p>
+  <h2 id="score-breakdown-heading">Review Priority Score Breakdown</h2>
+  <p class="section-description">Contributions come from fixed security signals and rules. No research ML prediction contributes to this score.</p>
   <div class="score-grid">
     {% for label, value in {
       "Permissions": findings_data.score_breakdown.permission_contribution,
@@ -76,42 +213,25 @@
     {% endfor %}
   </div>
   {% if findings_data.score_breakdown.combination_rules %}
-  <div style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+  <div class="combination-rules">
     {% for rule in findings_data.score_breakdown.combination_rules %}
-      <div>{{ rule.title }}: +{{ rule.contribution }}</div>
+    <div>{{ rule.title }}: +{{ rule.contribution }}</div>
     {% endfor %}
   </div>
   {% endif %}
-</div>
+</section>
 {% endif %}
 
-<div class="card">
-  <h2>Security Findings & Evidence</h2>
-  <div style="margin-top: 1rem;">
-    {% for finding in findings_data.findings %}
-    <div class="finding-item severity-{{ finding.severity }}">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <h4 style="font-size: 1.1rem;">{{ finding.title }}</h4>
-        <span class="badge badge-{{ finding.severity.lower() }}">{{ finding.severity }}</span>
-      </div>
-      <p style="margin-top: 0.5rem; color: var(--text-main);"><strong>Impact:</strong> {{ finding.impact }}</p>
-      
-      <div style="background: rgba(0,0,0,0.3); padding: 0.75rem; border-radius: 6px; margin: 0.75rem 0; font-family: monospace; font-size: 0.9rem;">
-        <div><span style="color: var(--risk-low);">- Previous (V1):</span> {{ finding.old_value }}</div>
-        <div><span style="color: var(--risk-critical);">+ Updated (V2):</span> {{ finding.new_value }}</div>
-      </div>
-      
-      <p style="color: var(--text-muted); font-size: 0.9rem;"><strong>Evidence:</strong> {{ finding.evidence }}</p>
-      <p style="color: var(--accent-cyan); font-size: 0.9rem; margin-top: 0.25rem;"><strong>Action:</strong> {{ finding.recommendation }}</p>
-    </div>
-    {% endfor %}
-  </div>
-</div>
-
-<div class="card">
-  <h3>Differential Security Feature Vector: D<sub>t</sub> = F(V<sub>t</sub>) &minus; F(V<sub>t-1</sub>)</h3>
-  <pre style="background: #060911; padding: 1.25rem; border-radius: 8px; color: var(--accent-cyan); font-family: monospace; overflow-x: auto; margin-top: 1rem;">
-{{ feature_vector | tojson(indent=2) }}
-  </pre>
-</div>
+<section class="card" aria-labelledby="technical-details-heading">
+  <p class="section-kicker">Reproducibility and advanced inspection</p>
+  <h2 id="technical-details-heading">Technical Details</h2>
+  <dl class="archive-identifiers">
+    <div><dt>V1 archive SHA-256</dt><dd><code>{{ record.v1_hash }}</code></dd></div>
+    <div><dt>V2 archive SHA-256</dt><dd><code>{{ record.v2_hash }}</code></dd></div>
+  </dl>
+  <details class="technical-disclosure">
+    <summary>Differential Security Feature Vector: D<sub>t</sub> = F(V<sub>t</sub>) &minus; F(V<sub>t-1</sub>)</summary>
+    <pre>{{ feature_vector | tojson(indent=2) }}</pre>
+  </details>
+</section>
 {% endblock %}

@@ -3,35 +3,36 @@
 ## 1. System Architecture Diagram
 
 ```mermaid
-graph TD
-    Client[V1 + V2 browser-extension archives] -->|HTTP multipart upload| API[FastAPI Web Gateway]
-
-    subgraph Operational deterministic pipeline
-        API --> Security[Secure archive validation and extraction]
-        Security --> Workspaces[Isolated V1 and V2 workspaces]
-        Workspaces --> Analyzers[Package, manifest, permission, host, API, network, obfuscation, and structure analyzers]
-        Analyzers --> DriftEngine[Drift Engine]
-        DriftEngine --> VersionFeatures[Absolute states F V1 and F V2]
-        VersionFeatures --> Differential[Behavioural drift vector D]
-        Differential --> RiskEngine[Deterministic risk rules and weighted score]
-        RiskEngine --> Explanation[Evidence and explanation generation]
+flowchart TB
+    subgraph OPERATIONAL["OPERATIONAL PATH — live FastAPI analysis"]
+        direction LR
+        V1["V1 archive<br/>previous version"] --> Upload["FastAPI multipart upload"]
+        V2["V2 archive<br/>updated version"] --> Upload
+        Upload --> Secure["Secure validation<br/>and extraction"]
+        Secure --> Static["Version-level static analysis<br/>package · manifest · permission · host<br/>API · network · obfuscation · structure"]
+        Static --> Features["Feature states<br/>F(V1) and F(V2)"]
+        Features --> Delta["Differential construction<br/>D_t = F(V2) − F(V1)"]
+        Delta --> Score["Deterministic risk engine<br/>fixed signals, rules, weights, thresholds"]
+        Score --> Explain["Explanation generation<br/>findings · evidence · reviewer actions"]
+        Explain --> Persist[("AnalysisRecord persistence")]
+        Persist --> HTML["HTML review report"]
+        Persist --> JSON["JSON analysis API"]
     end
 
-    subgraph Data & Persistence
-        Explanation --> DB[(SQLite or PostgreSQL database)]
-        DB --> HTML[HTML report]
-        DB --> JSON[JSON analysis API]
+    subgraph OFFLINE["OFFLINE RESEARCH / EVALUATION PATH"]
+        direction LR
+        Sources["Curated version-pair sources"] --> DriftBench["DriftBench datasets<br/>and feature artifacts"]
+        DriftBench --> Evaluation["Deterministic evaluation"]
+        DriftBench --> ML["ML experiments<br/>RESEARCH-ONLY"]
+        DriftBench --> Review["Blind human review"]
+        Holdout["Protected external holdout"] -. "excluded from training and tuning" .-> Evaluation
+        Holdout -. "future governed validation" .-> Review
     end
-
-    subgraph Offline research and validation
-        DriftBench[DriftBench datasets and feature artifacts] --> Evaluation[Research-only deterministic and ML evaluation]
-        DriftBench --> HumanReview[Blind human-review workflow]
-        Holdout[Protected external holdout] -. excluded from training and tuning .-> Evaluation
-    end
-
 ```
 
-The operational application does not load research ML models, human-review outputs, or holdout decisions into runtime scoring. Research and validation artifacts remain an offline evidence layer unless a future, explicitly governed research decision changes that architecture.
+The two lanes are deliberately disconnected. The live application does not load research ML models, predictions, human-review outputs, dataset labels, or holdout decisions into runtime scoring. Research and validation artifacts remain an offline evidence layer unless a future, explicitly governed research decision changes that architecture.
+
+Operationally, `AnalysisService` validates and extracts both archives, calls `DriftEngine` to run static analyzers and construct the version states and differential representation, invokes the deterministic `RiskScorer`, generates explanations, and then persists the report data. Temporary extraction workspaces are removed after the analysis attempt.
 
 ## 2. Component Descriptions
 
@@ -58,6 +59,7 @@ The operational application does not load research ML models, human-review outpu
 - Assigns Risk Classification: `Low`, `Moderate`, `High`, `Critical`.
 - Generates human-readable evidence chains, technical root causes, and security recommendations.
 - Combines fixed rule evaluation and weighted signal contributions. It is not an ML model, and its score is not malware probability.
+- Any description of this implementation as "hybrid" or "multi-signal" refers only to the deterministic combination of security-signal families and fixed rules. It does not describe a production ML ensemble, and research ML predictions do not contribute to the operational score.
 
 ### 2.5 Phase 2 Static Analysis Modules (`analyzers/`)
 - `javascript_parser.py` provides safe lexical preprocessing. It removes comments while preserving single-quoted, double-quoted, and template literal strings, including URL strings containing `//`.

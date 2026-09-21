@@ -6,6 +6,10 @@ def test_index_page(client):
     assert response.status_code == 200
     assert "DriftWatch" in response.text
     assert "New Differential Audit" in response.text
+    assert "Upload previous version (V1)" in response.text
+    assert "Upload updated version (V2)" in response.text
+    assert "DriftWatch compares their static security behaviour" in response.text
+    assert "Extension JavaScript is never executed" in response.text
 
 def test_full_risky_analysis_workflow(client):
     v1_zip = "samples/v1_safe_note.zip"
@@ -31,10 +35,20 @@ def test_full_risky_analysis_workflow(client):
     # Test HTML report
     report_resp = client.get(report_url)
     assert report_resp.status_code == 200
-    assert "Critical Risk" in report_resp.text
+    assert "Critical Review Priority" in report_resp.text
     assert "Quick Note Safe" in report_resp.text
     assert "HOLD FOR MANUAL SECURITY REVIEW" in report_resp.text
     assert "REJECT / BLOCK UPDATE" not in report_resp.text
+    assert "Risk score reflects manual security-review priority, not malware probability." in report_resp.text
+    assert "V1 &rarr; V2 Behavioural Change Summary" in report_resp.text
+    assert "Evidence Cards" in report_resp.text
+    assert "Previous State (V1)" in report_resp.text
+    assert "Updated State (V2)" in report_resp.text
+    assert "Analyzer Completeness" in report_resp.text
+    assert "No research ML prediction contributes to this score." in report_resp.text
+    assert "Static endpoint evidence does not prove malicious communication." in report_resp.text
+    assert "Heuristic source/sink co-occurrence does not prove exfiltration." in report_resp.text
+    assert "Obfuscation/minification indicators do not establish malicious intent." in report_resp.text
     assert "Differential Security Feature Vector: D<sub>t</sub> = F(V<sub>t</sub>) &minus; F(V<sub>t-1</sub>)" in report_resp.text
     assert r"\( D_t = F(V_t)" not in report_resp.text
 
@@ -77,10 +91,12 @@ def test_full_benign_analysis_workflow(client):
     # Test HTML report for benign update
     report_resp = client.get(report_url)
     assert report_resp.status_code == 200
-    assert "Low Risk" in report_resp.text or "Moderate Risk" in report_resp.text
-    assert "Critical Risk" not in report_resp.text
+    assert "Low Review Priority" in report_resp.text or "Moderate Review Priority" in report_resp.text
+    assert "Critical Review Priority" not in report_resp.text
     assert "APPROVED" not in report_resp.text
     assert "safe for deployment" not in report_resp.text
+    assert "not a certification that the update is safe" in report_resp.text
+    assert "Risk score reflects manual security-review priority, not malware probability." in report_resp.text
 
     # Test JSON API for benign update
     api_resp = client.get(f"/api/v1/analysis/{analysis_id}")
