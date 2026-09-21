@@ -4,11 +4,13 @@
 Phase 3H.5 review strengthens DriftBench ground truth. Reviewers assess browser-extension version pairs from evidence packets, not from DriftWatch scores or model predictions.
 
 ## Current Phase 3H.5 Status
-T## Current Phase 3H.5 Status
+
+A scoped independent human-review package is currently in progress. Genuine submissions have not yet been returned or incorporated, so genuine agreement, adjudication, and Gold Set status remain unavailable.
 
 A separate simulated/AI-assisted review exercise has been conducted for workflow testing and audit purposes. Those outputs are not genuine human reviews, are not ground truth, and must not be consulted when performing an independent review.
 
-Reviewers should make decisions only from the blinded review packet and permitted external evidence.
+For the current scoped independent review, use only the files supplied in the delivered review package and follow its `REVIEW_INSTRUCTIONS.md`. Do not browse internal DriftWatch project artifacts. Reviewers should make decisions only from the supplied blinded packet evidence.
+
 ## Label Definitions
 - `BENIGN_TRANSITION`: security-sensitive changes have a documented legitimate purpose and no independent evidence supports harmful intent or unacceptable security behavior.
 - `RISKY_TRANSITION`: the update introduces meaningful security-sensitive capability or behavior that warrants security review, even without proof of malicious intent.
@@ -27,9 +29,9 @@ Reviewers should make decisions only from the blinded review packet and permitte
 DriftWatch output is never external evidence.
 
 ## How To Review A Version Pair
-1. Open the assigned packet under `artifacts/driftbench/phase3h5/review_packets/`.
+1. Open the assigned packet in the delivered package's `packets/` directory.
 2. Inspect provenance, version timestamps, release evidence, manifest diff, permissions, host scope, APIs, network indicators, obfuscation, structure, and source-to-sink evidence.
-3. Record a label, confidence, rationale, evidence references, reviewer id, round, and timestamp using the schema in `datasets/reviews/phase3h5/review_submission_schema.json`.
+3. Record a label, confidence, rationale, evidence references, reviewer id, round, and timestamp in the matching JSON file in the delivered package's `submissions/` directory.
 4. Choose `UNCERTAIN` when the evidence does not justify a stronger label.
 
 ## Risky Versus Malicious

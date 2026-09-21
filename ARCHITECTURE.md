@@ -4,38 +4,39 @@
 
 ```mermaid
 graph TD
-    Client[Web Browser / CLI] -->|HTTP / Multi-part Upload| API[FastAPI Web Gateway]
-    
-    subgraph Core Pipeline
-        API --> Security[Security Ingestion & Sandbox Isolation]
-        Security --> PackageAnalyzer[Package Analyzer & File Differential]
-        Security --> UnpackedTemp[Isolated Temporary Workspace]
-        
-        UnpackedTemp --> ManifestAnalyzer[Manifest & CSP Analyzer]
-        UnpackedTemp --> PermissionAnalyzer[Permission Risk Analyzer]
-        UnpackedTemp --> HostScopeAnalyzer[Host Scope Expansion Model]
-        UnpackedTemp --> CodeAnalyzer[Static Code & API Analyzer]
-        
-        ManifestAnalyzer --> FeatureVector[Absolute & Delta Feature Vector]
-        PermissionAnalyzer --> FeatureVector
-        HostScopeAnalyzer --> FeatureVector
-        PackageAnalyzer --> FeatureVector
-        CodeAnalyzer --> FeatureVector
-        
-        FeatureVector --> DriftEngine[Behavioral Drift Engine]
-        DriftEngine --> RiskEngine[Hybrid Risk & Explanation Engine]
+    Client[V1 + V2 browser-extension archives] -->|HTTP multipart upload| API[FastAPI Web Gateway]
+
+    subgraph Operational deterministic pipeline
+        API --> Security[Secure archive validation and extraction]
+        Security --> Workspaces[Isolated V1 and V2 workspaces]
+        Workspaces --> Analyzers[Package, manifest, permission, host, API, network, obfuscation, and structure analyzers]
+        Analyzers --> DriftEngine[Drift Engine]
+        DriftEngine --> VersionFeatures[Absolute states F V1 and F V2]
+        VersionFeatures --> Differential[Behavioural drift vector D]
+        Differential --> RiskEngine[Deterministic risk rules and weighted score]
+        RiskEngine --> Explanation[Evidence and explanation generation]
     end
-    
+
     subgraph Data & Persistence
-        RiskEngine --> DB[(SQLite / PostgreSQL Database)]
-        RiskEngine --> UI[Executive UI & PDF/HTML Reports]
+        Explanation --> DB[(SQLite or PostgreSQL database)]
+        DB --> HTML[HTML report]
+        DB --> JSON[JSON analysis API]
     end
+
+    subgraph Offline research and validation
+        DriftBench[DriftBench datasets and feature artifacts] --> Evaluation[Research-only deterministic and ML evaluation]
+        DriftBench --> HumanReview[Blind human-review workflow]
+        Holdout[Protected external holdout] -. excluded from training and tuning .-> Evaluation
+    end
+
 ```
+
+The operational application does not load research ML models, human-review outputs, or holdout decisions into runtime scoring. Research and validation artifacts remain an offline evidence layer unless a future, explicitly governed research decision changes that architecture.
 
 ## 2. Component Descriptions
 
 ### 2.1 Security & Ingestion (`app/core/security.py`)
-- Enforces archive limits: 25 MB max archive size, 100 MB uncompressed, 10:1 max compression ratio, 500 max files.
+- Enforces archive limits: 25 MB max archive size, 100 MB uncompressed, 10:1 max compression ratio, 1000 max archive entries.
 - Prevents Zip-Slip path traversal attacks by validating resolved destination paths against parent workspace bounds.
 - Calculates SHA-256 digests for package files and full archives.
 
@@ -52,10 +53,11 @@ graph TD
   - HTTP only -> HTTP + HTTPS
   - Any domain -> `<all_urls>` or `*://*/*`
 
-### 2.4 Hybrid Risk & Scoring Engine (`risk_engine/`)
+### 2.4 Deterministic Risk & Scoring Engine (`risk_engine/`)
 - Calculates normalized risk score (0 - 100).
 - Assigns Risk Classification: `Low`, `Moderate`, `High`, `Critical`.
 - Generates human-readable evidence chains, technical root causes, and security recommendations.
+- Combines fixed rule evaluation and weighted signal contributions. It is not an ML model, and its score is not malware probability.
 
 ### 2.5 Phase 2 Static Analysis Modules (`analyzers/`)
 - `javascript_parser.py` provides safe lexical preprocessing. It removes comments while preserving single-quoted, double-quoted, and template literal strings, including URL strings containing `//`.
@@ -100,7 +102,7 @@ The feature pipeline does not train models, compute ML metrics, or use final ris
 - `train_logistic.py` and `train_random_forest.py` provide gated, deterministic sklearn training routines for future datasets that pass readiness and leakage checks.
 - `evaluate.py` writes reproducible experiment artifacts under `artifacts/experiments/`.
 
-The current Phase 3C artifact set is a controlled pilot only. ML training is blocked by the readiness gate until there are enough real, leakage-safe records with valid train/test or chronological split assignments.
+The Phase 3C artifact set is a controlled pilot only, and its readiness gate blocked ML training at that phase. Later Phase 3E/F research-only experiments used separately versioned real-corpus artifacts and did not integrate ML into the application.
 
 ### 2.11 Phase 3D Dataset Curation Layer (`driftbench/`)
 - `governance.py` defines source categories, license statuses, dataset lifecycle stages, data-quality statuses, and DriftBench dataset versioning.
@@ -170,3 +172,9 @@ Phase 3H prepares future validation. It does not retrain ML, tune rules, change 
 - Audits that reviewer metadata, evidence tiers, Gold Set flags, and eligibility metadata remain outside predictive feature matrices.
 
 Phase 3H.5 is a ground-truth qualification layer. It does not regenerate feature families, train models, deploy ML, tune rules, or change production scoring.
+
+### 2.18 Current Project Phase And Report Surfaces
+
+Core operational implementation is complete. Independent human review is in progress, and validation remains pending genuine reviewer submissions. Research-paper preparation and release preparation are active documentation activities; they do not change frozen research logic.
+
+The implemented application exposes an HTML report at `/report/{analysis_id}` and structured JSON at `/api/v1/analysis/{analysis_id}`. PDF export is not implemented.

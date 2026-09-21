@@ -5,9 +5,9 @@
 ---
 
 ## 1. Project Overview & Scope
-Browser extensions pose unique cybersecurity risks: installed with benign privileges, subsequent updates may introduce permission creep, silent host access expansion, stealth network telemetry, dynamic obfuscation, and data exfiltration.
+Browser extensions pose unique cybersecurity risks: installed with limited or apparently benign privileges, subsequent updates may introduce permission creep, silent host access expansion, new network telemetry, obfuscation, and other security-sensitive behaviour.
 
-DriftWatch addresses this challenge through version-to-version differential behavioral analysis. By calculating differential security feature vectors between consecutive versions \( D_t = F(V_t) - F(V_{t-1}) \), DriftWatch detects dangerous behavioral drift and provides human-explainable security audit reports.
+DriftWatch addresses this challenge through version-to-version differential behavioral analysis. By calculating differential security feature vectors between consecutive versions \( D_t = F(V_t) - F(V_{t-1}) \), DriftWatch identifies security-sensitive behavioural drift and provides explainable evidence for security-review prioritization. It does not determine malicious intent, and risk score is not malware probability.
 
 ---
 
@@ -18,8 +18,8 @@ DriftWatch addresses this challenge through version-to-version differential beha
 | **Week 1** | Foundation & Secure Ingestion | Fast-API setup, secure ZIP/CRX unpacking, path traversal/bomb protection, manifest parser, permission risk database. | **Completed (Phase 1)** |
 | **Week 2** | Core Drift Engine & Laboratory | Host-scope analyzer, package comparison, delta feature builder, rule-based scoring engine, controlled sample laboratory (`v1_safe`, `v2_risky`). | **Completed (Phase 1)** |
 | **Week 3** | Advanced Static Analysis | Safe JavaScript lexical preprocessing, sensitive API extraction, network endpoint extraction, bounded static Base64 endpoint decoding, obfuscation indicators, structural drift, source-to-sink heuristics, partial-analysis error reporting, and score breakdowns. | **Completed (Phase 2, verified 2026-08-10)** |
-| **Week 4** | DriftBench & Empirical Research Pipeline | Phase 3A dataset specification, label ontology, provenance tracking, validator, controlled mutation framework, leakage-safe split generator; Phase 3B feature extraction, baseline feature representations, leakage checks, and reproducible artifacts; Phase 3C pilot evaluation harness, leakage audit, readiness gate, deterministic baseline comparison, and blocked-ML reporting. | **Phase 3C pilot infrastructure implemented; ML blocked by dataset readiness** |
-| **Week 5** | Dashboard & Visualization | Premium dark cybersecurity UI, executive summary, version progression timeline, report export (HTML/PDF). | **Completed (Phase 1 UI Foundation)** |
+| **Week 4** | DriftBench & Empirical Research Pipeline | Phase 3A dataset specification, label ontology, provenance tracking, validator, controlled mutation framework, leakage-safe split generator; Phase 3B feature extraction, baseline feature representations, leakage checks, and reproducible artifacts; Phase 3C pilot evaluation harness and later research-only pilot/replication evaluation. | **Completed through the current exploratory research phases; no production ML integration** |
+| **Week 5** | Dashboard & Visualization | Dark cybersecurity UI, executive summary, HTML report, and structured JSON API. | **Completed operational UI foundation; PDF export is not implemented** |
 | **Week 6** | Research Experiments & Verification | Phase 3D real-data intake architecture, provenance-rich curation, license governance, duplicate/split-leakage audits, dataset manifests, local import workflow, real-pilot expansion, label-quality tiers, review packets, split-stability gate, Phase 3E pilot empirical evaluation, Phase 3F replication expansion, Phase 3G dataset maturation, Phase 3H holdout/gold-set readiness, and Phase 3H.5 simulated review/adjudication workflow demonstration. | **Phase 3H.5 simulated workflow complete; genuine review and Gold Set still needed** |
 
 ---
@@ -41,10 +41,10 @@ DriftWatch addresses this challenge through version-to-version differential beha
 - Implemented bounded static Base64 endpoint decoding. No arbitrary runtime emulation is attempted.
 - Implemented obfuscation, entropy, structural drift, and source-to-sink heuristic indicators.
 - Integrated Phase 2 signals into the analysis pipeline, JSON API, report UI, explanations, recommendations, and score breakdowns.
-- Verified test suite on 2026-08-10: `104 passed, 2 warnings`.
+- Fresh full-suite verification on 2026-09-21 at commit `54a4780d58ac12b4c794145b773da5e2c15a6999`: `157 passed`, 0 failed, 0 skipped, and no warnings reported under configured pytest filters.
 
 ## 5. Deferred / Not Started
-- Generalizable ML experiments, browser-store-scale DriftBench expansion, production ML integration, and real-world performance claims are not started.
+- Existing ML experiments are exploratory research artifacts. Generalizable population-level evaluation, production ML integration, and broad real-world performance claims have not started.
 - Browser-store-scale dataset collection is not started.
 - The source-to-sink feature remains a heuristic indicator and does not prove confirmed exfiltration.
 
@@ -82,7 +82,7 @@ DriftWatch addresses this challenge through version-to-version differential beha
 - Added split-leakage audits for extension identity, package hash overlap, and controlled mutation family leakage.
 - Added manual-review record support for evidence-based labels without using DriftWatch score as ground truth.
 - Added Phase 3D dataset manifests under `artifacts/driftbench/phase3d/`.
-- Current Phase 3D real-record count is `0`; no real corpus was present, so no real records were fabricated.
+- At the initial Phase 3D intake checkpoint, the real-record count was `0`; no real corpus was fabricated. Later phases added versioned real-corpus artifacts.
 - Phase 3D did not perform ML retraining; Phase 3E later ran a separate pilot evaluation after curated real data and quality gates were available.
 
 ## 10. Current Progress (Phase 3D.5)
@@ -170,3 +170,11 @@ Phase 3H is treated as frozen research history. Phase 3H.5 canonical pipeline ar
 - Real Gold Set size: 0. Controlled Gold Set size: 0. No confirmed malicious-transition record exists.
 - External holdout remains isolated from training, model tuning, rule tuning, adjudication-driven label changes, Gold Set construction, development decisions, and feature redesign.
 - Phase 3H.5 decision: `MORE INDEPENDENT REVIEW REQUIRED`. Phase 3I is not methodologically ready.
+
+## 17. Current Phase: Human Review And Research Release Preparation
+
+- Core implementation is complete and frozen research logic remains unchanged.
+- A scoped 14-record independent blind human-review package has been finalized and delivered for separate human review.
+- Genuine reviewer submissions are still pending. No genuine agreement, adjudication, Gold Set, or final external-validation claim is available.
+- Current in-repository work is limited to research-paper preparation, documentation correctness, reproducibility, claims discipline, and release-readiness foundations.
+- The protected external holdout remains excluded from training, tuning, threshold selection, rule development, feature redesign, and Gold Set construction.

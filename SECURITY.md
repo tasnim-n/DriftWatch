@@ -1,5 +1,7 @@
 # DriftWatch Security Policy & Threat Model
 
+This document defines how DriftWatch protects its analysis host and research workflow while processing untrusted archives. The target-system threat model for browser-extension behavioural drift, adversary scenarios, baseline assumptions, false positives, false negatives, and claims boundaries is defined in `THREAT_MODEL.md`.
+
 ## 1. Threat Model for DriftWatch Self-Protection
 
 DriftWatch processes untrusted third-party archives (ZIP / CRX files) uploaded by users. The ingestion pipeline itself must be protected against malicious inputs targeting the server.
@@ -128,3 +130,4 @@ Uploaded archives, manifests, JavaScript, decoded strings, and derived indicator
 - Reviewer metadata, evidence tiers, review rationales, adjudication status, Gold Set flags, timestamps, and eligibility metadata are blocked from predictive feature matrices.
 - AI-assisted packet organization is recorded as `ai_assisted=true` but is not treated as independent review, external confirmation, or ground truth.
 - External holdout records may receive neutral review packets, but their labels must not be decided using DriftWatch predictions or used for training, threshold tuning, rule tuning, or feature redesign.
+- Independent human review is currently in progress. No genuine agreement, adjudicated Gold Set, or completed external-validation result is available.

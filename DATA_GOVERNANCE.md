@@ -12,7 +12,7 @@ DriftBench Phase 3D accepts only lawfully acquired local material with explicit 
 `unknown/unverified` sources are quarantined or excluded and must not automatically enter a research-ready dataset.
 
 ## Acquisition And Replay
-Core reproducibility must not depend on a live website remaining available. Phase 3D separates acquisition from curation and feature extraction. The current implementation supports local import manifests:
+Phase 3D separates acquisition from curation and feature extraction. The current implementation supports local import manifests:
 
 ```powershell
 .venv\Scripts\python.exe -m driftbench.ingest --manifest datasets\manifests\import_manifest.example.json --dry-run
@@ -21,6 +21,8 @@ Core reproducibility must not depend on a live website remaining available. Phas
 The example manifest is a template only. It is not evidence of real data.
 
 Phase 3D.5 and Phase 3D.6 used normal public HTTPS downloads from GitHub release assets for the real pilot corpus. Downloaded raw packages are stored under `datasets/incoming/real_pilot/`; normalized static-analysis packages are stored under `datasets/validated/real_pilot_packages/`.
+
+Raw incoming and validated archives are excluded from Git. Existing manifests preserve source references and hashes, but a clean clone may require access to the original release assets or a separately preserved lawful corpus archive. Remote availability is not guaranteed. Exact reproduction must not silently substitute different packages.
 
 ## Licensing And Redistribution
 Each record stores license metadata, license status, research-use status, redistribution status, and attribution requirement. Records with unknown or disallowed licensing are quarantined or excluded. DriftWatch records licensing evidence; it does not provide legal guarantees.
@@ -146,6 +148,7 @@ Phase 3H decision: `CONTINUE INDEPENDENT LABEL REVIEW / ADJUDICATION`.
 - Real Gold Set: 0
 - Controlled Gold Set: 0
 - Confirmed malicious-transition records: 0
+- A separate scoped 14-record blind human-review package is currently in progress. Genuine submissions have not yet been returned or incorporated.
 
 Phase 3H.5 separates system prediction from ground truth. DriftWatch scores, severities, recommendations, model predictions, reviewer metadata, evidence tiers, Gold Set flags, and eligibility metadata must not enter predictive feature matrices.
 

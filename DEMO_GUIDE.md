@@ -1,6 +1,6 @@
 # DriftWatch Live Demonstration Guide
 
-Follow this step-by-step guide to run the live demonstration for DriftWatch Phase 2.
+Follow this step-by-step guide to demonstrate the completed deterministic DriftWatch analysis pipeline. Research ML artifacts and the ongoing independent human review are separate from this operational workflow.
 
 ---
 
@@ -12,15 +12,17 @@ Follow this step-by-step guide to run the live demonstration for DriftWatch Phas
    ```
 3. Run the automated Pytest suite to confirm all security and drift analysis unit tests pass:
    ```powershell
-   .venv\Scripts\pytest.exe tests\ -v -W default
+   .venv\Scripts\python.exe -m pytest -q
    ```
+
+   Freshly verified on 2026-09-21 at commit `54a4780d58ac12b4c794145b773da5e2c15a6999`: `157 passed`, 0 failed, 0 skipped, and no warnings reported under configured pytest filters.
 
 ---
 
 ## 2. Launching the Web Application
 1. Start the FastAPI development server:
    ```powershell
-   .venv\Scripts\uvicorn.exe app.main:app --host 127.0.0.1 --port 8000
+   .venv\Scripts\python.exe -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
    ```
 2. Open your web browser and navigate to:
    `http://localhost:8000`
@@ -44,6 +46,7 @@ Follow this step-by-step guide to run the live demonstration for DriftWatch Phas
    - Observe **Source-to-Sink Heuristic**: A heuristic indicator links sensitive sources and outbound sinks within `background.js`; this is not proof of confirmed exfiltration.
    - Observe **Service Worker Addition**: Background worker added for telemetry.
    - Review **Recommended Actions**: Hold risky updates for manual security review before browser deployment.
+   - State the claims boundary: the score prioritizes review; it is not malware probability, and the static evidence does not prove malicious intent or exfiltration.
 
 ## 4. Benign Control Run
 Use `samples/v1_note_benign.zip` as V1 and `samples/v2_note_benign.zip` as V2.
@@ -59,3 +62,7 @@ Phase 3A adds dataset methodology and tooling only. Run:
 ```
 
 This verifies label ontology, provenance validation, leakage-safe splits, and controlled synthetic mutations. It does not train ML models.
+
+## 6. Current Research Status
+
+Core implementation is complete. Independent human review is in progress separately, and no genuine reviewer result, inter-rater agreement, Gold Set, or completed external-validation claim should be presented during the demonstration. Existing ML outputs are exploratory research artifacts and are not part of operational scoring.

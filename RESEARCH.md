@@ -11,7 +11,7 @@
 
 ## 3. Mathematical Formulation
 
-Let \( V_{t-1} \) be the baseline trusted extension version, and \( V_t \) be the update under analysis.
+Let \( V_{t-1} \) be the historical baseline extension version, and \( V_t \) be the update under analysis. The baseline is not assumed to be safe.
 
 Each extension version is represented by an absolute security feature vector:
 \[
@@ -29,7 +29,7 @@ Where \( D_t \) captures:
 3. **Sensitive API Drift** (\( \Delta A \)): Newly introduced calls to `chrome.cookies`, `chrome.webRequest`, `chrome.tabs`, `chrome.storage`, etc.
 4. **Network Destination Drift** (\( \Delta N \)): New remote hosts, IP addresses, or WebSocket endpoints.
 5. **Obfuscation & Entropy Drift** (\( \Delta O \)): Increase in Shannon entropy, `eval()`, string encoding, and minification ratio.
-6. **Structural Code Drift** (\( \Delta S \)): AST node differences, function additions, line count changes, and source-to-sink flow heuristic changes.
+6. **Structural Code Drift** (\( \Delta S \)): Formatting-resistant function and event-listener changes, modified-file counts, and same-file source-to-sink heuristic changes.
 
 ## 4. Evaluation Methodology
 - **Baselines**:
@@ -48,7 +48,7 @@ Where \( D_t \) captures:
 - Phase 3B feature extraction is implemented: versioned feature schema, baseline feature representations, leakage checks, explicit analyzer availability, and reproducible CSV/JSONL artifacts.
 - Phase 3C pilot evaluation infrastructure is implemented. It produces readiness, leakage-audit, baseline-comparison, confusion-matrix, prediction, and blocked-experiment artifacts.
 - Phase 3E pilot empirical evaluation has been run on the current DriftBench real pilot corpus. The results are preliminary pilot findings, not broad browser-extension performance claims.
-- Generalizable ML experiments, large-scale DriftBench collection, production ML integration, and real-world population-level performance evaluation have not started.
+- Phase 3F completed an independent research replication on an expanded corpus, and Phases 3G-H strengthened corpus, governance, and holdout infrastructure. These remain exploratory research artifacts. Production ML integration and browser-store-scale population-level performance evaluation have not started.
 
 ## 6. Verified Controlled Runs
 - Benign control pair (`v1_note_benign` -> `v2_note_benign`): verified on 2026-08-10 as `0.0/100`, `Low`.
@@ -102,7 +102,7 @@ Logistic Regression, Random Forest, ROC-AUC/PR-AUC, chronological evaluation, an
 ## 10. Phase 3D Real-Data Intake And Curation
 Phase 3D adds research-grade intake infrastructure for future real DriftBench records. It does not add fabricated real records.
 
-Current verified Phase 3D intake artifact state:
+Initial verified Phase 3D intake artifact state:
 
 - `driftbench_version`: `0.1.0`
 - Accepted real records: 0
@@ -490,3 +490,9 @@ Interpretation:
 - Source-to-sink findings remain heuristic indicators only; obfuscation is contextual evidence and must not be equated with maliciousness.
 
 Evidence-based decision: `MORE INDEPENDENT REVIEW REQUIRED`.
+
+## 18. Current Research Status
+
+Core implementation and the frozen Phase 3H/3H.5 research artifacts are complete. A scoped independent blind human review is in progress separately. Genuine reviewer submissions remain pending, so DriftWatch does not claim genuine inter-rater agreement, a real Gold Set, or completed external validation.
+
+Current work is limited to research-paper preparation, documentation correctness, reproducibility, claims discipline, and release preparation. Operational scoring remains deterministic; research ML outputs are not integrated into the application.

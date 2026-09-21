@@ -3,7 +3,7 @@
 ## 1. Dataset Overview
 **Name**: DriftBench: A Version-Pair Dataset for Browser-Extension Behavioural Drift Analysis  
 **Purpose**: Benchmarking differential analysis algorithms for browser extension updates.  
-**Structure**: Version pairs \((V_{t-1}, V_t)\) labeled as `Benign`, `Risky`, or `Malicious`.
+**Structure**: Version pairs \((V_{t-1}, V_t)\) with curation states including benign, risky, malicious, uncertain, and excluded transitions. Label quality and supervised-training eligibility are tracked separately.
 
 ---
 
@@ -78,7 +78,7 @@ Verified current pilot state:
 - Leakage audit: passed, 43 feature columns audited, 0 violations, extension group split safe.
 - ML readiness: blocked.
 
-ML training is blocked because the dataset has fewer than 20 records, has no train/test split assignments, and contains only controlled synthetic records. The repository therefore does not claim Logistic Regression, Random Forest, ROC-AUC, PR-AUC, or generalizable detection performance.
+For the Phase 3C controlled pilot, ML training was blocked because that snapshot had fewer than 20 records, no train/test split assignments, and only controlled synthetic records. Later Phase 3E/F research-only evaluations use separate versioned artifacts and still do not justify generalizable detection-performance claims.
 
 The deterministic baseline comparison is retained as a pipeline smoke test only. It must not be treated as empirical model performance.
 
@@ -96,7 +96,7 @@ Supported source categories:
 
 Unknown or unverified sources do not automatically enter the research dataset. Licensing metadata is tracked separately from labels and features.
 
-Current Phase 3D intake status:
+Initial Phase 3D intake status:
 - Real records accepted: 0
 - Controlled records imported through Phase 3D intake: 0
 - Accepted version pairs through Phase 3D intake: 0
@@ -349,6 +349,7 @@ Methodology:
 Current Phase 3H.5 facts:
 - Review scope: 76 records
 - Priority review records: 47
+- A separate 14-record blind package is currently undergoing independent human review; it is a scoped delivery package, not a replacement for the canonical 76-record review scope.
 - Genuine Reviewer A records: 0
 - Genuine Reviewer B records: 0
 - Double-reviewed records: 0
@@ -377,6 +378,7 @@ Gold Set and holdout exclusion:
 
 Known limitations:
 - Independent human review remains pending.
+- No genuine results from the current 14-record human-review package have been incorporated.
 - The corpus remains GitHub/open-source biased.
 - Benign transitions dominate.
 - No confirmed malicious-transition ground truth exists.
