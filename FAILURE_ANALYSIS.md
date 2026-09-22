@@ -96,19 +96,19 @@ For Browserpass 3.11.0 → 3.12.0, the Phase 3H full feature row records `conten
 
 ## E. Label-quality limitations
 
-All records in the Phase 3E and Phase 3F held-out error analyses use `SINGLE_REVIEWER_PROVISIONAL` labels. The label-sensitivity artifacts report no sufficiently large higher-confidence, multi-reviewer, or externally confirmed subset containing both target classes. Therefore:
+All records in the Phase 3E and Phase 3F held-out error analyses use `SINGLE_REVIEWER_PROVISIONAL` labels. The label-sensitivity artifacts report no sufficiently large higher-confidence, multi-reviewer, or externally confirmed subset containing both target classes. The later governed Gold Set contains four `MULTI_REVIEWER_ADJUDICATED` risky transitions but no benign comparison class, and its policy does not authorize training or tuning. Therefore:
 
 - an apparent rule error may instead be a provisional-label error;
 - an apparent ML miss may change after independent review;
 - error rates should not be generalized to a browser-store population;
-- simulated reviewer output cannot be treated as genuine agreement or adjudication; and
+- simulated reviewer output cannot be substituted for the completed genuine human workflow; and
 - the protected external holdout remains unevaluated for formal external validation.
 
-Independent human review is ongoing. Genuine inter-rater agreement, an adjudicated Gold Set, and completed external validation are not available.
+In the completed scoped human review, two independent reviewers disagreed on 5 of 14 cases despite seeing identical blind evidence. This is direct evidence that ambiguous behavioral deltas, incomplete semantic context, and benign-but-security-relevant changes can support different judgments. All five disagreements completed governed adjudication, but adjudication strengthens provenance rather than proving objective truth. The resulting four-record Gold Set is too small and single-class to estimate error rates. Formal external validation remains incomplete.
 
 ## Research implications
 
-The deterministic system is useful as a transparent prioritizer but can over-prioritize feature-rich updates. Exploratory ML can suppress some false alerts but missed the only held-out provisionally review-worthy case in both frozen experiments. The appropriate conclusion is not that one method is universally superior; it is that stronger labels, larger class support, artifact-level audits, and analyst-facing evidence are necessary before broader performance or deployment claims.
+The deterministic system is useful as a transparent prioritizer but can over-prioritize feature-rich updates. Exploratory ML can suppress some false alerts but missed the only held-out provisionally review-worthy case in both frozen experiments. Human disagreement further shows that the review target itself contains uncertainty. The appropriate conclusion is not that one method is universally superior; it is that stronger and more diverse labels, larger class support, artifact-level audits, and analyst-facing evidence are necessary before broader performance or deployment claims.
 
 ## Evidence references
 
@@ -121,3 +121,6 @@ The deterministic system is useful as a transparent prioritizer but can over-pri
 - `artifacts/experiments/phase3f/label_sensitivity.json`
 - `artifacts/driftbench/phase3h5/unresolved_records.json`
 - `artifacts/driftbench/phase3h_features/full_driftwatch.csv`
+- `artifacts/human_review/agreement/reviewer01_vs_reviewer02/agreement_summary.json`
+- `artifacts/human_review/adjudication/final/human_validation_summary.json`
+- `artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/gold_set_summary.json`

@@ -493,6 +493,15 @@ Evidence-based decision: `MORE INDEPENDENT REVIEW REQUIRED`.
 
 ## 18. Current Research Status
 
-Core implementation and the frozen Phase 3H/3H.5 research artifacts are complete. A scoped independent blind human review is in progress separately. Genuine reviewer submissions remain pending, so DriftWatch does not claim genuine inter-rater agreement, a real Gold Set, or completed external validation.
+Core implementation and the frozen Phase 3H/3H.5 research artifacts are complete. The separate scoped human-validation workflow has also completed:
 
-Current work is limited to research-paper preparation, documentation correctness, reproducibility, claims discipline, and release preparation. Operational scoring remains deterministic; research ML outputs are not integrated into the application.
+- two independent humans reviewed the same 14 blind cases;
+- 9 cases agreed exactly and 5 disagreed (64.29% exact agreement; unweighted nominal Cohen's kappa 0.3396226415);
+- all five disagreements completed Stage A and Stage B adjudication without a label change between stages;
+- final disagreement outcomes were four `RISKY_TRANSITION` and one `UNCERTAIN`;
+- four definitive cases received explicit derived `MULTI_REVIEWER_ADJUDICATED` promotion; and
+- those four records form the separately versioned `driftwatch-human-gold-set-v1` Gold Set, with zero external-holdout overlap.
+
+These outcomes strengthen provenance but do not establish objective ground truth or malware-detection accuracy. The Gold Set is very small and single-class and is not authorized for training, fine-tuning, rule or threshold development, weight tuning, feature selection, model selection, or hyperparameter tuning. Frozen dataset history, eligibility, experiments, risk behavior, and the protected 10-record external holdout remain unchanged. External validation has not been completed.
+
+Current work is limited to research-paper preparation, literature finalization, documentation correctness, reproducibility, claims discipline, and release preparation. Operational scoring remains deterministic; research ML outputs are not integrated into the application.

@@ -106,4 +106,4 @@ Source-to-sink evidence does not prove exfiltration. Network indicators do not p
 
 Manual security review is required to interpret developer intent, release context, code semantics, endpoint purpose, proportionality of new privileges, and whether observed changes are acceptable for the extension's function.
 
-Independent human review is currently in progress. No genuine reviewer outcome, inter-rater agreement, adjudicated Gold Set, or final external-validation conclusion is claimed here.
+The completed scoped validation used two independent blind human reviewers and governed two-stage adjudication for their five disagreements. These judgments strengthen provenance and expose uncertainty; they do not determine developer intent or create objective malware ground truth. The resulting four-record Gold Set is small, single-class, and restricted from training and tuning. No final external-validation conclusion is claimed.

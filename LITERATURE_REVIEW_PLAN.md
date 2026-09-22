@@ -224,7 +224,19 @@ Before making any novelty statement:
 
 The final paper must not say “first,” “novel,” or an equivalent priority claim solely because no match appeared in an initial search.
 
-## 7. Deliverables and completion criteria
+## 7. Current citation inventory
+
+`LITERATURE_CITATION_GAPS.md` is the controlled Phase 6 gap register. As of this integration:
+
+- no external paper citation has been verified for manuscript use;
+- no fabricated bibliographic citation was found;
+- 11 structured external source requirements remain;
+- project-specific corpus, evaluation, human-review, adjudication, and Gold Set claims are mapped to repository evidence in `PAPER_EVIDENCE_MAP.md`; and
+- the manuscript retains visible citation tasks rather than invented bibliographic entries.
+
+The gap register should be updated as sources pass full-text verification. A search result, title, abstract snippet, or secondary citation does not move an item to **External evidence verified**.
+
+## 8. Deliverables and completion criteria
 
 The literature phase is complete only when it produces:
 

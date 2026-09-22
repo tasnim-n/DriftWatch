@@ -6,7 +6,7 @@ These case studies summarize existing frozen DriftBench artifacts. They do not r
 
 The Phase 3H.5 `priority_score` is a deterministic **review-workflow triage value** that combines static signals with curation/workflow state. It is not the application's 0–100 risk score and is not malware probability. An operational rule-engine score is reported only when a frozen prediction artifact already contains one.
 
-For every case below: **Human review: PENDING**.
+The completed 14-case blind review included the Save Sora and Refined GitHub cases below, for which both reviewers independently selected `RISKY_TRANSITION`. Those agreement-only outcomes were not adjudicated or quality-promoted. The KaTeX and Browserpass 3.11.0 → 3.12.0 cases were outside the scoped set, so no human outcome is inferred for them. The distinct Browserpass 3.10.2 → 3.11.0 transition—not the case below—is a governed Gold Set member.
 
 ## Evidence sources and display conventions
 
@@ -47,7 +47,7 @@ The addition count and net delta are different measurements: additions and remov
 - Phase 3H.5 review-workflow priority: **220**, rank **2 of 47** prioritized records.
 - Signal-derived queue reasons include wildcard host expansion, added API use, new external network indicators, a dynamic-execution indicator, and substantial obfuscation change.
 - Frozen Phase 3E and Phase 3F held-out rule-engine output: **70.5/100, Critical, REVIEW_WORTHY**. This is deterministic review prioritization, not a maliciousness judgment.
-- **Human review: PENDING**.
+- This transition was outside the scoped 14-case human-review set.
 
 ### Interpretation
 
@@ -98,7 +98,7 @@ Use a **V1 → V2 → delta capability matrix** for permission, host, background
 - Phase 3H.5 review-workflow priority: **230**, rank **1 of 47** prioritized records.
 - Signal-derived queue reasons include wildcard host expansion, API additions, external network additions, one source/sink heuristic, and substantial obfuscation change.
 - No held-out operational rule-engine prediction artifact exists for this validation-split row; no application score is inferred or recomputed here.
-- **Human review: PENDING**.
+- Both independent human reviewers selected `RISKY_TRANSITION` with `HIGH` confidence; the agreement-only case was not adjudicated or promoted.
 
 ### Interpretation
 
@@ -148,7 +148,7 @@ Use a **three-part V1/V2/delta display**: (1) host and permission matrix, (2) AP
 - Phase 3H.5 review-workflow priority: **115**, rank **8 of 47** prioritized records.
 - Signal-derived queue reasons include a critical API flag, API additions, new external network indicators, and an obfuscation-change signal.
 - No held-out operational rule-engine prediction artifact exists for this training-split row; no application score is inferred or recomputed here.
-- **Human review: PENDING**.
+- Both independent human reviewers selected `RISKY_TRANSITION` (`HIGH` and `MEDIUM` confidence); the agreement-only case was not adjudicated or promoted.
 
 ### Interpretation
 
@@ -199,7 +199,7 @@ The frozen artifacts disagree on one non-central field: the Phase 3H feature row
 - Phase 3H.5 review-workflow priority: **105**, rank **14 of 47** prioritized records.
 - Signal-derived queue reasons include external network additions, source/sink heuristics, dynamic-execution additions, and substantial obfuscation change.
 - No held-out operational rule-engine prediction artifact exists for this training-split row; no application score is inferred or recomputed here.
-- **Human review: PENDING**.
+- This transition was outside the scoped 14-case human-review set. Browserpass 3.10.2 → 3.11.0 is a separate adjudicated record.
 
 ### Interpretation
 
@@ -227,4 +227,4 @@ Use an **evidence-card group** rather than one aggregate chart: separate cards f
 
 ## Cross-case conclusion
 
-The four cases show complementary reasons for review: manifest capability expansion, a new host with large packaged-code churn, API change without permission change, and strong code-level signals without manifest expansion. They also expose why each signal needs context. Across all four cases, **Human review: PENDING**, and no case supports a claim of maliciousness or confirmed exfiltration.
+The four cases show complementary reasons for review: manifest capability expansion, a new host with large packaged-code churn, API change without permission change, and strong code-level signals without manifest expansion. They also expose why each signal needs context. Two cases received exact human agreement on `RISKY_TRANSITION`; two were outside the scoped review set. None of these facts supports a claim of maliciousness or confirmed exfiltration.

@@ -1,6 +1,6 @@
 # DriftWatch: Explainable Differential Behavioural Analysis for Security-Review Prioritization of Browser-Extension Updates
 
-> **Provisional research-paper scaffold.** This draft is grounded in the current DriftWatch repository and frozen research artifacts. Independent human validation and the literature review are incomplete. Claims and section status must be re-audited before submission.
+> **Research-paper draft.** This draft is grounded in the current DriftWatch repository, frozen research artifacts, completed independent human-validation workflow, and governed Gold Set. The external literature review remains incomplete; citation placeholders and internal draft metadata must be resolved before submission.
 
 ## 1. Title
 
@@ -12,7 +12,7 @@ This title emphasizes the implemented unit of analysis—an extension-version pa
 
 Browser extensions evolve through frequent updates that can alter permissions, host access, browser-API use, network indicators, background execution, code structure, and obfuscation characteristics. Security analysis of a single extension snapshot does not directly express which capabilities or behaviours changed between releases. We present DriftWatch, a static differential analysis framework that compares a previous Chromium-extension archive, (V_{t-1}), with an updated archive, (V_t). DriftWatch securely extracts both archives, constructs version-level feature states, derives heterogeneous differential features, applies a deterministic multi-signal risk engine, and produces analyst-facing evidence and recommendations. Its score represents manual security-review priority, not malware probability.
 
-The current governed DriftBench corpus contains 76 real version-pair transitions from 21 open-source extensions: 71 provisionally benign, 3 provisionally risky, and 2 uncertain. After uncertainty and protected-holdout restrictions, 64 records are eligible for supervised research use; 10 records remain isolated in an external holdout. Preliminary evaluation includes a fixed deterministic rule baseline and exploratory Logistic Regression and Random Forest experiments. Across the small held-out sets, the deterministic system identified the single provisionally review-worthy transition but generated many alerts on provisionally benign, feature-rich updates, while the exploratory models often missed that transition. These observations are not sufficient for population-level performance or production-ML claims. Independent human validation is ongoing, labels remain predominantly single-reviewer provisional, no genuine Gold Set is available, and the protected external holdout has not undergone formal external validation. DriftWatch therefore demonstrates a functional and explainable approach to version-aware security-review prioritization while leaving malicious intent and final disposition to evidence-based human assessment.
+The governed DriftBench corpus contains 76 real version-pair transitions from 21 open-source extensions: 71 frozen as benign, 3 as risky, and 2 as uncertain. After uncertainty and protected-holdout restrictions, 64 records are eligible for supervised research use; 10 records remain isolated in an external holdout. A scoped blind validation involved two independent human reviewers examining the same 14 cases. They agreed exactly on 9 cases (64.29%); unweighted nominal Cohen's kappa was approximately 0.34 and is interpreted cautiously because the sample is small and label marginals are concentrated. Five disagreements entered governed two-stage adjudication. All five retained their Stage A label after de-identified prior opinions were revealed at Stage B, yielding four outcomes labeled `RISKY_TRANSITION` and one labeled `UNCERTAIN`. Four definitive cases qualified for a separate, provenance-rich `MULTI_REVIEWER_ADJUDICATED` Gold Set with zero external-holdout overlap. The Gold Set is small, single-class, and prohibited from training or tuning; it supports qualitative validation and audit, not classifier-performance, prevalence, maliciousness, or production-safety claims. DriftWatch therefore demonstrates a functional, explainable, and reproducibly governed approach to version-aware security-review prioritization while leaving intent and final disposition to evidence-based human assessment.
 
 ## 3. Introduction
 
@@ -28,8 +28,9 @@ This work makes the following repository-supported contributions:
 2. A structured multi-signal representation of permission, host, API, network, obfuscation, package, manifest, and structural drift.
 3. A deterministic explanation and review-priority engine with evidence, V1/V2 context, category-level contributions, and analyst recommendations.
 4. DriftBench, a governed version-pair corpus with provenance, version ordering, label-quality, eligibility, split, leakage, and analyzer-availability metadata.
-5. A protected external-holdout policy and blind independent-review protocol designed to prevent training, tuning, and ground-truth leakage.
-6. Preliminary deterministic and exploratory-ML evaluations accompanied by failure analysis and explicit threats to validity.
+5. A protected external-holdout policy and completed blind independent-review and two-stage adjudication workflow designed to prevent training, tuning, and label leakage.
+6. A separately governed four-record Gold Set that preserves provenance, excludes the external holdout, and prohibits training and tuning use.
+7. Preliminary deterministic and exploratory-ML evaluations accompanied by failure analysis and explicit threats to validity.
 
 These are implementation and methodology contributions. Novelty relative to prior literature remains subject to a completed literature review.
 
@@ -51,7 +52,7 @@ The paper adopts the research questions defined in `RESEARCH.md`:
 - **RQ4:** Does chronological evaluation provide a more realistic performance estimate for browser-update monitoring than random dataset splitting?
 - **RQ5:** Can explainable risk reports provide security analysts with actionable visual evidence for efficiently auditing complex updates?
 
-The present evidence does not resolve all five questions. RQ1–RQ4 remain limited by corpus size, imbalance, provisional labels, and small held-out sets. RQ5 requires genuine human-review evidence that is still pending.
+The present evidence does not resolve all five questions. RQ1–RQ4 remain limited by corpus size, imbalance, predominantly provisional frozen labels, and small held-out sets. The completed human review supplies evidence about judgment consistency and uncertainty handling, but it did not measure reviewer efficiency, explanation usefulness, or decision quality; RQ5 therefore remains unresolved.
 
 ## 6. Related Work
 
@@ -205,9 +206,11 @@ DriftBench models extension updates as ordered version pairs with provenance and
 
 All 76 records are real open-source version pairs; the current Phase 3H corpus contains no controlled records. Accepted records originate from public GitHub release assets and preserve source URLs, version identifiers, release timestamps, licenses, raw or normalized archive hashes, split assignment, and label provenance. Archive normalization changes layout or compression for static-analysis compatibility while preserving separate provenance hashes; extension JavaScript is not executed.
 
-Labels describe transition state rather than extension identity. The current labels are predominantly `SINGLE_REVIEWER_PROVISIONAL`; the two uncertain records remain ineligible. There are no confirmed malicious-transition records. The corpus is severely imbalanced and biased toward open-source GitHub projects, so it cannot estimate browser-store prevalence or support broad population claims.
+Labels describe transition state rather than extension identity. In the frozen Phase 3H dataset, 74 records have `SINGLE_REVIEWER_PROVISIONAL` label quality and 2 have `UNCERTAIN` quality. There are no confirmed malicious-transition records. The corpus is severely imbalanced and biased toward open-source GitHub projects, so it cannot estimate browser-store prevalence or support broad population claims.
 
 Eligibility is distinct from label inclusion. Phase 3H.5 rechecks uncertainty, review quality, and external-holdout restrictions. This yields 64 supervised-eligible records and 12 ineligible records, including the 10 protected holdout cases.
+
+Later human adjudication did not rewrite these frozen rows. It produced separate derived quality metadata for four reviewed cases. Consequently, the dataset distribution above and the governed Gold Set distribution below answer different questions and must not be merged: the former records frozen corpus history, while the latter records a qualified human-validation subset.
 
 ## 13. Data Governance and External Holdout
 
@@ -255,9 +258,9 @@ All five representations were evaluated; the complete matrices remain in the fro
 
 Chronological evaluation and high-confidence label-sensitivity analysis were not sufficiently supported. The Phase 3F conclusion is `INCONCLUSIVE`, with production ML integration unjustified.
 
-## 15. Independent Human Review Methodology
+## 15. Independent Human Review and Adjudication
 
-Phase 3H.5 defines an independent blind-review protocol. Initial packets expose version identity, provenance, release evidence, manifest differences, and neutral static feature summaries. They hide:
+Phase 3H.5 defined an independent blind-review protocol. Two human reviewers received the same scoped set of 14 cases and made independent judgments. Initial packets exposed version identity, provenance, release evidence, manifest differences, and neutral static feature summaries. They hid:
 
 - current provisional dataset labels;
 - DriftWatch numeric score and severity;
@@ -266,35 +269,70 @@ Phase 3H.5 defines an independent blind-review protocol. Initial packets expose 
 - earlier predictive outputs; and
 - earlier reviewer labels.
 
-A genuine reviewer supplies an independent transition label, ordinal confidence (`HIGH`, `MEDIUM`, or `LOW`), rationale, evidence references, reviewer identity, review round, and timestamp. Permitted labels distinguish benign, risky, malicious, uncertain, and excluded transitions. `MALICIOUS_TRANSITION` requires independent evidence of intentional harmful behaviour; static DriftWatch signals alone are insufficient.
+A reviewer supplied an independent transition label, ordinal confidence (`HIGH`, `MEDIUM`, or `LOW`), rationale, evidence references, reviewer identity, review round, and timestamp. Permitted labels distinguished benign, risky, malicious, uncertain, and excluded transitions. `MALICIOUS_TRANSITION` required independent evidence of intentional harmful behaviour; static DriftWatch signals alone were insufficient. Raw submissions were preserved immutably, and human outcomes were not used to alter features, rules, weights, thresholds, frozen labels, experiments, or holdout policy.
 
-The currently delivered package contains 14 scoped blind cases and matching blank submission forms, with no external-holdout overlap. **Human review is currently in progress.** No genuine returned submission has been incorporated. Simulated/AI-assisted workflow material is stored separately and is not human evidence, ground truth, agreement, or adjudication.
+The reviewers agreed exactly on 9 of 14 cases and disagreed on 5. Agreement was 64.29%, with unweighted nominal Cohen's kappa of 0.3396226415 (approximately 0.34). Kappa is reported descriptively rather than assigned an uncited qualitative category. Its interpretation is limited by the small sample and concentrated marginals: Reviewer 01 assigned 8 risky and 6 uncertain labels, whereas Reviewer 02 assigned 3 risky and 11 uncertain labels. Agreement is not accuracy, and no independent objective ground truth exists.
 
-Current status: zero genuine double-reviewed records, zero genuine adjudicated records, no inter-rater agreement estimate, and no Gold Set.
+| Human-review measure | Verified result | Interpretation boundary |
+|---|---:|---|
+| Blind cases reviewed by each human | 14 | Same case set; zero holdout overlap |
+| Exact agreements | 9 | Observed agreement only |
+| Disagreements | 5 | Entered governed adjudication |
+| Exact agreement | 64.29% | Not accuracy |
+| Unweighted nominal Cohen's kappa | 0.3396226415 | Small, marginally concentrated sample |
 
-## 16. Case Studies
+Each disagreement then entered two-stage adjudication by the same adjudicator. Stage A recorded an assessment before exposure to either prior review. At Stage B, the adjudicator reconsidered the case after receiving de-identified Reviewer A and Reviewer B opinions. The protocol did not require majority vote and permitted `UNCERTAIN`. All five cases retained their Stage A label at Stage B; the final disagreement outcomes were four `RISKY_TRANSITION`, one `UNCERTAIN`, and zero `BENIGN_TRANSITION`.
+
+| Adjudication measure | Verified result |
+|---|---:|
+| Disagreements entering Stage A | 5 |
+| Stage A and Stage B completed | 5 |
+| Stage A labels retained at Stage B | 5 |
+| Stage A labels changed at Stage B | 0 |
+| Final `RISKY_TRANSITION` outcomes | 4 |
+| Final `UNCERTAIN` outcomes | 1 |
+| Final `BENIGN_TRANSITION` outcomes | 0 |
+
+Adjudication strengthened label provenance and made disagreement resolution auditable; it did not prove that either original reviewer was objectively correct. `RISKY_TRANSITION` means that the update warrants elevated manual security-review attention. It does not mean malware.
+
+## 16. Governed Gold Set
+
+Four definitive adjudicated records received explicit, derived promotion to `MULTI_REVIEWER_ADJUDICATED` and qualified for `driftwatch-human-gold-set-v1`. The uncertain adjudicated record was not promoted, and the nine agreement-only records were not silently promoted. Frozen source rows remained unchanged; the Gold Set exists as a separate derived artifact.
+
+| Gold Set record | Final human label | Quality tier | Holdout overlap |
+|---|---|---|---:|
+| `automaapp_automa_1_29_11_to_1_29_12` | `RISKY_TRANSITION` | `MULTI_REVIEWER_ADJUDICATED` | 0 |
+| `bitwarden_clients_browser_v2026_6_1_to_browser_v2026_7_0` | `RISKY_TRANSITION` | `MULTI_REVIEWER_ADJUDICATED` | 0 |
+| `browserpass_browserpass_extension_3_10_2_to_3_11_0` | `RISKY_TRANSITION` | `MULTI_REVIEWER_ADJUDICATED` | 0 |
+| `duckduckgo_privacy_2026_1_12_to_2026_4_28` | `RISKY_TRANSITION` | `MULTI_REVIEWER_ADJUDICATED` | 0 |
+
+The Gold Set has four records, all in one class, and zero external-holdout overlap. Its policy permits research reporting, qualitative case analysis, reproducibility, audit, and future evaluation only under a separately approved protocol. It does not authorize training, fine-tuning, threshold selection, rule development, scoring-weight tuning, feature or model selection, or hyperparameter tuning.
+
+The Gold Set is therefore suitable for provenance-rich qualitative validation and research audit. Its very small, single-class membership cannot estimate classifier performance, class-balanced performance, population prevalence, maliciousness, or safety.
+
+## 17. Case Studies
 
 The full evidence synthesis appears in `CASE_STUDIES.md`. Four cases illustrate complementary strengths and limitations.
 
-### 16.1 GitHub Math Display 0.1.0 → 0.2.0
+### 17.1 GitHub Math Display 0.1.0 → 0.2.0
 
-This transition adds `webNavigation`, a wildcard GitHub host pattern, a background worker, an API, external-network indicators, and a dynamic-execution indicator. The frozen held-out deterministic artifact reports 70.5/100, `Critical`, and `REVIEW_WORTHY`. Exploratory Phase 3F Logistic Regression and Random Forest probabilities were 0.332308 and 0.155, respectively, and both selected the benign class. The contrast illustrates transparent multi-signal prioritization and an exploratory model miss, but the reference label remains provisional. **Human review result: pending.**
+This transition adds `webNavigation`, a wildcard GitHub host pattern, a background worker, an API, external-network indicators, and a dynamic-execution indicator. The frozen held-out deterministic artifact reports 70.5/100, `Critical`, and `REVIEW_WORTHY`. Exploratory Phase 3F Logistic Regression and Random Forest probabilities were 0.332308 and 0.155, respectively, and both selected the benign class. The contrast illustrates transparent multi-signal prioritization and an exploratory model miss, but the reference label remains provisional. This transition was not part of the scoped 14-case human-review set, so no human-validation outcome is inferred.
 
-### 16.2 Save Sora 2.0.196 → 2.0.355
+### 17.2 Save Sora 2.0.196 → 2.0.355
 
-No permission increase was observed, but V2 adds `https://api.dyysy.com/*`, two APIs, large network-indicator and structural churn, and one source/sink heuristic. The case demonstrates why permission-only review is insufficient and why large static counts require build and release context. No held-out operational-score artifact exists for this validation-split row, so none is inferred. **Human review result: pending.**
+No permission increase was observed, but V2 adds `https://api.dyysy.com/*`, two APIs, large network-indicator and structural churn, and one source/sink heuristic. The case demonstrates why permission-only review is insufficient and why large static counts require build and release context. No held-out operational-score artifact exists for this validation-split row, so none is inferred. Both human reviewers independently assigned `RISKY_TRANSITION` with high confidence. This agreement-only case was not adjudicated or promoted to `MULTI_REVIEWER_ADJUDICATED`.
 
-### 16.3 Refined GitHub 26.6.7 → 26.7
+### 17.3 Refined GitHub 26.6.7 → 26.7
 
-Permissions and hosts remain unchanged, while two APIs—including a critical-API flag—12 new external indicators, 46 added functions, and 164 modified files are reported. This illustrates code-level drift without manifest expansion and the ambiguity of broad maintenance churn. **Human review result: pending.**
+Permissions and hosts remain unchanged, while two APIs—including a critical-API flag—12 new external indicators, 46 added functions, and 164 modified files are reported. This illustrates code-level drift without manifest expansion and the ambiguity of broad maintenance churn. Both human reviewers independently assigned `RISKY_TRANSITION` (high and medium confidence). This agreement-only case was not adjudicated or promoted.
 
-### 16.4 Browserpass 3.11.0 → 3.12.0
+### 17.4 Browserpass 3.11.0 → 3.12.0
 
-No permission, host, or API additions are reported, yet static analysis identifies 256 new external indicators, 40 dynamic-execution additions, a large obfuscation score, and two source/sink heuristics. Build tooling or packaged-code structure may explain these signals. The frozen Phase 3H feature row and Phase 3H.5 packet disagree about the content-script-change flag, so this case does not rely on that field. **Human review result: pending.**
+No permission, host, or API additions are reported, yet static analysis identifies 256 new external indicators, 40 dynamic-execution additions, a large obfuscation score, and two source/sink heuristics. Build tooling or packaged-code structure may explain these signals. The frozen Phase 3H feature row and Phase 3H.5 packet disagree about the content-script-change flag, so this case does not rely on or silently resolve that field. This transition was not part of the scoped 14-case human-review set; the related Browserpass 3.10.2 → 3.11.0 transition is a distinct Gold Set record.
 
 None of these cases establishes maliciousness, runtime communication, or exfiltration.
 
-## 17. Failure Analysis
+## 18. Failure Analysis
 
 The detailed analysis appears in `FAILURE_ANALYSIS.md`.
 
@@ -316,9 +354,11 @@ Network counts may be inflated by bundles, source maps, fixtures, or repeated li
 
 ### Label-quality limitation
 
-All held-out errors use provisional labels, and no sufficiently large higher-confidence subset with both classes exists. Error interpretation therefore remains conditional on future independent review.
+All held-out errors use provisional labels, and no sufficiently large higher-confidence subset with both classes exists. The new Gold Set cannot repair this limitation because its four records are all risky and its policy prohibits training or tuning use. Error interpretation therefore remains conditional and must not be converted into population false-positive or false-negative rates.
 
-## 18. Results
+Human disagreement adds a separate limitation: 5 of 14 scoped judgments differed even though the reviewers saw identical blind evidence. The adjudication workflow records how those cases were resolved, but the disagreements demonstrate the ambiguity of behavioral deltas when semantic, release, and runtime context is incomplete. Benign-but-security-relevant changes may correctly warrant review without being malicious, while static source/sink, permission, endpoint, and code-structure evidence cannot alone establish intent or actual execution.
+
+## 19. Results
 
 ### A. Deterministic system observations
 
@@ -334,11 +374,13 @@ The four flagship cases show that security-sensitive drift can appear as manifes
 
 ### D. Human validation
 
-**PENDING GENUINE HUMAN REVIEW**
+Two independent human reviewers completed the same 14-case blind set. They agreed exactly on 9 cases and disagreed on 5, for observed agreement of 64.29%. Unweighted nominal Cohen's kappa was 0.3396226415. This statistic is descriptive for the scoped package, not an accuracy estimate; the small sample and concentrated risky/uncertain marginals make it unstable and sensitive to category prevalence.
 
-No genuine reviewer result, inter-rater agreement, adjudicated Gold Set, or final external-validation result is available. This section must be replaced only after independently returned submissions pass the documented validation and governance workflow.
+All five disagreements completed Stage A and Stage B adjudication. No Stage A label changed after the adjudicator saw de-identified prior opinions at Stage B. Final disagreement outcomes were four `RISKY_TRANSITION` and one `UNCERTAIN`. These outcomes document governed human judgments; they do not establish objective truth or show that either initial reviewer was correct.
 
-## 19. Discussion
+The four definitive adjudicated risky records were explicitly promoted to `MULTI_REVIEWER_ADJUDICATED` and placed in a separate governed Gold Set. The set has zero external-holdout overlap and is not authorized for training or tuning. Because it contains only four risky records, it supports qualitative audit but no classifier-performance, prevalence, or external-validation claim.
+
+## 20. Discussion
 
 ### Differential value
 
@@ -346,7 +388,7 @@ Version-pair analysis makes change explicit. It can distinguish longstanding cap
 
 ### Explainability
 
-Deterministic contributions and evidence cards give reviewers a traceable path from observed signal to recommendation. This transparency is useful when alerts are ambiguous: an analyst can see whether priority came from host expansion, endpoints, obfuscation, structural churn, or a combination. RQ5 nevertheless remains empirically unresolved until genuine reviewers evaluate usefulness and decision quality.
+Deterministic contributions and evidence cards give reviewers a traceable path from observed signal to recommendation. This transparency is useful when alerts are ambiguous: an analyst can see whether priority came from host expansion, endpoints, obfuscation, structural churn, or a combination. The completed review validates that humans can apply the packet protocol and records where their judgments diverge; it did not measure task time, explanation usefulness, or decision quality. RQ5 therefore remains empirically unresolved.
 
 ### Deterministic and ML roles
 
@@ -360,31 +402,45 @@ DriftWatch should be interpreted as allocating scarce review attention. High pri
 
 A practical update-review process can combine provenance, differential static evidence, release notes, code inspection, and independent public evidence. DriftWatch supplies the differential evidence layer. Final disposition remains a human governance decision.
 
-## 20. Limitations
+## 21. Reproducibility
 
-1. **Small corpus:** 76 transitions and 21 extensions are insufficient for broad empirical claims.
-2. **Severe imbalance:** only 3 transitions are provisionally risky, while 71 are provisionally benign and 2 uncertain.
-3. **Provisional labels:** 74 records are single-reviewer provisional and 2 uncertain; genuine double review is absent.
-4. **Source bias:** all accepted Phase 3H records derive from public GitHub release assets and do not represent browser-store prevalence.
-5. **No confirmed malicious ground truth:** the current real corpus contains no independently confirmed malicious transition.
-6. **Static analysis:** runtime activation, remote configuration, dynamic loading, indirect flows, WebAssembly semantics, and server behaviour may be missed.
-7. **Historical-baseline limitation:** unchanged harmful behaviour in V1 and V2 may not appear as drift; V1 is not assumed safe.
-8. **Pairwise limitation:** skipped versions, bad ordering, repackaging, or identity errors can distort the delta.
-9. **Network-count inflation:** bundles, repeated literals, source maps, fixtures, and dead code can increase static counts.
-10. **Obfuscation ambiguity:** minification and generated production bundles can resemble concealment.
-11. **Source/sink limitation:** same-file co-occurrence does not establish data flow, reachability, or exfiltration.
-12. **Structural ambiguity:** formatting, refactoring, dependency churn, and build regeneration can dominate file/function changes.
-13. **Analyzer limitations:** unsupported syntax, parser approximations, or partial analyzer failure can reduce evidence.
-14. **Tiny held-out sets:** Phase 3E and 3F tests contain only one positive each, and it is the same preserved transition.
-15. **Incomplete human validation:** reviewer outcomes and report-usability evidence are pending.
-16. **Incomplete external validation:** the protected holdout has not been formally evaluated and must remain untouched by development.
-17. **Cross-artifact consistency:** at least one content-script-change field differs between frozen feature and review-packet representations and requires future audit.
+The verified research environment recorded in `ENVIRONMENT_SNAPSHOT.md` uses Python 3.14.0 on Windows 11. Exact installed packages are preserved in `requirements-research-lock.txt`, while `requirements.txt` and `pyproject.toml` retain broader supported-version policy. The repository provides a PowerShell setup and verification runbook in `REPRODUCIBILITY.md`.
 
-## 21. Future Work
+Research claims identify versioned artifacts rather than requiring frozen phases to be regenerated. Phase 3E–3H.5 generators can overwrite or refresh outputs and therefore must not be rerun merely for verification. Existing JSON, CSV, and Markdown artifacts can instead be parsed and hashed read-only. Raw incoming archives are excluded from Git, so a clean clone supports code and artifact inspection but not necessarily exact archive reacquisition. `PAPER_EVIDENCE_MAP.md` maps major empirical claims to paths and hashes.
+
+The operational application, analyzers, deterministic scoring, datasets, ML experiments, human evidence, promotion decisions, and Gold Set membership were not modified during paper integration. The full repository test command is `python -m pytest -q`; Phase 6 verification results are recorded in the development history rather than substituted for earlier environment snapshots.
+
+## 22. Ethical and Governance Considerations
+
+DriftWatch analyzes supplied packages statically and does not execute extension JavaScript. Reports describe observable security-sensitive drift and review priority, not developer intent or criminality. Neither a high score, a `RISKY_TRANSITION` human label, nor Gold Set membership establishes malware. Public reporting should avoid attributing harmful behavior without independent evidence and should preserve distinctions among static indicators, reviewer judgments, and verified runtime conduct.
+
+Blind review concealed provisional labels and predictive outputs. Raw human submissions were preserved immutably, while public-safe aggregate artifacts omit private rationale text. Disagreements were not erased: `UNCERTAIN` remained an available outcome, and adjudication preserved the original review trail. The external holdout remains isolated from training, tuning, rule development, threshold selection, and Gold Set construction. These controls improve auditability but do not eliminate reviewer bias, source-selection bias, or uncertainty.
+
+## 23. Limitations
+
+| Limitation | Consequence for interpretation |
+|---|---|
+| Small, imbalanced corpus | The 76 transitions from 21 extensions, with 3 frozen risky labels, cannot support broad or population-level estimates. |
+| Predominantly provisional frozen labels | Seventy-four source rows remain `SINGLE_REVIEWER_PROVISIONAL`; later derived human quality metadata does not rewrite them. |
+| Small human-review sample | Agreement and kappa describe only 14 scoped cases; disagreement demonstrates residual judgment uncertainty. |
+| Very small, single-class Gold Set | Four risky records support qualitative audit, not classifier metrics, prevalence, or generalization. |
+| Open-source source bias | Public GitHub release assets do not represent browser-store prevalence or all extension ecosystems. |
+| No confirmed malicious ground truth | Neither human adjudication nor Gold Set membership proves maliciousness or objective truth. |
+| Static observability | Runtime activation, remote configuration, dynamic loading, indirect flows, WebAssembly semantics, and server behavior may be missed. |
+| Historical and pairwise baselines | V1 is not assumed safe; skipped releases, bad ordering, repackaging, or identity errors can distort a delta. |
+| Ambiguous static signals | Bundles, minification, generated assets, dependencies, repeated literals, and ordinary feature growth can appear security-relevant. |
+| Source/sink approximation | Same-file co-occurrence does not establish data flow, reachability, sanitization, runtime transfer, or exfiltration. |
+| Analyzer and artifact limitations | Unsupported syntax or partial failures can reduce evidence; one Browserpass content-script field remains inconsistent across frozen artifacts. |
+| Tiny experimental test sets | Phase 3E and 3F each contain only one held-out positive, the same preserved transition; displayed rates are not stable estimates. |
+| Incomplete external validation | The protected holdout has not been formally evaluated and remains excluded from development and Gold Set construction. |
+
+These boundaries prevent claims of malware-detection accuracy, sensitivity, specificity, population false-positive or false-negative rates, representative prevalence, external validation, production safety, objective ground truth, or generalization to all browser extensions.
+
+## 24. Future Work
 
 - Expand the corpus across more extensions, ecosystems, source families, and time periods.
 - Acquire more independently verified risky transitions and, where lawful and safe, confirmed malicious update pairs.
-- Complete genuine blinded review with additional independent reviewers and governed adjudication.
+- Replicate blind review with larger, more diverse case sets and additional independent reviewers.
 - Preserve the current holdout until a methodologically ready external-validation phase.
 - Evaluate reviewer efficiency, explanation usefulness, and decision consistency.
 - Study calibrated ML only after label quality, class support, and sample size improve.
@@ -396,15 +452,15 @@ A practical update-review process can combine provenance, differential static ev
 
 These are research directions, not completed features.
 
-## 22. Conclusion
+## 25. Conclusion
 
-DriftWatch demonstrates a functional approach to explainable differential security analysis of browser-extension updates. It securely compares two supplied versions, represents heterogeneous security-sensitive drift, applies transparent deterministic prioritization, and presents evidence for manual review. DriftBench adds provenance, leakage controls, label-quality tracking, eligibility policy, exploratory evaluation, a protected holdout, and a blind human-review protocol.
+DriftWatch demonstrates a functional approach to explainable differential security analysis of browser-extension updates. It securely compares two supplied versions, represents heterogeneous security-sensitive drift, applies transparent deterministic prioritization, and presents evidence for manual review. DriftBench adds provenance, leakage controls, label-quality tracking, eligibility policy, exploratory evaluation, a protected holdout, independent blind human validation, governed adjudication, and explicit uncertainty handling.
 
-Current evidence is preliminary. The deterministic system surfaced the only held-out provisionally review-worthy transition but at high false-alert cost, while exploratory models did not show deployable value. The corpus remains small, imbalanced, open-source biased, and provisionally labeled. Independent human validation is ongoing, and external validation is incomplete. DriftWatch therefore provides an implemented foundation for version-aware security-review prioritization rather than a validated malicious-extension detector.
+The two reviewers agreed on 9 of 14 scoped cases, while five disagreements required adjudication. A separate four-record `MULTI_REVIEWER_ADJUDICATED` Gold Set preserves the strongest resulting provenance without rewriting frozen dataset history or authorizing training and tuning. These governance contributions make uncertainty and evidence lineage explicit, but they do not establish objective ground truth or malware-detection accuracy. The corpus remains small, imbalanced, open-source biased, and predominantly provisionally labeled; the Gold Set is very small and single-class; and external validation is incomplete. DriftWatch is therefore an implemented and reproducibly governed foundation for version-aware security-review prioritization, not a system that certifies malware or safety.
 
-## 23. References
+## 26. References
 
-No unverified external citation has been inserted. Replace the following placeholders with verified bibliographic entries after executing `LITERATURE_REVIEW_PLAN.md`:
+No unverified external citation has been inserted. `LITERATURE_CITATION_GAPS.md` classifies the remaining source requirements and separates them from project-internal artifact claims. Replace the following placeholders with verified bibliographic entries only after executing `LITERATURE_REVIEW_PLAN.md`:
 
 1. [CITATION REQUIRED: foundational browser-extension security and threat-model studies]
 2. [CITATION REQUIRED: browser-extension static, dynamic, or hybrid analysis]
@@ -427,10 +483,16 @@ No unverified external citation has been inserted. Replace the following placeho
 - `DATA_GOVERNANCE.md`
 - `CASE_STUDIES.md`
 - `FAILURE_ANALYSIS.md`
+- `HUMAN_REVIEW_GOLD_SET_POLICY.md`
+- `PAPER_EVIDENCE_MAP.md`
 - `artifacts/driftbench/phase3h/`
 - `artifacts/driftbench/phase3h5/`
 - `artifacts/experiments/phase3e/`
 - `artifacts/experiments/phase3f/`
+- `artifacts/human_review/agreement/reviewer01_vs_reviewer02/`
+- `artifacts/human_review/adjudication/final/`
+- `artifacts/human_review/quality_promotion/driftwatch-human-review-quality-promotion-v1/`
+- `artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/`
 
 ---
 
@@ -441,7 +503,7 @@ This matrix is internal project metadata and must not appear in a submitted manu
 | Paper section | Status | Blocking work |
 |---|---|---|
 | 1. Title | READY | Reconfirm after venue and literature positioning are selected |
-| 2. Abstract | PARTIAL | Update after genuine human review and final paper results freeze |
+| 2. Abstract | READY FOR LITERATURE FINALIZATION | Recheck length and terminology against venue requirements |
 | 3. Introduction | PARTIAL | Add verified literature citations and refine venue framing |
 | 4. Motivation | WAITING FOR LITERATURE | Support claims about update review and snapshot limitations |
 | 5. Research Questions | READY | Preserve consistency with `RESEARCH.md` |
@@ -454,13 +516,16 @@ This matrix is internal project metadata and must not appear in a submitted manu
 | 12. Dataset Construction | PARTIAL | Update only if a separately governed dataset release is approved |
 | 13. Data Governance and External Holdout | READY | Preserve holdout restrictions |
 | 14. Experimental ML Evaluation | READY | Frozen preliminary results; no selective rewriting |
-| 15. Independent Human Review Methodology | WAITING FOR HUMAN REVIEW | Incorporate only validated genuine submissions |
-| 16. Case Studies | WAITING FOR HUMAN REVIEW | Add reviewer outcomes without exposing blind-review material prematurely |
-| 17. Failure Analysis | PARTIAL | Reassess apparent errors after genuine label review |
-| 18. Results | WAITING FOR HUMAN REVIEW | Human-validation subsection is pending |
-| 19. Discussion | PARTIAL | Revisit after literature and genuine review |
-| 20. Limitations | READY | Maintain claims discipline during shortening |
-| 21. Future Work | PARTIAL | Align with final discussion and venue scope |
-| 22. Conclusion | WAITING FOR HUMAN REVIEW | Finalize only after results are complete |
-| 23. References | WAITING FOR LITERATURE | Replace every citation placeholder with verified sources |
+| 15. Independent Human Review and Adjudication | READY | Preserve descriptive, non-accuracy interpretation |
+| 16. Governed Gold Set | READY | Preserve single-class and no-training/tuning boundaries |
+| 17. Case Studies | READY | Preserve the Browserpass artifact discrepancy |
+| 18. Failure Analysis | READY | Do not fabricate failure rates |
+| 19. Results | READY FOR LITERATURE FINALIZATION | Preserve frozen metrics and human-validation boundaries |
+| 20. Discussion | PARTIAL | Revisit after literature synthesis |
+| 21. Reproducibility | READY | Update final commit and archival identifier at release |
+| 22. Ethical and Governance Considerations | READY | Preserve privacy and non-malware claims boundaries |
+| 23. Limitations | READY | Maintain claims discipline during shortening |
+| 24. Future Work | PARTIAL | Align with final discussion and venue scope |
+| 25. Conclusion | READY FOR LITERATURE FINALIZATION | Recheck against final cited positioning |
+| 26. References | WAITING FOR LITERATURE | Replace every citation placeholder with verified sources |
 | Repository/release metadata | WAITING FOR FINAL RELEASE | Freeze commit, artifact identifiers, availability statement, and archival link |

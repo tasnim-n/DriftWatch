@@ -383,3 +383,25 @@ Known limitations:
 - Benign transitions dominate.
 - No confirmed malicious-transition ground truth exists.
 - Phase 3I external holdout replication is not methodologically ready.
+
+---
+
+## 13. Post-Phase 3H.5 Human-Validation Addendum
+
+Section 12 records the frozen Phase 3H.5 state at the time that workflow was produced. A later, separately governed human-validation process has now completed for the scoped 14-case blind package:
+
+- two independent human reviewers completed identical case sets with zero external-holdout overlap;
+- 9 cases had exact label agreement and 5 disagreed;
+- exact agreement was 64.29%, and unweighted nominal Cohen's kappa was 0.3396226415;
+- all 5 disagreements completed two-stage adjudication, retaining the Stage A label at Stage B;
+- final disagreement outcomes were 4 `RISKY_TRANSITION`, 1 `UNCERTAIN`, and 0 `BENIGN_TRANSITION`; and
+- 4 definitive risky records received explicit derived `MULTI_REVIEWER_ADJUDICATED` quality and form `driftwatch-human-gold-set-v1`.
+
+This addendum does not replace or rewrite the frozen dataset labels. The Phase 3H corpus remains 76 transitions from 21 extensions, with 71 benign, 3 risky, and 2 uncertain frozen labels. Phase 3H.5 eligibility remains 64 eligible and 12 ineligible, including the protected 10-record external holdout. The derived Gold Set has zero holdout overlap, contains only four risky records, and is prohibited from training and tuning use. It is suitable for provenance-rich qualitative validation and audit, not classifier-performance estimation, prevalence claims, or malware ground truth.
+
+Public-safe evidence:
+
+- `artifacts/human_review/agreement/reviewer01_vs_reviewer02/agreement_summary.json`
+- `artifacts/human_review/adjudication/final/human_validation_summary.json`
+- `artifacts/human_review/quality_promotion/driftwatch-human-review-quality-promotion-v1/human_validation_governance_summary.json`
+- `artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/gold_set_manifest.json`

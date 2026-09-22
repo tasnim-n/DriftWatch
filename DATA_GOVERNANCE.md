@@ -157,3 +157,25 @@ The workflow records AI-assisted packet organization, but AI output is not treat
 External holdout rows remain isolated from model training, threshold tuning, rule tuning, and feature redesign. Neutral evidence packets may be prepared for holdout label review, but predictions must not be used to decide holdout labels.
 
 Phase 3H.5 decision: `MORE INDEPENDENT REVIEW REQUIRED`.
+
+## Post-Phase 3H.5 Human-Validation Governance
+
+The preceding Phase 3H and Phase 3H.5 sections are historical snapshots of those frozen phases. Subsequent work completed a separate scoped human-validation workflow without rewriting their artifacts or labels:
+
+- two independent human reviewers completed the same 14-case blind package;
+- exact agreement was 9/14 (64.29%), with unweighted nominal Cohen's kappa of 0.3396226415;
+- all five disagreements completed Stage A assessment before prior-opinion exposure and Stage B reconsideration with de-identified prior opinions;
+- all five retained their Stage A label, producing four final `RISKY_TRANSITION` and one `UNCERTAIN` outcome;
+- four definitive cases received an explicit derived `MULTI_REVIEWER_ADJUDICATED` promotion; and
+- those four records form `driftwatch-human-gold-set-v1`, with zero external-holdout overlap.
+
+This later metadata is derived and separately versioned. The frozen Phase 3H label distribution remains 71 benign, 3 risky, and 2 uncertain; Phase 3H.5 eligibility remains 64 eligible and 12 ineligible. Agreement-only records were not silently promoted, and the adjudicated uncertain record remained uncertain. Gold Set policy prohibits training, fine-tuning, threshold or weight selection, rule development, feature or model selection, and hyperparameter tuning. The protected 10-record external holdout remains excluded from all of those activities and from Gold Set construction.
+
+Authoritative public-safe evidence is stored under:
+
+- `artifacts/human_review/agreement/reviewer01_vs_reviewer02/`
+- `artifacts/human_review/adjudication/final/`
+- `artifacts/human_review/quality_promotion/driftwatch-human-review-quality-promotion-v1/`
+- `artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/`
+
+Neither adjudication nor Gold Set membership is objective malware ground truth or evidence of production safety.
