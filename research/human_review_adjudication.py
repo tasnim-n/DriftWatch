@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import zipfile
 from datetime import datetime
 from pathlib import Path, PurePosixPath
@@ -94,6 +95,25 @@ def _field_exists(payload: Mapping[str, Any], dotted_path: str) -> bool:
     return True
 
 
+def _evidence_reference_resolves(
+    packet: Mapping[str, Any], reference: Any
+) -> bool:
+    if not isinstance(reference, str) or not reference.strip():
+        return False
+    if _field_exists(packet, reference.strip()):
+        return True
+    annotated_paths = [
+        match.group(1)
+        for match in re.finditer(
+            r"(?:^|;\s*)([A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)+)\s*=",
+            reference,
+        )
+    ]
+    return bool(annotated_paths) and all(
+        _field_exists(packet, path) for path in annotated_paths
+    )
+
+
 def _collect_keys(value: Any) -> set[str]:
     keys: set[str] = set()
     if isinstance(value, Mapping):
@@ -170,12 +190,21 @@ def _stage_a_submission(record_id: str, adjudicator_id: str) -> dict[str, Any]:
     }
 
 
-def _stage_b_submission(record_id: str, adjudicator_id: str) -> dict[str, Any]:
+def _stage_b_submission(
+    record_id: str,
+    adjudicator_id: str,
+    *,
+    stage_a_submission_sha256: str = "",
+) -> dict[str, Any]:
     return {
         "review_id": derive_adjudication_review_id(adjudicator_id, record_id, STAGE_B),
         "adjudicator_id": adjudicator_id,
         "record_id": record_id,
         "review_round": STAGE_B,
+        "stage_a_review_id": derive_adjudication_review_id(
+            adjudicator_id, record_id, STAGE_A
+        ),
+        "stage_a_submission_sha256": stage_a_submission_sha256,
         "final_adjudicated_label": "",
         "adjudication_confidence": "",
         "adjudication_rationale": "",
@@ -226,6 +255,8 @@ def _stage_b_schema() -> dict[str, Any]:
             "adjudicator_id": {"type": "string", "minLength": 1},
             "record_id": {"type": "string", "minLength": 1},
             "review_round": {"const": STAGE_B},
+            "stage_a_review_id": {"type": "string", "pattern": "^ADV1::"},
+            "stage_a_submission_sha256": {"type": "string", "minLength": 64},
             "final_adjudicated_label": {"enum": sorted(ALLOWED_REVIEW_LABELS)},
             "adjudication_confidence": {"enum": sorted(ALLOWED_CONFIDENCE)},
             "adjudication_rationale": {"type": "string", "minLength": 1},
@@ -346,6 +377,7 @@ def validate_completed_stage_a_submission(
     packet: Mapping[str, Any],
     record_id: str,
     adjudicator_id: str,
+    expected_timestamp_provenance: str | None = None,
 ) -> list[str]:
     errors: list[str] = []
     expected_identity = {
@@ -370,51 +402,90 @@ def validate_completed_stage_a_submission(
     if not isinstance(references, list) or not references:
         errors.append("evidence_references must be nonempty")
     elif any(
-        not isinstance(reference, str)
-        or not reference
-        or not _field_exists(packet, reference)
+        not _evidence_reference_resolves(packet, reference)
         for reference in references
     ):
         errors.append("every evidence reference must resolve to a packet field")
     if not _valid_iso_timestamp(submission.get("review_timestamp")):
         errors.append("review_timestamp must be valid ISO-8601")
+    if (
+        expected_timestamp_provenance is not None
+        and submission.get("review_timestamp_provenance")
+        != expected_timestamp_provenance
+    ):
+        errors.append(
+            "review_timestamp_provenance must equal "
+            f"{expected_timestamp_provenance!r}"
+        )
     return errors
 
 
-def evaluate_stage_b_release_gate(workspace: str | Path) -> dict[str, Any]:
+def evaluate_stage_b_release_gate(
+    workspace: str | Path,
+    *,
+    submission_records: Mapping[str, Mapping[str, Any]] | None = None,
+    source_submission_hashes: Mapping[str, str] | None = None,
+    expected_timestamp_provenance: str | None = None,
+) -> dict[str, Any]:
     workspace = Path(workspace)
     packet_manifest = _read_json(workspace / "metadata" / "stage_a_packet_manifest.json")
     adjudicator_id = packet_manifest["adjudicator_id"]
     records = packet_manifest["records"]
     errors: list[str] = []
     submission_hashes: dict[str, str] = {}
+    valid_submission_count = 0
     for source in records:
         record_id = source["record_id"]
         packet_path = workspace / "STAGE_A" / "packets" / f"{record_id}.json"
         submission_path = workspace / "STAGE_A" / "submissions" / f"{record_id}.json"
+        record_errors: list[str] = []
         if not packet_path.is_file():
-            errors.append(f"{record_id}: Stage A packet is missing")
+            record_errors.append("Stage A packet is missing")
+            errors.extend(f"{record_id}: {error}" for error in record_errors)
             continue
         if sha256_file(packet_path) != source["sha256"]:
-            errors.append(f"{record_id}: Stage A packet hash changed")
-        if not submission_path.is_file():
-            errors.append(f"{record_id}: Stage A submission is missing")
-            continue
+            record_errors.append("Stage A packet hash changed")
         packet = _read_json(packet_path)
-        submission = _read_json(submission_path)
-        errors.extend(
-            f"{record_id}: {error}"
-            for error in validate_completed_stage_a_submission(
-                submission, packet, record_id, adjudicator_id
+        if submission_records is None:
+            if not submission_path.is_file():
+                record_errors.append("Stage A submission is missing")
+                errors.extend(f"{record_id}: {error}" for error in record_errors)
+                continue
+            submission = _read_json(submission_path)
+            submission_hash = sha256_file(submission_path)
+        else:
+            submission = submission_records.get(record_id)
+            if submission is None:
+                record_errors.append("Stage A submission is missing")
+                errors.extend(f"{record_id}: {error}" for error in record_errors)
+                continue
+            submission_hash = (source_submission_hashes or {}).get(record_id, "")
+            if not submission_hash:
+                record_errors.append("Stage A source submission hash is missing")
+        record_errors.extend(
+            validate_completed_stage_a_submission(
+                submission,
+                packet,
+                record_id,
+                adjudicator_id,
+                expected_timestamp_provenance=expected_timestamp_provenance,
             )
         )
-        submission_hashes[record_id] = sha256_file(submission_path)
+        errors.extend(f"{record_id}: {error}" for error in record_errors)
+        if not record_errors:
+            valid_submission_count += 1
+            submission_hashes[record_id] = submission_hash
 
     expected_ids = {row["record_id"] for row in records}
     actual_packet_ids = {path.stem for path in (workspace / "STAGE_A" / "packets").glob("*.json")}
-    actual_submission_ids = {
-        path.stem for path in (workspace / "STAGE_A" / "submissions").glob("*.json")
-    }
+    actual_submission_ids = (
+        {
+            path.stem
+            for path in (workspace / "STAGE_A" / "submissions").glob("*.json")
+        }
+        if submission_records is None
+        else set(submission_records)
+    )
     if actual_packet_ids != expected_ids:
         errors.append("Stage A packet IDs differ from the governed manifest")
     if actual_submission_ids != expected_ids:
@@ -424,11 +495,8 @@ def evaluate_stage_b_release_gate(workspace: str | Path) -> dict[str, Any]:
         "schema_version": ADJUDICATION_SCHEMA_VERSION,
         "status": "RELEASABLE" if releasable else "LOCKED",
         "required_submission_count": 5,
-        "valid_submission_count": 5 if releasable else sum(
-            1
-            for source in records
-            if not any(error.startswith(f"{source['record_id']}:") for error in errors)
-        ),
+        "valid_submission_count": valid_submission_count,
+        "invalid_submission_count": 5 - valid_submission_count,
         "all_packet_ids_match": actual_packet_ids == expected_ids,
         "all_submission_ids_match": actual_submission_ids == expected_ids,
         "stage_a_source_hashes_preserved": not any(
