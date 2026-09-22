@@ -1,0 +1,66 @@
+{
+  "schema_version": "driftwatch-derived-quality-promotion-v1",
+  "decision_id": "QPD1::9960F35391767A36F3C30BE1E2C3AC42CFF86E0B7CCED44D0BA4752944C15775",
+  "assessment_mode": "READ_ONLY_NO_GOLD_SET_CONSTRUCTION",
+  "considered_record_count": 5,
+  "ready_candidate_count": 4,
+  "non_ready_count": 1,
+  "external_holdout_overlap_count": 0,
+  "records": [
+    {
+      "record_id": "automaapp_automa_1_29_11_to_1_29_12",
+      "promoted_quality_tier": "MULTI_REVIEWER_ADJUDICATED",
+      "semantic_label_qualifies": true,
+      "quality_tier_qualifies": true,
+      "provenance_complete": true,
+      "external_holdout_overlap": false,
+      "gold_set_ready_candidate": true,
+      "non_ready_reasons": []
+    },
+    {
+      "record_id": "bitwarden_clients_browser_v2026_6_1_to_browser_v2026_7_0",
+      "promoted_quality_tier": "MULTI_REVIEWER_ADJUDICATED",
+      "semantic_label_qualifies": true,
+      "quality_tier_qualifies": true,
+      "provenance_complete": true,
+      "external_holdout_overlap": false,
+      "gold_set_ready_candidate": true,
+      "non_ready_reasons": []
+    },
+    {
+      "record_id": "browserpass_browserpass_extension_3_10_2_to_3_11_0",
+      "promoted_quality_tier": "MULTI_REVIEWER_ADJUDICATED",
+      "semantic_label_qualifies": true,
+      "quality_tier_qualifies": true,
+      "provenance_complete": true,
+      "external_holdout_overlap": false,
+      "gold_set_ready_candidate": true,
+      "non_ready_reasons": []
+    },
+    {
+      "record_id": "duckduckgo_privacy_2026_1_12_to_2026_4_28",
+      "promoted_quality_tier": "MULTI_REVIEWER_ADJUDICATED",
+      "semantic_label_qualifies": true,
+      "quality_tier_qualifies": true,
+      "provenance_complete": true,
+      "external_holdout_overlap": false,
+      "gold_set_ready_candidate": true,
+      "non_ready_reasons": []
+    },
+    {
+      "record_id": "save_tabbed_images_0_4_0_to_0_4_1",
+      "promoted_quality_tier": null,
+      "semantic_label_qualifies": false,
+      "quality_tier_qualifies": false,
+      "provenance_complete": true,
+      "external_holdout_overlap": false,
+      "gold_set_ready_candidate": false,
+      "non_ready_reasons": [
+        "NOT_APPROVED_FOR_DEFINITIVE_QUALITY_PROMOTION",
+        "UNCERTAIN_SEMANTIC_LABEL_EXCLUDED"
+      ]
+    }
+  ],
+  "gold_set_created": false,
+  "required_next_action": "Separate Phase 5H authorization and construction."
+}

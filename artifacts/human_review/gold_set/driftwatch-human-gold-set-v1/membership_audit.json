@@ -1,0 +1,91 @@
+{
+  "schema_version": "driftwatch-governed-human-gold-set-v1",
+  "gold_set_id": "GOLD1::367B78340517770D9DB1E5DABE1DCA63399829A5FA5B64756C820F7696EEA0B8",
+  "promoted_candidates_considered": 4,
+  "included_count": 4,
+  "candidate_excluded_count": 0,
+  "included_record_ids": [
+    "automaapp_automa_1_29_11_to_1_29_12",
+    "bitwarden_clients_browser_v2026_6_1_to_browser_v2026_7_0",
+    "browserpass_browserpass_extension_3_10_2_to_3_11_0",
+    "duckduckgo_privacy_2026_1_12_to_2026_4_28"
+  ],
+  "candidate_exclusions": [],
+  "non_candidate_exclusion_count": 10,
+  "non_candidate_exclusions": [
+    {
+      "record_id": "darkreader_darkreader_4_9_125_to_4_9_126",
+      "category": "AGREEMENT_ONLY_NOT_CANONICALLY_PROMOTED",
+      "reasons": [
+        "NO_QUALIFYING_CANONICAL_QUALITY_TIER_PROMOTION"
+      ]
+    },
+    {
+      "record_id": "keepassxc_browser_1_10_1_to_1_10_2",
+      "category": "AGREEMENT_ONLY_NOT_CANONICALLY_PROMOTED",
+      "reasons": [
+        "NO_QUALIFYING_CANONICAL_QUALITY_TIER_PROMOTION"
+      ]
+    },
+    {
+      "record_id": "openstyles_stylus_2_4_6_to_2_4_7",
+      "category": "AGREEMENT_ONLY_NOT_CANONICALLY_PROMOTED",
+      "reasons": [
+        "NO_QUALIFYING_CANONICAL_QUALITY_TIER_PROMOTION"
+      ]
+    },
+    {
+      "record_id": "refined_github_26_6_7_to_26_7",
+      "category": "AGREEMENT_ONLY_NOT_CANONICALLY_PROMOTED",
+      "reasons": [
+        "NO_QUALIFYING_CANONICAL_QUALITY_TIER_PROMOTION"
+      ]
+    },
+    {
+      "record_id": "save-sora_2_0_196_to_2_0_355",
+      "category": "AGREEMENT_ONLY_NOT_CANONICALLY_PROMOTED",
+      "reasons": [
+        "NO_QUALIFYING_CANONICAL_QUALITY_TIER_PROMOTION"
+      ]
+    },
+    {
+      "record_id": "save_tabbed_images_0_4_0_to_0_4_1",
+      "category": "ADJUDICATED_NON_CANDIDATE",
+      "reasons": [
+        "NOT_APPROVED_FOR_DEFINITIVE_QUALITY_PROMOTION",
+        "UNCERTAIN_SEMANTIC_LABEL_EXCLUDED"
+      ]
+    },
+    {
+      "record_id": "subtidex_1_5_0_to_1_5_1",
+      "category": "AGREEMENT_ONLY_NOT_CANONICALLY_PROMOTED",
+      "reasons": [
+        "NO_QUALIFYING_CANONICAL_QUALITY_TIER_PROMOTION"
+      ]
+    },
+    {
+      "record_id": "ublock_origin_1_72_2_to_1_73_0",
+      "category": "AGREEMENT_ONLY_NOT_CANONICALLY_PROMOTED",
+      "reasons": [
+        "NO_QUALIFYING_CANONICAL_QUALITY_TIER_PROMOTION"
+      ]
+    },
+    {
+      "record_id": "violentmonkey_2_45_0_to_2_46_0",
+      "category": "AGREEMENT_ONLY_NOT_CANONICALLY_PROMOTED",
+      "reasons": [
+        "NO_QUALIFYING_CANONICAL_QUALITY_TIER_PROMOTION"
+      ]
+    },
+    {
+      "record_id": "web_scrobbler_web_scrobbler_3_21_0_to_3_22_0",
+      "category": "AGREEMENT_ONLY_NOT_CANONICALLY_PROMOTED",
+      "reasons": [
+        "NO_QUALIFYING_CANONICAL_QUALITY_TIER_PROMOTION"
+      ]
+    }
+  ],
+  "uncertain_included": false,
+  "agreement_only_included_count": 0,
+  "external_holdout_overlap_count": 0
+}

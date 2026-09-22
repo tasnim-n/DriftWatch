@@ -1,0 +1,23 @@
+{
+  "schema_version": "driftwatch-governed-human-gold-set-v1",
+  "gold_set_version": "driftwatch-human-gold-set-v1",
+  "gold_set_id": "GOLD1::367B78340517770D9DB1E5DABE1DCA63399829A5FA5B64756C820F7696EEA0B8",
+  "status": "VALIDATED_AND_CREATED",
+  "canonical_policy_revalidated": true,
+  "promotion_linkage_valid": true,
+  "candidate_count": 4,
+  "included_count": 4,
+  "candidate_excluded_count": 0,
+  "uncertain_excluded": true,
+  "agreed_nine_excluded": true,
+  "external_holdout_overlap_count": 0,
+  "provenance_complete": true,
+  "duplicate_record_count": 0,
+  "private_human_text_included": false,
+  "frozen_dataset_modified": false,
+  "phase5g_promotion_modified": false,
+  "training_or_tuning_authorized": false,
+  "gold_set_manifest_file_sha256": "F83FF5276E26724200123FE0E64160C4397F71F289EC40E680D74086F46A9F60",
+  "creation_timestamp": "2026-09-22T15:52:57.240385Z",
+  "generation_git_commit": "8b83e2df6f84c070615b7bf81a2dfe3a0f427ac9"
+}

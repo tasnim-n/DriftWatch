@@ -1,0 +1,29 @@
+{
+  "schema_version": "driftwatch-governed-human-gold-set-v1",
+  "gold_set_version": "driftwatch-human-gold-set-v1",
+  "gold_set_size": 4,
+  "membership_basis": "Independent dual review, governed two-stage adjudication, explicit derived MULTI_REVIEWER_ADJUDICATED promotion, and canonical Phase 3H.5 qualification.",
+  "label_distribution": {
+    "RISKY_TRANSITION": 4
+  },
+  "governance_workflow": "Two independent reviewers, disagreement analysis, two-stage adjudication, explicit quality-tier promotion, and separate canonical Gold Set inclusion audit.",
+  "supportable_claims": [
+    "DriftWatch constructed a governed four-case Gold Set from browser-extension version transitions that completed independent review, two-stage adjudication, and explicit quality-tier promotion.",
+    "All four Gold Set records are adjudicated risky transitions with MULTI_REVIEWER_ADJUDICATED quality and zero external-holdout overlap."
+  ],
+  "unsupported_claims": [
+    "malware ground truth",
+    "model or malware-detection accuracy",
+    "sensitivity or specificity",
+    "external validation",
+    "representative prevalence or population-level performance",
+    "safety certification"
+  ],
+  "limitations": [
+    "The Gold Set contains only four scoped cases.",
+    "All current labels are risky_transition, so the set cannot estimate class-balanced performance.",
+    "The distribution is not representative of the browser-extension population.",
+    "Gold Set membership is not malware ground truth or training authorization."
+  ],
+  "paper_modified": false
+}

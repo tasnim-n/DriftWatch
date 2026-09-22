@@ -1,0 +1,14 @@
+{
+  "schema_version": "driftwatch-derived-quality-promotion-v1",
+  "decision_id": "QPD1::9960F35391767A36F3C30BE1E2C3AC42CFF86E0B7CCED44D0BA4752944C15775",
+  "governed_quality_promotions": 4,
+  "promoted_final_label_distribution": {
+    "risky_transition": 4
+  },
+  "adjudicated_uncertain_not_promoted": 1,
+  "agreed_nine_promoted": 0,
+  "external_holdout_overlap": 0,
+  "frozen_dataset_modified": false,
+  "gold_set_created": false,
+  "interpretation": "The four promoted RISKY_TRANSITION records warrant elevated manual security-review attention; promotion does not establish maliciousness."
+}

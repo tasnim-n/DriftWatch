@@ -1,0 +1,26 @@
+{
+  "schema_version": "driftwatch-governed-human-gold-set-v1",
+  "gold_set_version": "driftwatch-human-gold-set-v1",
+  "policy_version": "driftwatch-human-gold-set-v1",
+  "allowed": [
+    "RESEARCH_REPORTING",
+    "QUALITATIVE_CASE_ANALYSIS",
+    "FUTURE_EVALUATION_UNDER_SEPARATELY_APPROVED_PROTOCOL",
+    "REPRODUCIBILITY_AND_AUDIT"
+  ],
+  "prohibited_without_separate_governed_authorization": [
+    "TRAINING",
+    "FINE_TUNING",
+    "THRESHOLD_SELECTION",
+    "RULE_DEVELOPMENT",
+    "SCORING_WEIGHT_TUNING",
+    "FEATURE_SELECTION",
+    "MODEL_SELECTION",
+    "HYPERPARAMETER_TUNING",
+    "EXTERNAL_HOLDOUT_CONTAMINATION"
+  ],
+  "training_authorized": false,
+  "tuning_authorized": false,
+  "external_holdout_use_authorized": false,
+  "restriction": "Separate governed authorization is required for any use not explicitly allowed."
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "driftwatch-derived-quality-promotion-v1",
+  "decision_id": "QPD1::9960F35391767A36F3C30BE1E2C3AC42CFF86E0B7CCED44D0BA4752944C15775",
+  "status": "VALIDATED_AND_RECORDED",
+  "canonical_tier_verified": true,
+  "considered_record_count": 5,
+  "eligible_record_count": 4,
+  "approved_record_count": 4,
+  "not_qualifying_record_count": 1,
+  "uncertain_preserved": true,
+  "agreed_nine_promoted_count": 0,
+  "external_holdout_overlap_count": 0,
+  "source_provenance_complete": true,
+  "frozen_dataset_modified": false,
+  "gold_set_created": false,
+  "tuning_or_scoring_changed": false
+}
