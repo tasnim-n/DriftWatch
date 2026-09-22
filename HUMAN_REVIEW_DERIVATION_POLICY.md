@@ -48,11 +48,17 @@ During governed integration, the derived layer records:
 
 The original submission object is preserved as submitted. The derived identifier is wrapper metadata, not a correction inserted into the raw human evidence.
 
-## Prospective Reviewer 02 policy
+## Reviewer 02 package and authoritative-return policy
 
 Reviewer 02 submission files receive preassigned IDs using the same format and `human_reviewer_02`. These IDs appear in the new package before review and must not be changed by the reviewer.
 
 The generic Reviewer 02 template includes the `review_id` field, while each case-specific submission contains its fully resolved unique value.
+
+The authoritative first completed Reviewer 02 return contains blank `review_id` values. The immutable raw return is not corrected. The governed integration layer derives the expected `HRV1` identifier from `reviewer_id`, `record_id`, and `review_round`, preserves the blank submitted value inside `original_submission`, and records the derived value only as wrapper metadata.
+
+Reviewer 02 confirmed that the timestamps in the authoritative first return were placeholders. The raw values remain preserved, while the derived layer marks them `PLACEHOLDER_CONFIRMED`. They must not be used to establish review identity, ordering, independence, elapsed time, or agreement validity.
+
+The first completed Reviewer 02 return is the only authoritative Reviewer 02 input for agreement. Later redo or corrected attempts are provenance/history only and must be excluded from agreement, adjudication, Gold Set qualification, paper results, and label promotion.
 
 ## Validation requirements
 

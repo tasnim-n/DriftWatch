@@ -16,6 +16,7 @@ from research.phase3h5 import ALLOWED_CONFIDENCE, ALLOWED_REVIEW_LABELS, reviewe
 
 
 RAW_REVIEWER01_SHA256 = "E4843AE0A1241D4E69A70E2C16063DA447EB97BA82CFF2AAF92CF258D4668A5C"
+RAW_REVIEWER02_SHA256 = "E9E19CDF330C5F41B794823FF9A5C02300F03A7EEEBE5139820521ACC5A57CDA"
 LABEL_MAPPING_VERSION = "driftwatch-human-review-label-mapping-v1"
 REVIEW_ID_POLICY_VERSION = "driftwatch-human-review-id-v1"
 DERIVED_REVIEW_SCHEMA_VERSION = "driftwatch-validated-human-review-v1"
@@ -34,6 +35,7 @@ HUMAN_TO_DATASET_LABEL = {
 REVIEWER01_ID = "human_reviewer_01"
 REVIEWER02_ID = "human_reviewer_02"
 INITIAL_BLIND = "INITIAL_BLIND"
+PLACEHOLDER_CONFIRMED = "PLACEHOLDER_CONFIRMED"
 
 FORBIDDEN_PACKET_KEYS = {
     "current_dataset_label",
@@ -317,6 +319,125 @@ def load_and_validate_reviewer01_archive(
     }
 
 
+def load_and_validate_reviewer02_archive(
+    raw_zip_path: str | Path,
+    *,
+    packet_root: str | Path,
+    expected_sha256: str = RAW_REVIEWER02_SHA256,
+) -> dict[str, Any]:
+    """Validate the authoritative Reviewer 02 return without altering it.
+
+    The authoritative first return contains only completed submissions. Evidence
+    references are therefore resolved against the immutable packet workspace
+    from which the Reviewer 02 package was built.
+    """
+
+    raw_zip_path = Path(raw_zip_path)
+    packet_root = Path(packet_root)
+    source_sha256 = verify_file_sha256(raw_zip_path, expected_sha256)
+    submission_entries: dict[str, dict[str, Any]] = {}
+
+    with zipfile.ZipFile(raw_zip_path, "r") as archive:
+        for info in archive.infolist():
+            if _entry_kind(info.filename) != "submissions" or info.is_dir():
+                continue
+            raw = archive.read(info)
+            payload = _json_from_bytes(raw, info.filename)
+            record_id = payload.get("record_id")
+            if not isinstance(record_id, str) or not record_id:
+                raise HumanReviewIntegrationError(f"record_id missing from {info.filename}")
+            filename_record_id = Path(_normalized_entry_name(info.filename)).stem
+            if filename_record_id != record_id:
+                raise HumanReviewIntegrationError(
+                    f"filename/record_id mismatch in {info.filename}: {record_id}"
+                )
+            if record_id in submission_entries:
+                raise HumanReviewIntegrationError(f"duplicate submissions record_id {record_id}")
+            submission_entries[record_id] = {
+                "entry_name": _normalized_entry_name(info.filename),
+                "filename": Path(_normalized_entry_name(info.filename)).name,
+                "sha256": sha256_bytes(raw),
+                "payload": payload,
+            }
+
+    packet_entries: dict[str, dict[str, Any]] = {}
+    for path in sorted(packet_root.glob("*.json")):
+        raw = path.read_bytes()
+        payload = _json_from_bytes(raw, str(path))
+        record_id = payload.get("record_id")
+        if not isinstance(record_id, str) or not record_id:
+            raise HumanReviewIntegrationError(f"record_id missing from {path}")
+        if path.stem != record_id:
+            raise HumanReviewIntegrationError(f"filename/record_id mismatch in {path}: {record_id}")
+        if record_id in packet_entries:
+            raise HumanReviewIntegrationError(f"duplicate packet record_id {record_id}")
+        packet_entries[record_id] = {
+            "entry_name": path.as_posix(),
+            "filename": path.name,
+            "sha256": sha256_bytes(raw),
+            "payload": payload,
+        }
+
+    if len(packet_entries) != 14 or len(submission_entries) != 14:
+        raise HumanReviewIntegrationError(
+            f"expected 14 packets and 14 submissions, got {len(packet_entries)} and {len(submission_entries)}"
+        )
+    if set(packet_entries) != set(submission_entries):
+        raise HumanReviewIntegrationError("packet and submission record IDs do not match")
+
+    canonical_required = set(reviewer_schema()["required_fields"])
+    records: list[dict[str, Any]] = []
+    derived_ids: set[str] = set()
+    for record_id in sorted(submission_entries):
+        packet_entry = packet_entries[record_id]
+        submission_entry = submission_entries[record_id]
+        packet = packet_entry["payload"]
+        submission = submission_entry["payload"]
+        if packet.get("blind_review") is not True:
+            raise HumanReviewIntegrationError(f"packet blind_review is not true for {record_id}")
+        errors = validate_completed_submission(
+            submission,
+            packet,
+            expected_reviewer_id=REVIEWER02_ID,
+            allow_derived_review_id=True,
+        )
+        if errors:
+            raise HumanReviewIntegrationError(f"{record_id}: {'; '.join(errors)}")
+        derived_review_id = derive_review_id(
+            submission["reviewer_id"], submission["record_id"], submission["review_round"]
+        )
+        if derived_review_id in derived_ids:
+            raise HumanReviewIntegrationError(f"duplicate derived review_id {derived_review_id}")
+        derived_ids.add(derived_review_id)
+        missing_fields = set(canonical_required - set(submission))
+        if not submission.get("review_id"):
+            missing_fields.add("review_id")
+        records.append(
+            {
+                "record_id": record_id,
+                "derived_review_id": derived_review_id,
+                "raw_submission_filename": submission_entry["filename"],
+                "raw_submission_entry_name": submission_entry["entry_name"],
+                "raw_submission_sha256": submission_entry["sha256"],
+                "packet_source_name": packet_entry["entry_name"],
+                "packet_source_sha256": packet_entry["sha256"],
+                "missing_canonical_fields": sorted(missing_fields),
+                "submission": submission,
+                "packet": packet,
+            }
+        )
+
+    return {
+        "raw_zip_path": str(raw_zip_path),
+        "raw_source_sha256": source_sha256,
+        "packet_source_path": str(packet_root),
+        "packet_count": len(packet_entries),
+        "submission_count": len(submission_entries),
+        "timestamp_quality": PLACEHOLDER_CONFIRMED,
+        "records": records,
+    }
+
+
 def _write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("x", encoding="utf-8", newline="\n") as handle:
@@ -423,6 +544,122 @@ def write_reviewer01_derived_layer(bundle: Mapping[str, Any], output_root: str |
             "review_id_policy_version": REVIEW_ID_POLICY_VERSION,
             "raw_source_sha256": bundle["raw_source_sha256"],
             "record_count": len(provenance_records),
+            "records": provenance_records,
+        },
+    )
+    return validation_report
+
+
+def write_reviewer02_derived_layer(
+    bundle: Mapping[str, Any], output_root: str | Path
+) -> dict[str, Any]:
+    """Write provenance-preserving wrappers for the authoritative Reviewer 02 return."""
+
+    output = _prepare_new_directory(output_root)
+    validated_dir = output / "validated_submissions"
+    validated_dir.mkdir()
+    source_metadata = {
+        "schema_version": DERIVED_REVIEW_SCHEMA_VERSION,
+        "raw_source_path": bundle["raw_zip_path"],
+        "raw_source_sha256": bundle["raw_source_sha256"],
+        "immutable_source": True,
+        "raw_source_modified": False,
+        "packet_source_path": bundle["packet_source_path"],
+        "packet_count": bundle["packet_count"],
+        "submission_count": bundle["submission_count"],
+        "timestamp_quality": PLACEHOLDER_CONFIRMED,
+    }
+    _write_json(output / "RAW_SOURCE_METADATA.json", source_metadata)
+    _write_json(output / "mapping_version.json", mapping_metadata())
+
+    provenance_records: list[dict[str, Any]] = []
+    missing_field_distribution: Counter[str] = Counter()
+    labels: Counter[str] = Counter()
+    confidence: Counter[str] = Counter()
+    for record in bundle["records"]:
+        submission = record["submission"]
+        for field in record["missing_canonical_fields"]:
+            missing_field_distribution[field] += 1
+        labels[submission["independent_label"]] += 1
+        confidence[submission["confidence"]] += 1
+        wrapper = {
+            "schema_version": DERIVED_REVIEW_SCHEMA_VERSION,
+            "review_id_policy_version": REVIEW_ID_POLICY_VERSION,
+            "mapping_version": LABEL_MAPPING_VERSION,
+            "raw_source_sha256": bundle["raw_source_sha256"],
+            "raw_submission_filename": record["raw_submission_filename"],
+            "raw_submission_sha256": record["raw_submission_sha256"],
+            "derived_review_id": record["derived_review_id"],
+            "timestamp_quality": PLACEHOLDER_CONFIRMED,
+            "original_submission": submission,
+        }
+        _write_json(validated_dir / record["raw_submission_filename"], wrapper)
+        provenance_records.append(
+            {
+                "derived_review_id": record["derived_review_id"],
+                "reviewer_id": submission["reviewer_id"],
+                "record_id": submission["record_id"],
+                "review_round": submission["review_round"],
+                "raw_submission_filename": record["raw_submission_filename"],
+                "raw_submission_entry_name": record["raw_submission_entry_name"],
+                "raw_submission_sha256": record["raw_submission_sha256"],
+                "packet_source_name": record["packet_source_name"],
+                "packet_source_sha256": record["packet_source_sha256"],
+                "raw_source_sha256": bundle["raw_source_sha256"],
+                "timestamp_quality": PLACEHOLDER_CONFIRMED,
+            }
+        )
+
+    validation_report = {
+        "schema_version": DERIVED_REVIEW_SCHEMA_VERSION,
+        "status": "VALIDATED_WITH_DERIVED_IDS_AND_PLACEHOLDER_TIMESTAMPS",
+        "packet_count": bundle["packet_count"],
+        "submission_count": bundle["submission_count"],
+        "validated_submission_count": len(bundle["records"]),
+        "derived_review_id_count": len({row["derived_review_id"] for row in provenance_records}),
+        "reviewer_id_distribution": dict(Counter(row["reviewer_id"] for row in provenance_records)),
+        "label_distribution": dict(sorted(labels.items())),
+        "confidence_distribution": dict(sorted(confidence.items())),
+        "rationale_complete_count": sum(
+            bool(row["submission"]["rationale"].strip()) for row in bundle["records"]
+        ),
+        "evidence_references_complete_count": sum(
+            bool(row["submission"]["evidence_references"]) for row in bundle["records"]
+        ),
+        "evidence_references_resolved_count": len(bundle["records"]),
+        "canonical_missing_field_distribution": dict(sorted(missing_field_distribution.items())),
+        "review_id_discrepancy": (
+            "Reviewer 02 raw submissions contain blank review_id values; derived_review_id is "
+            "wrapper metadata and the raw submissions are unchanged."
+        ),
+        "timestamp_quality": PLACEHOLDER_CONFIRMED,
+        "timestamp_disposition": (
+            "Reviewer 02 confirmed the timestamps were placeholders. They are preserved verbatim "
+            "and are not used for identity, ordering, independence, or agreement analysis."
+        ),
+        "raw_values_modified": False,
+        "project_labels_in_validated_submissions": False,
+    }
+    _write_json(output / "validation_report.json", validation_report)
+    _write_json(
+        output / "provenance_manifest.json",
+        {
+            "schema_version": DERIVED_REVIEW_SCHEMA_VERSION,
+            "review_id_policy_version": REVIEW_ID_POLICY_VERSION,
+            "mapping_version": LABEL_MAPPING_VERSION,
+            "raw_source_sha256": bundle["raw_source_sha256"],
+            "record_count": len(provenance_records),
+            "authoritative_return": "FIRST_COMPLETED_REVIEWER02_RETURN",
+            "independence_confirmation": (
+                "Reviewer 02 confirmed that the first completed package contains genuine initial "
+                "independent judgements based only on supplied blind evidence."
+            ),
+            "timestamp_quality": PLACEHOLDER_CONFIRMED,
+            "later_attempts_disposition": (
+                "Later Reviewer 02 attempts are non-authoritative provenance/history only and are "
+                "excluded from agreement, adjudication, Gold Set qualification, paper results, "
+                "and label promotion."
+            ),
             "records": provenance_records,
         },
     )

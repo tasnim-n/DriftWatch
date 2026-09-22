@@ -3,8 +3,8 @@
 ## Policy identity
 
 - Mapping version: `driftwatch-human-review-label-mapping-v1`
-- Status: prospective governed integration policy
-- Applies to: derived comparisons between Phase 3H.5 independent human-review submissions and the DriftBench dataset ontology
+- Status: governed integration and agreement policy
+- Applies to: derived comparisons between Phase 3H.5 independent human-review submissions, and between human-review submissions and the DriftBench dataset ontology
 - Source ontologies: `research.phase3h5.ALLOWED_REVIEW_LABELS` and `driftbench.labels.LABEL_ONTOLOGY`
 
 This policy is based only on semantic compatibility between the documented label definitions. It was not selected or adjusted to improve observed Reviewer 01 concordance.
@@ -28,9 +28,11 @@ Dataset-only labels without a human-review equivalent, including `controlled_mal
 This mapping may be used to:
 
 - construct a separate human-vs-provisional comparison artifact;
+- construct a separate comparison between documented independent human reviewers;
 - mark individual records as comparable or not comparable;
 - calculate descriptive exact concordance over comparable records only; and
-- produce category cross-tabulations that retain both original labels.
+- produce category cross-tabulations that retain both original labels;
+- calculate unweighted Cohen's kappa for documented independent human reviewers when the denominator and marginal distributions are reported transparently.
 
 The required terminology is **human-vs-provisional label concordance**. Existing DriftBench labels remain provisional and are not a documented independent second human rating.
 
@@ -39,7 +41,8 @@ The required terminology is **human-vs-provisional label concordance**. Existing
 This mapping must not be used to:
 
 - overwrite either the human judgement or the frozen dataset label;
-- claim human-human inter-rater agreement, reviewer consensus, or Cohen's kappa;
+- claim human-human inter-rater agreement or Cohen's kappa when both inputs are not documented independent human judgements;
+- treat agreement as reviewer accuracy, consensus, adjudication, or label promotion;
 - treat the human label as automatic ground truth;
 - adjudicate a disagreement;
 - create or qualify a Gold Set;
