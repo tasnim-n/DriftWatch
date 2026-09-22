@@ -56,6 +56,26 @@ Gold Set ID: `GOLD1::367B78340517770D9DB1E5DABE1DCA63399829A5FA5B64756C820F7696E
 | Python 3.14.0 verified environment | `ENVIRONMENT_SNAPSHOT.md` | Snapshot dated 2026-09-21; do not generalize to unverified environments |
 | Reproduction and non-regeneration policy | `REPRODUCIBILITY.md` | Frozen artifact generators must not be rerun merely for verification |
 
+## External literature evidence
+
+External sources support background, prior-work positioning, and methodological cautions only. They do not replace the artifact mappings above.
+
+| Paper claim family | Verified citation keys | Evidence boundary |
+|---|---|---|
+| Extension privilege boundaries and threat models | BARTH2010 [1]; CARLINI2012 [2]; KAPRAVELOS2014 [4] | Establishes architectures, vulnerabilities, and malicious behavior; not DriftWatch performance |
+| Static, dynamic, and hybrid extension analysis | BANDHAKAVI2010 [3]; KAPRAVELOS2014 [4]; FASS2021 [5]; WANG2018 [6] | Establishes analysis modes and limitations; not equivalence to DriftWatch features |
+| Permissions and review triage | FELT2011 [7]; BARTH2010 [1]; CARLINI2012 [2] | Supports permissions as useful but incomplete evidence; platform/time boundaries retained |
+| Malicious-extension detection | KAPRAVELOS2014 [4]; WANG2018 [6]; JAGPAL2015 [8] | Contextualizes detection targets; no metric transfer to DriftWatch |
+| Longitudinal extension update deltas | PANTELAIOS2020 [9] | Nearest work; prevents a “first update-delta system” claim |
+| Supply-chain provenance and version ordering | TORRESARIAS2019 [10]; KUPPUSAMY2017 [11] | General update-security motivation; no attribution of compromise to a DriftBench case |
+| Differential program analysis | JACKSON1994 [12]; PERSON2008 [13] | Supports change-aware analysis concepts; no security-regression guarantee for DriftWatch |
+| Concept-drift terminology | GAMA2014 [14] | Used to distinguish statistical concept drift from static extension-version differences |
+| Explainability and analyst decision support | PHILLIPS2021 [15]; ALAHMADI2022 [16]; CRANOR2008 [17] | Supports explanation/human-task principles; no measured DriftWatch utility claim |
+| Nominal agreement and kappa limits | COHEN1960 [18]; FEINSTEIN1990 [19] | Supports coefficient definition and marginal-imbalance caveat; agreement remains non-accuracy |
+| Imbalance, model-selection bias, and leakage | HE2009 [20]; VARMA2006 [21]; KAPOOR2023 [22] | Supports evaluation cautions; DriftWatch results remain project-artifact claims |
+
+Complete metadata, verification notes, and limitations are in `LITERATURE_VERIFIED_SOURCES.md`. Screening exclusions are in `LITERATURE_REJECTED_SOURCES.md`.
+
 ## Claims with no current supporting empirical artifact
 
 No artifact currently supports claims of malware-detection accuracy, sensitivity, specificity, population false-positive or false-negative rates, representative prevalence, external validation, production safety, objective ground truth, or generalization to all browser extensions. The paper must continue to exclude or explicitly qualify those claims.

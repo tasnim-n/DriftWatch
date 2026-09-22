@@ -1,6 +1,16 @@
-# DriftWatch Literature Review Plan
+# DriftWatch Final Literature Review Status
 
-> **Purpose:** This document defines the evidence-gathering plan for positioning DriftWatch academically. It names research areas and required evidence without inventing papers or citations. Any source added to the manuscript must be retrieved, read, and checked against the claim it supports.
+> **Purpose:** This document preserves the Phase 6B search and screening protocol and records its final status. Every source used in the manuscript was retrieved, metadata-checked, and matched to the claim it supports.
+
+## Final literature status
+
+- Completed coverage: all 11 controlled gaps are resolved for the qualified claims in `PAPER_DRAFT.md`.
+- Verified sources: 22 accepted; 21 peer-reviewed and 1 official technical report.
+- Rejected sources: 10, with reasons recorded in `LITERATURE_REJECTED_SOURCES.md`.
+- Unresolved citation placeholders: 0.
+- Unresolved bibliographic gaps: 0.
+- Remaining work: venue-specific formatting and any future systematic-review expansion; neither blocks the present evidence claims.
+- Citation convention: temporary numbered references, pending venue selection.
 
 ## 1. Review objectives
 
@@ -13,7 +23,7 @@ The review must answer four cross-cutting questions:
 3. How have prior systems communicated uncertainty and evidence to human reviewers?
 4. Which claims about DriftWatch's motivation, design choices, evaluation, and positioning require external support?
 
-No novelty claim may be finalized until this review is complete.
+The review is complete for the current manuscript claims. It supports bounded positioning language, not a priority claim.
 
 ## 2. Search and screening protocol
 
@@ -224,30 +234,54 @@ Before making any novelty statement:
 
 The final paper must not say “first,” “novel,” or an equivalent priority claim solely because no match appeared in an initial search.
 
-## 7. Current citation inventory
+### Final nearest-work finding
 
-`LITERATURE_CITATION_GAPS.md` is the controlled Phase 6 gap register. As of this integration:
+The strongest retrieved comparator is Pantelaios, Nikiforakis, and Kapravelos, *You've Changed: Detecting Malicious Browser Extensions through their Update Deltas* (CCS 2020) [PANTELAIOS2020]. It makes extension update deltas central and analyzes a longitudinal release collection. It therefore prevents any claim that DriftWatch originated extension-update delta analysis.
 
-- no external paper citation has been verified for manuscript use;
-- no fabricated bibliographic citation was found;
-- 11 structured external source requirements remain;
-- project-specific corpus, evaluation, human-review, adjudication, and Gold Set claims are mapped to repository evidence in `PAPER_EVIDENCE_MAP.md`; and
-- the manuscript retains visible citation tasks rather than invented bibliographic entries.
+| Property | *You've Changed* | DriftWatch documented scope |
+|---|---|---|
+| Analysis target | Chrome extension release history and malicious update discovery | Supplied Chromium extension version pair and review priority |
+| Change centrality | Added-code deltas are central | Heterogeneous V1-to-V2 static deltas are central |
+| Signals | Rating/comment anomaly and added-JavaScript API sequences | Permissions, hosts, APIs, endpoints, obfuscation, package/manifest, and structural indicators |
+| Primary objective | Malicious-extension discovery and clustering | Explainable security-review prioritization, not maliciousness prediction |
+| Explanation | Added code and matched API-sequence clusters | Deterministic signal contributions, V1/V2 context, and evidence cards |
+| Governance | Longitudinal dataset and released analyzer/data | Eligibility, group-safe splits, protected holdout, label quality, and evidence mapping |
+| Human process | Not the focus of the retrieved method | Independent blind review, uncertainty, two-stage adjudication, and governed Gold Set |
 
-The gap register should be updated as sources pass full-text verification. A search result, title, abstract snippet, or secondary citation does not move an item to **External evidence verified**.
+### Novelty language allowed
 
-## 8. Deliverables and completion criteria
+- “DriftWatch differs from prior work by...” followed by a documented property comparison.
+- “DriftWatch is positioned as an explainable differential framework...”
+- “The implemented contribution combines...” followed by version-pair evidence, deterministic review prioritization, provenance-preserving governance, uncertainty, and human adjudication.
 
-The literature phase is complete only when it produces:
+### Novelty language not supported
 
-- a reproducible search log;
-- a deduplicated source library with stable identifiers;
-- screening decisions and exclusion reasons;
-- completed extraction and quality records;
-- a cross-topic evidence matrix;
-- a nearest-work comparison table;
-- a claim-to-source ledger covering every external claim in `PAPER_DRAFT.md`;
-- verified bibliographic entries replacing every citation placeholder; and
-- a final claims and novelty audit.
+- “first,” “only,” “unique,” “unprecedented,” or “no previous system”;
+- any implication that update-delta analysis itself originated with DriftWatch; or
+- any claim of superiority without a governed comparative experiment.
 
-Until then, the Related Work and References sections of `PAPER_DRAFT.md` remain **WAITING FOR LITERATURE**.
+## 7. Final citation inventory
+
+`LITERATURE_CITATION_GAPS.md` is the controlled gap register. As of finalization:
+
+- 22 external sources are verified for manuscript use;
+- 11 of 11 structured source requirements are resolved for the current qualified claims;
+- no citation placeholder remains in `PAPER_DRAFT.md`;
+- no fabricated or unverifiable bibliographic citation was found;
+- project-specific corpus, evaluation, human-review, adjudication, and Gold Set claims remain mapped to repository evidence in `PAPER_EVIDENCE_MAP.md`; and
+- source-level metadata, claim scope, and limits are recorded in `LITERATURE_VERIFIED_SOURCES.md`.
+
+## 8. Deliverables and completion result
+
+The literature phase produced:
+
+- a dated search and screening record in the literature audit and source registers;
+- a deduplicated accepted bibliography with stable identifiers;
+- explicit rejection decisions;
+- source-level claim and limitation records;
+- an 11-gap claim-to-source matrix;
+- a nearest-work comparison;
+- verified bibliographic entries replacing all placeholders; and
+- a final citation, reference, and novelty audit.
+
+The Related Work and References sections of `PAPER_DRAFT.md` are complete for Phase 6B and remain subject only to venue-specific editing.

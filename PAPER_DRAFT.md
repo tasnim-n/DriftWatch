@@ -1,6 +1,6 @@
 # DriftWatch: Explainable Differential Behavioural Analysis for Security-Review Prioritization of Browser-Extension Updates
 
-> **Research-paper draft.** This draft is grounded in the current DriftWatch repository, frozen research artifacts, completed independent human-validation workflow, and governed Gold Set. The external literature review remains incomplete; citation placeholders and internal draft metadata must be resolved before submission.
+> **Research-paper draft.** This draft is grounded in the current DriftWatch repository, frozen research artifacts, completed independent human-validation workflow, governed Gold Set, and a verified external-literature audit. Numbered citations are temporary pending venue selection. Internal draft metadata must still be removed before submission.
 
 ## 1. Title
 
@@ -16,7 +16,7 @@ The governed DriftBench corpus contains 76 real version-pair transitions from 21
 
 ## 3. Introduction
 
-Browser extensions occupy a privileged position between users, webpages, and browser APIs. Their functionality and security exposure can change over time as maintainers add features, update dependencies, modify build pipelines, transfer ownership, or respond to platform changes. A reviewer examining only the latest package sees its current capabilities but may not see the security significance of the update itself: a new permission, broader host pattern, newly introduced background worker, sensitive API, encoded endpoint, or structural data-flow indicator.
+Browser extensions occupy a privileged position between users, webpages, and browser APIs. Extension architectures therefore rely on isolation, privilege separation, and permission boundaries, but empirical security reviews show that vulnerabilities and malicious behavior can remain despite those controls [1], [2], [4]. Their functionality and security exposure can change over time as maintainers add features, update dependencies, modify build pipelines, transfer ownership, or respond to platform changes. A reviewer examining only the latest package sees its current capabilities but may not see the security significance of the update itself: a new permission, broader host pattern, newly introduced background worker, sensitive API, encoded endpoint, or structural data-flow indicator.
 
 DriftWatch treats the transition between versions as the primary object of analysis. Given a historical version (V_{t-1}) and update (V_t), it derives security-relevant observations for each version and expresses the change as a differential representation. This representation combines set changes, count deltas, Boolean events, scope expansions, and structural indicators. A deterministic risk engine converts those signals into a review-priority score and an explanation report. The score does not estimate maliciousness; it helps an analyst decide where review effort is most warranted.
 
@@ -32,13 +32,13 @@ This work makes the following repository-supported contributions:
 6. A separately governed four-record Gold Set that preserves provenance, excludes the external holdout, and prohibits training and tuning use.
 7. Preliminary deterministic and exploratory-ML evaluations accompanied by failure analysis and explicit threats to validity.
 
-These are implementation and methodology contributions. Novelty relative to prior literature remains subject to a completed literature review.
+These are implementation and methodology contributions. The literature audit supports positioning them as a particular combination of version-pair analysis, heterogeneous static evidence, deterministic review prioritization, provenance-preserving governance, explicit uncertainty, and human adjudication. It does not support a priority claim that DriftWatch is the first or only update-delta system.
 
 ## 4. Motivation
 
-Traditional snapshot-oriented analysis asks what an extension can do at one point in time. Update review instead asks what changed, whether the change expands security exposure, and whether the available evidence justifies deeper inspection. The distinction matters because broad capability may be longstanding, while a small textual update can introduce a high-impact privilege or new communication path. Conversely, large generated-file changes can produce many static indicators without corresponding harmful behaviour.
+Snapshot-oriented analysis asks what an extension can do at one point in time. Update-delta research has shown that release history can instead be used to identify code added when a previously benign extension changes behavior [9]. Update review asks what changed, whether the change expands security exposure, and whether the available evidence justifies deeper inspection. The distinction matters because broad capability may be longstanding, while a small textual update can introduce a high-impact privilege or new communication path. Conversely, large generated-file changes can produce many static indicators without corresponding harmful behaviour.
 
-Differential analysis provides a natural organizing principle for this review problem. It focuses attention on added and removed capabilities, relates evidence to a specific release transition, and can support explanations such as “host access expanded from a domain-specific pattern to a wildcard” rather than “the extension has host access.” This framing may improve reviewer efficiency and accountability, but its relationship to established browser-extension analysis, security regression analysis, and software-evolution research requires literature validation. [CITATION REQUIRED: empirical or conceptual work on security-sensitive software evolution and update review]
+Differential analysis provides a natural organizing principle for this review problem. Semantic differencing and differential symbolic execution demonstrate that comparing program versions can focus analysis on observable or path-level behavioral differences, while also depending on the selected semantics and analysis bounds [12], [13]. For extension updates, this focus can relate evidence to a specific release transition and support explanations such as “host access expanded from a domain-specific pattern to a wildcard” rather than “the extension has host access.” DriftWatch does not claim that this framing alone improves reviewer efficiency; that outcome remains an empirical question.
 
 The practical motivation is prioritization under uncertainty. Static analysis cannot establish intent, and security teams cannot manually inspect every update at equal depth. A transparent prioritizer can expose why an update was raised, preserve raw evidence for reproducibility, and allow analysts to distinguish legitimate feature growth from changes requiring escalation.
 
@@ -56,43 +56,43 @@ The present evidence does not resolve all five questions. RQ1–RQ4 remain limit
 
 ## 6. Related Work
 
-This section is a structure for a formal literature review; it does not assert novelty. DriftWatch is positioned as a version-pair, security-sensitive change-analysis and review-prioritization framework rather than solely a classifier of a single extension snapshot.
+Prior work establishes the security sensitivity of extension privileges, multiple static and dynamic analysis strategies, malicious-extension classification, and update-delta analysis. DriftWatch is positioned within that literature as a version-pair, security-sensitive change-analysis and review-prioritization framework rather than solely a classifier of a single extension snapshot.
 
 ### 6.1 Browser-extension security analysis
 
-Summarize studies of extension privilege, content-script isolation, browser-API misuse, data access, remote communication, and ecosystem-scale security measurement. Establish common threat models and units of analysis. [CITATION REQUIRED: peer-reviewed browser-extension security surveys and empirical ecosystem studies]
+Foundational Chrome work proposed least privilege, privilege separation, and isolation to reduce extension vulnerability impact [1]. A later review of 100 Chrome extensions found that these mechanisms mitigated many web-origin attacks but did not eliminate network, metadata, or extension-induced website vulnerabilities [2]. Ecosystem-scale studies further demonstrate that malicious-extension review is an adversarial and evolving problem rather than a consequence of permissions alone [4], [8]. These studies motivate security-sensitive analysis without implying that every privileged or vulnerable extension is malicious.
 
 ### 6.2 Static analysis of browser extensions
 
-Review manifest analysis, JavaScript static analysis, taint/data-flow techniques, API-use extraction, and extension-specific program models. Compare semantic depth, scalability, and handling of bundled code. [CITATION REQUIRED: primary papers on static or hybrid analysis of browser extensions]
+VEX applies context- and flow-sensitive static information-flow analysis to Firefox extensions to highlight potentially dangerous source-to-sink flows [3]. DoubleX models control flow, data flow, pointers, and cross-context messages in an extension dependence graph [5]. Dynamic systems such as Hulk instead execute extensions in instrumented environments and stimulate event handlers and page conditions to expose behavior [4]. Hybrid classification combines manifest and source features with monitored runtime activity [6]. These methods offer different semantic depth and scalability; static evidence does not establish runtime occurrence, while dynamic evidence depends on successfully triggering behavior.
 
 ### 6.3 Permission-based security analysis
 
-Review permission models, over-privilege, host permissions, permission warnings, and longitudinal permission change. Position permission drift as one signal family rather than a complete security verdict. [CITATION REQUIRED: browser permission-system and over-privilege studies]
+Application-permission research on Chrome extensions found that up-front declarations can support defense in depth and review triage, while warning frequency, granularity, wildcard access, and unnecessary permissions limit their effectiveness [7]. Chrome's extension architecture likewise treats permissions as one component alongside isolation and privilege separation [1], [2]. DriftWatch therefore treats permission and host-scope changes as evidence families, not as complete judgments about intent or safety.
 
 ### 6.4 Behavioural, change, and differential analysis
 
-Survey work that compares program versions, models behavioural deltas, or detects security-relevant change. Determine whether prior extension work explicitly uses consecutive version pairs and heterogeneous feature deltas. [CITATION REQUIRED: differential program analysis and behavioural change-detection research]
+Semantic Diff compares two procedure versions in terms of observable input-output effects rather than textual edits [12], while differential symbolic execution analyzes behavioral differences along affected paths [13]. In the extension domain, *You've Changed* analyzes update deltas, representing added JavaScript through abused-API sequences and matching related deltas across release history [9]. These works establish that change can be the primary analysis object. DriftWatch uses “behavioural drift” for static differences between supplied releases, not for statistical concept drift, which concerns changing relationships in data streams and adaptive learning [14]. DriftWatch differs in its bounded, heterogeneous comparison of permissions, hosts, APIs, endpoints, obfuscation, package structure, and structural indicators for analyst-facing review prioritization; it does not claim stronger semantic guarantees than those prior techniques.
 
 ### 6.5 Software evolution and security regression
 
-Review research on vulnerability introduction, regression detection, dependency changes, supply-chain compromise, and update risk. Connect extension updates to broader software-evolution methodology without assuming equivalence. [CITATION REQUIRED: security regression and software-update security literature]
+Software delivery is itself a security boundary: in-toto models compromise at different supply-chain steps and verifies signed provenance across the delivery process [10], while Mercury addresses repository rollback and version-ordering attacks [11]. Extension-update research documents once-benign extensions changing into malicious versions and uses their deltas as detection evidence [9]. These sources motivate provenance and version ordering, but they do not validate DriftWatch's static signals or prove maintainer compromise in any DriftBench case.
 
 ### 6.6 Explainable security analysis
 
-Review evidence-centered security tooling, interpretable alerts, explanation quality, analyst decision support, and limitations of post-hoc explanation. Relate these ideas to DriftWatch's direct mapping from deterministic signals to evidence cards. [CITATION REQUIRED: explainable cybersecurity and analyst-facing alert explanation studies]
+NIST's explainability principles distinguish providing reasons, making them meaningful to recipients, accurately reflecting the generating process, and operating within knowledge limits [15]. A qualitative study of security-operations analysts similarly identifies reliable, explainable, analytical, contextual, and transferable properties for useful alarm validation [16]. DriftWatch's deterministic contribution trace and evidence cards address process traceability and context, but the present study did not measure explanation usefulness, fidelity as perceived by analysts, or decision quality.
 
 ### 6.7 Security prioritization and deterministic risk scoring
 
-Review rule-based prioritization, transparent risk scoring, alert triage, calibration, and the danger of interpreting ordinal/heuristic scores as probabilities. [CITATION REQUIRED: security alert prioritization and transparent risk-scoring methods]
+Security analysts report that alarm validation requires context and that benign environmental triggers are often mislabeled as false alarms [16]. Human-in-the-loop security frameworks likewise require the communication and human task to be analyzed as part of the security system [17]. DriftWatch uses transparent deterministic contributions to allocate review attention. Its ordinal score is not calibrated as a probability, and neither the literature nor the current experiments justify interpreting it as malware likelihood.
 
 ### 6.8 ML-based malicious-extension detection
 
-Review feature representations, supervised targets, dataset construction, temporal evaluation, imbalance handling, calibration, and leakage risks in malicious-extension classifiers. Contrast those goals with DriftWatch's operational review-priority objective and research-only ML lane. [CITATION REQUIRED: peer-reviewed malicious-extension detection and dataset papers]
+Malicious-extension systems have used dynamic behavior elicitation [4], combined static and dynamic features with supervised classifiers [6], and large-scale mixtures of code, behavior, and developer-reputation evidence [8]. Their detection targets differ from DriftWatch's operational review-priority objective. Evaluation also requires caution: class imbalance affects learning and metric interpretation [20], tuning and error estimation on the same cross-validation loop can be optimistically biased [21], and leakage can produce overoptimistic scientific claims [22]. DriftWatch therefore keeps ML exploratory, uses group-safe splits, and protects the external holdout from development.
 
 ### 6.9 Positioning statement
 
-DriftWatch is positioned as an explainable differential framework centered on security-sensitive change between supplied extension versions. It combines version-aware evidence, deterministic triage, dataset governance, and a blind-review protocol. The claim that this combination is novel must remain provisional until the literature plan in `LITERATURE_REVIEW_PLAN.md` is completed.
+The closest retrieved work is *You've Changed*, because update deltas are central to its malicious-extension discovery method [9]. DriftWatch differs in documented scope: it compares supplied version pairs across multiple static signal families; produces deterministic evidence-linked review priority rather than a maliciousness classifier; preserves eligibility, split, and holdout provenance; retains explicit uncertainty; and evaluates a scoped blind-review and adjudication workflow. The audit did not establish that no other system shares this combination. Accordingly, the paper makes no “first,” “only,” “unique,” or “unprecedented” claim.
 
 ## 7. System Overview
 
@@ -230,7 +230,7 @@ This separation matters because repeated inspection or optimization against hold
 
 ## 14. Experimental ML Evaluation
 
-ML is evaluated only as an offline research question. Logistic Regression and Random Forest were trained across five locked feature representations using extension-group-safe splits. Preprocessing for Logistic Regression was fit on training data only; model selection used train/validation data, followed by one held-out test evaluation. Leakage audits passed, and models were not integrated into the application.
+ML is evaluated only as an offline research question. Logistic Regression and Random Forest were trained across five locked feature representations using extension-group-safe splits. Preprocessing for Logistic Regression was fit on training data only; model selection used train/validation data, followed by one held-out test evaluation. These controls reflect established concerns about class imbalance, selection bias, and train-test leakage [20]–[22]. Leakage audits passed, and models were not integrated into the application.
 
 ### Phase 3E pilot
 
@@ -260,7 +260,7 @@ Chronological evaluation and high-confidence label-sensitivity analysis were not
 
 ## 15. Independent Human Review and Adjudication
 
-Phase 3H.5 defined an independent blind-review protocol. Two human reviewers received the same scoped set of 14 cases and made independent judgments. Initial packets exposed version identity, provenance, release evidence, manifest differences, and neutral static feature summaries. They hid:
+Phase 3H.5 defined an independent blind-review protocol. Human-in-the-loop security methods emphasize that the reviewer task and possible human failure modes are part of the security system rather than an external afterthought [17]. Two human reviewers received the same scoped set of 14 cases and made independent judgments. Initial packets exposed version identity, provenance, release evidence, manifest differences, and neutral static feature summaries. They hid:
 
 - current provisional dataset labels;
 - DriftWatch numeric score and severity;
@@ -271,7 +271,7 @@ Phase 3H.5 defined an independent blind-review protocol. Two human reviewers rec
 
 A reviewer supplied an independent transition label, ordinal confidence (`HIGH`, `MEDIUM`, or `LOW`), rationale, evidence references, reviewer identity, review round, and timestamp. Permitted labels distinguished benign, risky, malicious, uncertain, and excluded transitions. `MALICIOUS_TRANSITION` required independent evidence of intentional harmful behaviour; static DriftWatch signals alone were insufficient. Raw submissions were preserved immutably, and human outcomes were not used to alter features, rules, weights, thresholds, frozen labels, experiments, or holdout policy.
 
-The reviewers agreed exactly on 9 of 14 cases and disagreed on 5. Agreement was 64.29%, with unweighted nominal Cohen's kappa of 0.3396226415 (approximately 0.34). Kappa is reported descriptively rather than assigned an uncited qualitative category. Its interpretation is limited by the small sample and concentrated marginals: Reviewer 01 assigned 8 risky and 6 uncertain labels, whereas Reviewer 02 assigned 3 risky and 11 uncertain labels. Agreement is not accuracy, and no independent objective ground truth exists.
+The reviewers agreed exactly on 9 of 14 cases and disagreed on 5. Agreement was 64.29%, with unweighted nominal Cohen's kappa of 0.3396226415 (approximately 0.34), using Cohen's nominal agreement coefficient [18]. Kappa is reported descriptively rather than assigned a qualitative category. Its interpretation is limited by the small sample and concentrated marginals, because imbalanced marginal totals can materially affect kappa [19]: Reviewer 01 assigned 8 risky and 6 uncertain labels, whereas Reviewer 02 assigned 3 risky and 11 uncertain labels. Agreement is not accuracy, and no independent objective ground truth exists.
 
 | Human-review measure | Verified result | Interpretation boundary |
 |---|---:|---|
@@ -460,19 +460,30 @@ The two reviewers agreed on 9 of 14 scoped cases, while five disagreements requi
 
 ## 26. References
 
-No unverified external citation has been inserted. `LITERATURE_CITATION_GAPS.md` classifies the remaining source requirements and separates them from project-internal artifact claims. Replace the following placeholders with verified bibliographic entries only after executing `LITERATURE_REVIEW_PLAN.md`:
+The temporary citation style is numbered in order of first thematic use. Metadata, claim scope, and verification notes are recorded in `LITERATURE_VERIFIED_SOURCES.md`.
 
-1. [CITATION REQUIRED: foundational browser-extension security and threat-model studies]
-2. [CITATION REQUIRED: browser-extension static, dynamic, or hybrid analysis]
-3. [CITATION REQUIRED: browser permission models and over-privilege]
-4. [CITATION REQUIRED: malicious-extension detection datasets and ML methods]
-5. [CITATION REQUIRED: longitudinal extension evolution or update-security studies]
-6. [CITATION REQUIRED: software-update security, maintainer compromise, and supply-chain risk]
-7. [CITATION REQUIRED: differential program analysis and security-regression detection]
-8. [CITATION REQUIRED: behavioural drift or change detection]
-9. [CITATION REQUIRED: explainable cybersecurity and analyst decision support]
-10. [CITATION REQUIRED: human-in-the-loop security review and alert triage]
-11. [CITATION REQUIRED: evaluation under class imbalance, temporal shift, and dataset leakage]
+1. A. Barth, A. P. Felt, P. Saxena, and A. Boodman, “Protecting Browsers from Extension Vulnerabilities,” *NDSS Symposium 2010*, 2010. https://www.ndss-symposium.org/ndss2010/protecting-browsers-extension-vulnerabilities/
+2. N. Carlini, A. P. Felt, and D. Wagner, “An Evaluation of the Google Chrome Extension Security Architecture,” in *21st USENIX Security Symposium (USENIX Security 12)*, 2012, pp. 97–111. https://www.usenix.org/conference/usenixsecurity12/technical-sessions/presentation/carlini
+3. S. Bandhakavi, S. T. King, P. Madhusudan, and M. Winslett, “VEX: Vetting Browser Extensions for Security Vulnerabilities,” in *19th USENIX Security Symposium (USENIX Security 10)*, 2010, pp. 339–354. https://www.usenix.org/conference/usenixsecurity10/vex-vetting-browser-extensions-security-vulnerabilities
+4. A. Kapravelos, C. Grier, N. Chachra, C. Kruegel, G. Vigna, and V. Paxson, “Hulk: Eliciting Malicious Behavior in Browser Extensions,” in *23rd USENIX Security Symposium (USENIX Security 14)*, 2014, pp. 641–654. https://www.usenix.org/conference/usenixsecurity14/technical-sessions/presentation/kapravelos
+5. A. Fass, D. F. Somé, M. Backes, and B. Stock, “DoubleX: Statically Detecting Vulnerable Data Flows in Browser Extensions at Scale,” in *Proceedings of the 2021 ACM SIGSAC Conference on Computer and Communications Security*, 2021, pp. 1789–1804. https://doi.org/10.1145/3460120.3484745
+6. Y. Wang, W. Cai, P. Lyu, and W. Shao, “A Combined Static and Dynamic Analysis Approach to Detect Malicious Browser Extensions,” *Security and Communication Networks*, vol. 2018, Article 7087239, 2018. https://doi.org/10.1155/2018/7087239
+7. A. P. Felt, K. Greenwood, and D. Wagner, “The Effectiveness of Application Permissions,” in *2nd USENIX Conference on Web Application Development (WebApps 11)*, 2011, pp. 75–86. https://www.usenix.org/conference/webapps11/effectiveness-application-permissions
+8. N. Jagpal, E. Dingle, J.-P. Gravel, P. Mavrommatis, N. Provos, M. Abu Rajab, and K. Thomas, “Trends and Lessons from Three Years Fighting Malicious Extensions,” in *24th USENIX Security Symposium (USENIX Security 15)*, 2015, pp. 579–593. https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/jagpal
+9. N. Pantelaios, N. Nikiforakis, and A. Kapravelos, “You've Changed: Detecting Malicious Browser Extensions through their Update Deltas,” in *Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security*, 2020, pp. 477–491. https://doi.org/10.1145/3372297.3423343
+10. S. Torres-Arias, H. Afzali, T. K. Kuppusamy, R. Curtmola, and J. Cappos, “in-toto: Providing farm-to-table guarantees for bits and bytes,” in *28th USENIX Security Symposium (USENIX Security 19)*, 2019, pp. 1393–1410. https://www.usenix.org/conference/usenixsecurity19/presentation/torres-arias
+11. T. K. Kuppusamy, V. Diaz, and J. Cappos, “Mercury: Bandwidth-Effective Prevention of Rollback Attacks Against Community Repositories,” in *2017 USENIX Annual Technical Conference (USENIX ATC 17)*, 2017, pp. 673–688. https://www.usenix.org/conference/atc17/technical-sessions/presentation/kuppusamy
+12. D. Jackson and D. A. Ladd, “Semantic Diff: A Tool for Summarizing the Effects of Modifications,” in *Proceedings of the International Conference on Software Maintenance*, 1994, pp. 243–252. https://doi.org/10.1109/ICSM.1994.336770
+13. S. Person, M. B. Dwyer, S. G. Elbaum, and C. S. Păsăreanu, “Differential Symbolic Execution,” in *Proceedings of the 16th ACM SIGSOFT International Symposium on Foundations of Software Engineering*, 2008, pp. 226–237. https://doi.org/10.1145/1453101.1453131
+14. J. Gama, I. Žliobaitė, A. Bifet, M. Pechenizkiy, and A. Bouchachia, “A Survey on Concept Drift Adaptation,” *ACM Computing Surveys*, vol. 46, no. 4, Article 44, pp. 1–37, 2014. https://doi.org/10.1145/2523813
+15. P. J. Phillips, C. Hahn, P. Fontana, A. Yates, K. K. Greene, D. A. Broniatowski, and M. A. Przybocki, *Four Principles of Explainable Artificial Intelligence*, NISTIR 8312, National Institute of Standards and Technology, 2021. https://doi.org/10.6028/NIST.IR.8312
+16. B. A. Alahmadi, L. Axon, and I. Martinovic, “99% False Positives: A Qualitative Study of SOC Analysts' Perspectives on Security Alarms,” in *31st USENIX Security Symposium (USENIX Security 22)*, 2022, pp. 2783–2800. https://www.usenix.org/conference/usenixsecurity22/presentation/alahmadi
+17. L. F. Cranor, “A Framework for Reasoning About the Human in the Loop,” in *Usability, Psychology, and Security 2008 (UPSEC 08)*, 2008. https://www.usenix.org/conference/upsec-08/framework-reasoning-about-human-loop
+18. J. Cohen, “A Coefficient of Agreement for Nominal Scales,” *Educational and Psychological Measurement*, vol. 20, no. 1, pp. 37–46, 1960. https://doi.org/10.1177/001316446002000104
+19. A. R. Feinstein and D. V. Cicchetti, “High Agreement but Low Kappa: I. The Problems of Two Paradoxes,” *Journal of Clinical Epidemiology*, vol. 43, no. 6, pp. 543–549, 1990. https://doi.org/10.1016/0895-4356(90)90158-L
+20. H. He and E. A. Garcia, “Learning from Imbalanced Data,” *IEEE Transactions on Knowledge and Data Engineering*, vol. 21, no. 9, pp. 1263–1284, 2009. https://doi.org/10.1109/TKDE.2008.239
+21. S. Varma and R. Simon, “Bias in Error Estimation When Using Cross-Validation for Model Selection,” *BMC Bioinformatics*, vol. 7, Article 91, 2006. https://doi.org/10.1186/1471-2105-7-91
+22. S. Kapoor and A. Narayanan, “Leakage and the Reproducibility Crisis in Machine-Learning-Based Science,” *Patterns*, vol. 4, no. 9, Article 100804, 2023. https://doi.org/10.1016/j.patter.2023.100804
 
 ### Repository evidence sources (not publication references)
 
@@ -503,11 +514,11 @@ This matrix is internal project metadata and must not appear in a submitted manu
 | Paper section | Status | Blocking work |
 |---|---|---|
 | 1. Title | READY | Reconfirm after venue and literature positioning are selected |
-| 2. Abstract | READY FOR LITERATURE FINALIZATION | Recheck length and terminology against venue requirements |
-| 3. Introduction | PARTIAL | Add verified literature citations and refine venue framing |
-| 4. Motivation | WAITING FOR LITERATURE | Support claims about update review and snapshot limitations |
+| 2. Abstract | READY FOR VENUE EDIT | Recheck length and terminology against venue requirements |
+| 3. Introduction | READY FOR VENUE EDIT | Verified literature integrated; refine venue framing at submission |
+| 4. Motivation | READY FOR VENUE EDIT | Update-delta and differential-analysis claims are cited and qualified |
 | 5. Research Questions | READY | Preserve consistency with `RESEARCH.md` |
-| 6. Related Work | WAITING FOR LITERATURE | Execute literature plan; verify novelty and positioning |
+| 6. Related Work | READY FOR VENUE EDIT | Verified thematic synthesis and nearest-work comparison complete |
 | 7. System Overview | READY | Produce publication-quality two-lane figure |
 | 8. Threat Model | READY | Final copy edit only |
 | 9. Methodology | READY | Add implementation citations/appendix references if required by venue |
@@ -520,12 +531,12 @@ This matrix is internal project metadata and must not appear in a submitted manu
 | 16. Governed Gold Set | READY | Preserve single-class and no-training/tuning boundaries |
 | 17. Case Studies | READY | Preserve the Browserpass artifact discrepancy |
 | 18. Failure Analysis | READY | Do not fabricate failure rates |
-| 19. Results | READY FOR LITERATURE FINALIZATION | Preserve frozen metrics and human-validation boundaries |
-| 20. Discussion | PARTIAL | Revisit after literature synthesis |
+| 19. Results | READY | Preserve frozen metrics and human-validation boundaries |
+| 20. Discussion | READY FOR VENUE EDIT | Literature-aligned positioning complete |
 | 21. Reproducibility | READY | Update final commit and archival identifier at release |
 | 22. Ethical and Governance Considerations | READY | Preserve privacy and non-malware claims boundaries |
 | 23. Limitations | READY | Maintain claims discipline during shortening |
 | 24. Future Work | PARTIAL | Align with final discussion and venue scope |
-| 25. Conclusion | READY FOR LITERATURE FINALIZATION | Recheck against final cited positioning |
-| 26. References | WAITING FOR LITERATURE | Replace every citation placeholder with verified sources |
+| 25. Conclusion | READY FOR VENUE EDIT | Recheck only against final venue scope |
+| 26. References | READY FOR VENUE EDIT | Convert temporary numbered style to venue format if required |
 | Repository/release metadata | WAITING FOR FINAL RELEASE | Freeze commit, artifact identifiers, availability statement, and archival link |
