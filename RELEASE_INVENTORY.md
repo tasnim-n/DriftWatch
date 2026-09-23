@@ -2,7 +2,7 @@
 
 ## Scope
 
-This inventory describes the intended `0.2.0-research-rc1` public release surface. It combines the 735 paths tracked at source commit `23ac32fdde3afecd9318f8d485ea7875fbc8b41e` with the six Phase 8A release-metadata paths listed below. Once those paths are reviewed and committed, the candidate contains 741 files.
+This inventory describes the intended `0.2.0-research-rc1` public release surface. It combines the 741 paths tracked at source commit `e405295403f5f3c746c3954f88b1063f9d7eb169` with the three Phase 8B publication paths listed below. Once those paths are reviewed and committed, the candidate contains 744 files.
 
 Counts are mutually exclusive. Paths are classified by function, with the three public human-validation evidence trees classified before their parent `artifacts/` tree.
 
@@ -18,9 +18,9 @@ Counts are mutually exclusive. Paths are classified by function, with the three 
 | Gold Set | 8 | Governed four-record Gold Set manifest, checksum, restrictions, provenance, audits, summary, and assessment |
 | Reproducibility/environment | 14 | Environment and dependency records, repository controls, reproducibility runbook, and Phase 8A release metadata |
 | Literature | 5 | Search plan, verified and rejected sources, citation-gap record, and literature audit |
-| Manuscript | 4 | Draft, submission-clean manuscript, evidence map, and figure plan |
+| Manuscript | 7 | Draft, submission-clean manuscript, evidence maps, figure plan, vector figure, and raster fallback |
 | Demo/sample artifacts | 18 | Controlled synthetic extension samples and demonstration guide |
-| **Total intended release** | **741** | **735 baseline tracked paths + 6 Phase 8A paths** |
+| **Total intended release** | **744** | **741 baseline tracked paths + 3 Phase 8B paths** |
 
 ## Phase 8A additions
 
@@ -32,6 +32,14 @@ Counts are mutually exclusive. Paths are classified by function, with the three 
 - `RELEASE_CHECKLIST.md`
 
 `README.md` and `.gitattributes` are updated tracked paths, not additions. The latter applies LF normalization only to governed human-validation evidence and the checksummed release-manifest pair.
+
+## Phase 8B additions
+
+- `FIGURE_EVIDENCE_MAP.md`
+- `figures/driftwatch_architecture.svg`
+- `figures/driftwatch_architecture.png`
+
+`PAPER_SUBMISSION.md`, `PAPER_EVIDENCE_MAP.md`, `RELEASE_INVENTORY.md`, `RELEASE_MANIFEST.json`, `RELEASE_MANIFEST.sha256`, and `RELEASE_CHECKLIST.md` are updated tracked paths, not additions.
 
 ## Intentionally excluded private categories
 

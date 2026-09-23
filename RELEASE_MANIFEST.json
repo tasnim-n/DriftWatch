@@ -3,9 +3,9 @@
   "project_name": "DriftWatch",
   "project_version": "0.2.0",
   "release_candidate_version": "0.2.0-research-rc1",
-  "source_git_commit": "23ac32fdde3afecd9318f8d485ea7875fbc8b41e",
+  "source_git_commit": "e405295403f5f3c746c3954f88b1063f9d7eb169",
   "python_version": "3.14.0",
-  "intended_release_file_count": 741,
+  "intended_release_file_count": 744,
   "test_baseline": {
     "passed": 223,
     "failed": 0,
@@ -13,7 +13,7 @@
     "skipped": 0,
     "warnings": 3,
     "public_command": "python -m pytest -q",
-    "audited_command": ".venv\\Scripts\\pytest.exe tests\\ -v -W default --basetemp=.pytest_tmp_phase8a"
+    "audited_command": ".venv\\Scripts\\pytest.exe tests\\ -v -W default --basetemp=.pytest_tmp_phase8b"
   },
   "corpus_summary": {
     "dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",

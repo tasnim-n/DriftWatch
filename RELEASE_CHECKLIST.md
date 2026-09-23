@@ -2,11 +2,11 @@
 
 Release candidate: `0.2.0-research-rc1`
 
-Source baseline: `23ac32fdde3afecd9318f8d485ea7875fbc8b41e`
+Source baseline: `e405295403f5f3c746c3954f88b1063f9d7eb169`
 
 ## Verification
 
-- [ ] Working tree clean — intentionally pending until Phase 8A outputs are reviewed and committed
+- [ ] Working tree clean — intentionally pending until Phase 8B outputs are reviewed and committed
 - [x] `origin/main` synchronized with the source baseline
 - [x] Public human-validation verifier passes
 - [x] Full test suite passes: 223 passed, 0 failed, 0 errors, 0 skipped
@@ -19,7 +19,7 @@ Source baseline: `23ac32fdde3afecd9318f8d485ea7875fbc8b41e`
 - [x] Release manifest generated
 - [x] Release manifest checksum verified
 - [x] Release notes ready
-- [ ] Architecture figure completed — figure plan is ready; rendering is pending
+- [x] Architecture figure completed — SVG source, PNG fallback, caption, and public evidence map are ready
 - [ ] Venue selected
 - [ ] Venue formatting complete
 - [ ] Release tag created
@@ -28,9 +28,9 @@ Source baseline: `23ac32fdde3afecd9318f8d485ea7875fbc8b41e`
 ## Release tag plan
 
 - Proposed tag: `v0.2.0-research`
-- Commit to tag: the future commit containing the reviewed Phase 8A outputs; its source baseline is `23ac32fdde3afecd9318f8d485ea7875fbc8b41e`.
-- Do not tag the baseline commit because it does not contain this release metadata.
-- Before tagging: review the diff, confirm the manifest checksum after checkout, rerun the public verifier and full suite, confirm a clean worktree, commit only approved Phase 8A paths, and verify the committed HEAD is synchronized with its intended remote.
+- Commit to tag: the future commit containing the reviewed Phase 8B publication outputs; its source baseline is `e405295403f5f3c746c3954f88b1063f9d7eb169`.
+- Do not tag the baseline commit because it does not contain the final figure or manuscript proofread.
+- Before tagging: review the diff, confirm the manifest checksum after checkout, rerun the public verifier and full suite, confirm a clean worktree, commit only approved Phase 8B paths, and verify the committed HEAD is synchronized with its intended remote.
 
 ## Archival plan
 

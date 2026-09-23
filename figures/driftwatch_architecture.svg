@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1250" viewBox="0 0 2200 1250" role="img" aria-labelledby="title desc">
+  <title id="title">DriftWatch runtime analysis and research-governance architecture</title>
+  <desc id="desc">Two separate lanes show the static runtime analysis pipeline and the offline research-governance pipeline. A protected external holdout branches away from human review and Gold Set construction.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#253746"/>
+    </marker>
+    <marker id="holdoutArrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#8B1E2D"/>
+    </marker>
+    <style>
+      .canvas { fill: #ffffff; }
+      .panel-runtime { fill: #f7fbfe; stroke: #1f4e79; stroke-width: 3; }
+      .panel-research { fill: #fffcf5; stroke: #7a5200; stroke-width: 3; }
+      .runtime-box { fill: #eaf2f8; stroke: #1f4e79; stroke-width: 3; }
+      .runtime-strong { fill: #dcecf7; stroke: #173b5d; stroke-width: 4; }
+      .research-box { fill: #fff4db; stroke: #7a5200; stroke-width: 3; }
+      .gold-box { fill: #fff8e6; stroke: #5f4300; stroke-width: 7; }
+      .gold-inner { fill: none; stroke: #5f4300; stroke-width: 2; }
+      .holdout-lane { fill: #fffafa; stroke: #8b1e2d; stroke-width: 3; stroke-dasharray: 12 9; }
+      .holdout-box { fill: #fdecec; stroke: #8b1e2d; stroke-width: 4; stroke-dasharray: 10 7; }
+      .flow { fill: none; stroke: #253746; stroke-width: 4; marker-end: url(#arrow); }
+      .holdout-flow { fill: none; stroke: #8b1e2d; stroke-width: 4; stroke-dasharray: 10 8; marker-end: url(#holdoutArrow); }
+      .boundary { stroke: #596773; stroke-width: 3; stroke-dasharray: 14 10; }
+      .title { font: 700 34px Arial, Helvetica, sans-serif; fill: #17212b; }
+      .subtitle { font: 400 21px Arial, Helvetica, sans-serif; fill: #33495b; }
+      .node-title { font: 700 23px Arial, Helvetica, sans-serif; fill: #17212b; text-anchor: middle; }
+      .node-text { font: 400 19px Arial, Helvetica, sans-serif; fill: #263746; text-anchor: middle; }
+      .small { font: 400 17px Arial, Helvetica, sans-serif; fill: #263746; text-anchor: middle; }
+      .holdout-title { font: 700 23px Arial, Helvetica, sans-serif; fill: #741725; text-anchor: middle; }
+      .holdout-text { font: 400 18px Arial, Helvetica, sans-serif; fill: #741725; }
+      .separator-label { font: 700 20px Arial, Helvetica, sans-serif; fill: #3e4b56; text-anchor: middle; }
+      .badge { fill: #ffffff; stroke: #173b5d; stroke-width: 2; }
+      .badge-text { font: 700 17px Arial, Helvetica, sans-serif; fill: #173b5d; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect class="canvas" width="2200" height="1250"/>
+
+  <rect class="panel-runtime" x="30" y="30" width="2140" height="510" rx="18"/>
+  <text class="title" x="65" y="78">A. Runtime analysis pipeline</text>
+  <text class="subtitle" x="65" y="112">Static analysis only · supplied Chromium extension packages · no extension code execution</text>
+
+  <rect class="runtime-box" x="60" y="150" width="230" height="84" rx="12"/>
+  <text class="node-title" x="175" y="184">Previous package</text>
+  <text class="node-text" x="175" y="214">V<tspan baseline-shift="sub" font-size="14">t−1</tspan></text>
+
+  <rect class="runtime-box" x="60" y="272" width="230" height="84" rx="12"/>
+  <text class="node-title" x="175" y="306">Updated package</text>
+  <text class="node-text" x="175" y="336">V<tspan baseline-shift="sub" font-size="14">t</tspan></text>
+
+  <path class="flow" d="M 290 192 L 325 192 L 325 235 L 350 235"/>
+  <path class="flow" d="M 290 314 L 325 314 L 325 265 L 350 265"/>
+
+  <rect class="runtime-strong" x="350" y="172" width="230" height="146" rx="14"/>
+  <text class="node-title" x="465" y="215">Secure extraction</text>
+  <text class="node-text" x="465" y="248">Path · link · size</text>
+  <text class="node-text" x="465" y="275">count · ratio controls</text>
+  <rect class="badge" x="392" y="288" width="146" height="28" rx="14"/>
+  <text class="badge-text" x="465" y="308">sandboxed</text>
+
+  <path class="flow" d="M 580 245 L 640 245"/>
+
+  <rect class="runtime-strong" x="640" y="138" width="350" height="214" rx="14"/>
+  <text class="node-title" x="815" y="175">Static evidence analyzers</text>
+  <text class="small" x="815" y="207">Manifest · permissions · host scope</text>
+  <text class="small" x="815" y="233">Sensitive APIs · network indicators</text>
+  <text class="small" x="815" y="259">Obfuscation / dynamic-code indicators</text>
+  <text class="small" x="815" y="285">Package / structure</text>
+  <text class="small" x="815" y="311">Same-file source/sink heuristics</text>
+  <text class="small" x="815" y="337">Evidence, not runtime occurrence</text>
+
+  <path class="flow" d="M 990 245 L 1050 245"/>
+
+  <rect class="runtime-box" x="1050" y="172" width="230" height="146" rx="12"/>
+  <text class="node-title" x="1165" y="216">Version evidence</text>
+  <text class="node-text" x="1165" y="253">F(V<tspan baseline-shift="sub" font-size="14">t−1</tspan>)</text>
+  <text class="node-text" x="1165" y="286">F(V<tspan baseline-shift="sub" font-size="14">t</tspan>)</text>
+
+  <path class="flow" d="M 1280 245 L 1340 245"/>
+
+  <rect class="runtime-box" x="1340" y="172" width="250" height="146" rx="12"/>
+  <text class="node-title" x="1465" y="211">Differential features</text>
+  <text class="node-text" x="1465" y="251">D<tspan baseline-shift="sub" font-size="14">t</tspan> = F(V<tspan baseline-shift="sub" font-size="14">t</tspan>) − F(V<tspan baseline-shift="sub" font-size="14">t−1</tspan>)</text>
+  <text class="small" x="1465" y="283">Set, count, Boolean,</text>
+  <text class="small" x="1465" y="307">ordinal, structural</text>
+
+  <path class="flow" d="M 1590 245 L 1650 245"/>
+
+  <rect class="runtime-box" x="1650" y="172" width="240" height="146" rx="12"/>
+  <text class="node-title" x="1770" y="210">Deterministic risk</text>
+  <text class="node-title" x="1770" y="238">prioritization</text>
+  <text class="small" x="1770" y="273">Security-review priority</text>
+  <text class="small" x="1770" y="300">not malware probability</text>
+
+  <path class="flow" d="M 1890 245 L 1920 245 L 1920 194 L 1940 194"/>
+
+  <rect class="runtime-box" x="1940" y="140" width="200" height="108" rx="12"/>
+  <text class="node-title" x="2040" y="180">Explanation +</text>
+  <text class="node-title" x="2040" y="208">evidence cards</text>
+  <text class="small" x="2040" y="234">Analyst-facing</text>
+
+  <path class="flow" d="M 2040 248 L 2040 288"/>
+
+  <rect class="runtime-box" x="1940" y="288" width="200" height="108" rx="12"/>
+  <text class="node-title" x="2040" y="330">Manual security</text>
+  <text class="node-title" x="2040" y="358">review</text>
+  <text class="small" x="2040" y="383">Human disposition</text>
+
+  <line class="boundary" x1="55" y1="575" x2="2145" y2="575"/>
+  <rect x="730" y="554" width="740" height="42" rx="21" fill="#ffffff" stroke="#596773" stroke-width="2"/>
+  <text class="separator-label" x="1100" y="582">Research-only governance · no runtime scoring input</text>
+
+  <rect class="panel-research" x="30" y="610" width="2140" height="600" rx="18"/>
+  <text class="title" x="65" y="658">B. Research validation and governance</text>
+  <text class="subtitle" x="65" y="692">Frozen artifacts, explicit uncertainty, independent review, and provenance-preserving qualification</text>
+
+  <rect class="holdout-lane" x="650" y="720" width="1490" height="170" rx="14"/>
+  <text class="holdout-title" x="805" y="754">Protected external holdout</text>
+  <rect class="holdout-box" x="690" y="775" width="270" height="88" rx="12"/>
+  <text class="holdout-title" x="825" y="808">10 records · 2 extensions</text>
+  <text class="small" x="825" y="840" fill="#741725">Locked and isolated</text>
+  <text class="holdout-text" x="1015" y="777">Excluded from:</text>
+  <text class="holdout-text" x="1015" y="808">training · tuning · threshold selection · rule development</text>
+  <text class="holdout-text" x="1015" y="839">feature redesign · Gold Set construction · outcome-driven development</text>
+  <text class="holdout-text" x="1015" y="870">No completed external-validation claim</text>
+
+  <rect class="research-box" x="60" y="950" width="230" height="128" rx="12"/>
+  <text class="node-title" x="175" y="991">Frozen corpus</text>
+  <text class="node-text" x="175" y="1023">76 transitions</text>
+  <text class="node-text" x="175" y="1051">21 extensions</text>
+
+  <path class="flow" d="M 290 1014 L 340 1014"/>
+
+  <rect class="research-box" x="340" y="950" width="250" height="128" rx="12"/>
+  <text class="node-title" x="465" y="987">Eligibility +</text>
+  <text class="node-title" x="465" y="1015">provenance controls</text>
+  <text class="small" x="465" y="1046">64 eligible · 12 ineligible</text>
+  <text class="small" x="465" y="1068">holdout separated</text>
+
+  <path class="holdout-flow" d="M 590 982 L 625 982 L 625 819 L 690 819"/>
+  <path class="flow" d="M 590 1014 L 680 1014"/>
+
+  <rect class="research-box" x="680" y="940" width="250" height="148" rx="12"/>
+  <text class="node-title" x="805" y="980">Blind human review</text>
+  <text class="node-text" x="805" y="1012">14 non-holdout cases</text>
+  <text class="small" x="805" y="1042">Independent Reviewer 1</text>
+  <text class="small" x="805" y="1066">Independent Reviewer 2</text>
+
+  <path class="flow" d="M 930 1014 L 980 1014"/>
+
+  <rect class="research-box" x="980" y="940" width="260" height="148" rx="12"/>
+  <text class="node-title" x="1110" y="978">Agreement analysis</text>
+  <text class="node-text" x="1110" y="1012">9 agree · 5 disagree</text>
+  <text class="small" x="1110" y="1042">64.29% exact agreement</text>
+  <text class="small" x="1110" y="1066">nominal κ = 0.3396</text>
+
+  <path class="flow" d="M 1240 1014 L 1290 1014"/>
+
+  <rect class="research-box" x="1290" y="925" width="280" height="178" rx="12"/>
+  <text class="node-title" x="1430" y="962">Two-stage adjudication</text>
+  <text class="node-text" x="1430" y="995">5 disagreements</text>
+  <text class="small" x="1430" y="1026">Stage A: before opinions</text>
+  <text class="small" x="1430" y="1050">Stage B: de-identified opinions</text>
+  <text class="small" x="1430" y="1078">0 label changes</text>
+
+  <path class="flow" d="M 1570 1014 L 1620 1014"/>
+
+  <rect class="research-box" x="1620" y="940" width="250" height="148" rx="12"/>
+  <text class="node-title" x="1745" y="978">Derived quality</text>
+  <text class="node-title" x="1745" y="1006">promotion</text>
+  <text class="node-text" x="1745" y="1041">4 definitive risky cases</text>
+  <text class="small" x="1745" y="1066">separate metadata layer</text>
+
+  <path class="flow" d="M 1870 1014 L 1890 1014"/>
+
+  <rect class="gold-box" x="1890" y="925" width="260" height="178" rx="12"/>
+  <rect class="gold-inner" x="1900" y="935" width="240" height="158" rx="8"/>
+  <text class="node-title" x="2020" y="965">Governed Gold Set</text>
+  <text class="small" x="2020" y="994">4 RISKY_TRANSITION</text>
+  <text class="small" x="2020" y="1018">MULTI_REVIEWER_</text>
+  <text class="small" x="2020" y="1041">ADJUDICATED</text>
+  <text class="small" x="2020" y="1063">0 holdout overlap</text>
+  <text class="small" x="2020" y="1084">No training or tuning</text>
+
+  <text class="subtitle" x="60" y="1168">Human labels are governed review outcomes—not objective malware ground truth.</text>
+</svg>

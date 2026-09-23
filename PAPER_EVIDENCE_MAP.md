@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This map links major empirical claims in `PAPER_DRAFT.md` to public-safe repository evidence. It excludes private reviewer rationale, private evidence references, and raw adjudication text. Paths identify the authoritative artifact; SHA-256 values identify the exact file where recorded.
+This map links major empirical claims in `PAPER_SUBMISSION.md` to public-safe repository evidence. It excludes private reviewer rationale, private evidence references, and raw adjudication text. Paths identify the authoritative artifact; SHA-256 values identify the exact file where recorded.
 
 ## Corpus and governance
 

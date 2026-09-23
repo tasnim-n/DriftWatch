@@ -10,17 +10,17 @@ This title emphasizes the implemented unit of analysis—an extension-version pa
 
 ## 2. Abstract
 
-Browser extensions evolve through frequent updates that can alter permissions, host access, browser-API use, network indicators, background execution, code structure, and obfuscation characteristics. Security analysis of a single extension snapshot does not directly express which capabilities or behaviours changed between releases. We present DriftWatch, a static differential analysis framework that compares a previous Chromium-extension archive, (V_{t-1}), with an updated archive, (V_t). DriftWatch securely extracts both archives, constructs version-level feature states, derives heterogeneous differential features, applies a deterministic multi-signal risk engine, and produces analyst-facing evidence and recommendations. Its score represents manual security-review priority, not malware probability.
+Browser extensions evolve through frequent updates that can alter permissions, host access, browser application programming interface (API) use, network indicators, background execution, code structure, and obfuscation characteristics. Security analysis of a single extension snapshot does not directly express which capabilities or behaviours changed between releases. We present DriftWatch, a static differential analysis framework that compares a previous Chromium-extension archive \(V_{t-1}\) with an updated archive \(V_t\). DriftWatch securely extracts both archives, constructs version-level feature states, derives heterogeneous differential features, applies a deterministic multi-signal risk engine, and produces analyst-facing evidence and recommendations. Its score represents manual security-review priority, not malware probability.
 
-The governed DriftBench corpus contains 76 real version-pair transitions from 21 open-source extensions: 71 frozen as benign, 3 as risky, and 2 as uncertain. After uncertainty and protected-holdout restrictions, 64 records are eligible for supervised research use; 10 records remain isolated in an external holdout. A scoped blind validation involved two independent human reviewers examining the same 14 cases. They agreed exactly on 9 cases (64.29%); unweighted nominal Cohen's kappa was approximately 0.34 and is interpreted cautiously because the sample is small and label marginals are concentrated. Five disagreements entered governed two-stage adjudication. All five retained their Stage A label after de-identified prior opinions were revealed at Stage B, yielding four outcomes labeled `RISKY_TRANSITION` and one labeled `UNCERTAIN`. Four definitive cases qualified for a separate, provenance-rich `MULTI_REVIEWER_ADJUDICATED` Gold Set with zero external-holdout overlap. The Gold Set is small, single-class, and prohibited from training or tuning; it supports qualitative validation and audit, not classifier-performance, prevalence, maliciousness, or production-safety claims. DriftWatch therefore demonstrates a functional, explainable, and reproducibly governed approach to version-aware security-review prioritization while leaving intent and final disposition to evidence-based human assessment.
+The governed DriftBench corpus contains 76 real version-pair transitions from 21 open-source extensions: 71 frozen as benign, 3 as risky, and 2 as uncertain. After applying uncertainty and protected-holdout restrictions, 64 records are eligible for supervised research use; 10 records remain isolated in an external holdout. A scoped blind validation involved two independent human reviewers examining the same 14 cases. They agreed exactly on 9 cases (64.29%); unweighted nominal Cohen's kappa was approximately 0.34 and is interpreted cautiously because the sample is small and label marginals are concentrated. Five disagreements entered governed two-stage adjudication. All five retained their Stage A label after de-identified prior opinions were revealed at Stage B, yielding four outcomes labelled `RISKY_TRANSITION` and one labelled `UNCERTAIN`. Four definitive cases qualified for a separate, provenance-rich Gold Set at the `MULTI_REVIEWER_ADJUDICATED` quality tier, with zero external-holdout overlap. The Gold Set is small, single-class, and prohibited from training or tuning; it supports qualitative validation and audit, not classifier-performance, prevalence, maliciousness, or production-safety claims. DriftWatch therefore demonstrates a functional, explainable, and reproducibly governed approach to version-aware security-review prioritization while leaving intent and final disposition to evidence-based human assessment.
 
 ## 3. Introduction
 
-Browser extensions occupy a privileged position between users, webpages, and browser APIs. Extension architectures therefore rely on isolation, privilege separation, and permission boundaries, but empirical security reviews show that vulnerabilities and malicious behavior can remain despite those controls [1], [2], [4]. Their functionality and security exposure can change over time as maintainers add features, update dependencies, modify build pipelines, transfer ownership, or respond to platform changes. A reviewer examining only the latest package sees its current capabilities but may not see the security significance of the update itself: a new permission, broader host pattern, newly introduced background worker, sensitive API, encoded endpoint, or structural data-flow indicator.
+Browser extensions occupy a privileged position between users, webpages, and browser APIs. Extension architectures therefore rely on isolation, privilege separation, and permission boundaries, but empirical security reviews show that vulnerabilities and malicious behaviour can remain despite those controls [1], [2], [4]. Their functionality and security exposure can change over time as maintainers add features, update dependencies, modify build pipelines, transfer ownership, or respond to platform changes. A reviewer examining only the latest package sees its current capabilities but may not see the security significance of the update itself: a new permission, broader host pattern, newly introduced background worker, sensitive API, encoded endpoint, or structural data-flow indicator.
 
 DriftWatch treats the transition between versions as the primary object of analysis. Given a historical version (V_{t-1}) and update (V_t), it derives security-relevant observations for each version and expresses the change as a differential representation. This representation combines set changes, count deltas, Boolean events, scope expansions, and structural indicators. A deterministic risk engine converts those signals into a review-priority score and an explanation report. The score does not estimate maliciousness; it helps an analyst decide where review effort is most warranted.
 
-The framework also separates operational analysis from offline research. The live FastAPI application uses deterministic analyzers and scoring only. DriftBench, exploratory machine-learning experiments, independent review, and the protected external holdout reside in a separate research lane and do not feed runtime scores. This separation supports reproducibility and reduces the risk that provisional labels or holdout observations influence operational rules.
+The framework also separates operational analysis from offline research. The live FastAPI application uses deterministic analyzers and scoring only. DriftBench, exploratory machine-learning (ML) experiments, independent review, and the protected external holdout reside in a separate research lane and do not feed runtime scores. This separation supports reproducibility and reduces the risk that provisional labels or holdout observations influence operational rules.
 
 This work makes the following repository-supported contributions:
 
@@ -36,9 +36,9 @@ These are implementation and methodology contributions. The literature audit sup
 
 ## 4. Motivation
 
-Snapshot-oriented analysis asks what an extension can do at one point in time. Update-delta research has shown that release history can instead be used to identify code added when a previously benign extension changes behavior [9]. Update review asks what changed, whether the change expands security exposure, and whether the available evidence justifies deeper inspection. The distinction matters because broad capability may be longstanding, while a small textual update can introduce a high-impact privilege or new communication path. Conversely, large generated-file changes can produce many static indicators without corresponding harmful behaviour.
+Snapshot-oriented analysis asks what an extension can do at one point in time. Update-delta research has shown that release history can instead be used to identify code added when a previously benign extension changes behaviour [9]. Update review asks what changed, whether the change expands security exposure, and whether the available evidence justifies deeper inspection. The distinction matters because broad capability may be longstanding, while a small textual update can introduce a high-impact privilege or new communication path. Conversely, large generated-file changes can produce many static indicators without corresponding harmful behaviour.
 
-Differential analysis provides a natural organizing principle for this review problem. Semantic differencing and differential symbolic execution demonstrate that comparing program versions can focus analysis on observable or path-level behavioral differences, while also depending on the selected semantics and analysis bounds [12], [13]. For extension updates, this focus can relate evidence to a specific release transition and support explanations such as “host access expanded from a domain-specific pattern to a wildcard” rather than “the extension has host access.” DriftWatch does not claim that this framing alone improves reviewer efficiency; that outcome remains an empirical question.
+Differential analysis provides a natural organizing principle for this review problem. Semantic differencing and differential symbolic execution demonstrate that comparing program versions can focus analysis on observable or path-level behavioural differences, while also depending on the selected semantics and analysis bounds [12], [13]. For extension updates, this focus can relate evidence to a specific release transition and support explanations such as “host access expanded from a domain-specific pattern to a wildcard” rather than “the extension has host access.” DriftWatch does not claim that this framing alone improves reviewer efficiency; that outcome remains an empirical question.
 
 The practical motivation is prioritization under uncertainty. Static analysis cannot establish intent, and security teams cannot manually inspect every update at equal depth. A transparent prioritizer can expose why an update was raised, preserve raw evidence for reproducibility, and allow analysts to distinguish legitimate feature growth from changes requiring escalation.
 
@@ -64,7 +64,7 @@ Foundational Chrome work proposed least privilege, privilege separation, and iso
 
 ### 6.2 Static analysis of browser extensions
 
-VEX applies context- and flow-sensitive static information-flow analysis to Firefox extensions to highlight potentially dangerous source-to-sink flows [3]. DoubleX models control flow, data flow, pointers, and cross-context messages in an extension dependence graph [5]. Dynamic systems such as Hulk instead execute extensions in instrumented environments and stimulate event handlers and page conditions to expose behavior [4]. Hybrid classification combines manifest and source features with monitored runtime activity [6]. These methods offer different semantic depth and scalability; static evidence does not establish runtime occurrence, while dynamic evidence depends on successfully triggering behavior.
+VEX applies context- and flow-sensitive static information-flow analysis to Firefox extensions to highlight potentially dangerous source-to-sink flows [3]. DoubleX models control flow, data flow, pointers, and cross-context messages in an extension dependence graph [5]. Dynamic systems such as Hulk instead execute extensions in instrumented environments and stimulate event handlers and page conditions to expose behaviour [4]. Hybrid classification combines manifest and source features with monitored runtime activity [6]. These methods offer different semantic depth and scalability; static evidence does not establish runtime occurrence, while dynamic evidence depends on successfully triggering behaviour.
 
 ### 6.3 Permission-based security analysis
 
@@ -72,7 +72,7 @@ Application-permission research on Chrome extensions found that up-front declara
 
 ### 6.4 Behavioural, change, and differential analysis
 
-Semantic Diff compares two procedure versions in terms of observable input-output effects rather than textual edits [12], while differential symbolic execution analyzes behavioral differences along affected paths [13]. In the extension domain, *You've Changed* analyzes update deltas, representing added JavaScript through abused-API sequences and matching related deltas across release history [9]. These works establish that change can be the primary analysis object. DriftWatch uses “behavioural drift” for static differences between supplied releases, not for statistical concept drift, which concerns changing relationships in data streams and adaptive learning [14]. DriftWatch differs in its bounded, heterogeneous comparison of permissions, hosts, APIs, endpoints, obfuscation, package structure, and structural indicators for analyst-facing review prioritization; it does not claim stronger semantic guarantees than those prior techniques.
+Semantic Diff compares two procedure versions in terms of observable input-output effects rather than textual edits [12], while differential symbolic execution analyses behavioural differences along affected paths [13]. In the extension domain, *You've Changed* analyses update deltas, representing added JavaScript through abused-API sequences and matching related deltas across release history [9]. These works establish that change can be the primary analysis object. DriftWatch uses “behavioural drift” for static differences between supplied releases, not for statistical concept drift, which concerns changing relationships in data streams and adaptive learning [14]. DriftWatch differs in its bounded, heterogeneous comparison of permissions, hosts, APIs, endpoints, obfuscation, package structure, and structural indicators for analyst-facing review prioritization; it does not claim stronger semantic guarantees than those prior techniques.
 
 ### 6.5 Software evolution and security regression
 
@@ -80,7 +80,7 @@ Software delivery is itself a security boundary: in-toto models compromise at di
 
 ### 6.6 Explainable security analysis
 
-NIST's explainability principles distinguish providing reasons, making them meaningful to recipients, accurately reflecting the generating process, and operating within knowledge limits [15]. A qualitative study of security-operations analysts similarly identifies reliable, explainable, analytical, contextual, and transferable properties for useful alarm validation [16]. DriftWatch's deterministic contribution trace and evidence cards address process traceability and context, but the present study did not measure explanation usefulness, fidelity as perceived by analysts, or decision quality.
+The National Institute of Standards and Technology (NIST) describes explainability principles that distinguish providing reasons, making them meaningful to recipients, accurately reflecting the generating process, and operating within knowledge limits [15]. A qualitative study of security-operations analysts similarly identifies reliable, explainable, analytical, contextual, and transferable properties for useful alarm validation [16]. DriftWatch's deterministic contribution trace and evidence cards address process traceability and context, but the present study did not measure explanation usefulness, fidelity as perceived by analysts, or decision quality.
 
 ### 6.7 Security prioritization and deterministic risk scoring
 
@@ -88,7 +88,7 @@ Security analysts report that alarm validation requires context and that benign 
 
 ### 6.8 ML-based malicious-extension detection
 
-Malicious-extension systems have used dynamic behavior elicitation [4], combined static and dynamic features with supervised classifiers [6], and large-scale mixtures of code, behavior, and developer-reputation evidence [8]. Their detection targets differ from DriftWatch's operational review-priority objective. Evaluation also requires caution: class imbalance affects learning and metric interpretation [20], tuning and error estimation on the same cross-validation loop can be optimistically biased [21], and leakage can produce overoptimistic scientific claims [22]. DriftWatch therefore keeps ML exploratory, uses group-safe splits, and protects the external holdout from development.
+Malicious-extension systems have used dynamic behaviour elicitation [4], combined static and dynamic features with supervised classifiers [6], and large-scale mixtures of code, behaviour, and developer-reputation evidence [8]. Their detection targets differ from DriftWatch's operational review-priority objective. Evaluation also requires caution: class imbalance affects learning and metric interpretation [20], tuning and error estimation on the same cross-validation loop can be optimistically biased [21], and leakage can produce overoptimistic scientific claims [22]. DriftWatch therefore keeps ML exploratory, uses group-safe splits, and protects the external holdout from development.
 
 ### 6.9 Positioning statement
 
@@ -115,7 +115,11 @@ The engine constructs version-level feature states and a differential representa
 
 Offline research is architecturally separate. DriftBench datasets and feature artifacts support deterministic evaluation and exploratory ML experiments. Blind human review and the protected holdout are research-governance mechanisms. The runtime application does not load ML models, provisional labels, reviewer submissions, or holdout decisions.
 
-The architecture is organized as two separate lanes, with no path from research ML outputs to operational scoring.
+Figure 1 presents the architecture as two separate lanes, with no path from research outputs to operational scoring.
+
+![DriftWatch runtime analysis and research-governance architecture](figures/driftwatch_architecture.svg)
+
+**Figure 1. DriftWatch runtime analysis and research-governance architecture.** The upper runtime path securely extracts two supplied extension packages, performs static differential behavioural analysis, and produces analyst-facing security-review priority and evidence for manual review. Here, \(V_{t-1}\) and \(V_t\) denote the previous and updated versions, and κ denotes unweighted nominal Cohen's kappa. The separate lower research-governance path controls corpus eligibility, external-holdout isolation, blind human review, inter-rater agreement, two-stage adjudication, derived quality promotion, and governed Gold Set construction. The holdout is excluded from training, tuning, threshold selection, rule development, feature redesign, and Gold Set construction. Human outcomes and Gold Set membership are governed review evidence, not objective malware ground truth, and do not feed runtime scoring.
 
 ## 8. Threat Model
 
@@ -146,6 +150,8 @@ DriftWatch can state that security-sensitive behavioural drift was observed and 
 ## 9. Methodology
 
 DriftWatch compares two validated archive workspaces using deterministic static analyzers. The analysis records observations and then separates those observations from their security interpretation.
+
+**Table 1. Static evidence families and permitted interpretations.**
 
 | Signal family | Observed signal | Permitted interpretation |
 |---|---|---|
@@ -193,6 +199,8 @@ Weights and thresholds are implementation constants established independently of
 
 DriftBench models extension updates as ordered version pairs with provenance and curation metadata. Current Phase 3H facts are:
 
+**Table 2. Frozen Phase 3H corpus and Phase 3H.5 eligibility summary.**
+
 | Property | Verified value |
 |---|---:|
 | Version-pair transitions | 76 |
@@ -230,11 +238,13 @@ This separation matters because repeated inspection or optimization against hold
 
 ## 14. Experimental ML Evaluation
 
-ML is evaluated only as an offline research question. Logistic Regression and Random Forest were trained across five locked feature representations using extension-group-safe splits. Preprocessing for Logistic Regression was fit on training data only; model selection used train/validation data, followed by one held-out test evaluation. These controls reflect established concerns about class imbalance, selection bias, and train-test leakage [20]–[22]. Leakage audits passed, and models were not integrated into the application.
+ML is evaluated only as an offline research question. Logistic Regression and Random Forest were trained across five locked feature representations using extension-group-safe splits. Preprocessing for Logistic Regression was fit on training data only; model selection used train/validation data, followed by one held-out test evaluation. Reported metrics include precision, recall, F1, and false-positive rate (FPR). These controls reflect established concerns about class imbalance, selection bias, and train-test leakage [20]–[22]. Leakage audits passed, and models were not integrated into the application.
 
 ### Phase 3E pilot
 
 Phase 3E contains 34 real pairs from 11 extensions, with 32 eligible records. The held-out test set has 6 records—5 provisionally benign and 1 provisionally review-worthy. The small positive-class support makes estimates unstable.
+
+**Table 3. Phase 3E held-out results on six provisionally labelled records.**
 
 | Method / representation | Precision | Recall | F1 | FPR | Confusion matrix |
 |---|---:|---:|---:|---:|---|
@@ -247,6 +257,8 @@ Phase 3E contains 34 real pairs from 11 extensions, with 32 eligible records. Th
 
 Phase 3F expands the corpus to 46 real pairs from 14 extensions. Its held-out test set has 10 records—9 provisionally benign and 1 provisionally review-worthy.
 
+**Table 4. Phase 3F held-out results on ten provisionally labelled records.**
+
 | Method / representation | Precision | Recall | F1 | FPR | Confusion matrix |
 |---|---:|---:|---:|---:|---|
 | Deterministic rule engine / full drift | 0.11 | 1.00 | 0.20 | 0.89 | tn=1, fp=8, fn=0, tp=1 |
@@ -254,7 +266,7 @@ Phase 3F expands the corpus to 46 real pairs from 14 extensions. Its held-out te
 | Random Forest / full drift | 0.00 | 0.00 | 0.00 | 0.00 | tn=9, fp=0, fn=1, tp=0 |
 | Random Forest / permission-only | 0.10 | 1.00 | 0.18 | 1.00 | tn=0, fp=9, fn=0, tp=1 |
 
-All five representations were evaluated; the complete matrices remain in the frozen experiment artifacts. No configuration supports a production-ML claim. The rule engine retained recall for the single held-out positive but at high false-alert cost. Full-drift exploratory models predicted every held-out case as benign at the selected thresholds and missed the single positive. These are preliminary observations on tiny, imbalanced, provisionally labeled sets—not stable comparative estimates.
+All five representations were evaluated; the complete matrices remain in the frozen experiment artifacts. No configuration supports a production-ML claim. The rule engine retained recall for the single held-out positive but at high false-alert cost. Full-drift exploratory models predicted every held-out case as benign at the selected thresholds and missed the single positive. These are preliminary observations on tiny, imbalanced, provisionally labelled sets—not stable comparative estimates.
 
 Chronological evaluation and high-confidence label-sensitivity analysis were not sufficiently supported. The Phase 3F conclusion is `INCONCLUSIVE`, with production ML integration unjustified.
 
@@ -271,7 +283,9 @@ Phase 3H.5 defined an independent blind-review protocol. Human-in-the-loop secur
 
 A reviewer supplied an independent transition label, ordinal confidence (`HIGH`, `MEDIUM`, or `LOW`), rationale, evidence references, reviewer identity, review round, and timestamp. Permitted labels distinguished benign, risky, malicious, uncertain, and excluded transitions. `MALICIOUS_TRANSITION` required independent evidence of intentional harmful behaviour; static DriftWatch signals alone were insufficient. Raw submissions were preserved immutably, and human outcomes were not used to alter features, rules, weights, thresholds, frozen labels, experiments, or holdout policy.
 
-The reviewers agreed exactly on 9 of 14 cases and disagreed on 5. Agreement was 64.29%, with unweighted nominal Cohen's kappa of 0.3396226415 (approximately 0.34), using Cohen's nominal agreement coefficient [18]. Kappa is reported descriptively rather than assigned a qualitative category. Its interpretation is limited by the small sample and concentrated marginals, because imbalanced marginal totals can materially affect kappa [19]: Reviewer 01 assigned 8 risky and 6 uncertain labels, whereas Reviewer 02 assigned 3 risky and 11 uncertain labels. Agreement is not accuracy, and no independent objective ground truth exists.
+The reviewers agreed exactly on 9 of 14 cases and disagreed on 5. Agreement was 64.29%, with unweighted nominal Cohen's kappa of 0.3396226415 (approximately 0.34), using Cohen's nominal agreement coefficient [18]. Kappa is reported descriptively rather than assigned a qualitative category. Its interpretation is limited by the small sample and concentrated marginals, because imbalanced marginal totals can materially affect kappa [19]: one reviewer assigned 8 risky and 6 uncertain labels, whereas the other assigned 3 risky and 11 uncertain labels. Agreement is not accuracy, and no independent objective ground truth exists.
+
+**Table 5. Scoped independent human-review agreement.**
 
 | Human-review measure | Verified result | Interpretation boundary |
 |---|---:|---|
@@ -282,6 +296,8 @@ The reviewers agreed exactly on 9 of 14 cases and disagreed on 5. Agreement was 
 | Unweighted nominal Cohen's kappa | 0.3396226415 | Small, marginally concentrated sample |
 
 Each disagreement then entered two-stage adjudication by the same adjudicator. Stage A recorded an assessment before exposure to either prior review. At Stage B, the adjudicator reconsidered the case after receiving de-identified Reviewer A and Reviewer B opinions. The protocol did not require majority vote and permitted `UNCERTAIN`. All five cases retained their Stage A label at Stage B; the final disagreement outcomes were four `RISKY_TRANSITION`, one `UNCERTAIN`, and zero `BENIGN_TRANSITION`.
+
+**Table 6. Governed two-stage adjudication outcomes.**
 
 | Adjudication measure | Verified result |
 |---|---:|
@@ -298,6 +314,8 @@ Adjudication strengthened label provenance and made disagreement resolution audi
 ## 16. Governed Gold Set
 
 Four definitive adjudicated records received explicit, derived promotion to `MULTI_REVIEWER_ADJUDICATED` and qualified for `driftwatch-human-gold-set-v1`. The uncertain adjudicated record was not promoted, and the nine agreement-only records were not silently promoted. Frozen source rows remained unchanged; the Gold Set exists as a separate derived artifact.
+
+**Table 7. Membership of the governed `driftwatch-human-gold-set-v1` Gold Set.**
 
 | Gold Set record | Final human label | Quality tier | Holdout overlap |
 |---|---|---|---:|
@@ -356,7 +374,7 @@ Network counts may be inflated by bundles, source maps, fixtures, or repeated li
 
 All held-out errors use provisional labels, and no sufficiently large higher-confidence subset with both classes exists. The new Gold Set cannot repair this limitation because its four records are all risky and its policy prohibits training or tuning use. Error interpretation therefore remains conditional and must not be converted into population false-positive or false-negative rates.
 
-Human disagreement adds a separate limitation: 5 of 14 scoped judgments differed even though the reviewers saw identical blind evidence. The adjudication workflow records how those cases were resolved, but the disagreements demonstrate the ambiguity of behavioral deltas when semantic, release, and runtime context is incomplete. Benign-but-security-relevant changes may correctly warrant review without being malicious, while static source/sink, permission, endpoint, and code-structure evidence cannot alone establish intent or actual execution.
+Human disagreement adds a separate limitation: 5 of 14 scoped judgments differed even though the reviewers saw identical blind evidence. The adjudication workflow records how those cases were resolved, but the disagreements demonstrate the ambiguity of behavioural deltas when semantic, release, and runtime context is incomplete. Benign-but-security-relevant changes may correctly warrant review without being malicious, while static source/sink, permission, endpoint, and code-structure evidence cannot alone establish intent or actual execution.
 
 ## 19. Results
 
@@ -412,11 +430,13 @@ The operational application, analyzers, deterministic scoring, datasets, ML expe
 
 ## 22. Ethical and Governance Considerations
 
-DriftWatch analyzes supplied packages statically and does not execute extension JavaScript. Reports describe observable security-sensitive drift and review priority, not developer intent or criminality. Neither a high score, a `RISKY_TRANSITION` human label, nor Gold Set membership establishes malware. Public reporting should avoid attributing harmful behavior without independent evidence and should preserve distinctions among static indicators, reviewer judgments, and verified runtime conduct.
+DriftWatch analyses supplied packages statically and does not execute extension JavaScript. Reports describe observable security-sensitive drift and review priority, not developer intent or criminality. Neither a high score, a `RISKY_TRANSITION` human label, nor Gold Set membership establishes malware. Public reporting should avoid attributing harmful behaviour without independent evidence and should preserve distinctions among static indicators, reviewer judgments, and verified runtime conduct.
 
 Blind review concealed provisional labels and predictive outputs. Raw human submissions were preserved immutably, while public-safe aggregate artifacts omit private rationale text. Disagreements were not erased: `UNCERTAIN` remained an available outcome, and adjudication preserved the original review trail. The external holdout remains isolated from training, tuning, rule development, threshold selection, and Gold Set construction. These controls improve auditability but do not eliminate reviewer bias, source-selection bias, or uncertainty.
 
 ## 23. Limitations
+
+**Table 8. Principal limitations and their consequences for interpretation.**
 
 | Limitation | Consequence for interpretation |
 |---|---|
@@ -426,7 +446,7 @@ Blind review concealed provisional labels and predictive outputs. Raw human subm
 | Very small, single-class Gold Set | Four risky records support qualitative audit, not classifier metrics, prevalence, or generalization. |
 | Open-source source bias | Public GitHub release assets do not represent browser-store prevalence or all extension ecosystems. |
 | No confirmed malicious ground truth | Neither human adjudication nor Gold Set membership proves maliciousness or objective truth. |
-| Static observability | Runtime activation, remote configuration, dynamic loading, indirect flows, WebAssembly semantics, and server behavior may be missed. |
+| Static observability | Runtime activation, remote configuration, dynamic loading, indirect flows, WebAssembly semantics, and server behaviour may be missed. |
 | Historical and pairwise baselines | V1 is not assumed safe; skipped releases, bad ordering, repackaging, or identity errors can distort a delta. |
 | Ambiguous static signals | Bundles, minification, generated assets, dependencies, repeated literals, and ordinary feature growth can appear security-relevant. |
 | Source/sink approximation | Same-file co-occurrence does not establish data flow, reachability, sanitization, runtime transfer, or exfiltration. |
@@ -456,11 +476,11 @@ These are research directions, not completed features.
 
 DriftWatch demonstrates a functional approach to explainable differential security analysis of browser-extension updates. It securely compares two supplied versions, represents heterogeneous security-sensitive drift, applies transparent deterministic prioritization, and presents evidence for manual review. DriftBench adds provenance, leakage controls, label-quality tracking, eligibility policy, exploratory evaluation, a protected holdout, independent blind human validation, governed adjudication, and explicit uncertainty handling.
 
-The two reviewers agreed on 9 of 14 scoped cases, while five disagreements required adjudication. A separate four-record `MULTI_REVIEWER_ADJUDICATED` Gold Set preserves the strongest resulting provenance without rewriting frozen dataset history or authorizing training and tuning. These governance contributions make uncertainty and evidence lineage explicit, but they do not establish objective ground truth or malware-detection accuracy. The corpus remains small, imbalanced, open-source biased, and predominantly provisionally labeled; the Gold Set is very small and single-class; and external validation is incomplete. DriftWatch is therefore an implemented and reproducibly governed foundation for version-aware security-review prioritization, not a system that certifies malware or safety.
+The two reviewers agreed on 9 of 14 scoped cases, while five disagreements required adjudication. A separate four-record `MULTI_REVIEWER_ADJUDICATED` Gold Set preserves the strongest resulting provenance without rewriting frozen dataset history or authorizing training and tuning. These governance contributions make uncertainty and evidence lineage explicit, but they do not establish objective ground truth or malware-detection accuracy. The corpus remains small, imbalanced, open-source biased, and predominantly provisionally labelled; the Gold Set is very small and single-class; and external validation is incomplete. DriftWatch is therefore an implemented and reproducibly governed foundation for version-aware security-review prioritization, not a malware classifier or safety-certification system.
 
 ## 26. References
 
-References are numbered in order of first thematic use. Metadata, claim scope, and verification notes are recorded in `LITERATURE_VERIFIED_SOURCES.md`.
+References retain the numbering of the verified source list. Metadata, claim scope, and verification notes are recorded in `LITERATURE_VERIFIED_SOURCES.md`.
 
 1. A. Barth, A. P. Felt, P. Saxena, and A. Boodman, “Protecting Browsers from Extension Vulnerabilities,” *NDSS Symposium 2010*, 2010. https://www.ndss-symposium.org/ndss2010/protecting-browsers-extension-vulnerabilities/
 2. N. Carlini, A. P. Felt, and D. Wagner, “An Evaluation of the Google Chrome Extension Security Architecture,” in *21st USENIX Security Symposium (USENIX Security 12)*, 2012, pp. 97–111. https://www.usenix.org/conference/usenixsecurity12/technical-sessions/presentation/carlini
