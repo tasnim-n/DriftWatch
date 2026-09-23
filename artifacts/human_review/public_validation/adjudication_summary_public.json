@@ -1,0 +1,45 @@
+{
+  "schema_version": "driftwatch-human-validation-public-v1",
+  "artifact_type": "HUMAN_ADJUDICATION_SUMMARY",
+  "derivation_policy_version": "driftwatch-human-validation-publication-v1",
+  "privacy_classification": "PUBLIC_SAFE_AGGREGATE",
+  "raw_human_text_included": false,
+  "workflow": {
+    "cases_entering_adjudication": 5,
+    "stage_a_complete": true,
+    "stage_b_complete": true,
+    "stage_a_to_stage_b_changed_count": 0
+  },
+  "final_label_distribution": {
+    "BENIGN_TRANSITION": 0,
+    "RISKY_TRANSITION": 4,
+    "UNCERTAIN": 1
+  },
+  "records": [
+    {
+      "record_id": "automaapp_automa_1_29_11_to_1_29_12",
+      "final_label": "RISKY_TRANSITION"
+    },
+    {
+      "record_id": "bitwarden_clients_browser_v2026_6_1_to_browser_v2026_7_0",
+      "final_label": "RISKY_TRANSITION"
+    },
+    {
+      "record_id": "browserpass_browserpass_extension_3_10_2_to_3_11_0",
+      "final_label": "RISKY_TRANSITION"
+    },
+    {
+      "record_id": "duckduckgo_privacy_2026_1_12_to_2026_4_28",
+      "final_label": "RISKY_TRANSITION"
+    },
+    {
+      "record_id": "save_tabbed_images_0_4_0_to_0_4_1",
+      "final_label": "UNCERTAIN"
+    }
+  ],
+  "privacy_notice": "Raw review submissions, human rationale, evidence references, identity mappings, and detailed adjudication records are retained privately and are not included.",
+  "limitations": [
+    "The final labels are governed human-review outcomes, not malware ground truth.",
+    "The public artifact supports aggregate verification but intentionally omits private human reasoning."
+  ]
+}

@@ -401,7 +401,8 @@ This addendum does not replace or rewrite the frozen dataset labels. The Phase 3
 
 Public-safe evidence:
 
-- `artifacts/human_review/agreement/reviewer01_vs_reviewer02/agreement_summary.json`
-- `artifacts/human_review/adjudication/final/human_validation_summary.json`
+- `artifacts/human_review/public_validation/agreement_summary_public.json`
+- `artifacts/human_review/public_validation/adjudication_summary_public.json`
+- `artifacts/human_review/public_validation/human_validation_public_manifest.json`
 - `artifacts/human_review/quality_promotion/driftwatch-human-review-quality-promotion-v1/human_validation_governance_summary.json`
 - `artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/gold_set_manifest.json`

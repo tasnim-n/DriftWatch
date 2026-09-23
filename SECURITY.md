@@ -120,7 +120,7 @@ Uploaded archives, manifests, JavaScript, decoded strings, and derived indicator
 - All acquired packages are treated as hostile static archives. They are fetched over HTTPS, named safely, hashed, normalized only for static analysis compatibility, and never installed or executed.
 - Secure extraction controls remain unchanged: Zip-Slip protection, compression-ratio checks, file-count limits, extracted-size limits, symlink rejection, path isolation, and static-only JavaScript parsing.
 - Holdout records are locked in `external_holdout_manifest.json` and excluded from non-holdout feature artifacts to reduce tuning and model-selection leakage.
-- Gold Set membership is metadata only and is not a predictive feature. The current Gold Set is empty because no real records have sufficiently strong independent ground truth.
+- Gold Set membership is metadata only and is not a predictive feature. At the frozen Phase 3H checkpoint, the Gold Set was empty because no real records then had sufficiently strong independent review provenance.
 - Phase 3H does not contact embedded extension endpoints, execute bundled binaries, load arbitrary model artifacts, retrain ML, or change production risk scoring.
 
 ### 2.17 Phase 3H.5 Review Safety
@@ -130,4 +130,4 @@ Uploaded archives, manifests, JavaScript, decoded strings, and derived indicator
 - Reviewer metadata, evidence tiers, review rationales, adjudication status, Gold Set flags, timestamps, and eligibility metadata are blocked from predictive feature matrices.
 - AI-assisted packet organization is recorded as `ai_assisted=true` but is not treated as independent review, external confirmation, or ground truth.
 - External holdout records may receive neutral review packets, but their labels must not be decided using DriftWatch predictions or used for training, threshold tuning, rule tuning, or feature redesign.
-- Independent human review is currently in progress. No genuine agreement, adjudicated Gold Set, or completed external-validation result is available.
+- At the frozen Phase 3H.5 checkpoint, independent human review was still in progress. A later, separately governed workflow completed genuine agreement analysis and two-stage adjudication and created a four-record, single-class Gold Set. That later Gold Set is prohibited from training and tuning and does not constitute completed external validation.

@@ -177,6 +177,6 @@ Phase 3H.5 is a ground-truth qualification layer. It does not regenerate feature
 
 ### 2.18 Current Project Phase And Report Surfaces
 
-Core operational implementation is complete. Independent human review is in progress, and validation remains pending genuine reviewer submissions. Research-paper preparation and release preparation are active documentation activities; they do not change frozen research logic.
+Core operational implementation is complete. The separate scoped human-validation workflow is also complete: two reviewers completed 14 shared blind cases, five disagreements completed two-stage adjudication, and four definitive risky cases form a governed Gold Set with zero external-holdout overlap. This does not constitute objective malware ground truth or completed external validation. Research-paper preparation and release preparation remain documentation activities; they do not change frozen research logic.
 
 The implemented application exposes an HTML report at `/report/{analysis_id}` and structured JSON at `/api/v1/analysis/{analysis_id}`. PDF export is not implemented.

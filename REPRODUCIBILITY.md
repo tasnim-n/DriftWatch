@@ -56,6 +56,8 @@ Fresh verification on 2026-09-21 at commit `54a4780d58ac12b4c794145b773da5e2c15a
 
 There were 0 failures, 0 skips, and no warnings reported under the repository's configured pytest warning filters.
 
+A later Phase 7 audit on 2026-09-23, based on commit `3412522eb7c1ae8c05ac90b115cbf38032210577`, produced `203 passed`, 0 failures, and 0 skips. It reported two dependency deprecation warnings and one pytest cache-path warning; no application or research test failed.
+
 ## Repository Commit
 
 - Branch at verification: `main`
@@ -89,6 +91,22 @@ Existing Phase 3E and Phase 3F experiment artifacts use seed `1337`. This runboo
 ## Dataset Availability
 
 Raw incoming and validated archive directories are excluded from Git. A clean clone therefore does not contain every local corpus archive.
+
+Raw human-review ZIPs, reviewer submissions, identity/alias mappings, evidence references, and rationale-bearing adjudication workspaces are intentionally local and are not reproducible from a clean clone. The tracked release surface contains a rationale-free public human-validation evidence layer, derived quality-promotion artifacts, and the Gold Set. A clean-clone researcher can verify those published aggregates, their internal arithmetic, their recorded source hashes, and their Gold Set linkage, but cannot reconstruct the original private human judgments from repository contents alone.
+
+### Public reproducibility
+
+A clean clone contains the implementation and tests, the aggregate human-validation evidence under `artifacts/human_review/public_validation/`, the governed Gold Set and promotion metadata, the literature audit, and `PAPER_EVIDENCE_MAP.md`. Verify the aggregate evidence without private inputs by running:
+
+```powershell
+python -m research.human_review_publication verify
+```
+
+This command validates strict public schemas and privacy allowlists, deterministic artifact hashes, agreement arithmetic and kappa components, adjudication totals, the exact public record set, and Gold Set linkage. It does not open or require private reviewer or adjudicator material.
+
+### Private audit reproducibility
+
+Raw review returns and rationale-bearing adjudication records are retained outside the public release surface for controlled-access audit. The generation mode validates their authoritative hashes and derives the public projection, but it is intentionally unavailable to a clean clone without those private inputs. Access to the public artifacts therefore supports verification of published aggregate claims and provenance commitments—not independent reconstruction of withheld human reasoning.
 
 Existing acquisition, import, dataset, and provenance manifests include:
 
@@ -135,6 +153,7 @@ Important existing outputs include:
 | Phase 3H.5 review queue | `artifacts/driftbench/phase3h5/review_queue.json` |
 | Phase 3H.5 canonical review packets | `artifacts/driftbench/phase3h5/review_packets/` |
 | Independent human-review delivery workspace | `reviewer_human_b/` |
+| Public human-validation aggregate evidence | `artifacts/human_review/public_validation/` |
 
 The human-review workspace is a scoped 14-record delivery package, not a replacement for the canonical 76-record Phase 3H.5 review scope.
 

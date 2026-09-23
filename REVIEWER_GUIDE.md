@@ -3,9 +3,9 @@
 ## Purpose
 Phase 3H.5 review strengthens DriftBench ground truth. Reviewers assess browser-extension version pairs from evidence packets, not from DriftWatch scores or model predictions.
 
-## Current Phase 3H.5 Status
+## Phase 3H.5 Package Status
 
-A scoped independent human-review package is currently in progress. Genuine submissions have not yet been returned or incorporated, so genuine agreement, adjudication, and Gold Set status remain unavailable.
+The scoped independent human-review package documented here has completed. Two independent reviewers completed the same 14 blind cases; 9 cases agreed exactly and 5 completed governed two-stage adjudication. Four definitive risky cases later qualified for a separate governed Gold Set. This guide remains the historical protocol for the original blind-review task and does not expose later reviewer or adjudication results to a reviewer performing that task.
 
 A separate simulated/AI-assisted review exercise has been conducted for workflow testing and audit purposes. Those outputs are not genuine human reviews, are not ground truth, and must not be consulted when performing an independent review.
 

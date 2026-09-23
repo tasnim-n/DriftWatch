@@ -9,7 +9,7 @@ Browser extensions receive extensive access to sensitive web browsing data, auth
 
 **DriftWatch** provides explainable differential behavioural security analysis and supports security-review prioritization. Instead of asking *"Is this single extension version malicious?"*, DriftWatch models updates as differential security feature vectors \( D_t = F(V_t) - F(V_{t-1}) \) relative to historical baselines. A historical baseline is not assumed to be safe.
 
-Core implementation is complete. Independent human review is currently in progress; validation remains pending genuine reviewer submissions. Research-paper preparation and release preparation may proceed without changing frozen research logic. DriftWatch does not claim genuine inter-rater agreement, a real Gold Set, or completed external validation.
+Core implementation and the scoped independent human-validation workflow are complete. Two independent reviewers completed the same 14 blind cases; 9 cases agreed exactly and 5 entered completed two-stage adjudication. Four definitive risky cases form the separately governed `driftwatch-human-gold-set-v1` Gold Set with zero external-holdout overlap. The Gold Set is small, single-class, and prohibited from training or tuning; external validation remains incomplete.
 
 See `THREAT_MODEL.md` for the target-system claims boundary and `SECURITY.md` for archive-processing and analysis-host protections.
 
@@ -49,7 +49,7 @@ See `THREAT_MODEL.md` for the target-system claims boundary and `SECURITY.md` fo
 ### Windows Setup (PowerShell)
 ```powershell
 # Clone or navigate to workspace
-cd e:\DriftWatch
+cd <repository-root>
 
 # Run setup script (creates .venv and installs requirements)
 .\setup_venv.ps1
@@ -292,7 +292,7 @@ DriftWatch/
 |-- research/               # Offline research evaluation and versioned phase workflows
 |-- datasets/               # Manifests plus local/ignored corpus workspaces
 |-- artifacts/              # Versioned dataset, feature, experiment, and audit artifacts
-|-- reviewer_human_b/       # Scoped independent human-review delivery workspace
+|-- reviewer_human_b/       # Local/ignored independent human-review delivery workspace
 |-- reviewer_b_blind/       # Separate simulated/AI-assisted workflow material
 |-- samples/                # Controlled laboratory extension pairs
 |-- tests/                  # Pytest suite

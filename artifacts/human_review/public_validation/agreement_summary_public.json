@@ -1,0 +1,40 @@
+{
+  "schema_version": "driftwatch-human-validation-public-v1",
+  "artifact_type": "HUMAN_REVIEW_AGREEMENT_SUMMARY",
+  "derivation_policy_version": "driftwatch-human-validation-publication-v1",
+  "privacy_classification": "PUBLIC_SAFE_AGGREGATE",
+  "raw_human_text_included": false,
+  "review_set": {
+    "blind_case_count": 14,
+    "independent_reviewer_count": 2,
+    "case_sets_identical": true,
+    "external_holdout_overlap_count": 0
+  },
+  "agreement": {
+    "exact_agreements": 9,
+    "disagreements": 5,
+    "exact_agreement_fraction": 0.6428571428571429,
+    "exact_agreement_percent": 64.29,
+    "observed_agreement": 0.6428571428571429,
+    "expected_agreement": 0.45918367346938777,
+    "cohens_kappa": 0.339622641509434,
+    "method": "UNWEIGHTED_NOMINAL"
+  },
+  "label_distributions": {
+    "review_1": {
+      "risky_transition": 8,
+      "uncertain": 6
+    },
+    "review_2": {
+      "risky_transition": 3,
+      "uncertain": 11
+    }
+  },
+  "privacy_notice": "Raw review submissions, human rationale, evidence references, identity mappings, and detailed adjudication records are retained privately and are not included.",
+  "limitations": [
+    "The scoped review set contains 14 cases.",
+    "The statistic is descriptive of this review set and is not an accuracy measure.",
+    "Cohen's kappa is sensitive to concentrated and imbalanced category marginals.",
+    "No weighted kappa is reported because the governed label ontology is not ordinal."
+  ]
+}

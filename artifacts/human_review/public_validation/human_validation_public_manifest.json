@@ -1,0 +1,46 @@
+{
+  "schema_version": "driftwatch-human-validation-public-v1",
+  "artifact_type": "HUMAN_VALIDATION_PUBLIC_MANIFEST",
+  "derivation_policy_version": "driftwatch-human-validation-publication-v1",
+  "privacy_classification": "PUBLIC_SAFE_AGGREGATE",
+  "source_aggregate_sha256": {
+    "adjudication_aggregate": "076ED1350680853540184CC22208CA53ACCE548D0C4ED241EF1714AD8C8354B2",
+    "agreement_aggregate": "369FFA3352E11542574618EBEECD3095271DA7DCDA4029E79C0231C3C5D10089",
+    "stage_comparison": "A94A77E84E5596F95CA3FCC5C5EEC1A008CDA53DB749CC28A801AC578B548D8E"
+  },
+  "source_archive_sha256": {
+    "adjudication_stage_a_raw_archive": "C66C3D5349F701BE4ECA75C049BB0382E105B79B801F2737D7069BDBD26A11DC",
+    "adjudication_stage_b_raw_archive": "F5990ED098DE626A748EFABC4AF452C6994F1683375AB0E0E7E6361E2F00C843",
+    "adjudication_stage_b_released_package": "F4703D89F32502770F428B744401466423F2152CBB1093B50109F7EF928C6C89",
+    "review_1_raw_archive": "E4843AE0A1241D4E69A70E2C16063DA447EB97BA82CFF2AAF92CF258D4668A5C",
+    "review_2_raw_archive": "E9E19CDF330C5F41B794823FF9A5C02300F03A7EEEBE5139820521ACC5A57CDA"
+  },
+  "public_artifact_sha256": {
+    "agreement_summary_public.json": "4D6F6193E893B0A0DCEDF681CC74DA201A73FD95FDA5E61DF1A31F9062125D9F",
+    "adjudication_summary_public.json": "1621346F09FF71055AFE709B5F7545AA5B4F82644AAC2BDE89A31DD497CEDA48"
+  },
+  "gold_set_linkage": {
+    "manifest_path": "artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/gold_set_manifest.json",
+    "manifest_sha256": "F83FF5276E26724200123FE0E64160C4397F71F289EC40E680D74086F46A9F60",
+    "record_count": 4,
+    "record_ids": [
+      "automaapp_automa_1_29_11_to_1_29_12",
+      "bitwarden_clients_browser_v2026_6_1_to_browser_v2026_7_0",
+      "browserpass_browserpass_extension_3_10_2_to_3_11_0",
+      "duckduckgo_privacy_2026_1_12_to_2026_4_28"
+    ]
+  },
+  "claims_supported": [
+    "Two independent reviewers assessed the same 14-case blind review set.",
+    "Exact agreement was 9 of 14 (64.29%), with nominal unweighted Cohen kappa 0.3396226415.",
+    "Five disagreements entered adjudication; four resolved as RISKY_TRANSITION and one as UNCERTAIN.",
+    "No Stage A label changed in Stage B, and four governed risky cases form the Gold Set."
+  ],
+  "privacy_notice": "Raw review submissions, human rationale, evidence references, identity mappings, and detailed adjudication records are retained privately and are not included.",
+  "limitations": [
+    "A clean clone can verify the published aggregates and their internal consistency.",
+    "A clean clone cannot reconstruct the intentionally withheld raw human reasoning.",
+    "The governed Gold Set is a validation subset and is not malware ground truth."
+  ],
+  "clean_clone_verification_command": ".venv/Scripts/python.exe -m research.human_review_publication verify"
+}

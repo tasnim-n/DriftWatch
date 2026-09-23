@@ -121,6 +121,7 @@ The deterministic system is useful as a transparent prioritizer but can over-pri
 - `artifacts/experiments/phase3f/label_sensitivity.json`
 - `artifacts/driftbench/phase3h5/unresolved_records.json`
 - `artifacts/driftbench/phase3h_features/full_driftwatch.csv`
-- `artifacts/human_review/agreement/reviewer01_vs_reviewer02/agreement_summary.json`
-- `artifacts/human_review/adjudication/final/human_validation_summary.json`
+- `artifacts/human_review/public_validation/agreement_summary_public.json`
+- `artifacts/human_review/public_validation/adjudication_summary_public.json`
+- `artifacts/human_review/public_validation/human_validation_public_manifest.json`
 - `artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/gold_set_summary.json`

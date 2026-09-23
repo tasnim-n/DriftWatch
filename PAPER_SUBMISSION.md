@@ -1,6 +1,6 @@
 # DriftWatch: Explainable Differential Behavioural Analysis for Security-Review Prioritization of Browser-Extension Updates
 
-> **Research-paper draft.** This draft is grounded in the current DriftWatch repository, frozen research artifacts, completed independent human-validation workflow, governed Gold Set, and a verified external-literature audit. Numbered citations are temporary pending venue selection. Internal draft metadata must still be removed before submission.
+> **Scope and claims boundary.** This manuscript is grounded in the DriftWatch implementation, frozen research artifacts, completed independent human-validation workflow, governed Gold Set, and verified external-literature audit. Its empirical claims remain bounded by those materials.
 
 ## 1. Title
 
@@ -115,7 +115,7 @@ The engine constructs version-level feature states and a differential representa
 
 Offline research is architecturally separate. DriftBench datasets and feature artifacts support deterministic evaluation and exploratory ML experiments. Blind human review and the protected holdout are research-governance mechanisms. The runtime application does not load ML models, provisional labels, reviewer submissions, or holdout decisions.
 
-**Planned paper figure:** redraw the two-lane diagram from `ARCHITECTURE.md`, with no arrow from research ML to operational scoring.
+The architecture is organized as two separate lanes, with no path from research ML outputs to operational scoring.
 
 ## 8. Threat Model
 
@@ -460,7 +460,7 @@ The two reviewers agreed on 9 of 14 scoped cases, while five disagreements requi
 
 ## 26. References
 
-The temporary citation style is numbered in order of first thematic use. Metadata, claim scope, and verification notes are recorded in `LITERATURE_VERIFIED_SOURCES.md`.
+References are numbered in order of first thematic use. Metadata, claim scope, and verification notes are recorded in `LITERATURE_VERIFIED_SOURCES.md`.
 
 1. A. Barth, A. P. Felt, P. Saxena, and A. Boodman, “Protecting Browsers from Extension Vulnerabilities,” *NDSS Symposium 2010*, 2010. https://www.ndss-symposium.org/ndss2010/protecting-browsers-extension-vulnerabilities/
 2. N. Carlini, A. P. Felt, and D. Wagner, “An Evaluation of the Google Chrome Extension Security Architecture,” in *21st USENIX Security Symposium (USENIX Security 12)*, 2012, pp. 97–111. https://www.usenix.org/conference/usenixsecurity12/technical-sessions/presentation/carlini
@@ -484,58 +484,3 @@ The temporary citation style is numbered in order of first thematic use. Metadat
 20. H. He and E. A. Garcia, “Learning from Imbalanced Data,” *IEEE Transactions on Knowledge and Data Engineering*, vol. 21, no. 9, pp. 1263–1284, 2009. https://doi.org/10.1109/TKDE.2008.239
 21. S. Varma and R. Simon, “Bias in Error Estimation When Using Cross-Validation for Model Selection,” *BMC Bioinformatics*, vol. 7, Article 91, 2006. https://doi.org/10.1186/1471-2105-7-91
 22. S. Kapoor and A. Narayanan, “Leakage and the Reproducibility Crisis in Machine-Learning-Based Science,” *Patterns*, vol. 4, no. 9, Article 100804, 2023. https://doi.org/10.1016/j.patter.2023.100804
-
-### Repository evidence sources (not publication references)
-
-- `ARCHITECTURE.md`
-- `THREAT_MODEL.md`
-- `RESEARCH.md`
-- `DATASET_CARD.md`
-- `DATA_GOVERNANCE.md`
-- `CASE_STUDIES.md`
-- `FAILURE_ANALYSIS.md`
-- `HUMAN_REVIEW_GOLD_SET_POLICY.md`
-- `PAPER_EVIDENCE_MAP.md`
-- `artifacts/driftbench/phase3h/`
-- `artifacts/driftbench/phase3h5/`
-- `artifacts/experiments/phase3e/`
-- `artifacts/experiments/phase3f/`
-- `artifacts/human_review/public_validation/`
-- `artifacts/human_review/quality_promotion/driftwatch-human-review-quality-promotion-v1/`
-- `artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/`
-
----
-
-# INTERNAL DRAFT STATUS — REMOVE BEFORE SUBMISSION
-
-This matrix is internal project metadata and must not appear in a submitted manuscript.
-
-| Paper section | Status | Blocking work |
-|---|---|---|
-| 1. Title | READY | Reconfirm after venue and literature positioning are selected |
-| 2. Abstract | READY FOR VENUE EDIT | Recheck length and terminology against venue requirements |
-| 3. Introduction | READY FOR VENUE EDIT | Verified literature integrated; refine venue framing at submission |
-| 4. Motivation | READY FOR VENUE EDIT | Update-delta and differential-analysis claims are cited and qualified |
-| 5. Research Questions | READY | Preserve consistency with `RESEARCH.md` |
-| 6. Related Work | READY FOR VENUE EDIT | Verified thematic synthesis and nearest-work comparison complete |
-| 7. System Overview | READY | Produce publication-quality two-lane figure |
-| 8. Threat Model | READY | Final copy edit only |
-| 9. Methodology | READY | Add implementation citations/appendix references if required by venue |
-| 10. Differential Feature Representation | READY | Confirm notation during final typesetting |
-| 11. Deterministic Risk Engine | READY | Do not retune or post-hoc justify weights |
-| 12. Dataset Construction | PARTIAL | Update only if a separately governed dataset release is approved |
-| 13. Data Governance and External Holdout | READY | Preserve holdout restrictions |
-| 14. Experimental ML Evaluation | READY | Frozen preliminary results; no selective rewriting |
-| 15. Independent Human Review and Adjudication | READY | Preserve descriptive, non-accuracy interpretation |
-| 16. Governed Gold Set | READY | Preserve single-class and no-training/tuning boundaries |
-| 17. Case Studies | READY | Preserve the Browserpass artifact discrepancy |
-| 18. Failure Analysis | READY | Do not fabricate failure rates |
-| 19. Results | READY | Preserve frozen metrics and human-validation boundaries |
-| 20. Discussion | READY FOR VENUE EDIT | Literature-aligned positioning complete |
-| 21. Reproducibility | READY | Update final commit and archival identifier at release |
-| 22. Ethical and Governance Considerations | READY | Preserve privacy and non-malware claims boundaries |
-| 23. Limitations | READY | Maintain claims discipline during shortening |
-| 24. Future Work | PARTIAL | Align with final discussion and venue scope |
-| 25. Conclusion | READY FOR VENUE EDIT | Recheck only against final venue scope |
-| 26. References | READY FOR VENUE EDIT | Convert temporary numbered style to venue format if required |
-| Repository/release metadata | WAITING FOR FINAL RELEASE | Freeze commit, artifact identifiers, availability statement, and archival link |

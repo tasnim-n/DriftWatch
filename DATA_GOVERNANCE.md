@@ -173,8 +173,9 @@ This later metadata is derived and separately versioned. The frozen Phase 3H lab
 
 Authoritative public-safe evidence is stored under:
 
-- `artifacts/human_review/agreement/reviewer01_vs_reviewer02/`
-- `artifacts/human_review/adjudication/final/`
+- `artifacts/human_review/public_validation/agreement_summary_public.json`
+- `artifacts/human_review/public_validation/adjudication_summary_public.json`
+- `artifacts/human_review/public_validation/human_validation_public_manifest.json`
 - `artifacts/human_review/quality_promotion/driftwatch-human-review-quality-promotion-v1/`
 - `artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/`
 

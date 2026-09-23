@@ -18,11 +18,12 @@ This map links major empirical claims in `PAPER_DRAFT.md` to public-safe reposit
 
 | Paper claim | Evidence path | SHA-256 / evidence note |
 |---|---|---|
-| Two reviewers received identical 14-case blind sets with zero holdout overlap | `artifacts/human_review/agreement/reviewer01_vs_reviewer02/agreement_summary.json` | `369FFA3352E11542574618EBEECD3095271DA7DCDA4029E79C0231C3C5D10089` |
-| 9 exact agreements, 5 disagreements, 64.29% agreement, unweighted nominal κ = 0.3396226415 | `artifacts/human_review/agreement/reviewer01_vs_reviewer02/agreement_summary.json` | `369FFA3352E11542574618EBEECD3095271DA7DCDA4029E79C0231C3C5D10089` |
-| Five disagreements completed Stage A and Stage B | `artifacts/human_review/adjudication/final/human_validation_summary.json` | `076ED1350680853540184CC22208CA53ACCE548D0C4ED241EF1714AD8C8354B2` |
-| All 5 retained the Stage A label at Stage B | `artifacts/human_review/adjudication/final/stage_a_to_stage_b_comparison.json` | `A94A77E84E5596F95CA3FCC5C5EEC1A008CDA53DB749CC28A801AC578B548D8E` |
-| Final disagreement outcomes: 4 risky, 1 uncertain, 0 benign | `artifacts/human_review/adjudication/final/human_validation_summary.json` | Aggregate only; no private rationale required |
+| Two reviewers received identical 14-case blind sets with zero holdout overlap | `artifacts/human_review/public_validation/agreement_summary_public.json` | `4D6F6193E893B0A0DCEDF681CC74DA201A73FD95FDA5E61DF1A31F9062125D9F` |
+| 9 exact agreements, 5 disagreements, 64.29% agreement, unweighted nominal κ = 0.3396226415 | `artifacts/human_review/public_validation/agreement_summary_public.json` | `4D6F6193E893B0A0DCEDF681CC74DA201A73FD95FDA5E61DF1A31F9062125D9F` |
+| Five disagreements completed Stage A and Stage B | `artifacts/human_review/public_validation/adjudication_summary_public.json` | `1621346F09FF71055AFE709B5F7545AA5B4F82644AAC2BDE89A31DD497CEDA48` |
+| All 5 retained the Stage A label at Stage B | `artifacts/human_review/public_validation/adjudication_summary_public.json` | `1621346F09FF71055AFE709B5F7545AA5B4F82644AAC2BDE89A31DD497CEDA48` |
+| Final disagreement outcomes: 4 risky, 1 uncertain, 0 benign | `artifacts/human_review/public_validation/adjudication_summary_public.json` | `1621346F09FF71055AFE709B5F7545AA5B4F82644AAC2BDE89A31DD497CEDA48`; aggregate and final-label fields only |
+| Public human-validation lineage, source-hash references, privacy boundary, and Gold Set linkage | `artifacts/human_review/public_validation/human_validation_public_manifest.json` | `583960955FEA321CCDDD9D19C9EDD9758569FB8FCCF9E6193AAAA34B316E5D46` |
 | Four definitive risky cases received explicit derived promotion; uncertain and agreement-only cases were not promoted | `artifacts/human_review/quality_promotion/driftwatch-human-review-quality-promotion-v1/human_validation_governance_summary.json` | `5796164A87770577515AEAE17527B2165813E01363880C4F6391C90DB999979C` |
 
 ## Governed Gold Set

@@ -10,11 +10,11 @@ Use these claims consistently:
 - It does **not** prove malicious intent.
 - Risk score means **manual security-review priority**, not malware probability.
 - ML experiments are **research-only** and do not feed the operational score.
-- Independent human review is **ongoing**; genuine agreement, an adjudicated Gold Set, and completed external validation are not yet available.
+- The scoped independent human review and adjudication are **complete**; the resulting agreement and Gold Set are limited validation evidence, and external validation remains incomplete.
 
 ## Pre-demonstration preparation
 
-From `E:\DriftWatch`:
+From the repository root:
 
 ```powershell
 .venv\Scripts\python.exe -m uvicorn app.main:app --host 127.0.0.1 --port 8000
@@ -115,7 +115,7 @@ Open the advanced technical details only briefly to show that the raw differenti
 
 **Say:**
 
-> The live application is deterministic. Separately, DriftBench supports dataset curation, exploratory ML experiments, human review, and a protected external holdout. Research ML predictions do not feed the live score. Existing ML results are preliminary and research-only. Independent human review is still in progress, so we do not claim genuine inter-rater agreement, a real Gold Set, or completed external validation.
+> The live application is deterministic. Separately, DriftBench supports dataset curation, exploratory ML experiments, human review, and a protected external holdout. Research ML predictions do not feed the live score. Existing ML results are preliminary and research-only. The scoped independent human review and adjudication workflow is complete, with 9/14 exact agreement and a separate four-record, single-class Gold Set. These results do not establish accuracy, objective ground truth, or completed external validation.
 
 If time permits, mention the KaTeX case from `CASE_STUDIES.md`: the deterministic system prioritized a multi-signal transition that both exploratory pilot models missed. Describe this as one provisional held-out observation, not proof that ML is generally inferior.
 
@@ -123,7 +123,7 @@ If time permits, mention the KaTeX case from `CASE_STUDIES.md`: the deterministi
 
 **Say:**
 
-> DriftWatch is static and pairwise. Bundled code can inflate endpoint, obfuscation, and structural counts. Source/sink findings are heuristic. Legitimate feature updates can add sensitive capabilities, and an unsafe baseline can make a delta look small. Labels remain provisional pending independent review.
+> DriftWatch is static and pairwise. Bundled code can inflate endpoint, obfuscation, and structural counts. Source/sink findings are heuristic. Legitimate feature updates can add sensitive capabilities, and an unsafe baseline can make a delta look small. Most frozen corpus labels remain single-reviewer provisional despite the completed scoped human-validation workflow.
 
 Close with:
 
@@ -171,7 +171,7 @@ The application has no native report-export or PDF feature. A saved HTML fallbac
 - Static endpoints do not prove communication.
 - Source/sink co-occurrence does not prove exfiltration.
 - ML is research-only and disconnected from live scoring.
-- Human review is ongoing and its result must not be predicted.
+- Human-review agreement and adjudication are descriptive evidence, not classifier accuracy or objective ground truth.
 
 ## Presenter claims checklist
 
@@ -180,8 +180,8 @@ Before the demonstration, confirm that the script and slides do not claim:
 - that any case is a malicious extension;
 - that a risk score is malware probability;
 - proven exfiltration or command-and-control;
-- genuine reviewer agreement or an adjudicated Gold Set;
+- reviewer agreement or Gold Set membership as proof of accuracy, maliciousness, prevalence, or generalization;
 - completed external validation; or
 - native PDF export.
 
-The defensible current statement is: DriftWatch detects and explains security-sensitive behavioural drift to prioritize manual review, while research validation and independent human review remain in progress.
+The defensible current statement is: DriftWatch detects and explains security-sensitive behavioural drift to prioritize manual review. Scoped independent human validation is complete, while external validation and population-level performance evidence remain incomplete.
