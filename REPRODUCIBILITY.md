@@ -58,10 +58,13 @@ There were 0 failures, 0 skips, and no warnings reported under the repository's 
 
 A later Phase 7 audit on 2026-09-23, based on commit `3412522eb7c1ae8c05ac90b115cbf38032210577`, produced `203 passed`, 0 failures, and 0 skips. It reported two dependency deprecation warnings and one pytest cache-path warning; no application or research test failed.
 
+The Phase 8A release-candidate audit on 2026-09-23 used source baseline `23ac32fdde3afecd9318f8d485ea7875fbc8b41e` and produced `223 passed`, 0 failures, 0 errors, and 0 skips. With default warning visibility enabled, it reported the same two dependency deprecation warnings and one pre-existing pytest cache-path warning.
+
 ## Repository Commit
 
 - Branch at verification: `main`
 - Commit: `54a4780d58ac12b4c794145b773da5e2c15a6999`
+- Phase 8A source baseline: `23ac32fdde3afecd9318f8d485ea7875fbc8b41e`
 
 Research conclusions should identify both the relevant artifact version and source commit. A later working-tree state must not be represented as this verified commit.
 
@@ -103,6 +106,19 @@ python -m research.human_review_publication verify
 ```
 
 This command validates strict public schemas and privacy allowlists, deterministic artifact hashes, agreement arithmetic and kappa components, adjudication totals, the exact public record set, and Gold Set linkage. It does not open or require private reviewer or adjudicator material.
+
+Verify the release manifest and Gold Set manifest byte hashes with:
+
+```powershell
+$releaseExpected = (Get-Content RELEASE_MANIFEST.sha256).Split()[0]
+$releaseActual = (Get-FileHash RELEASE_MANIFEST.json -Algorithm SHA256).Hash
+if ($releaseActual -ne $releaseExpected) { throw "Release manifest checksum mismatch" }
+
+$goldDirectory = "artifacts\human_review\gold_set\driftwatch-human-gold-set-v1"
+$goldExpected = (Get-Content "$goldDirectory\gold_set_manifest.sha256").Split()[0]
+$goldActual = (Get-FileHash "$goldDirectory\gold_set_manifest.json" -Algorithm SHA256).Hash
+if ($goldActual -ne $goldExpected) { throw "Gold Set manifest checksum mismatch" }
+```
 
 ### Private audit reproducibility
 

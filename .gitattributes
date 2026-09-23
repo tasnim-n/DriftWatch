@@ -3,3 +3,5 @@ artifacts/human_review/public_validation/*.json text eol=lf
 artifacts/human_review/quality_promotion/driftwatch-human-review-quality-promotion-v1/*.json text eol=lf
 artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/*.json text eol=lf
 artifacts/human_review/gold_set/driftwatch-human-gold-set-v1/*.sha256 text eol=lf
+/RELEASE_MANIFEST.json text eol=lf
+/RELEASE_MANIFEST.sha256 text eol=lf

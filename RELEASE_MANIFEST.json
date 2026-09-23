@@ -1,0 +1,92 @@
+{
+  "schema_version": "driftwatch-release-manifest-v1",
+  "project_name": "DriftWatch",
+  "project_version": "0.2.0",
+  "release_candidate_version": "0.2.0-research-rc1",
+  "source_git_commit": "23ac32fdde3afecd9318f8d485ea7875fbc8b41e",
+  "python_version": "3.14.0",
+  "intended_release_file_count": 741,
+  "test_baseline": {
+    "passed": 223,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "warnings": 3,
+    "public_command": "python -m pytest -q",
+    "audited_command": ".venv\\Scripts\\pytest.exe tests\\ -v -W default --basetemp=.pytest_tmp_phase8a"
+  },
+  "corpus_summary": {
+    "dataset_version": "driftbench-real-adjudication-holdout-phase3h-v1",
+    "transition_count": 76,
+    "unique_extension_count": 21,
+    "label_distribution": {
+      "benign_transition": 71,
+      "risky_transition": 3,
+      "uncertain": 2
+    },
+    "supervised_training_eligible_count": 64,
+    "supervised_training_ineligible_count": 12,
+    "external_holdout_record_count": 10,
+    "external_holdout_extension_count": 2
+  },
+  "human_validation_summary": {
+    "blind_case_count": 14,
+    "independent_reviewer_count": 2,
+    "exact_agreements": 9,
+    "disagreements": 5,
+    "exact_agreement_percent": 64.29,
+    "cohens_kappa_unweighted_nominal": 0.339622641509434,
+    "adjudication_case_count": 5,
+    "stage_a_complete": true,
+    "stage_b_complete": true,
+    "stage_a_to_stage_b_changed_count": 0,
+    "final_label_distribution": {
+      "BENIGN_TRANSITION": 0,
+      "RISKY_TRANSITION": 4,
+      "UNCERTAIN": 1
+    },
+    "private_sources_required_for_public_verification": false
+  },
+  "gold_set": {
+    "version": "driftwatch-human-gold-set-v1",
+    "id": "GOLD1::367B78340517770D9DB1E5DABE1DCA63399829A5FA5B64756C820F7696EEA0B8",
+    "record_count": 4,
+    "label_distribution": {
+      "RISKY_TRANSITION": 4
+    },
+    "quality_tier_distribution": {
+      "MULTI_REVIEWER_ADJUDICATED": 4
+    },
+    "external_holdout_overlap_count": 0,
+    "training_authorized": false,
+    "tuning_authorized": false,
+    "manifest_sha256": "F83FF5276E26724200123FE0E64160C4397F71F289EC40E680D74086F46A9F60"
+  },
+  "public_validation_artifact_sha256": {
+    "agreement_summary_public.json": "4D6F6193E893B0A0DCEDF681CC74DA201A73FD95FDA5E61DF1A31F9062125D9F",
+    "adjudication_summary_public.json": "1621346F09FF71055AFE709B5F7545AA5B4F82644AAC2BDE89A31DD497CEDA48",
+    "human_validation_public_manifest.json": "583960955FEA321CCDDD9D19C9EDD9758569FB8FCCF9E6193AAAA34B316E5D46"
+  },
+  "literature": {
+    "accepted_verified_source_count": 22,
+    "citation_gap_count": 0,
+    "fabricated_citation_count": 0,
+    "missing_reference_count": 0,
+    "uncited_reference_count": 0
+  },
+  "main_policy_versions": {
+    "review_artifact": "driftbench-independent-review-phase3h5-v1",
+    "review_queue_schema": "phase3h5-blind-review-queue-v1",
+    "public_validation_schema": "driftwatch-human-validation-public-v1",
+    "public_validation_derivation": "driftwatch-human-validation-publication-v1",
+    "quality_promotion_schema": "driftwatch-derived-quality-promotion-v1",
+    "quality_promotion": "driftwatch-human-review-quality-promotion-v1",
+    "gold_set_schema": "driftwatch-governed-human-gold-set-v1",
+    "gold_set": "driftwatch-human-gold-set-v1",
+    "canonical_gold_set_methodology": "phase3h5-gold-set-methodology-v1"
+  },
+  "frozen_component_statement": "Feature extraction, differential feature definitions, deterministic risk scoring, thresholds, dataset labels, eligibility decisions, external-holdout policy, ML experiments, evaluation artifacts, and governed human-validation evidence remain unchanged.",
+  "external_holdout_restriction": "The protected external holdout is excluded from training, tuning, threshold selection, rule development, feature redesign, and Gold Set construction.",
+  "private_material_exclusion": "The public release excludes raw reviewer returns, rationale-bearing human records, private evidence references, identity mappings, reviewer/adjudicator workspaces, credentials, secrets, local virtual environments, caches, and temporary files.",
+  "claim_boundary_statement": "DriftWatch is an explainable differential behavioural security-analysis and manual security-review prioritization framework; it is not a malware detector, antivirus, safety certification system, or production approval system, and RISKY_TRANSITION does not mean malicious extension."
+}

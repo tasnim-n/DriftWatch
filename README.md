@@ -77,6 +77,38 @@ python -m pytest -q
 ```
 Navigate to `http://localhost:8000` in your web browser.
 
+### Research release and public verification
+
+The current research release preserves a 76-transition corpus, a protected external holdout, public-safe aggregate evidence from a scoped 14-case independent human review, and a separately governed four-record Gold Set. Start with:
+
+- `RELEASE_NOTES.md` for release scope and limitations;
+- `RELEASE_INVENTORY.md` and `RELEASE_MANIFEST.json` for the public release surface;
+- `PAPER_SUBMISSION.md` for the publication-clean manuscript;
+- `PAPER_EVIDENCE_MAP.md` for claim-to-artifact traceability; and
+- `REPRODUCIBILITY.md` for the full verification boundary and workflow.
+
+Verify public human-validation evidence and run the full test suite without private reviewer material:
+
+```powershell
+python -m research.human_review_publication verify
+python -m pytest -q
+```
+
+Verify the release manifest and Gold Set manifest checksums:
+
+```powershell
+$releaseExpected = (Get-Content RELEASE_MANIFEST.sha256).Split()[0]
+$releaseActual = (Get-FileHash RELEASE_MANIFEST.json -Algorithm SHA256).Hash
+if ($releaseActual -ne $releaseExpected) { throw "Release manifest checksum mismatch" }
+
+$goldDirectory = "artifacts\human_review\gold_set\driftwatch-human-gold-set-v1"
+$goldExpected = (Get-Content "$goldDirectory\gold_set_manifest.sha256").Split()[0]
+$goldActual = (Get-FileHash "$goldDirectory\gold_set_manifest.json" -Algorithm SHA256).Hash
+if ($goldActual -ne $goldExpected) { throw "Gold Set manifest checksum mismatch" }
+```
+
+These commands verify public aggregates and governed linkage; they do not reconstruct withheld human rationale. `RISKY_TRANSITION` denotes elevated manual-review attention, not maliciousness.
+
 ### Verified Phase 2 Results
 - Full test suite freshly verified on 2026-09-21 at commit `54a4780d58ac12b4c794145b773da5e2c15a6999`: `157 passed`, 0 failed, 0 skipped, and no warnings reported under configured pytest filters.
 - Benign control pair (`samples/v1_note_benign.zip` -> `samples/v2_note_benign.zip`): `0.0/100`, `Low`.
